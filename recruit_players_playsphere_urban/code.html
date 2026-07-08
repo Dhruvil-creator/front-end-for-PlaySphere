@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Match Request</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-card": "#FFFFFF",
+                        "on-primary-fixed": "#3d0600",
+                        "primary-container": "#ff5a36",
+                        "on-secondary-container": "#006f64",
+                        "inverse-surface": "#3e2c28",
+                        "surface-container": "#ffe9e5",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface-variant": "#434655",
+                        "on-background": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "primary-soft": "#FF8A70",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#f9dcd6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#4858ab",
+                        "on-surface": "#271814",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-fixed": "#70f8e4",
+                        "outline": "#8f7069",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#0d2075",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "map-teal": "#00B4A2",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1",
+                        "surface-tint": "#b52603",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-dim": "#f0d4ce",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "primary": "#b52603",
+                        "outline-variant": "#e3beb6",
+                        "on-tertiary-fixed": "#00105b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.clay-bg'); }
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            box-shadow: 0 10px 20px rgba(255, 90, 54, 0.3), inset 0 4px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+        .clay-button:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(255, 90, 54, 0.4), inset 0 4px 0 rgba(255, 255, 255, 0.4); }
+        .clay-button:active { transform: translateY(2px); box-shadow: 0 4px 8px rgba(255, 90, 54, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.4); }
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1); }
+        .step-active { background-color: theme('colors.primary'); color: theme('colors.on-primary'); }
+        .step-inactive { background-color: theme('colors.surface-variant'); color: theme('colors.on-surface-variant'); }
+    </style>
+</head>
+<body class="min-h-screen font-body-md text-on-surface flex items-center justify-center p-md md:p-lg">
+<div class="w-full max-w-3xl soft-card rounded-lg overflow-hidden flex flex-col md:flex-row relative z-10">
+<!-- Left Side: Progress & Info -->
+<div class="w-full md:w-1/3 bg-surface-container-high p-md flex flex-col gap-lg border-b md:border-b-0 md:border-r border-outline-variant">
+<div class="flex flex-col gap-sm">
+<h1 class="font-headline-sm text-headline-sm text-primary">Match Request</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Recruit players for your next game in Ahmedabad.</p>
+</div>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full flex items-center justify-center font-label-caps text-label-caps step-active">1</div>
+<span class="font-body-md text-body-md text-on-surface">Venue</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full flex items-center justify-center font-label-caps text-label-caps step-inactive">2</div>
+<span class="font-body-md text-body-md text-on-surface-variant">Time &amp; Date</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full flex items-center justify-center font-label-caps text-label-caps step-inactive">3</div>
+<span class="font-body-md text-body-md text-on-surface-variant">Players &amp; Skill</span>
+</div>
+</div>
+<div class="mt-auto hidden md:block">
+<div class="w-full h-32 rounded-DEFAULT overflow-hidden relative">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A vibrant, high-energy abstract sunset background with smooth, organic gradients of soft orange, warm peach, and deep crimson. The lighting is ambient and warm, creating a premium, inviting, and dynamic aesthetic suitable for a modern sports app UI. Minimalist and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxm_55_hD3NKi1pyDFsB2GcbzP1cVENtiP-30xljc-SkrCpZx6ACxcje1Eyyjovccc3iwCob8TqiTLTgU9gV5kmeGpMuzSeqbj1VZ3ke0RuLjytPxZBM8hxNeH_HXHjwA5BWTZ23Rnu2Ly0hCacDQzofUXBBlzLJ_x-ekf_9oVqSiQtmVX4XhCDgv5cdad3Xg8gxA8k0cTH5tE7ROa-1d14HfsMRvrHVN9il2E-A-eZ_ZMcxkk2za_">
+</div>
+</div>
+</div>
+<!-- Right Side: Form Content -->
+<div class="w-full md:w-2/3 p-md md:p-xl flex flex-col gap-lg bg-surface-card">
+<!-- Step 1: Venue Selection -->
+<div class="flex flex-col gap-md fade-in" id="step-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Select Venue</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-xl pr-sm py-sm rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-container font-body-md text-body-md placeholder-on-surface-variant/50" placeholder="Search Ahmedabad turfs..." type="text">
+</div>
+<div class="grid grid-cols-1 gap-sm max-h-64 overflow-y-auto pr-xs">
+<!-- Venue Option 1 -->
+<label class="flex items-center gap-sm p-sm rounded-DEFAULT border-2 border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+<input checked="" class="hidden" name="venue" type="radio">
+<div class="w-16 h-16 rounded-DEFAULT overflow-hidden bg-surface-variant shrink-0">
+<img class="w-full h-full object-cover" data-alt="A modern outdoor artificial turf football pitch in a vibrant urban setting during late afternoon. High-key, warm sunset lighting casts soft shadows. The pitch is pristine green, surrounded by subtle city architecture. Bright, optimistic, and clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn_hRfuKNsOFSQZGdlnoGb5OgTYqp40Xdz7LnmtZh4xvAKAB1JQTw2mEGWov_CFFxic28lND5NTKHFVfOaNFovS80gNVCjG75OvoRbfezuXmsRb-lNKxObwb6a7FB8odEuRBh4CmrYif7mdWW2jy5QV4QFucdrwSeb_rnnoG4tz0v8IH_0o1CZ__fmCD-nHza-r5ApRxZfXs_Pfrf0KQwdb2SDupDGH4yeVxWPEgk_--0j1jDWx1eq">
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-body-md text-body-md text-on-surface font-bold">AstroPark SG Highway</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Thaltej • 5.2 km away</span>
+</div>
+<span class="material-symbols-outlined text-primary hidden has-[:checked]:block" data-icon="check_circle" data-weight="fill">check_circle</span>
+</label>
+<!-- Venue Option 2 -->
+<label class="flex items-center gap-sm p-sm rounded-DEFAULT border-2 border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+<input class="hidden" name="venue" type="radio">
+<div class="w-16 h-16 rounded-DEFAULT overflow-hidden bg-surface-variant shrink-0">
+<img class="w-full h-full object-cover" data-alt="An indoor sports arena with high-quality wooden flooring, illuminated by bright, even, modern stadium lights. Clean lines, energetic atmosphere, high-contrast, premium look. Focus on the polished surface and net." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjdtXe58BizsHmI6ftwyyMytWdNsHwz1iSYWEgV4RjXLbQJ3CiRRqQ7yc1t4FDIQOFfnNbpAJ3J22Fa8uxQ2b15CLGZM8TLdUs6HHRZJpz7toUArAgY-XDeDO4HNdAmptGEPmNuYdUI_pdYjW9iq82ZlDLx8khFc3uH18jWZNwFJV4WXlO2NKUB5m-Xe2scf2EeANlHSk73HGD60EtgzdV6leXNib6aPFsUmyyzVD7nWWXCgiSIZFa">
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-body-md text-body-md text-on-surface font-bold">The Arena Hub</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Navrangpura • 2.1 km away</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-auto flex justify-between items-center pt-md border-t border-outline-variant">
+<button class="font-button text-button text-on-surface-variant hover:text-primary transition-colors py-sm px-md rounded-full">Cancel</button>
+<button class="clay-button font-button text-button py-sm px-xl rounded-full flex items-center gap-xs">
+                    Next Step <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Background Blobs (Level 1) -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-container/10 blur-[100px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-fixed/20 blur-[120px]"></div>
+</div>
+</body></html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere Corporate Team Registration - Roster Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005048",
+                        "clay-bg": "#F5EFE9",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary-container": "#006f64",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffede9",
+                        "on-tertiary-fixed": "#00105b",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#0d2075",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-container": "#ffe9e5",
+                        "on-primary-container": "#5a0c00",
+                        "outline": "#8f7069",
+                        "surface-bright": "#fff8f6",
+                        "primary": "#b52603",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "inverse-surface": "#3e2c28",
+                        "primary-soft": "#FF8A70",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5b403a",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "map-teal": "#00B4A2",
+                        "surface-container-highest": "#f9dcd6",
+                        "surface": "#fff8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "inverse-primary": "#ffb4a3",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-tint": "#b52603",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "tertiary-fixed": "#dee0ff",
+                        "outline-variant": "#e3beb6",
+                        "on-background": "#271814",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-variant": "#f9dcd6",
+                        "secondary-fixed": "#70f8e4",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f6",
+                        "on-primary-fixed": "#3d0600",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 90, 54, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 180, 162, 0.05), transparent 25%);
+        }
+        
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 10px 30px -10px rgba(91, 64, 58, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .soft-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px -15px rgba(91, 64, 58, 0.15);
+        }
+
+        .clay-btn-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 
+                inset 0 4px 0 rgba(255,255,255,0.2), 
+                0 8px 16px -4px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .clay-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                inset 0 4px 0 rgba(255,255,255,0.3), 
+                0 12px 20px -4px rgba(255, 90, 54, 0.4);
+        }
+        
+        .clay-btn-primary:active {
+            transform: translateY(2px);
+            box-shadow: 
+                inset 0 2px 0 rgba(255,255,255,0.1), 
+                0 4px 8px -2px rgba(255, 90, 54, 0.3);
+        }
+
+        .clay-btn-secondary {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 4px 12px -2px rgba(91, 64, 58, 0.1);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .clay-btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(91, 64, 58, 0.15);
+        }
+
+        .stepper-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: theme('colors.surface-variant');
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        
+        .stepper-line-active {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 33%;
+            height: 4px;
+            background-color: theme('colors.primary');
+            z-index: 1;
+            transform: translateY(-50%);
+            transition: width 0.5s ease;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+            font-family: theme('fontFamily.label-caps');
+            font-size: 16px;
+            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+        
+        .step-completed {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+            box-shadow: 0 4px 10px rgba(181, 38, 3, 0.3);
+        }
+        
+        .step-active {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border: 3px solid theme('colors.primary');
+            box-shadow: 0 8px 20px -5px rgba(181, 38, 3, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .step-pending {
+            background-color: theme('colors.surface-variant');
+            color: theme('colors.on-surface-variant');
+        }
+
+        .input-clay {
+            background-color: theme('colors.surface');
+            border: 2px solid transparent;
+            border-radius: theme('borderRadius.DEFAULT');
+            transition: all 0.2s ease;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        
+        .input-clay:focus {
+            outline: none;
+            border-color: theme('colors.primary-fixed-dim');
+            background-color: theme('colors.surface-card');
+            box-shadow: 0 4px 12px -2px rgba(255, 90, 54, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-surface min-h-screen flex flex-col pt-24 pb-xl">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl font-body-md text-body-md fixed top-0 w-full z-50 shadow-md transition-all duration-300 ease-in-out flex justify-between items-center px-md py-sm max-w-container-max mx-auto left-0 right-0">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-black text-primary italic">PlaySphere</span>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<!-- Navigation hidden as per transaction flow rules -->
+</div>
+<div class="flex items-center gap-sm">
+<button class="font-button text-button text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+                Exit Registration
+            </button>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg mt-md">
+<!-- Header & Stepper -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-section text-headline-section text-on-surface mb-sm">Corporate Team Registration</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">Build your squad for the upcoming TechNova Corporate League.</p>
+<div class="max-w-3xl mx-auto relative px-md py-sm">
+<div class="stepper-line"></div>
+<div class="stepper-line-active"></div>
+<div class="flex justify-between relative z-10">
+<div class="flex flex-col items-center gap-xs">
+<div class="step-circle step-completed">
+<span class="material-symbols-outlined" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant hidden md:block">Company Info</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="step-circle step-active">2</div>
+<span class="font-label-caps text-label-caps text-primary hidden md:block">Roster</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="step-circle step-pending">3</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant hidden md:block">League Selection</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="step-circle step-pending">4</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant hidden md:block">Review &amp; Pay</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Left Column: Search & Photo (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<!-- Team Photo Card -->
+<div class="soft-card p-md flex flex-col items-center text-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md self-start">Team Identity</h3>
+<div class="w-full aspect-square rounded-DEFAULT overflow-hidden relative mb-md group cursor-pointer border-2 border-dashed border-outline-variant hover:border-primary transition-colors bg-surface-container flex flex-col items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-40 transition-opacity" data-alt="A stylized, modern geometric placeholder graphic in soft sunset orange and clay tones, indicating an empty team photo slot. Features a minimalist subtle pattern of athletic courts and abstract community connections. Bright, airy lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyFzNdEhIXTAHIlVIPpJrOTkm2EDCcIi5U89a-VeJ8ZaKVLdf1YUuuJ6CuG3ACCzJby7GOcfRJJQnlrYH5sgEHLAt4PaJAglSY3C_IvpYlLCNUbp1Jvk8I2rQhwNDEnev7_XyriWZM7sBRuWtJT5JX1ajKV1Q_IqSo4XB72WtLdcwTIewaj_Goqz2TbtK6pwgq2jix2e4rNneXMVl1NitqwkiBLsPxxnXQLfSIE2rB2ci8vjVygNgm')"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-xs relative z-10" data-icon="add_a_photo" data-weight="fill" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+<span class="font-body-md text-body-md text-primary relative z-10">Upload Team Photo</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-xs relative z-10">Max 5MB</span>
+</div>
+<div class="w-full">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-xs text-left">Team Name</label>
+<input class="input-clay w-full px-sm py-sm font-body-md text-body-md text-on-surface mb-sm" placeholder="Enter team name" type="text" value="TechNova Titans"/>
+</div>
+</div>
+<!-- Invite Employees Card -->
+<div class="soft-card p-md flex-grow">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="person_add" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person_add</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Invite Players</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md text-sm">Search directory or enter employee emails to invite them to the roster.</p>
+<div class="relative mb-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 transform -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="input-clay w-full pl-xl pr-sm py-sm font-body-md text-body-md text-on-surface" placeholder="employee@technova.com" type="email"/>
+</div>
+<button class="clay-btn-secondary w-full py-sm px-md font-button text-button flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+                        Send Invitation
+                    </button>
+<div class="mt-md pt-md border-t border-surface-variant">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Quick Add (Recent)</h4>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between p-sm bg-surface rounded-DEFAULT hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed-variant font-bold text-sm">JD</div>
+<span class="font-body-md text-body-md text-on-surface text-sm">Jane Doe</span>
+</div>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Roster Table (8 cols) -->
+<div class="lg:col-span-8">
+<div class="soft-card p-md h-full flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Invited Roster</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Min 5 players required to register.</p>
+</div>
+<div class="flex items-center gap-sm bg-surface-container py-xs px-sm rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-label-caps text-on-surface"><strong class="text-primary text-lg">3</strong> / 12</span>
+</div>
+</div>
+<!-- Roster List -->
+<div class="flex-grow overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-surface-variant">
+<th class="font-label-caps text-label-caps text-on-surface-variant pb-sm pl-sm w-1/2">Player</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant pb-sm w-1/4">Role</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant pb-sm text-right pr-sm w-1/4">Status</th>
+</tr>
+</thead>
+<tbody>
+<!-- Captain -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors group">
+<td class="py-sm pl-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden relative shadow-sm">
+<img class="object-cover w-full h-full" data-alt="A professional headshot of a corporate employee in a well-lit, modern office environment. Soft natural lighting, warm inviting mood. Claymorphism subtle backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_vO7pqRSBcxOfJhplydsTEWfUe-5fQARkz1dP86MsulE6FGuuGMmjvRgT3ATuuIH95sFN00ldUH6E4wepYD2o45C7mdJepuYLN1y77JMUoLeJt7j_cT0-cb1qMkDFllK8TSK-vSfnLA73bJhgXqAT9kzMBvCdeIw9j4wUo0nUsc1skC7HsSWB7w7_TqLEiVn17vivNiQBiU_L2UitdELNxByexHutAlzZeZKJXpH2Yz7I4bz5LvFi"/>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-bold">Alex Chen</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant lowercase text-xs">alex.c@technova.com</p>
+</div>
+</div>
+</td>
+<td class="py-sm">
+<span class="bg-primary-container text-on-primary-container font-label-caps text-[10px] px-2 py-1 rounded-full inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                            Captain
+                                        </span>
+</td>
+<td class="py-sm text-right pr-sm">
+<span class="font-body-md text-body-md text-secondary font-bold flex items-center justify-end gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                            Accepted
+                                        </span>
+</td>
+</tr>
+<!-- Player Pending -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors group">
+<td class="py-sm pl-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant font-bold border border-outline-variant shadow-sm">
+                                                SJ
+                                            </div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Sarah Johnson</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant lowercase text-xs">sarah.j@technova.com</p>
+</div>
+</div>
+</td>
+<td class="py-sm">
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Player</span>
+</td>
+<td class="py-sm text-right pr-sm">
+<div class="flex items-center justify-end gap-sm">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs text-sm">
+<span class="material-symbols-outlined text-sm animate-pulse" data-icon="schedule">schedule</span>
+                                                Pending
+                                            </span>
+<button class="text-primary hover:text-on-primary-container p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Player Accepted -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors group">
+<td class="py-sm pl-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden relative shadow-sm">
+<img class="object-cover w-full h-full" data-alt="A professional headshot of a corporate employee smiling in a bright, modern office space. High-key lighting, warm vibrant tones consistent with a soft clay aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4bAkF6pdioAoLRuK0KQYXr16rKzFZCUxC_Mfa84f_2WAziX0AbSZgHGjSMwkvHS3JSWmv7y5mng_MHOgoB8wz60uoUoDpC0tJmBmPLGi1OMyNOhKdxBEUW_2d1yNixZm6lPM2BW-gRBhEnnwMAsXAJpGNkXUj9CdMF2Uuv3ZtQZGR7n0BwqcJdPK0MQ7SSTvr8HYLeiVaPhPusdxWE4utErPhW9wbDTmJf-RKpDBD8tejiFrZ9o8B"/>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Michael Torres</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant lowercase text-xs">m.torres@technova.com</p>
+</div>
+</div>
+</td>
+<td class="py-sm">
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Player</span>
+</td>
+<td class="py-sm text-right pr-sm">
+<div class="flex items-center justify-end gap-sm">
+<span class="font-body-md text-body-md text-secondary font-bold flex items-center gap-xs text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                Accepted
+                                            </span>
+<button class="text-primary hover:text-on-primary-container p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Empty State Indicator for remaining slots -->
+<div class="p-md text-center border-2 border-dashed border-surface-variant rounded-DEFAULT mt-sm bg-surface/50">
+<span class="material-symbols-outlined text-outline text-3xl mb-xs" data-icon="sports_basketball">sports_basketball</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Add 2 more players to reach minimum roster size.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex justify-between items-center mt-xl pt-md border-t border-surface-variant">
+<button class="clay-btn-secondary px-lg py-sm font-button text-button flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Back
+            </button>
+<button class="clay-btn-primary px-xl py-sm font-button text-button flex items-center gap-xs">
+                Next Step
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

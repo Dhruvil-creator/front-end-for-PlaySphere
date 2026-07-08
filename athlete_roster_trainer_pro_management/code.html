@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere Coach - Athletes Roster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#ffe9e5",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#6df5e1",
+                      "on-secondary-fixed-variant": "#005048",
+                      "tertiary": "#4858ab",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-fixed": "#dee0ff",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#3e2c28",
+                      "on-primary-fixed": "#3d0600",
+                      "inverse-on-surface": "#ffede9",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-variant": "#f9dcd6",
+                      "background": "#fff8f6",
+                      "primary": "#b52603",
+                      "on-surface-variant": "#5b403a",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "surface": "#fff8f6",
+                      "on-tertiary": "#ffffff",
+                      "clay-bg": "#F5EFE9",
+                      "surface-dim": "#f0d4ce",
+                      "primary-container": "#ff5a36",
+                      "surface-container-high": "#ffe2dc",
+                      "secondary": "#006b5f",
+                      "on-tertiary-container": "#0d2075",
+                      "surface-container-low": "#fff0ed",
+                      "surface-container-highest": "#f9dcd6",
+                      "map-teal": "#00B4A2",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-surface": "#271814",
+                      "surface-card": "#FFFFFF",
+                      "primary-fixed": "#ffdad2",
+                      "surface-bright": "#fff8f6",
+                      "primary-soft": "#FF8A70",
+                      "on-secondary-container": "#006f64",
+                      "error-container": "#ffdad6",
+                      "on-background": "#271814",
+                      "on-primary-container": "#5a0c00",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "inverse-primary": "#ffb4a3",
+                      "outline-variant": "#e3beb6",
+                      "secondary-fixed": "#70f8e4",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "outline": "#8f7069",
+                      "on-tertiary-fixed": "#00105b",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#b52603"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "lg": "48px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "xl": "80px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .clay-shadow {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .btn-clay {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+        }
+        
+        /* Sparkline simple CSS */
+        .sparkline {
+            display: flex;
+            align-items: flex-end;
+            height: 24px;
+            gap: 2px;
+        }
+        .sparkline-bar {
+            width: 4px;
+            background-color: #ff5a36; /* primary-container */
+            border-radius: 2px 2px 0 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 left-64 h-20 bg-white/80 dark:bg-surface-container/80 text-primary dark:text-primary-fixed font-body-md text-body-md backdrop-blur-xl shadow-sm flex justify-between items-center px-gutter w-auto z-40">
+<div class="flex items-center gap-md w-full">
+<span class="font-headline-sm text-headline-sm font-black text-primary mr-lg">PlaySphere Kinetic</span>
+<div class="flex-1 max-w-md relative focus-within:ring-2 focus-within:ring-primary-container rounded-full">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-sm pl-xl pr-md text-on-surface placeholder:text-on-surface-variant focus:ring-0 soft-deep-shadow" placeholder="Search athletes..." type="text"/>
+</div>
+<div class="flex items-center gap-sm ml-auto">
+<button aria-label="notifications" class="p-sm rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="mail" class="p-sm rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 mx-xs"></div>
+<button class="flex items-center gap-sm p-sm rounded-full text-primary font-bold hover:bg-surface-container-low transition-colors">
+<span>Profile</span>
+<img alt="Trainer Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A close up, high quality headshot portrait of a confident athletic coach. The coach is wearing premium athletic wear in deep teal and sunset orange. The background is a brightly lit, modern indoor sports facility. The lighting is soft and flattering, creating a welcoming and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-N_KwsR5CXgE2NteLUNlRYEOVGVRjntO2SaIBugmFy4HAC--2lD-aeJGllYvhNjt6g_wTqjshhGw_aO6tSwhK-a8sJsf50XD4Rvoh6KSU3m3madTyk27eLEfbgudbPuLGaBLeKQeqf49FE-wvsxQuvSNsoi9unVG16JeuJ2zoBpOXyZRYDHTBHa3hIotVmKgpewqNpgw62RZva8vr-PLDsjSJ1YX_tIJqcTG-bjAknKXQuWskqGGy"/>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-clay-bg dark:bg-inverse-surface text-primary dark:text-primary-fixed font-body-md text-body-md shadow-2xl flex flex-col py-md z-50">
+<div class="px-md mb-lg flex items-center gap-sm">
+<img alt="Coach Profile Picture" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container shadow-sm" data-alt="A close up, high quality headshot portrait of a confident athletic coach. The coach is wearing premium athletic wear in deep teal and sunset orange. The background is a brightly lit, modern indoor sports facility. The lighting is soft and flattering, creating a welcoming and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa1veWq5JIn1o2ovDdN0A0hmRNWhzrurvxt-D9q1BfMpF3gbMrxB84GmFOW7fwwCFy1K6Puqtpbyg6I2PM4Jp02b6UaoPZKgWxlO-1SI8xKfIow4qiCEXWqpZra96di29q0y0zxceTb1IH2QFRTumwWrHMcWAnwczZHJUXthN4OGNMC6bxm5iSiVn-03lsvf2bqLBmhveEOU5aZinidk_q2cFUJMCCMIZqSVDw1sD5VmNjxMTFk2An"/>
+<div>
+<h2 class="font-body-md text-body-md font-bold text-on-surface leading-tight">PlaySphere Coach</h2>
+<p class="text-sm text-on-surface-variant leading-tight">Elite Performance</p>
+</div>
+</div>
+<div class="px-md mb-md">
+<button class="w-full bg-primary text-on-primary font-button text-button py-sm px-md rounded-full btn-clay hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Session
+            </button>
+</div>
+<nav class="flex-1 px-sm space-y-2 overflow-y-auto">
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Schedule</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md bg-primary text-on-primary rounded-xl mx-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-bold">Athletes</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Payments</span>
+</a>
+</nav>
+<div class="px-sm mt-auto pt-md border-t border-outline-variant/30">
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-20 p-lg w-full max-w-container-max mx-auto overflow-y-auto h-[calc(100vh-5rem)]">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-lg gap-md">
+<div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Roster Management</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and track your active athletes' performance.</p>
+</div>
+<div class="flex gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none bg-surface-card text-on-surface font-button text-button py-sm px-md rounded-full soft-deep-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">chat</span>
+                    Bulk Message
+                </button>
+<button class="flex-1 md:flex-none bg-primary-container text-on-primary font-button text-button py-sm px-md rounded-full btn-clay hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">person_add</span>
+                    Add Athlete
+                </button>
+</div>
+</header>
+<!-- Filters Section (Bento style) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-md mb-lg">
+<!-- Quick Stats Card -->
+<div class="bg-surface-card rounded-2xl p-md soft-deep-shadow flex flex-col justify-center">
+<div class="text-sm font-label-caps text-on-surface-variant uppercase mb-2">Total Active</div>
+<div class="font-headline-sm text-headline-sm text-primary font-black">42</div>
+<div class="text-sm text-secondary flex items-center gap-xs mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                    +3 this month
+                </div>
+</div>
+<!-- Filters Container -->
+<div class="md:col-span-3 bg-surface-card rounded-2xl p-md soft-deep-shadow flex flex-wrap gap-md items-center">
+<div class="font-label-caps text-label-caps text-on-surface-variant w-full mb-xs">Filters</div>
+<!-- Sport Filter -->
+<div class="relative flex-1 min-w-[200px]">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/30 text-on-surface py-sm px-md pr-10 rounded-xl focus:ring-2 focus:ring-primary-container focus:border-transparent outline-none cursor-pointer">
+<option>All Sports</option>
+<option>Basketball</option>
+<option>Tennis</option>
+<option>Soccer</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Skill Level Filter -->
+<div class="relative flex-1 min-w-[200px]">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant/30 text-on-surface py-sm px-md pr-10 rounded-xl focus:ring-2 focus:ring-primary-container focus:border-transparent outline-none cursor-pointer">
+<option>All Levels</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+<option>Pro</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Status Filter -->
+<div class="flex bg-surface-container-low rounded-xl p-xs border border-outline-variant/30">
+<button class="px-md py-xs rounded-lg bg-white shadow-sm text-on-surface font-semibold text-sm">Active</button>
+<button class="px-md py-xs rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-colors text-sm">Injured</button>
+<button class="px-md py-xs rounded-lg text-on-surface-variant hover:bg-surface-variant/50 transition-colors text-sm">On Leave</button>
+</div>
+</div>
+</section>
+<!-- Athlete Roster List (High Density Cards) -->
+<section class="space-y-sm">
+<!-- List Header -->
+<div class="grid grid-cols-12 gap-sm px-md py-xs text-sm font-label-caps text-on-surface-variant uppercase tracking-wider">
+<div class="col-span-4">Athlete</div>
+<div class="col-span-2 hidden md:block">Specialty</div>
+<div class="col-span-2 hidden md:block">Level</div>
+<div class="col-span-2 text-center">Attendance</div>
+<div class="col-span-2 text-right">Trend</div>
+</div>
+<!-- Athlete Item 1 -->
+<div class="bg-surface-card rounded-xl p-sm soft-deep-shadow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 grid grid-cols-12 gap-sm items-center cursor-pointer group">
+<div class="col-span-8 md:col-span-4 flex items-center gap-md">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary-container ml-xs" type="checkbox"/>
+<img alt="Athlete Photo" class="w-12 h-12 rounded-full object-cover shadow-sm border border-outline-variant/20" data-alt="A portrait of a young athletic woman smiling warmly. She is wearing a bright orange basketball jersey. The background is a slightly blurred outdoor urban basketball court during golden hour, bathed in warm sunset light. The mood is energetic and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHnmXytfCeNw54wp1qbUL8jmC2nFNcX8RE1iiPdRGdJ1ERKlyjd0yPBPYMYzncNuUJABw4e_6cIIazucQmblZWIF-44oOooXI3IHdNLNt65TYzXG-mdjFQKxNuN_yBgF8uPMdrt8RkIXPrMmZjBT62mt1TK68l31C66PFe2qE1m8dK6GFNm3zcfSHFqt46Fe0KcIN8ttNGjKeNkq4WtxY62pxfNDJYpXjBUgcgaagWZzYrw5Ceq50"/>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Maya Johnson</div>
+<div class="text-sm text-on-surface-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Active
+                        </div>
+</div>
+</div>
+<div class="col-span-2 hidden md:flex flex-col">
+<span class="text-on-surface font-semibold">Basketball</span>
+<span class="text-xs text-on-surface-variant">Point Guard</span>
+</div>
+<div class="col-span-2 hidden md:flex items-center">
+<span class="bg-tertiary-container/30 text-on-tertiary-container px-sm py-xs rounded-md text-sm font-bold">Advanced</span>
+</div>
+<div class="col-span-2 text-center flex flex-col items-center">
+<span class="text-on-surface font-bold">92%</span>
+<span class="text-xs text-on-surface-variant">Last 30 days</span>
+</div>
+<div class="col-span-2 flex justify-end pr-md">
+<div class="sparkline" title="Performance Trend">
+<div class="sparkline-bar" style="height: 40%"></div>
+<div class="sparkline-bar" style="height: 60%"></div>
+<div class="sparkline-bar" style="height: 50%"></div>
+<div class="sparkline-bar" style="height: 80%"></div>
+<div class="sparkline-bar" style="height: 70%"></div>
+<div class="sparkline-bar" style="height: 90%"></div>
+<div class="sparkline-bar" style="height: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Athlete Item 2 -->
+<div class="bg-surface-card rounded-xl p-sm soft-deep-shadow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 grid grid-cols-12 gap-sm items-center cursor-pointer group">
+<div class="col-span-8 md:col-span-4 flex items-center gap-md">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary-container ml-xs" type="checkbox"/>
+<img alt="Athlete Photo" class="w-12 h-12 rounded-full object-cover shadow-sm border border-outline-variant/20" data-alt="A portrait of a focused athletic man holding a tennis racket over his shoulder. He is wearing a crisp white polo shirt. The background is a clean, bright hard court surface in vivid teal. The lighting is strong, daylight style. The mood is intense and competitive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6wmT9oz8h1Vkbd7u-rr9ah3KBr8W0bprBRTaEoOsGRKMXTURX3JDKEThHh2vDI9XiWXzrB6MZAbLl8wzdmjiuVMGTEd7uNW82gkaDtf2HJjuODeaIpk03slc5tNobYCLI_MOeTW8O9kg1lFfQLRPQT4ZSG2mQ8ynvv-ZaNckTwL3ebUrk11lBMw0N5rJJVbB-WEvFO7Jed3pZAj-zUAPrb907WMzLnJE6a7ISWn2ZrjOXwfygKFs1"/>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">David Chen</div>
+<div class="text-sm text-on-surface-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Active
+                        </div>
+</div>
+</div>
+<div class="col-span-2 hidden md:flex flex-col">
+<span class="text-on-surface font-semibold">Tennis</span>
+<span class="text-xs text-on-surface-variant">Singles</span>
+</div>
+<div class="col-span-2 hidden md:flex items-center">
+<span class="bg-primary-container/20 text-on-primary-container px-sm py-xs rounded-md text-sm font-bold">Pro</span>
+</div>
+<div class="col-span-2 text-center flex flex-col items-center">
+<span class="text-on-surface font-bold">100%</span>
+<span class="text-xs text-on-surface-variant">Last 30 days</span>
+</div>
+<div class="col-span-2 flex justify-end pr-md">
+<div class="sparkline" title="Performance Trend">
+<div class="sparkline-bar" style="height: 80%"></div>
+<div class="sparkline-bar" style="height: 85%"></div>
+<div class="sparkline-bar" style="height: 90%"></div>
+<div class="sparkline-bar" style="height: 85%"></div>
+<div class="sparkline-bar" style="height: 95%"></div>
+<div class="sparkline-bar" style="height: 90%"></div>
+<div class="sparkline-bar" style="height: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Athlete Item 3 -->
+<div class="bg-surface-card rounded-xl p-sm soft-deep-shadow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 grid grid-cols-12 gap-sm items-center cursor-pointer group opacity-75">
+<div class="col-span-8 md:col-span-4 flex items-center gap-md">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary-container ml-xs" type="checkbox"/>
+<div class="relative">
+<img alt="Athlete Photo" class="w-12 h-12 rounded-full object-cover shadow-sm border border-outline-variant/20 grayscale" data-alt="A portrait of a young athletic man in a grey hoodie looking slightly downcast. The background is an abstract, soft-focus urban gym setting with cool, muted lighting. The mood is calm and rehabilitative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr75LO6luN4Kf_Mg4TKq5qpRVYUImig98XsBdCJHkkpkBceuggOysLLQoH1sTOXZmKLj_VjIdAr2hKwUdZBWpw_X1UQhx9COh2LKFxLQo84Pc1hGoa0BTDpnMyBF440IsFcc0d3Ya3LENG_6nOQ4UG2ntRFAOeYp0fpevO1rztKMKXOephlKKO1EgX_Q4_P8BZMn7xNnvoVuNZ8i1uuGRyat3DRHr7gxTmqAweAxjl5Cx_97bSSBzz"/>
+<div class="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-error">healing</span>
+</div>
+</div>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Marcus Rivera</div>
+<div class="text-sm text-error flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error"></span> Injured
+                        </div>
+</div>
+</div>
+<div class="col-span-2 hidden md:flex flex-col">
+<span class="text-on-surface font-semibold">Soccer</span>
+<span class="text-xs text-on-surface-variant">Midfielder</span>
+</div>
+<div class="col-span-2 hidden md:flex items-center">
+<span class="bg-surface-variant text-on-surface-variant px-sm py-xs rounded-md text-sm font-bold">Intermediate</span>
+</div>
+<div class="col-span-2 text-center flex flex-col items-center">
+<span class="text-on-surface font-bold text-on-surface-variant">45%</span>
+<span class="text-xs text-on-surface-variant">Last 30 days</span>
+</div>
+<div class="col-span-2 flex justify-end pr-md">
+<div class="sparkline opacity-50" title="Performance Trend">
+<div class="sparkline-bar bg-outline" style="height: 70%"></div>
+<div class="sparkline-bar bg-outline" style="height: 60%"></div>
+<div class="sparkline-bar bg-outline" style="height: 40%"></div>
+<div class="sparkline-bar bg-outline" style="height: 20%"></div>
+<div class="sparkline-bar bg-outline" style="height: 10%"></div>
+<div class="sparkline-bar bg-outline" style="height: 10%"></div>
+<div class="sparkline-bar bg-outline" style="height: 0%"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Squads - Teams Listing</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from Design System -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#4858ab",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-container": "#ffe9e5",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "map-teal": "#00B4A2",
+                        "tertiary-fixed": "#dee0ff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "outline-variant": "#e3beb6",
+                        "background": "#fff8f6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "surface-container-low": "#fff0ed",
+                        "on-primary-fixed": "#3d0600",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-surface": "#271814",
+                        "surface-container-highest": "#f9dcd6",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "surface-container-high": "#ffe2dc",
+                        "outline": "#8f7069",
+                        "clay-bg": "#F5EFE9",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "on-surface-variant": "#434655",
+                        "primary-container": "#ff5a36",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-tint": "#b52603",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#7d8ce4",
+                        "inverse-on-surface": "#ffede9",
+                        "on-tertiary-container": "#0d2075",
+                        "secondary-fixed": "#70f8e4",
+                        "on-primary-container": "#5a0c00",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdad2",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "inverse-surface": "#3e2c28",
+                        "secondary": "#006b5f",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary-container": "#006f64",
+                        "on-background": "#271814",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#ffffff",
+                        "primary": "#b52603"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Urban Playground Custom Styles */
+        body {
+            background-color: theme('colors.background');
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 90, 54, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(109, 245, 225, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Soft-Deep Shadows & Claymorphism Utilities */
+        .clay-shadow {
+            box-shadow: 0 20px 40px -10px rgba(181, 38, 3, 0.08), 
+                        0 10px 20px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .clay-shadow-hover:hover {
+            box-shadow: 0 30px 50px -12px rgba(181, 38, 3, 0.12), 
+                        0 15px 25px -5px rgba(0, 0, 0, 0.06);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6),
+                        0 8px 20px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .clay-button:active {
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1),
+                        0 2px 8px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px) scale(0.98);
+        }
+
+        .clay-button-secondary {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8),
+                        0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .soft-card {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Custom Scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Material Icons Setup */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle Entrance Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- Top Navigation (Desktop) -->
+<header class="hidden md:flex justify-between items-center px-gutter py-md max-w-container-max mx-auto bg-white/80 dark:bg-surface-container-lowest/80 font-body-md text-body-md docked full-width top-0 sticky backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] shadow-md z-50 rounded-b-xl">
+<div class="flex items-center gap-sm">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim">PlaySphere Squads</span>
+</div>
+<nav class="flex gap-lg">
+<a class="text-primary dark:text-primary-fixed border-b-4 border-primary dark:border-primary-fixed pb-2 font-body-md text-body-md hover:text-primary dark:hover:text-primary-soft transition-colors active:scale-95 duration-200 ease-in-out" href="#">My Squads</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-2 font-body-md text-body-md hover:text-primary dark:hover:text-primary-soft transition-colors active:scale-95 duration-200 ease-in-out" href="#">Discovery</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-2 font-body-md text-body-md hover:text-primary dark:hover:text-primary-soft transition-colors active:scale-95 duration-200 ease-in-out" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-2 font-body-md text-body-md hover:text-primary dark:hover:text-primary-soft transition-colors active:scale-95 duration-200 ease-in-out" href="#">Schedule</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="bg-primary-container text-on-primary font-button text-button px-6 py-3 rounded-full clay-button flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Create Squad
+            </button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Manager Profile" class="w-full h-full object-cover" data-alt="A portrait of a confident sports team manager, smiling subtly, wearing urban athletic gear. The lighting is bright and sunny, highlighting a modern urban playground aesthetic with vibrant coral and mint background blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVuAeH7UJSrRY9yGJmGUQC51yuDdLcQuWnnK-MUTiupTvE6OPC8Y0ZGc_N5pOg0G4PNxQhMe8MGOVfPRFLLh3UohcYwewktcxT742aD2xopYnw2zhn4UdXzfkuv1hPurC4uoFBu9hNnZw8B4uBWUAJcFOkQmBKQdGvaeE0247GvU2jAEhpl8a1Lgi245MOZyNJV7Mt7Aq3Ifg-hJcA3vpZm5uUYi7liI9I11NWxwIMr2Cu6OXVh96Y">
+</div>
+</div>
+</header>
+<!-- Top App Bar (Mobile fallback for Nav structural clarity) -->
+<div class="md:hidden flex justify-between items-center px-gutter py-md bg-white/80 backdrop-blur-xl sticky top-0 z-40 border-none shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-b-xl">
+<span class="font-headline-sm text-headline-sm font-black text-primary">Squads</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Manager Profile" class="w-full h-full object-cover" data-alt="A portrait of a confident sports team manager, smiling subtly, wearing urban athletic gear. The lighting is bright and sunny, highlighting a modern urban playground aesthetic with vibrant coral and mint background blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVn0ffNugaxDJtiE4LaVxSg9n24pssUgMwSiI1plr1ADSjS-15DGP0jJkfhunO-DEK-K7LTCldEA96Xgt7PsouIuDih-G2mKbcPVBYMpy8kH-LtWI_hsrK45TvJbiQwFWdlWevEywfWUuRRz3IPFga8z3FH9XDMrgKM8B10-XVZwBuCXFRMbHPO_2jf25wfyqpPtO-axTWmWFI9sKC2P3ojiRKeyg-FU8FhWdYbrWRsN1cOForTJCJ">
+</div>
+</div>
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter pt-lg md:pt-xl pb-xl space-y-xl">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-md animate-fade-up">
+<div>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-xs">Your Squads</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your active teams, check recent stats, or discover new crews in Ahmedabad's urban playground.</p>
+</div>
+<button class="hidden md:flex bg-primary-container text-on-primary font-button text-button px-6 py-4 rounded-full clay-button items-center gap-2 w-max">
+<span class="material-symbols-outlined">add_circle</span>
+                Start New Squad
+            </button>
+</section>
+<!-- Bento Grid Layout for My Squads & Quick Stats -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg animate-fade-up delay-100">
+<!-- Primary Squad Card (Large) -->
+<div class="md:col-span-8 bg-surface-card rounded-xl clay-shadow soft-card p-6 md:p-8 flex flex-col md:flex-row gap-8 relative overflow-hidden group cursor-pointer clay-shadow-hover transition-all">
+<!-- Decorative blob -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-fixed/40 rounded-full blur-3xl group-hover:bg-primary-fixed/60 transition-colors"></div>
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-[2rem] overflow-hidden shrink-0 shadow-lg border-4 border-white relative z-10 bg-surface-container-high">
+<img alt="Ahmedabad Flyers Emblem" class="w-full h-full object-cover" data-alt="A vibrant, stylized sports team logo featuring a stylized geometric eagle in coral and mint green colors. The style is modern vector art, clean and energetic, suitable for an urban streetball team emblem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7l8ZCgpETrJL42V9v72wZod7ZCEUERAkxilfJvoBH_2Rf0zfxgb7tJwdJ9rO2PbZJOB7H8TZoNTe1tT3OG6DK9UPyu5Dv_fxrE8aAvwoMU9zpsNox8kAs89mW67w5p6aFxlLH369FMACjo2o4fU5M1CuV40PcENai5GgoXyralcy0l5MtRMn-nYEbZ0oHN8esSPT98mhmJLlEkwfWpgXoUpXuD_jE-a5DJHK6eTbWvRftvUChTGNS">
+</div>
+<div class="flex flex-col justify-between z-10 flex-grow">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Ahmedabad Flyers</h2>
+<span class="bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 rounded-full">Captain</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-[20px]">location_on</span> CG Road Courts
+                        </p>
+</div>
+<div class="grid grid-cols-3 gap-4 border-t border-outline-variant/30 pt-4 mt-auto">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Win Rate</p>
+<p class="font-headline-sm text-headline-sm text-primary">68%</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Members</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">12<span class="text-sm font-normal text-on-surface-variant">/15</span></p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Next Match</p>
+<p class="font-body-md text-body-md text-on-surface font-bold mt-1">Today, 6 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Squad Card (Stack) -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<!-- Squad 2 -->
+<div class="bg-surface-card rounded-xl clay-shadow soft-card p-5 flex items-center gap-4 cursor-pointer clay-shadow-hover transition-all">
+<div class="w-16 h-16 rounded-[1rem] overflow-hidden shrink-0 shadow-sm border-2 border-white bg-surface-container-high">
+<img alt="Neon Strikers Emblem" class="w-full h-full object-cover" data-alt="A stylized sports team emblem featuring an abstract lightning bolt design in neon teal and dark blue. Modern vector art style, urban athletic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGaOf4_fYreC2gIIIHoJapCqFlIvhUT5uuDcRCuOuiOcZh6Ed3z7W83SMR34XNxNjGXQSe7NIdw6FrD_o9_l7lHWVsQk-4FYufTQcWO1FTk28KAPN9lqMLjyXx6eo-8RDLqAcCKPH5a7Okn-6nmyvOF5FrgzfiZXY493kvXwhFYVbGBcKRtxdbpOUMMCWGEt5sPmWhdVnM1XpnVVyHvaJoExi30uaenPx9Uiak-YvUFc2qNqw85Qmr">
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Neon Strikers</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Member • 8 Players</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- Squad 3 -->
+<div class="bg-surface-card rounded-xl clay-shadow soft-card p-5 flex items-center gap-4 cursor-pointer clay-shadow-hover transition-all">
+<div class="w-16 h-16 rounded-[1rem] overflow-hidden shrink-0 shadow-sm border-2 border-white bg-surface-container-high">
+<img alt="Sunset Hoops Emblem" class="w-full h-full object-cover" data-alt="A minimalist sports team logo showing a basketball passing through a hoop stylized as a city skyline, colored in sunset orange and clay tones. Urban playground aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ4x_f5tvQ46tCwD2k9yxXpHbxmkRHu7HIUdyWikzDmYaGAXttSXSIbRwNuKZau37ownYgRGlWlQjD9oR8_zMTJUNt5H6lcGJoH-jHB5L_QGrdz5Scv9nfZCvV13lGAsdJy4iTLAp3kI3OSx4udABE29hG5F7SlBipeWH2S_mb-Z6cZN7-CG-9kcu3h-B19URq5YhxLI5FHOxzE4OmlwxVGsFXcvaSHzGJXxRHFaN1o6rZks8ff_Fw">
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Sunset Hoops</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Member • 10 Players</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- View All Button -->
+<button class="bg-white text-on-surface font-button text-button p-4 rounded-xl clay-button-secondary w-full flex justify-center items-center gap-2 mt-auto">
+                    View Past Squads
+                 </button>
+</div>
+</section>
+<!-- Discovery Section: Top Squads in City -->
+<section class="animate-fade-up delay-200">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-xs">Top Squads</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+                        in <span class="text-primary font-bold">Ahmedabad</span> <span class="material-symbols-outlined text-[20px] text-primary">keyboard_arrow_down</span>
+</p>
+</div>
+<button class="hidden md:flex text-primary font-button text-button items-center gap-1 hover:text-primary-soft transition-colors">
+                    Explore All <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Horizontal Scroll Container for Discovery Cards -->
+<div class="flex overflow-x-auto hide-scrollbar gap-md pb-8 -mx-gutter px-gutter md:mx-0 md:px-0">
+<!-- Discovery Card 1 -->
+<div class="w-[280px] shrink-0 bg-surface-card rounded-xl clay-shadow soft-card overflow-hidden group cursor-pointer clay-shadow-hover transition-all flex flex-col">
+<div class="h-32 bg-tertiary-container relative">
+<!-- Card Header Image/Gradient -->
+<div class="absolute inset-0 bg-gradient-to-tr from-tertiary-container to-secondary-container opacity-80"></div>
+<div class="absolute -bottom-8 left-6 w-16 h-16 rounded-[1rem] overflow-hidden border-4 border-white shadow-md bg-white z-10">
+<img alt="Panthers Emblem" class="w-full h-full object-cover" data-alt="A bold team logo featuring a stylized panther head in deep blue and mint green. Modern, aggressive sports branding style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC34vk8uO0Tuqi-9KqU-Uzhy9mKal1TuWv1cRYBrxOHOR8YBbC8119wG73nfI6BqFw8D37sz_SeqVQkHYOc-wi4hrzdFB-XF2uo5rAj6fyvzE-r97o6RMGjyi6fQLDzAfodjIYfJtu4X-t9IA685xPTy7fAYwTLxx0yhB5Kk7EZhZCEM2va4T7bG9H4BM-f7lkIhipRDpMEr7z9uc5_NJQKvQyoNRisYsQWTMXvOFtKu3f1XO2BCcg2">
+</div>
+</div>
+<div class="pt-10 p-6 flex flex-col flex-grow bg-white">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold leading-tight">Navrangpura Panthers</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px] mb-4 line-clamp-2">Competitive basketball squad looking for a solid point guard.</p>
+<div class="mt-auto flex justify-between items-center border-t border-surface-container-highest pt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed-dim z-30"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-fixed-dim z-20"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed-dim z-10 flex items-center justify-center text-[10px] font-bold">+5</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary">Recruiting</span>
+</div>
+</div>
+</div>
+<!-- Discovery Card 2 -->
+<div class="w-[280px] shrink-0 bg-surface-card rounded-xl clay-shadow soft-card overflow-hidden group cursor-pointer clay-shadow-hover transition-all flex flex-col">
+<div class="h-32 bg-primary-container relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container to-primary-soft opacity-80"></div>
+<div class="absolute -bottom-8 left-6 w-16 h-16 rounded-[1rem] overflow-hidden border-4 border-white shadow-md bg-white z-10">
+<img alt="Racket Club Emblem" class="w-full h-full object-cover" data-alt="A clean, minimalist sports logo featuring two crossed tennis rackets over a setting sun, rendered in coral and soft orange tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbgiTVJr8NP9kYYqxMfNo0qcKtPt56EJEQJynSAwcs-OoQ1zwLtKEx4tlUq6GX0gR696wumLxWwz9or1UVv7xewFr6hyyxWOhdTiD-ArAU8ztzeWOeZsgdFfoVF888KBwbUZYPlhB5UL9Pwcw0ROGiXd6KAej-A_nl_HcuedgLGDpnNvhgQ1y1JPo6eoWAKosViH2WSNQOgBI0FxtGfDW5TDyjQG3_iaNMeBU7adKUzeVOUx2Utw0">
+</div>
+</div>
+<div class="pt-10 p-6 flex flex-col flex-grow bg-white">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold leading-tight">Sindhu Racket Club</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px] mb-4 line-clamp-2">Casual weekend tennis meetups for intermediate players.</p>
+<div class="mt-auto flex justify-between items-center border-t border-surface-container-highest pt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed-dim z-30"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-fixed-dim z-20"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed-dim z-10 flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Open Join</span>
+</div>
+</div>
+</div>
+<!-- Discovery Card 3 -->
+<div class="w-[280px] shrink-0 bg-surface-card rounded-xl clay-shadow soft-card overflow-hidden group cursor-pointer clay-shadow-hover transition-all flex flex-col">
+<div class="h-32 bg-on-secondary-container relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary to-secondary-container opacity-80"></div>
+<div class="absolute -bottom-8 left-6 w-16 h-16 rounded-[1rem] overflow-hidden border-4 border-white shadow-md bg-white z-10">
+<img alt="Vastrapur FC Emblem" class="w-full h-full object-cover" data-alt="A dynamic soccer team logo showing a stylized foot kicking a ball with motion lines, in teal and white colors. Urban sports style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbrs0CuhdLAq1Z67JtB_kx9HslWLyPNziTY-d9oQeN2JyayqHbFkT091cbmIPHKpG44j9aY-4JDvIO9FEyIoiuu-oiifHyw374AmRnlX5fbWfBNnNyqFzmtFlKQPa8xkrsdby7dS2PeGOTP_JQqZhsjo7R54PNMjRXrC6Oi5YpTh0awp_LR3_kub2uWV3gI86FAlZ22c81vJzB14_bbstcy_tOzqvQuk6ytMT9HXLsFxFKHrs3xl03">
+</div>
+</div>
+<div class="pt-10 p-6 flex flex-col flex-grow bg-white">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold leading-tight">Vastrapur FC</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px] mb-4 line-clamp-2">5-a-side turf football league. High intensity matches every Tuesday.</p>
+<div class="mt-auto flex justify-between items-center border-t border-surface-container-highest pt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed-dim z-30"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-fixed-dim z-20"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed-dim z-10 flex items-center justify-center text-[10px] font-bold">+20</div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Waitlist</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mobile FAB for Create Squad -->
+<button class="md:hidden fixed bottom-24 right-4 z-40 bg-primary-container text-on-primary w-14 h-14 rounded-full clay-button flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="bg-surface dark:bg-surface-dim font-label-caps text-label-caps fixed bottom-0 w-full z-50 rounded-t-lg shadow-[0_-10px_30px_rgba(0,0,0,0.05)] shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">home</span>
+            Home
+        </a>
+<!-- Active State for Squads -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-xl p-3 shadow-inner hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-xl transition-all scale-90 duration-150" href="#">
+<span class="material-symbols-outlined fill-icon mb-1 text-[24px] text-on-primary">groups</span>
+<span class="text-on-primary">Squads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">chat_bubble</span>
+            Chat
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-3 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">leaderboard</span>
+            Stats
+        </a>
+</nav>
+</body></html>

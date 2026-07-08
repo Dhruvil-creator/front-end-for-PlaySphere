@@ -1,0 +1,324 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "on-background": "#271814",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-container": "#5a0c00",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-dim": "#f0d4ce",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffede9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#0d2075",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "surface": "#fff8f6",
+                        "map-teal": "#00B4A2",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-variant": "#f9dcd6",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "outline": "#8f7069",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00105b",
+                        "primary": "#b52603",
+                        "clay-bg": "#F5EFE9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease-in-out;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 12px 20px rgba(255, 90, 54, 0.4);
+        }
+        .clay-button:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 4px 8px rgba(255, 90, 54, 0.2);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+        }
+        
+        /* Organic background blobs animation */
+        @keyframes blob-float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .blob-1 { animation: blob-float 15s infinite alternate ease-in-out; }
+        .blob-2 { animation: blob-float 20s infinite alternate-reverse ease-in-out; }
+        
+        .form-step {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .form-step.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen text-on-background overflow-x-hidden relative font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Immersive Organic Background -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-soft/20 blur-[100px] blob-1"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-secondary-container/30 blur-[120px] blob-2"></div>
+<div class="absolute top-[40%] left-[20%] w-[30vw] h-[30vw] rounded-full bg-tertiary-container/20 blur-[80px] blob-1" style="animation-delay: -5s;"></div>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 min-h-screen flex items-center justify-center p-md md:p-lg">
+<div class="w-full max-w-container-max grid grid-cols-1 lg:grid-cols-12 gap-lg lg:gap-xl">
+<!-- Left Side: Why Join / Brand Value (Bento Style) -->
+<div class="hidden lg:flex lg:col-span-6 flex-col justify-center space-y-md">
+<div class="mb-lg">
+<h1 class="font-display-hero text-display-hero text-on-surface mb-sm">Your City.<br>Your Playground.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">Join PlaySphere Kinetic to unlock exclusive courts, meet local squads, and elevate your game.</p>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_basketball</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm">Live Courts</h3>
+<p class="text-on-surface-variant text-sm">Find open courts and active games in real-time across the city.</p>
+</div>
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col gap-sm mt-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm">Squad Up</h3>
+<p class="text-on-surface-variant text-sm">Connect with local players, form squads, and compete together.</p>
+</div>
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col gap-sm col-span-2 relative overflow-hidden group">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500" data-alt="Vibrant, highly saturated photograph of diverse young adults playing street basketball at dusk. Sunset lighting casting long dramatic shadows. Soft clay aesthetic with deep orange and teal accents. Joyful community atmosphere, dynamic action shot." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCawPH_uPenNORLlmGExVyD3AAM2xWFpmM-EizNLF7a0Cm3lTWL439RuDXMWDRq0S94-Shi3QoCt-FtQReCFHVcu3ojRXE43Eaie2kleE_NRhdG_GLe1TBuLCM0werzYRRHhemd617RIkLoVoY9Zn0ImpD5g2nnknN3lCqWNneEUFEgWes-0Q_CDvoUVy1UOCNAsfUBjk29ACrFKfJZjfijb_sWGhjjL-L7woEXvhJ3G0kDtnAg-WTP')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+</div>
+<div class="relative z-10 mt-auto pt-xl">
+<h3 class="font-headline-sm text-headline-sm text-white">Unlock Rewards</h3>
+<p class="text-white/80">Earn achievements and gear just by playing.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="col-span-1 lg:col-span-6 flex items-center justify-center">
+<div class="bg-surface-card/90 backdrop-blur-xl w-full max-w-md rounded-xl p-lg shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative overflow-hidden">
+<!-- Progress Bar -->
+<div class="absolute top-0 left-0 w-full h-1 bg-surface-container">
+<div class="h-full bg-primary transition-all duration-300 w-1/4" id="progress-bar"></div>
+</div>
+<div class="text-center mb-xl mt-sm">
+<h2 class="font-headline-section text-headline-section text-primary">Join the Sphere</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Create your player profile.</p>
+</div>
+<form class="space-y-lg" id="registration-form" onsubmit="event.preventDefault(); nextStep();">
+<!-- Step 1: Basics -->
+<div class="form-step active space-y-md" id="step-1">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60" placeholder="Alex Mercer" required="" type="text">
+</div>
+</div>
+</div>
+<!-- Step 2: Contact -->
+<div class="form-step space-y-md" id="step-2">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60" placeholder="alex@playground.com" required="" type="email">
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">phone</span>
+<input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60" placeholder="(555) 123-4567" type="tel">
+</div>
+</div>
+</div>
+<!-- Step 3: Security -->
+<div class="form-step space-y-md" id="step-3">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60" placeholder="••••••••" required="" type="password">
+</div>
+</div>
+<p class="text-sm text-on-surface-variant">Must be at least 8 characters with a symbol.</p>
+</div>
+<!-- Step 4: Success/Verify -->
+<div class="form-step text-center space-y-md py-lg" id="step-4">
+<div class="w-20 h-20 bg-secondary-container rounded-full flex items-center justify-center mx-auto shadow-md">
+<span class="material-symbols-outlined text-4xl text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">You're In!</h3>
+<p class="text-on-surface-variant">Check your email to verify your account and hit the courts.</p>
+</div>
+<div class="flex gap-sm pt-sm mt-auto">
+<button class="hidden flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-button text-button py-3 px-6 rounded-full transition-colors text-center shadow-sm" id="btn-back" onclick="prevStep()" type="button">
+                                Back
+                            </button>
+<button class="flex-1 bg-primary-container text-on-primary-container font-button text-button py-3 px-6 rounded-full clay-button text-center flex items-center justify-center gap-2" id="btn-next" type="submit">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="text-center mt-sm pb-xs">
+<a class="text-sm text-primary font-bold hover:underline underline-offset-4 transition-all" href="#">Already have an account? Log in</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateUI() {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            
+            // Update Progress Bar
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            // Button Logic
+            const btnBack = document.getElementById('btn-back');
+            const btnNext = document.getElementById('btn-next');
+            const btnText = btnNext.querySelector('span:first-child');
+            const btnIcon = btnNext.querySelector('.material-symbols-outlined');
+
+            if (currentStep === 1) {
+                btnBack.classList.add('hidden');
+                btnText.textContent = 'Continue';
+                btnIcon.textContent = 'arrow_forward';
+            } else if (currentStep < totalSteps) {
+                btnBack.classList.remove('hidden');
+                btnText.textContent = currentStep === 3 ? 'Create Profile' : 'Continue';
+                btnIcon.textContent = currentStep === 3 ? 'rocket_launch' : 'arrow_forward';
+            } else {
+                 btnBack.classList.add('hidden');
+                 btnText.textContent = 'Go to Dashboard';
+                 btnIcon.textContent = 'dashboard';
+                 btnNext.onclick = () => window.location.reload(); // Simulate redirect
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        }
+        
+        // Initialize
+        updateUI();
+    </script>
+</body></html>

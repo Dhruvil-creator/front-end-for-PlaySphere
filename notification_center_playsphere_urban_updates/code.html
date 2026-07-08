@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere - Notification Center</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-background": "#271814",
+                    "surface-variant": "#f9dcd6",
+                    "on-tertiary-fixed": "#00105b",
+                    "surface": "#fff8f6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005048",
+                    "inverse-on-surface": "#ffede9",
+                    "surface-container-highest": "#f9dcd6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#dee0ff",
+                    "tertiary": "#4858ab",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-soft": "#FF8A70",
+                    "surface-container": "#ffe9e5",
+                    "on-tertiary-container": "#0d2075",
+                    "on-surface-variant": "#5b403a",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline": "#8f7069",
+                    "primary": "#b52603",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "on-surface": "#271814",
+                    "primary-container": "#ff5a36",
+                    "secondary-fixed": "#70f8e4",
+                    "outline-variant": "#e3beb6",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-bright": "#fff8f6",
+                    "inverse-surface": "#3e2c28",
+                    "map-teal": "#00B4A2",
+                    "on-primary-container": "#5a0c00",
+                    "tertiary-container": "#7d8ce4",
+                    "surface-container-high": "#ffe2dc",
+                    "error-container": "#ffdad6",
+                    "background": "#fff8f6",
+                    "primary-fixed": "#ffdad2",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-tertiary": "#ffffff",
+                    "surface-card": "#FFFFFF",
+                    "surface-container-low": "#fff0ed",
+                    "surface-dim": "#f0d4ce",
+                    "on-secondary-fixed": "#00201c",
+                    "secondary": "#006b5f",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "surface-tint": "#b52603",
+                    "inverse-primary": "#ffb4a3",
+                    "clay-bg": "#F5EFE9",
+                    "secondary-container": "#6df5e1",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-secondary-container": "#006f64",
+                    "on-primary-fixed": "#3d0600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "button": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "body-md": ["Nunito"]
+            },
+            "fontSize": {
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: 0 4px 10px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease;
+        }
+        .clay-button:active {
+            box-shadow: 0 2px 5px rgba(255, 90, 54, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            transform: translateY(2px);
+        }
+        
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        }
+        
+        .notification-indicator {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(0, 180, 162, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 180, 162, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(0, 180, 162, 0); }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen font-body-md text-on-surface antialiased overflow-x-hidden relative">
+<!-- Sub-surface Blobs (Level 1) -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-[-1]">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary-fixed-dim/30 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-secondary-fixed-dim/20 blur-[150px]"></div>
+</div>
+<!-- Top Navigation (Hidden on mobile, TopAppBar logic for subpage implies hiding/modifying shell, but keeping a simplified header for 'Settings/Notifications' focus) -->
+<header class="hidden md:flex justify-between items-center px-md py-sm w-full max-w-container-max mx-auto bg-white/80 dark:bg-inverse-surface/80 docked full-width top-0 sticky backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-50 rounded-b-xl mb-lg mt-sm">
+<div class="flex items-center gap-sm">
+<span class="font-headline-sm text-headline-sm text-primary">PlaySphere</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-map-teal rounded-full notification-indicator"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A smiling young athlete with dark hair in a vibrant, energetic urban setting, soft warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-P2K4eT9IhW-GzzJ06XJa22Zx47nbqeFhnTjq_Nu2uUCce82menIJJbOjYkvqKbE84FxRyAB4iSqixp7tOj8qfGPc5g6z8Ofwf38sTgMY1q42l4n0lcnip8a5awWMNqVrNFbBZZa6iOaqFxqpWIzjFuBTNIZ8R5Ao71LLRT_Z2ZgrXnqkdtJY_IZqlA2F9ubYM1nzOr7g9kvUMPHV37Y6XtxheYV5GRgq4mMVUCTeWjBQ3jQrfsXF"/>
+</div>
+</div>
+</header>
+<!-- Mobile Header -->
+<div class="md:hidden flex justify-between items-center px-md py-md bg-surface-container-lowest shadow-sm z-50 sticky top-0">
+<div class="flex items-center gap-sm">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary">Notifications</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<main class="max-w-container-max mx-auto px-sm md:px-md pb-xl md:pb-lg mt-md md:mt-0 relative z-10">
+<!-- Page Header (Desktop) -->
+<div class="hidden md:flex justify-between items-end mb-lg">
+<div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Your Updates</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ahmedabad City Hub</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-lowest text-on-surface-variant font-button text-button rounded-full soft-card hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">done_all</span>
+                    Mark all as read
+                </button>
+<button class="p-3 bg-surface-container-lowest text-on-surface-variant rounded-full soft-card hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Mobile Quick Actions -->
+<div class="flex md:hidden justify-between items-center mb-md">
+<span class="font-body-md text-body-md text-on-surface-variant">Ahmedabad Hub</span>
+<button class="text-primary font-button text-button text-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+                Read All
+            </button>
+</div>
+<!-- Notification List -->
+<div class="flex flex-col gap-sm md:gap-md">
+<!-- Notification Item: Match Request (Unread) -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col sm:flex-row gap-md items-start sm:items-center relative overflow-hidden group border-l-4 border-map-teal">
+<!-- Unread Indicator BG Hint -->
+<div class="absolute top-0 left-0 w-full h-full bg-secondary-container/5 pointer-events-none"></div>
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-secondary-container">
+<img class="w-full h-full object-cover" data-alt="A focused amateur tennis player with a headband, standing on a sunny hard court, urban setting, high energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyyZdb_5UsApV_nrXRnTg3NI7K6kqiWZY2MLWAmGlnnSzpsy1pPmxeLIhdORi8pj4QyTQr6r7tWbLal9N0lzz3LV9SDcIeRIGX6On1X8DNFNd4ZtvSBNuFzjsywslsGKok_TshW1Wdclni0sJh7GLrlNc-jNcQHv2o1bw1H6pS4aD0zl0s-r_IyxnD60T9Zoh370EAwLpW4jAWMS7Q4K46zQrfDHnviuuLMwe6hUe16N_4lHWGkCD7"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center border-2 border-surface-card shadow-sm">
+<span class="material-symbols-outlined text-[14px]">person_add</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-body-lg text-body-lg text-on-surface">Match Request</h3>
+<span class="font-label-caps text-label-caps text-map-teal">2m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">
+<strong class="text-on-surface">Ravi Patel</strong> challenged you to a Tennis match at <strong class="text-on-surface">Navrangpura Courts</strong>.
+                    </p>
+<div class="flex gap-sm">
+<button class="clay-button bg-primary-container text-on-primary font-button text-button px-sm py-2 rounded-full text-sm">
+                            Accept
+                        </button>
+<button class="bg-surface-container-high text-on-surface-variant font-button text-button px-sm py-2 rounded-full text-sm hover:bg-surface-variant transition-colors">
+                            Decline
+                        </button>
+</div>
+</div>
+</div>
+<!-- Notification Item: Booking Confirmation -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col sm:flex-row gap-md items-start sm:items-center relative group">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px] text-primary">calendar_today</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-body-lg text-body-lg text-on-surface">Booking Confirmed</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xs">
+                        Your turf booking for 5-a-side Football at <strong class="text-on-surface">Skyline Turf, SG Highway</strong> is confirmed for tomorrow at 7:00 PM.
+                    </p>
+<button class="text-primary font-button text-button text-sm hover:underline flex items-center gap-xs">
+                        View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Notification Item: Tournament Alert (Unread) -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col sm:flex-row gap-md items-start sm:items-center relative overflow-hidden group border-l-4 border-map-teal">
+<div class="absolute top-0 left-0 w-full h-full bg-secondary-container/5 pointer-events-none"></div>
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A dynamic shot of a golden sports trophy gleaming under stadium floodlights, rainy moody atmosphere, dramatic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjqSFShGcqhKvvXBlVWDOP55nB6dWIR9Bd1DXtJAFPp2qUHLjdNeRMTbphNtBBFskb5nRN4RLPyqsHP2aFEn1Qnq_3cwZJLBRHDxRNbuNLhZ3itSRpgF9lvRrisSofKcMpl4FW3oVIw9vrYMu0TI0GnUncZ39gxtCI5epNI0qBDTQTzdRAuxYe8AgjcTA0GD39HzsxZoJhU3w0qkGDhQl_kqjkzCl5cfAIxQ9feiLxfo_o_9Ze2EZN"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center border-2 border-surface-card shadow-sm">
+<span class="material-symbols-outlined text-[14px]">emoji_events</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-body-lg text-body-lg text-on-surface">Tournament Alert</h3>
+<span class="font-label-caps text-label-caps text-map-teal">3h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">
+                        Registrations for the <strong class="text-on-surface">Ahmedabad Monsoon Cup</strong> (Badminton Doubles) are closing soon. Only 4 slots left!
+                    </p>
+<button class="clay-button bg-primary-container text-on-primary font-button text-button px-sm py-2 rounded-full text-sm">
+                        Register Now
+                    </button>
+</div>
+</div>
+<!-- Notification Item: Community (Read) -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col sm:flex-row gap-md items-start sm:items-center relative group opacity-75 hover:opacity-100 transition-opacity">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px] text-tertiary">groups</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-body-lg text-body-lg text-on-surface">Community Update</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        The <strong class="text-on-surface">Vastrapur Runners Club</strong> just posted new route maps for this weekend's morning run.
+                    </p>
+</div>
+</div>
+</div>
+<!-- End of List Indicator -->
+<div class="text-center mt-lg mb-xl">
+<span class="material-symbols-outlined text-outline-variant text-4xl mb-xs">check_circle</span>
+<p class="font-body-md text-body-md text-on-surface-variant">You're all caught up!</p>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) - Suppressed as per logic for sub-pages, but kept here for 'Destination' demonstration if needed, though logically Notification Center is often a top level tab or accessed via header. Assuming it's accessed via header, we suppress bottom nav for focus, but let's include it as inactive to show ecosystem context. -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-lg bg-surface dark:bg-inverse-surface shadow-[0_-10px_30px_rgba(0,0,0,0.05)] flex justify-around items-center px-sm pb-base pt-xs border-t border-surface-container-high">
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors rounded-xl w-16">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-[10px]">Home</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors rounded-xl w-16">
+<span class="material-symbols-outlined mb-1">sports_tennis</span>
+<span class="font-label-caps text-[10px]">Venues</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors rounded-xl w-16">
+<span class="material-symbols-outlined mb-1">emoji_events</span>
+<span class="font-label-caps text-[10px]">Events</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors rounded-xl w-16">
+<span class="material-symbols-outlined mb-1">groups</span>
+<span class="font-label-caps text-[10px]">Hub</span>
+</button>
+</nav>
+</body></html>

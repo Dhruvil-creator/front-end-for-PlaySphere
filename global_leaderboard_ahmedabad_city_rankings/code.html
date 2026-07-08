@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ahmedabad's Finest - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#6df5e1",
+                        "secondary-fixed": "#70f8e4",
+                        "inverse-surface": "#3e2c28",
+                        "on-secondary-fixed-variant": "#005048",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-bright": "#fff8f6",
+                        "on-surface": "#271814",
+                        "map-teal": "#00B4A2",
+                        "primary": "#b52603",
+                        "outline-variant": "#e3beb6",
+                        "secondary": "#006b5f",
+                        "clay-bg": "#F5EFE9",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4858ab",
+                        "surface-container-low": "#fff0ed",
+                        "tertiary-container": "#7d8ce4",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "surface-container-high": "#ffe2dc",
+                        "on-tertiary-fixed": "#00105b",
+                        "background": "#fff8f6",
+                        "on-secondary-container": "#006f64",
+                        "surface-tint": "#b52603",
+                        "inverse-on-surface": "#ffede9",
+                        "surface": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403a",
+                        "primary-soft": "#FF8A70",
+                        "outline": "#8f7069",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "primary-container": "#ff5a36",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#0d2075",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb4a3",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-card": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "primary-fixed": "#ffdad2",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#f9dcd6",
+                        "surface-container": "#ffe9e5",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-dim": "#f0d4ce"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-section": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "button": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .shadow-soft-deep { box-shadow: 0 20px 40px -10px rgba(91, 64, 58, 0.15); }
+        .shadow-inset-white { box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5); }
+        .shadow-button-primary { box-shadow: 0 8px 16px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.4); }
+        
+        .blob-bg {
+            background: linear-gradient(135deg, #ffdad6 0%, #ffe2dc 100%);
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(91, 64, 58, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-background font-body-md min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Blobs -->
+<div class="fixed top-0 left-0 w-[600px] h-[600px] rounded-full blob-bg translate-x-[-20%] translate-y-[-20%]"></div>
+<div class="fixed bottom-0 right-0 w-[800px] h-[800px] rounded-full blob-bg bg-gradient-to-r from-secondary-container to-tertiary-container translate-x-[20%] translate-y-[20%] opacity-40"></div>
+<!-- Side Navigation (Desktop) -->
+<nav aria-label="Sidebar Navigation" class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-clay-bg dark:bg-inverse-surface shadow-lg py-md z-40">
+<div class="px-md mb-lg">
+<h1 class="font-headline-sm text-headline-sm text-primary">PlaySphere</h1>
+<p class="font-body-md text-body-md text-on-surface-variant font-bold mt-2">Ahmedabad Hub</p>
+<p class="text-sm text-on-surface-variant opacity-80">City of Champions</p>
+</div>
+<ul class="flex-1 space-y-sm">
+<li><a class="block text-on-surface-variant dark:text-surface-variant mx-4 my-1 p-3 font-body-md text-body-md hover:bg-surface-container-high transition-colors rounded-2xl flex items-center gap-3" href="#"><span class="material-symbols-outlined">dashboard</span> Dashboard</a></li>
+<li><a class="block bg-secondary-container text-on-secondary-container rounded-2xl mx-4 my-1 p-3 font-bold font-body-md text-body-md hover:bg-surface-container-high transition-colors flex items-center gap-3 shadow-inset-white" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span> Leaderboard</a></li>
+<li><a class="block text-on-surface-variant dark:text-surface-variant mx-4 my-1 p-3 font-body-md text-body-md hover:bg-surface-container-high transition-colors rounded-2xl flex items-center gap-3" href="#"><span class="material-symbols-outlined">sports_tennis</span> Matches</a></li>
+<li><a class="block text-on-surface-variant dark:text-surface-variant mx-4 my-1 p-3 font-body-md text-body-md hover:bg-surface-container-high transition-colors rounded-2xl flex items-center gap-3" href="#"><span class="material-symbols-outlined">groups</span> Community</a></li>
+<li><a class="block text-on-surface-variant dark:text-surface-variant mx-4 my-1 p-3 font-body-md text-body-md hover:bg-surface-container-high transition-colors rounded-2xl flex items-center gap-3" href="#"><span class="material-symbols-outlined">workspace_premium</span> Elite Perks</a></li>
+</ul>
+<div class="px-md mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-button text-button rounded-full py-3 mb-md shadow-button-primary hover:scale-105 active:scale-95 transition-all">Upgrade Now</button>
+<div class="border-t border-outline-variant pt-md space-y-2">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-high rounded-lg transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">settings</span> Settings</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-high rounded-lg transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">help</span> Support</a>
+</div>
+</div>
+</nav>
+<!-- Top App Bar (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-gutter h-20 bg-white/80 dark:bg-on-surface/80 backdrop-blur-xl shadow-md fixed top-0 z-50">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere</h1>
+<div class="flex gap-4 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<img alt="User avatar" class="w-8 h-8 rounded-full object-cover border-2 border-primary-container" data-alt="A detailed headshot of a young athlete wearing a sports jersey, well-lit in an urban outdoor setting, energetic and confident mood, soft focus background, realistic photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZdXbkv4S8mevpfPdtTjmUWBu-GZqdk1n6_BCLYPN-ssUdtPYPGdq41buliUQN2BuDjzzGcuNdqocI_XW_rUNr8sEeA3UcdSlHu4-knj167cciepvoZOCMinYMovBMZRCH7S-HkiH2jGhZic44y2mBnDbAYVh07lknqkRcj0wE1DH1k3bV6R8Do6C6_lALrna6p8XA6Qmx6Z2ALxMLgVTNjj-xPjsTaAQ9omhsfj7jSCSIV3Ewf6ix"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="md:ml-64 pt-24 md:pt-md pb-32 px-gutter max-w-container-max mx-auto relative z-10">
+<!-- Header Section -->
+<div class="mb-xl text-center md:text-left">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-background mb-4 drop-shadow-sm">Ahmedabad's <span class="text-primary-container">Finest</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">The ultimate proving ground. See who rules the courts, pitches, and fields across the city.</p>
+</div>
+<!-- Filters (Glassmorphism Pill) -->
+<div class="bg-surface-card/70 backdrop-blur-md rounded-full shadow-soft-deep p-2 flex flex-wrap md:flex-nowrap gap-2 items-center justify-between mb-lg border border-white/50">
+<div class="flex overflow-x-auto hide-scrollbar gap-2 w-full md:w-auto p-1">
+<button class="bg-primary-container text-on-primary-container font-button text-button px-6 py-2 rounded-full shadow-button-primary whitespace-nowrap flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">sports_tennis</span> Tennis</button>
+<button class="bg-surface text-on-surface font-body-md text-body-md px-6 py-2 rounded-full shadow-sm hover:bg-surface-container-high transition-colors whitespace-nowrap flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">sports_soccer</span> Football</button>
+<button class="bg-surface text-on-surface font-body-md text-body-md px-6 py-2 rounded-full shadow-sm hover:bg-surface-container-high transition-colors whitespace-nowrap flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">sports_basketball</span> Basketball</button>
+<button class="bg-surface text-on-surface font-body-md text-body-md px-6 py-2 rounded-full shadow-sm hover:bg-surface-container-high transition-colors whitespace-nowrap flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">sports_cricket</span> Cricket</button>
+</div>
+<div class="flex gap-2 w-full md:w-auto px-2 pb-2 md:pb-0 md:px-4">
+<select class="bg-surface-container border-none rounded-xl font-body-md text-body-md text-on-surface py-2 px-4 shadow-inner-white focus:ring-2 focus:ring-primary-container cursor-pointer w-full md:w-auto">
+<option>All Areas (Ahmedabad)</option>
+<option>Satellite</option>
+<option>Bopal</option>
+<option>Navrangpura</option>
+</select>
+<select class="bg-surface-container border-none rounded-xl font-body-md text-body-md text-on-surface py-2 px-4 shadow-inner-white focus:ring-2 focus:ring-primary-container cursor-pointer w-full md:w-auto">
+<option>Weekly</option>
+<option>Season</option>
+<option>All-time</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Leaderboard Main Table -->
+<div class="lg:col-span-8 bg-surface-card rounded-lg shadow-soft-deep p-2 md:p-6 transition-transform duration-300">
+<div class="space-y-4">
+<!-- Top 3 Banner -->
+<div class="flex justify-center gap-4 md:gap-8 mb-8 pt-4">
+<!-- Rank 2 -->
+<div class="flex flex-col items-center translate-y-6">
+<div class="relative">
+<img class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-[#C0C0C0] shadow-lg" data-alt="Portrait of a focused young female tennis player holding a racket, urban court background, sunset lighting, high contrast, active and determined mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC--X72RUc5egtkLlVbtoa3KWWCfRGuEyRfvIUQpDj-0b9QEUVABiv0BWl6vcdbSC-eg1Pui4XKw5bWYPFgUAkt_Ai8xMdwfV0iWvwjc6LkAdK58_Pmlq7Ne5MsC4F-UmYI9SmUmIzB2MpX02Qyg-XDxZZcHOevqsJlNY1PPxFepqyCOzRoY2gBGp5WJ8V6t8hm7N9RD1ijQc8y8Aefcw-GEwsU8El7FrH-y39aA8y3yzqSXJ7GGaRI"/>
+<div class="absolute -bottom-3 -right-2 bg-[#C0C0C0] text-white font-label-caps text-[10px] md:text-xs px-2 py-1 rounded-full border-2 border-white shadow-sm flex items-center gap-1"><span class="material-symbols-outlined text-[12px] md:text-[14px]">star</span> #2</div>
+</div>
+<p class="font-headline-sm text-[16px] md:text-[20px] font-bold mt-4 text-on-surface">Priya S.</p>
+<p class="text-map-teal font-bold text-sm">2450 MMR</p>
+</div>
+<!-- Rank 1 -->
+<div class="flex flex-col items-center z-10 scale-110">
+<div class="relative">
+<img class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-[#FFD700] shadow-soft-deep" data-alt="Dynamic portrait of a confident male athlete wearing a premium sports headband, brightly lit against a clay-colored wall, triumphant expression, high-end photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFg2PfJ0Ghfw5DmDFVC9AhTMidaBCoVP8q5mdqNb9S54YNKeHyqdjNSSGL1Pt1L4PQEGnGIYEX1O_eercRvt3EchxbzNgVvbRY0E07yVtSoDg6Ck_HoaeOhAc_w5emEdRmV1ZGYSiPRC3_jeXu0dVL-mmXTn1h7hJk-K6KFJDGbDAu1_ISI_unNhCaZSvogbkjjGuccDi2ZB2NiVyOVGm3FZIt0GnxmlZ46bXl9glE7uPjqdykJ2H5"/>
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#FFD700] text-on-surface font-label-caps text-xs md:text-sm px-3 py-1 rounded-full border-2 border-white shadow-md flex items-center gap-1"><span class="material-symbols-outlined text-[14px] md:text-[16px] animate-pulse">workspace_premium</span> #1</div>
+</div>
+<p class="font-headline-sm text-[18px] md:text-[24px] font-extrabold mt-6 text-on-surface">Rahul K.</p>
+<p class="text-primary-container font-extrabold text-md md:text-lg">2680 MMR</p>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col items-center translate-y-8">
+<div class="relative">
+<img class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-4 border-[#CD7F32] shadow-lg" data-alt="Action-oriented portrait of a young male tennis player mid-swing, wearing athletic gear, blurred tennis court background, energetic and bright, natural sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAL8598zuit0g2hKm_Jo2fwCv8j8gNg4IiRcu6ETDze1dLH-GtcPzXXdlwaMuzR6FgaOwCRvnq3_5y-Nycx8Tu7R0yrv9FhYxzSGPKv322NRzioHXwO6erJPPco7wBoKjXvcarhNz9Kh8ureBve1-OouOBrIIptkui05L9dDhTB33-ssaYagMtQOCTiJzE1S5IGht7CT7SlPZRh-l0lj4VVQlIFPxQQHx4sPs2kRA3t9_cHglVms8f"/>
+<div class="absolute -bottom-2 -left-2 bg-[#CD7F32] text-white font-label-caps text-[10px] md:text-xs px-2 py-1 rounded-full border-2 border-white shadow-sm flex items-center gap-1"><span class="material-symbols-outlined text-[12px] md:text-[14px]">star</span> #3</div>
+</div>
+<p class="font-headline-sm text-[14px] md:text-[18px] font-bold mt-3 text-on-surface">Amit D.</p>
+<p class="text-map-teal font-bold text-xs md:text-sm">2390 MMR</p>
+</div>
+</div>
+<!-- List Header -->
+<div class="grid grid-cols-12 gap-2 px-4 py-2 border-b-2 border-surface-container-high text-on-surface-variant font-label-caps text-label-caps tracking-widest hidden md:grid">
+<div class="col-span-1 text-center">Rank</div>
+<div class="col-span-5">Player</div>
+<div class="col-span-3 text-center">MMR</div>
+<div class="col-span-3 text-center">Form</div>
+</div>
+<!-- List Items -->
+<div class="space-y-2">
+<!-- Item 4 -->
+<div class="grid grid-cols-12 gap-2 items-center bg-surface hover:bg-surface-container-low p-3 md:p-4 rounded-xl transition-colors group cursor-pointer border border-transparent hover:border-surface-variant">
+<div class="col-span-2 md:col-span-1 text-center font-headline-sm text-[20px] text-on-surface-variant font-bold">4</div>
+<div class="col-span-7 md:col-span-5 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Headshot of a friendly female sports enthusiast, casual athletic wear, sunny outdoor setting with soft bokeh background, approachable and warm vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxbDL9mB29NJve9-IQtOjYw4HqGbd3F1GeuQ63jsi3nI628sXOT3a4jiw5559OdbNwvmFLSktc4ALNdx1LTuf1vj-DYkL-FTRnPDg8LWvCeN7Nz_z9uxAAUjG3y1VRdJdZ-AKR8xMapQ2Af3QzAMErqTF11Yqp9-uD45hjyUndlqx3sW82UN4YbwawWV7wYBWMBFxKlyWwYXSd5PD7Jkv2Y7-6vEtf6EGCaT7XfYnm4hLAZrwm1vwY"/>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Neha M.</p>
+<p class="text-xs text-on-surface-variant opacity-70">Lvl 42 • Satellite</p>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right md:text-center font-body-lg text-body-lg font-bold text-on-surface">2310</div>
+<div class="col-span-12 md:col-span-3 flex justify-center gap-1 mt-2 md:mt-0">
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center text-[10px] font-bold">L</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-map-teal bg-opacity-20 text-map-teal flex items-center justify-center text-[10px] font-bold shadow-[0_0_8px_rgba(0,180,162,0.4)] border border-map-teal">W</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="grid grid-cols-12 gap-2 items-center bg-surface hover:bg-surface-container-low p-3 md:p-4 rounded-xl transition-colors group cursor-pointer border border-transparent hover:border-surface-variant">
+<div class="col-span-2 md:col-span-1 text-center font-headline-sm text-[20px] text-on-surface-variant font-bold">5</div>
+<div class="col-span-7 md:col-span-5 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Portrait of a serious male athlete adjusting his wristband, urban street court environment, slightly dramatic lighting, determined and competitive aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlOLszuHq9kUtArlomQzlylp5R-vYP9yLmn25w9IFYXoem6qdusX6WUWqOe4s1KwowhsV4_e_9gbL4gUMSmtdIctv0ZygoLz2HuDauGGzmwna3Klwk-xuKnjnUdYQVkwYheiwYg7F8utvg5cnzGxFQYWtjOafCIZoxMaqw5H5MkIalGxvrSNcSo9y0t4eQhWqfHqDvtnMpwKXhNL-XDJpy_7IyEaD23EWkpdlAoww3uaIBnPDx_HDs"/>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Vikram P.</p>
+<p class="text-xs text-on-surface-variant opacity-70">Lvl 38 • Bopal</p>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right md:text-center font-body-lg text-body-lg font-bold text-on-surface">2285</div>
+<div class="col-span-12 md:col-span-3 flex justify-center gap-1 mt-2 md:mt-0">
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center text-[10px] font-bold">L</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center text-[10px] font-bold">L</div>
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center text-[10px] font-bold">L</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+</div>
+</div>
+<!-- Separator indicating personal rank is lower down -->
+<div class="py-4 flex justify-center">
+<span class="material-symbols-outlined text-outline-variant">more_vert</span>
+</div>
+<!-- Current User Rank (In-list integration) -->
+<div class="grid grid-cols-12 gap-2 items-center bg-surface-container-high p-3 md:p-4 rounded-xl border-2 border-primary-container shadow-sm relative overflow-hidden group">
+<!-- Subtle highlight background -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/10 to-transparent z-0"></div>
+<div class="col-span-2 md:col-span-1 text-center font-headline-sm text-[20px] text-primary-container font-extrabold z-10">42</div>
+<div class="col-span-7 md:col-span-5 flex items-center gap-3 z-10">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A detailed headshot of a young athlete wearing a sports jersey, well-lit in an urban outdoor setting, energetic and confident mood, soft focus background, realistic photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS85cI0nLT2FD_hZFDqAyZSr046b4B4OXVlx-K0Va-_N8qSpNXVoGYMAeyP_2EiP1vAN4UuazpBbYUQ-8hIzz_yy80S4LctfAp6ojG_X7GprBJNlhWtNC_iAY8ghXikYYM5VOtFi6z32Xq14t9tuUYBnfTjodOWWw00Jhu7CZV9aXps7xFesfrTsmylEgxvqyl3fFDqFLBBcrK8ho8L19hsb531UsDaxFb3HtnirSu4lm8YZKlmWts"/>
+<div class="absolute -bottom-1 -right-1 bg-primary-container rounded-full w-4 h-4 flex items-center justify-center border border-white"><span class="material-symbols-outlined text-[10px] text-white">person</span></div>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface">You</p>
+<p class="text-xs text-primary font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +3 this week</p>
+</div>
+</div>
+<div class="col-span-3 md:col-span-3 text-right md:text-center font-body-lg text-body-lg font-bold text-primary-container z-10">1840</div>
+<div class="col-span-12 md:col-span-3 flex justify-center gap-1 mt-2 md:mt-0 z-10">
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold">W</div>
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center text-[10px] font-bold">L</div>
+<div class="w-6 h-6 rounded-full bg-map-teal/20 text-map-teal flex items-center justify-center text-[10px] font-bold shadow-[0_0_8px_rgba(0,180,162,0.4)] border border-map-teal">W</div>
+</div>
+</div>
+</div>
+<div class="pt-6 text-center">
+<button class="bg-surface text-on-surface font-button text-button px-8 py-3 rounded-full shadow-soft-deep hover:bg-surface-container-high hover:scale-105 transition-all">Load More</button>
+</div>
+</div>
+</div>
+<!-- Personal Status Side Card -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-card rounded-lg shadow-soft-deep p-6 hover-card sticky top-28">
+<h2 class="font-headline-sm text-[24px] text-on-background mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-primary-container">radar</span> Your Status</h2>
+<div class="flex items-center justify-between mb-8">
+<div>
+<p class="text-on-surface-variant font-label-caps text-label-caps mb-1">Current Rank</p>
+<p class="font-display-hero-mobile text-[48px] font-black text-primary-container leading-none">#42</p>
+</div>
+<div class="w-16 h-16 rounded-full bg-secondary-container/20 border-4 border-secondary-container flex items-center justify-center shadow-inset-white">
+<span class="material-symbols-outlined text-[32px] text-secondary">sports_tennis</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 mb-6 border border-outline-variant/30">
+<p class="font-body-md text-body-md text-on-surface mb-2 font-bold">Next Milestone: Top 25</p>
+<div class="w-full bg-surface-variant rounded-full h-3 mb-2 overflow-hidden shadow-inner-white">
+<div class="bg-gradient-to-r from-primary-soft to-primary-container h-3 rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-sm text-on-surface-variant flex justify-between">
+<span>1840 MMR</span>
+<span class="font-bold text-primary-container">2100 MMR needed</span>
+</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface p-3 rounded-xl shadow-sm border border-surface-variant">
+<div class="w-12 h-12 rounded-full bg-map-teal/10 flex items-center justify-center text-map-teal">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Hot Streak</p>
+<p class="text-sm text-on-surface-variant">Won 4 of last 5 matches</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface p-3 rounded-xl shadow-sm border border-surface-variant">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Active Challenger</p>
+<p class="text-sm text-on-surface-variant">Played 12 games this week</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-primary-container text-on-primary-container font-button text-button py-3 rounded-full shadow-button-primary hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">sports_kabaddi</span> Challenge a Rival
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav aria-label="Bottom Navigation" class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-4 bg-white/90 dark:bg-on-surface/90 backdrop-blur-xl shadow-deep rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-2 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-2 shadow-inner-white hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-label-caps text-label-caps mt-1">Rankings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-2 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">sports_handball</span>
+<span class="font-label-caps text-label-caps mt-1">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-2 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nearby Players Map View - PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-card": "#FFFFFF",
+                        "on-primary-fixed": "#3d0600",
+                        "primary-container": "#ff5a36",
+                        "on-secondary-container": "#006f64",
+                        "inverse-surface": "#3e2c28",
+                        "surface-container": "#ffe9e5",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface-variant": "#434655",
+                        "on-background": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "primary-soft": "#FF8A70",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#f9dcd6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#4858ab",
+                        "on-surface": "#271814",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-fixed": "#70f8e4",
+                        "outline": "#8f7069",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#0d2075",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "map-teal": "#00B4A2",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1",
+                        "surface-tint": "#b52603",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-dim": "#f0d4ce",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "primary": "#b52603",
+                        "outline-variant": "#e3beb6",
+                        "on-tertiary-fixed": "#00105b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Nunito', sans-serif; }
+        .clay-button {
+            box-shadow: inset 0 4px 6px -1px rgba(255, 255, 255, 0.4), 0 10px 15px -3px rgba(255, 90, 54, 0.3);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+        }
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .perspective-map {
+            transform: rotateX(20deg);
+            transform-style: preserve-3d;
+        }
+        /* Custom map marker styles */
+        .map-marker {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-primary-container, #ff5a36);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: -2px 2px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 10;
+        }
+        .map-marker-inner {
+            transform: rotate(45deg);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-marker.active {
+            z-index: 20;
+            background-color: var(--color-secondary, #006b5f);
+            animation: none;
+            transform: rotate(-45deg) scale(1.2);
+        }
+        .popup-card {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            z-index: 30;
+        }
+        .map-marker.active .popup-card {
+            display: block;
+        }
+        
+        /* Interactive Map Overlay styling */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #1a1a1a; /* Dark theme base for map */
+        }
+        .map-bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8; /* Slightly dim the background to make markers pop */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopNavBar (Shared Component) -->
+<nav aria-label="Main Navigation" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] rounded-b-xl">
+<div class="flex items-center">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<!-- Active state on Community Hub/Players context might be hard to map exactly to these 4, but we'll leave inactive to highlight map intent -->
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300" href="#">Venues</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300" href="#">Leagues</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300" href="#">Events</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors scale-105 duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person_pin_circle</span>
+</button>
+<button class="bg-primary-container text-white font-button text-button px-6 py-3 rounded-full clay-button hover:bg-primary transition-colors">Book Now</button>
+</div>
+</nav>
+<!-- SideNavBar (Shared Component - Hidden on small screens, shown as shell) -->
+<!-- Assuming we are on a "Trending Sports" or map view context, no exact match, we leave them inactive for the map canvas focus -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-20 h-[calc(100vh-80px)] p-md bg-surface-container-low dark:bg-inverse-surface w-64 rounded-r-lg bg-clay-bg dark:bg-surface-dim shadow-xl z-40">
+<div class="mb-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">PlaySphere Kinetic</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-2">Ahmedabad Hub</p>
+</div>
+<nav class="flex-1 flex flex-col gap-4">
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">sports_score</span>
+                Trending Sports
+            </a>
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group_work</span>
+                My Squads
+            </a>
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">live_tv</span>
+                Live Matches
+            </a>
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">emoji_events</span>
+                Tournaments
+            </a>
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-primary-container font-extrabold bg-primary-fixed rounded-full p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+                Community Hub
+            </a>
+</nav>
+<button class="mt-auto bg-primary-container text-white font-button text-button px-6 py-3 rounded-full clay-button w-full mb-6">Create Squad</button>
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas (Map View) -->
+<main class="flex-1 w-full relative h-screen lg:pl-64 pt-[80px] overflow-hidden">
+<!-- View Toggle Control (Floating above map) -->
+<div class="absolute top-[100px] left-1/2 transform -translate-x-1/2 z-30 bg-surface-card rounded-full p-1 shadow-lg flex">
+<button class="px-6 py-2 rounded-full font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">format_list_bulleted</span>
+                List View
+            </button>
+<button class="px-6 py-2 rounded-full font-label-caps text-label-caps bg-primary-container text-white shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+                Map View
+            </button>
+</div>
+<!-- The Map Container -->
+<div class="map-container perspective-map" id="mainMap">
+<!-- Simulated Dark Map Background Image -->
+<img alt="Ahmedabad Dark Map" class="map-bg-image" data-alt="A highly detailed, dark-themed digital map of Ahmedabad city from a top-down perspective. The map style is modern and premium, featuring deep charcoal grey and soft black streets, with subtle neon coral and teal highlights denoting parks and major roads. The aesthetic is sleek, urban, and nighttime-oriented, perfect for a modern sports application." data-location="Ahmedabad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnIeXSRWSpxiK49jNAYkPROk9GfkSbP2yo9eaSqyIF9nJ3vLuTG6Yt4dpJBaEaCsumCnKupb16Nvq7k_PsnoJTxya9HK9596yq7Trcx705XrMyH8qeMbtOA2lMtLQeXcRG1_PnU-NsbF-Di5Irzh7Z5zHwOZaDWvjCVptqJHgCi8aLqx1YHqLtQMmGCn0I_zShgLtFJBKYpU1WA5N_EEnIsBKIp0gRwjoBEzdDrSLJjbw4MTzx66YK">
+<!-- Map Markers -->
+<!-- Marker 1: Satellite -->
+<div class="map-marker bounce-animation" onclick="toggleMarker(this)" style="top: 30%; left: 40%;">
+<div class="map-marker-inner">
+<span class="material-symbols-outlined">sports_basketball</span>
+</div>
+<!-- Popup Card -->
+<div class="popup-card soft-card bg-surface-card rounded-lg p-4 cursor-default" onclick="event.stopPropagation()">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a young athletic man smiling confidently, wearing a bright orange basketball jersey. He is outdoors on an urban court with soft sunset lighting creating a warm, energetic mood. The style is modern photography with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqIr_wNLTvnu-dKJYl-CiPflaEjv0SPqGlPajMpOE7Dq53i1_EqjAse6k_7jAYdi2oqSSApjyNKYql2iU10awDpBgpfbOfngYJKAWmNSyO0F4DVT19xVfPhw6q_HDwhizZyUqEHBoT0cI6hpw7lbJMrTRwAy7k2WuPxCy2L4_lBjI3J6JscSwoDMZwVwpykttSKAfp7xATrIoYY4Zg8uRIt1x-QSDG69EFzE44QEm571EdbKKDoucO">
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface m-0 leading-tight">Rahul M.</h4>
+<span class="font-label-caps text-label-caps text-primary-container text-[10px]">Looking for +1</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-3">Satellite Hoop Court • Casual Game</p>
+<button class="w-full py-2 bg-secondary text-white rounded-full font-button text-button text-sm hover:bg-on-secondary-container transition-colors">Join Squad</button>
+</div>
+</div>
+<!-- Marker 2: Navrangpura -->
+<div class="map-marker bounce-animation" onclick="toggleMarker(this)" style="top: 50%; left: 60%; background-color: var(--color-map-teal, #00B4A2);">
+<div class="map-marker-inner">
+<span class="material-symbols-outlined">sports_soccer</span>
+</div>
+<!-- Popup Card -->
+<div class="popup-card soft-card bg-surface-card rounded-lg p-4 cursor-default" onclick="event.stopPropagation()">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface m-0 leading-tight">Navrangpura FC</h4>
+<span class="font-label-caps text-label-caps text-map-teal text-[10px]">Open Match</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-3">University Ground • 5v5 Turf</p>
+<button class="w-full py-2 bg-primary-container text-white rounded-full font-button text-button text-sm clay-button">View Details</button>
+</div>
+</div>
+<!-- Marker 3: Gota -->
+<div class="map-marker bounce-animation" onclick="toggleMarker(this)" style="top: 20%; left: 70%;">
+<div class="map-marker-inner">
+<span class="material-symbols-outlined">sports_tennis</span>
+</div>
+<div class="popup-card soft-card bg-surface-card rounded-lg p-4 cursor-default" onclick="event.stopPropagation()">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a focused athletic woman wearing a white visor and teal sports top. She is on a tennis court under bright, sunny daylight. The image has a clean, energetic aesthetic with vibrant colors and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN1k_abDq6UcTVYTEwzdddwHBnuMTkKXakDHPOZ7LNOSseIQkBogzpc4AAY_DvUGbfUSURBzWBOXt_7GpbF_Zv1K33HKjTRqrOtVTAlzhjZoAetmxl3TVGjv84xqsBGf-L-SSFJTGncf0OrD2WENvCtFirX4n7OEXRXugHBRbPkfYZh1n6BfWJdK5hAiJsLv2BoFECg9Cm-kOq4k1crW6Oo9uaWW_-qVE5S42SRNfHgru3ddB8L1wQ">
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface m-0 leading-tight">Priya K.</h4>
+<span class="font-label-caps text-label-caps text-primary-container text-[10px]">Practice Partner</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-3">Gota Club Courts • Medium Pace</p>
+<button class="w-full py-2 bg-secondary text-white rounded-full font-button text-button text-sm hover:bg-on-secondary-container transition-colors">Message</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to handle marker clicking and popup visibility
+        function toggleMarker(element) {
+            // Close all other markers
+            document.querySelectorAll('.map-marker').forEach(marker => {
+                if (marker !== element) {
+                    marker.classList.remove('active');
+                }
+            });
+            // Toggle clicked marker
+            element.classList.toggle('active');
+        }
+
+        // Close popups when clicking on the map background
+        document.getElementById('mainMap').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('map-bg-image')) {
+                 document.querySelectorAll('.map-marker').forEach(marker => {
+                    marker.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body></html>

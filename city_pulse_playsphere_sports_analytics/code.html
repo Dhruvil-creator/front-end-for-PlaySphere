@@ -1,0 +1,282 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ahmedabad Sports Pulse | PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#fff8f6",
+                      "on-surface": "#271814",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#f9dcd6",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffdad2",
+                      "inverse-on-surface": "#ffede9",
+                      "surface-bright": "#fff8f6",
+                      "primary": "#b52603",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#e3beb6",
+                      "surface-container-low": "#fff0ed",
+                      "clay-bg": "#F5EFE9",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#70f8e4",
+                      "secondary-container": "#6df5e1",
+                      "primary-container": "#ff5a36",
+                      "primary-soft": "#FF8A70",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-secondary-container": "#006f64",
+                      "on-tertiary-container": "#0d2075",
+                      "inverse-surface": "#3e2c28",
+                      "tertiary": "#4858ab",
+                      "surface-tint": "#b52603",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffb4a3",
+                      "surface-container-highest": "#f9dcd6",
+                      "on-secondary-fixed": "#00201c",
+                      "on-background": "#271814",
+                      "surface-dim": "#f0d4ce",
+                      "outline": "#8f7069",
+                      "on-tertiary-fixed": "#00105b",
+                      "tertiary-container": "#7d8ce4",
+                      "on-surface-variant": "#5b403a",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "tertiary-fixed": "#dee0ff",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "secondary": "#006b5f",
+                      "on-primary-container": "#5a0c00",
+                      "surface-container-high": "#ffe2dc",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#ffe9e5",
+                      "surface-card": "#FFFFFF",
+                      "map-teal": "#00B4A2",
+                      "background": "#fff8f6",
+                      "on-primary-fixed": "#3d0600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "md": "24px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Nunito"],
+                      "button": ["Nunito"],
+                      "headline-section": ["Nunito"],
+                      "display-hero": ["Nunito"],
+                      "display-hero-mobile": ["Nunito"],
+                      "body-md": ["Nunito"],
+                      "body-lg": ["Nunito"],
+                      "headline-sm": ["Nunito"]
+              },
+              "fontSize": {
+                      "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                      "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                      "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                      "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                      "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                      "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}]
+              },
+              "boxShadow": {
+                'soft-deep': '0 20px 40px rgba(0,0,0,0.1)',
+                'clay-inset': 'inset 0 4px 6px rgba(255,255,255,0.8), 0 10px 20px rgba(255, 90, 54, 0.3)',
+              }
+            },
+          }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .clay-card {
+                @apply bg-surface-card rounded-lg shadow-soft-deep hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300;
+            }
+            .clay-button {
+                @apply bg-primary-container text-on-primary-container rounded-full px-6 py-3 shadow-clay-inset font-button text-button transition-transform duration-200 hover:scale-105 active:scale-95;
+            }
+            .organic-blob {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                animation: morph 8s ease-in-out infinite;
+            }
+            @keyframes morph {
+                0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+                34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+                67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+            }
+            .bounce-soft {
+                animation: bounceSoft 3s infinite ease-in-out;
+            }
+            @keyframes bounceSoft {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Container -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-md h-20 w-full bg-white/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-soft-deep">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere Analytics</h1>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 shadow-inner">
+<a class="text-primary font-bold px-4 py-2 bg-primary-container/20 rounded-full flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-4 py-2 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">map</span>
+<span>Heatmaps</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors px-4 py-2 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:text-primary transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-surface shadow-sm" data-alt="A small circular avatar showing a young adult with a vibrant urban sports aesthetic. They are wearing a bright sunset-orange hoodie against a soft clay background. High key lighting, friendly energetic expression, crisp focus. A 50-100 word description for an energetic profile avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABT6nkiH99pH5obtkavimn3pDGNB2XsWXNkHWFNFFHtTFtMGBHlvlaRNhc4Itv9QbA2-yqCxIm2Kh0MSZ-0fPLLcMQNdZrFdo9mknZqsIlAQfkV6UA_0DX_HQSIfwFuE6_thUO5Wx_byF00xBRZYEIS_kLNv3VeACQ2DMLwT6sAVrGp-axNbw7qx8hCZj3ZZcSr7KxuvHMKb4iP5S8eUwRmsuELtpVj1ICW7T5LAQu67UzidlV6Kwv">
+</div>
+</header>
+<div class="flex h-[calc(100vh-80px)] overflow-hidden">
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-md md:p-lg relative">
+<!-- Ambient Background Blobs -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary-container/20 blur-3xl organic-blob -z-10 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-fixed-dim/20 blur-3xl organic-blob -z-10 pointer-events-none delay-150"></div>
+<div class="max-w-container-max mx-auto space-y-md">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl">
+<div>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-2 tracking-tight">Ahmedabad Pulse</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Real-time city-wide sports activity and venue analytics.</p>
+</div>
+<div class="mt-4 md:mt-0 flex gap-4">
+<button class="bg-white text-on-surface shadow-soft-deep rounded-full px-6 py-3 font-button text-button flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">filter_list</span>
+                            Filter Data
+                        </button>
+<button class="clay-button flex items-center gap-2">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">cloud_download</span>
+                            Export Report
+                        </button>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-md h-auto md:h-[800px]">
+<!-- Main Heatmap (Spans 2x2) -->
+<div class="clay-card md:col-span-2 md:row-span-2 p-md flex flex-col relative overflow-hidden group">
+<div class="flex justify-between items-center mb-4 z-10 relative">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Live Activity Heatmap</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-map-teal animate-pulse"></span>
+                                Live
+                            </span>
+</div>
+<div class="flex-1 bg-surface-variant/30 rounded-DEFAULT relative overflow-hidden transform group-hover:rotate-x-12 transition-transform duration-500 perspective-1000">
+<!-- Map Placeholder Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A highly stylized isometric 3D map of a city, rendered in a light, energetic claymorphism aesthetic. The buildings are soft, rounded blocks in light cream and clay colors. Vibrant sunset orange and mint teal glowing hot-spots indicate active sports zones. Soft, deep shadows create a floating effect. Bright, optimistic daytime lighting. (50-100 words)" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmvlK1eK7EacxXIF_7P7Z2QQA98EQ9kbIgbWWbVhjmqLMXBsL5XPMFUTWJVMdyeTiJZw2Hc2JCzkXYkLsIWNT0s7VHC3OHxloRmKa2_T0o5PrBQlvAJmueCUmPUB84tdg4SOQP4PH3m3L5lqv3ZxOzlgoF7LsVdBaQmlNPA8H0dtdVpVsnoIz68Ypsr6ML73Mkl84Qzq_8wuBV4s170aKut9v2ZaTkUtBt-pfIn2ziy0PEgcimXa3z')"></div>
+<!-- Interactive Markers -->
+<div class="absolute top-[30%] left-[40%] bg-white p-2 rounded-full shadow-lg bounce-soft">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+</div>
+<div class="absolute top-[60%] right-[30%] bg-white p-2 rounded-full shadow-lg bounce-soft" style="animation-delay: 0.5s;">
+<span class="material-symbols-outlined text-map-teal" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+</div>
+<div class="absolute bottom-[20%] left-[60%] bg-white p-2 rounded-full shadow-lg bounce-soft" style="animation-delay: 1s;">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sports_tennis</span>
+</div>
+</div>
+</div>
+<!-- Metrics Cards -->
+<div class="clay-card p-md flex flex-col justify-center items-center text-center bg-gradient-to-br from-white to-surface-variant/20">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-2" style="font-variation-settings: 'FILL' 1;">groups</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Active Athletes</p>
+<p class="font-headline-section text-headline-section text-on-surface">12.4k</p>
+<p class="text-secondary text-sm font-bold mt-2 flex items-center gap-1 bg-secondary-fixed-dim/20 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-sm">trending_up</span> +8% today
+                        </p>
+</div>
+<div class="clay-card p-md flex flex-col justify-center items-center text-center bg-gradient-to-br from-white to-secondary-container/10">
+<span class="material-symbols-outlined text-4xl text-map-teal mb-2" style="font-variation-settings: 'FILL' 1;">stadium</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Venue Occupancy</p>
+<p class="font-headline-section text-headline-section text-on-surface">87%</p>
+<p class="text-primary-container text-sm font-bold mt-2 flex items-center gap-1 bg-primary-fixed-dim/20 px-2 py-1 rounded-md">
+                            Peak Hours
+                        </p>
+</div>
+<div class="clay-card md:col-span-2 p-md flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Tournament Growth</h3>
+<div class="flex-1 flex items-end gap-2 relative">
+<!-- Faux Bar Chart -->
+<div class="w-full flex justify-between items-end h-[120px]">
+<div class="w-1/6 bg-surface-variant rounded-t-DEFAULT h-[40%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">12</div>
+</div>
+<div class="w-1/6 bg-surface-variant rounded-t-DEFAULT h-[55%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">18</div>
+</div>
+<div class="w-1/6 bg-surface-variant rounded-t-DEFAULT h-[35%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">10</div>
+</div>
+<div class="w-1/6 bg-surface-variant rounded-t-DEFAULT h-[80%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">25</div>
+</div>
+<div class="w-1/6 bg-primary-container rounded-t-DEFAULT h-[100%] shadow-clay-inset relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">32</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-outline-variant"></div>
+</div>
+<div class="flex justify-between mt-2 text-xs text-on-surface-variant font-bold">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span class="text-primary-container">Fri</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-[0_-10px_20px_rgba(0,0,0,0.05)] border-t border-surface-variant z-50 px-4 py-3 flex justify-around items-center">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary" href="#">
+<span class="material-symbols-outlined text-2xl">map</span>
+<span class="text-[10px] mt-1">Heatmaps</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary" href="#">
+<span class="material-symbols-outlined text-2xl">analytics</span>
+<span class="text-[10px] mt-1">Analytics</span>
+</a>
+</nav>
+</body></html>

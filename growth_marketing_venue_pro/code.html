@@ -1,0 +1,402 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Venue Pro - Partner Growth Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#f9dcd6",
+                        "secondary-fixed": "#70f8e4",
+                        "inverse-on-surface": "#ffede9",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f6",
+                        "tertiary": "#4858ab",
+                        "primary-container": "#ff5a36",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "surface-container-low": "#fff0ed",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary-container": "#0d2075",
+                        "on-surface-variant": "#434655",
+                        "inverse-primary": "#ffb4a3",
+                        "tertiary-container": "#7d8ce4",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-variant": "#f9dcd6",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "background": "#fff8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#b52603",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-container": "#ffe9e5",
+                        "on-error": "#ffffff",
+                        "primary-soft": "#FF8A70",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#271814",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "outline": "#8f7069",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "inverse-surface": "#3e2c28",
+                        "map-teal": "#00B4A2",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-tint": "#b52603",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-dim": "#f0d4ce",
+                        "secondary-container": "#6df5e1",
+                        "primary-fixed": "#ffdad2",
+                        "outline-variant": "#e3beb6",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        gutter: "24px",
+                        "container-max": "1280px",
+                        lg: "48px",
+                        base: "8px",
+                        xs: "4px",
+                        sm: "12px",
+                        xl: "80px",
+                        md: "24px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "button": ["Nunito"]
+                    },
+                    fontSize: {
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }]
+                    },
+                    boxShadow: {
+                        'soft-deep': '0 20px 40px rgba(181, 38, 3, 0.08)',
+                        'clay-primary': '0 10px 20px rgba(255, 90, 54, 0.3), inset 0 2px 0 rgba(255,255,255,0.4)',
+                        'clay-secondary': '0 10px 20px rgba(0, 0, 0, 0.05), inset 0 2px 0 rgba(255,255,255,0.8)',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-surface');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Interactive Card Animations */
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(181, 38, 3, 0.12);
+        }
+
+        /* Clay Button specific styles */
+        .btn-clay {
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-clay:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 5px 10px rgba(255, 90, 54, 0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        /* Gradient backgrounds for promo cards */
+        .bg-gradient-promo-1 { background: linear-gradient(135deg, #FF8A70 0%, #ff5a36 100%); }
+        .bg-gradient-promo-2 { background: linear-gradient(135deg, #70f8e4 0%, #00B4A2 100%); }
+        .bg-gradient-promo-3 { background: linear-gradient(135deg, #7d8ce4 0%, #4858ab 100%); }
+        
+        /* Subtle organic background blob */
+        .bg-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex">
+<!-- Background Blobs -->
+<div class="bg-blob w-[600px] h-[600px] bg-primary-fixed top-[-100px] left-[-200px]"></div>
+<div class="bg-blob w-[500px] h-[500px] bg-secondary-fixed opacity-20 bottom-[-50px] right-[-100px]"></div>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden lg:flex flex-col h-screen p-md gap-base border-r border-outline-variant bg-clay-bg dark:bg-inverse-surface shadow-xl h-screen w-64 fixed left-0 top-0 z-50">
+<div class="mb-lg flex flex-col items-center justify-center pt-md">
+<div class="w-20 h-20 rounded-full overflow-hidden border-4 border-surface shadow-soft-deep mb-sm">
+<img alt="Ahmedabad Arena Logo" class="w-full h-full object-cover" data-alt="A vibrant, modern logo design for Ahmedabad Arena, featuring dynamic geometric shapes that suggest movement and sports, set against a pristine white background. The style is bright and energetic, fitting a modern sports venue platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwl_XZSSBmwe23Lhezb_av7g3MFqEn6w1BDQtVXk6vNFbckt9VJloJbv_MLczhal2-gF3I_0orjADqG4EmJmzyYBe3ArawRM6tl2OrUFcvtdWsTs4HhfAEn4byUchcVHZ-50VF4O2dSHCk2fwk6J_YC9mARb9uYDraBM9PyLmJorJVJAhYlPbKbtRZwlSuf6qbeaetlS1MlO6nRFzRv1dV6bieJrhTLW6FmnvxGOyZRYODIuB9jKFA">
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface text-center">Ahmedabad Arena</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-xs">Venue Partner</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-button text-button py-sm px-md rounded-full shadow-clay-primary btn-clay mb-md flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add</span>
+            New Booking
+        </button>
+<div class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Bookings
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="stadium">stadium</span>
+                Facility
+            </a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 shadow-inner-light Active: scale-98 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="campaign" data-weight="fill">campaign</span>
+<span class="font-bold">Promotions</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 flex flex-col min-h-screen relative">
+<!-- TopNavBar (Desktop) / Header (Mobile) -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-md py-sm bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-md">
+<div class="flex items-center gap-sm">
+<button class="lg:hidden text-on-surface p-xs rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere Venue Pro</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-sm py-xs border border-outline-variant focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder-on-surface-variant w-48 focus:outline-none" placeholder="Search..." type="text">
+</div>
+<div class="flex items-center gap-sm text-primary dark:text-primary-fixed">
+<button class="p-xs rounded-full hover:bg-surface-variant transition-colors hover:text-primary duration-200 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-variant transition-colors hover:text-primary duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden ml-sm border-2 border-surface">
+<img alt="Venue Manager Profile" class="w-full h-full object-cover" data-alt="A professional yet friendly portrait of a modern venue manager, wearing casual athletic wear, smiling confidently. Bright, natural lighting typical of an active, energetic lifestyle brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWYJUtWp0mMrM-qnJ2f44infONK3aANI1zUwzSVcyEJZPhQsN-E2X739p7PqiqpLPSfPmFNM38miyB2FWNB4zTcuGclVEkacEpXJR3tTqc8Y6lmd6ZMAsDFVHp-aEuHmS6K0N8gU8zDRZ8WQdmsEqH_VAeeRkXaiT13nFpD87zLpZtG14hgGuybH1oVVayn1CYtEPY_CvVtI8ih7HEY69AJVUnkdEWXrg0t6_G-zMaI-C2Y2JYBWjh">
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 w-full max-w-container-max mx-auto px-md py-lg flex flex-col gap-xl">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-sm">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-xs">Growth Hub</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Activate promotions and maximize your venue's reach.</p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Main Focus: Reach Estimator (Span 8) -->
+<div class="lg:col-span-8 bg-surface-card rounded-lg shadow-soft-deep p-md card-hover-effect flex flex-col border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-weight="fill">radar</span>
+                            Local Reach Estimator
+                        </h3>
+<div class="bg-surface-container-high rounded-full px-sm py-xs font-label-caps text-label-caps text-on-surface-variant flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            Live Data
+                        </div>
+</div>
+<div class="flex-1 flex flex-col md:flex-row gap-md">
+<!-- Map Visual Placeholder -->
+<div class="w-full md:w-1/2 rounded-DEFAULT bg-surface-container overflow-hidden relative" style="transform: rotateX(10deg); transform-style: preserve-3d; perspective: 1000px;">
+<div class="absolute inset-0 bg-map-teal/10 z-10 rounded-DEFAULT"></div>
+<!-- Mock map using a placeholder image for now, ideally an interactive map component -->
+<img alt="Local Area Map" class="w-full h-full object-cover" data-alt="A stylized, simplified map of an urban area (Ahmedabad) showing streets and parks in soft claymorphic colors. Several bright, bouncing marker pins highlight specific locations, suggesting activity and connectivity in a modern sports app context." data-location="Ahmedabad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1cS1iW-HrdFbbDxvUwcKc47nTDXfHXI7SrBcVRvSf1vnn69AnUuv-0cbp6Z4sGgXN6peUXUTxT7wz6jyZzrt9oB4lrNww6ORpMs-ovQuz6EJWKj6QhF9Z97inBOmKeXL3OAoYnemiKanaG-5mef9vwsZi-fb2QXAjsvmCGmMLaXzzhJc444ePsYVpLNrxT5NNFi78WuPIVpVIKrwx9bbd5BFCzQm4vP1GE4hM7V6lmOuwvFlMcm-V">
+<!-- Overlay markers -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="w-12 h-12 bg-primary rounded-full shadow-clay-primary flex items-center justify-center animate-bounce">
+<span class="material-symbols-outlined text-on-primary" data-weight="fill">stadium</span>
+</div>
+<div class="w-32 h-32 bg-primary/20 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 animate-pulse"></div>
+<div class="w-64 h-64 bg-primary/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10"></div>
+</div>
+</div>
+<!-- Data Panel -->
+<div class="w-full md:w-1/2 flex flex-col justify-center gap-sm">
+<div class="bg-surface-container-lowest rounded-DEFAULT p-sm border border-outline-variant shadow-sm">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Potential Reach (5km Radius)</p>
+<p class="font-display-hero-mobile text-display-hero-mobile text-on-surface">12,450</p>
+<p class="font-body-md text-body-md text-secondary flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                    +8% this week
+                                </p>
+</div>
+<div>
+<div class="flex justify-between items-end mb-xs">
+<p class="font-label-caps text-label-caps text-on-surface-variant">Engagement Probability</p>
+<p class="font-body-md text-body-md text-primary font-bold">High (84%)</p>
+</div>
+<div class="w-full h-4 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-promo-1 w-[84%] rounded-full shadow-inner"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Focus: Partner Pulse (Span 4) -->
+<div class="lg:col-span-4 bg-surface-card rounded-lg shadow-soft-deep p-md card-hover-effect flex flex-col border border-outline-variant/30">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary" data-weight="fill">monitoring</span>
+                        Partner Pulse
+                    </h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Trending Sports in Ahmedabad</p>
+<div class="flex flex-col gap-sm flex-1">
+<!-- Trend Item 1 -->
+<div class="flex items-center justify-between p-sm rounded-DEFAULT bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">sports_tennis</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Padel</span>
+</div>
+<span class="font-body-lg text-body-lg text-secondary font-bold">+42%</span>
+</div>
+<!-- Trend Item 2 -->
+<div class="flex items-center justify-between p-sm rounded-DEFAULT bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">sports_cricket</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Box Cricket</span>
+</div>
+<span class="font-body-lg text-body-lg text-secondary font-bold">+15%</span>
+</div>
+<!-- Trend Item 3 -->
+<div class="flex items-center justify-between p-sm rounded-DEFAULT bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">pool</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Swimming</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface-variant font-bold">+5%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Launch Promos Section -->
+<div>
+<div class="flex justify-between items-end mb-md">
+<h3 class="font-headline-section text-headline-sm text-on-surface">Quick Launch Promos</h3>
+<button class="font-button text-button text-primary hover:text-primary-fixed transition-colors flex items-center gap-xs">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Promo Card 1 -->
+<div class="bg-gradient-promo-1 rounded-lg p-md text-on-primary shadow-soft-deep relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-20 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-9xl">wb_twilight</span>
+</div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="mb-auto">
+<span class="bg-white/20 px-sm py-xs rounded-full font-label-caps text-label-caps backdrop-blur-sm inline-block mb-sm">High Conversion</span>
+<h4 class="font-headline-sm text-headline-sm mb-xs">6 AM Early Bird</h4>
+<p class="font-body-md text-body-md opacity-90">Target morning fitness enthusiasts with 20% off pre-8AM slots.</p>
+</div>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs bg-black/10 p-xs rounded-full">
+<button aria-label="Toggle Tennis" class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-sm">sports_tennis</span>
+</button>
+<button aria-label="Toggle Pool" class="w-8 h-8 rounded-full text-white hover:bg-white/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">pool</span>
+</button>
+</div>
+<button class="bg-white text-primary font-button text-button py-xs px-sm rounded-full shadow-clay-secondary btn-clay">Launch</button>
+</div>
+</div>
+</div>
+<!-- Promo Card 2 -->
+<div class="bg-gradient-promo-3 rounded-lg p-md text-on-primary shadow-soft-deep relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-20 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-9xl">nights_stay</span>
+</div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="mb-auto">
+<span class="bg-white/20 px-sm py-xs rounded-full font-label-caps text-label-caps backdrop-blur-sm inline-block mb-sm">Trending Now</span>
+<h4 class="font-headline-sm text-headline-sm mb-xs">Night Owl Special</h4>
+<p class="font-body-md text-body-md opacity-90">Boost late-night bookings with group discounts after 10 PM.</p>
+</div>
+<div class="mt-md flex justify-between items-center">
+<div class="flex gap-xs bg-black/10 p-xs rounded-full">
+<button aria-label="Toggle Cricket" class="w-8 h-8 rounded-full bg-white text-tertiary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-sm">sports_cricket</span>
+</button>
+</div>
+<button class="bg-white text-tertiary font-button text-button py-xs px-sm rounded-full shadow-clay-secondary btn-clay">Launch</button>
+</div>
+</div>
+</div>
+<!-- Promo Card 3 (Empty State / Create Custom) -->
+<div class="bg-surface-card rounded-lg p-md border-2 border-dashed border-outline-variant shadow-sm flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-surface-container-lowest transition-colors group">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-sm group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-3xl">add_box</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Custom Campaign</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Design a unique promotion for your specific audience.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full flex justify-between items-center px-xl py-md mt-auto bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant font-label-caps text-label-caps">
+<div class="text-on-surface-variant">© 2024 PlaySphere Kinetic Venue Suite. Ahmedabad Operations.</div>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms</a>
+</div>
+</footer>
+</main>
+</body></html>

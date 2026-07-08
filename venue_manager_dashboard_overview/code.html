@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere Partner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#f0d4ce",
+                    "outline-variant": "#e3beb6",
+                    "primary-fixed": "#ffdad2",
+                    "secondary-container": "#6df5e1",
+                    "on-secondary-fixed-variant": "#005048",
+                    "surface-container-high": "#ffe2dc",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-tint": "#b52603",
+                    "inverse-surface": "#3e2c28",
+                    "map-teal": "#00B4A2",
+                    "outline": "#8f7069",
+                    "tertiary-fixed": "#dee0ff",
+                    "secondary": "#006b5f",
+                    "on-surface": "#271814",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "primary-soft": "#FF8A70",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "surface-container": "#ffe9e5",
+                    "primary": "#b52603",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-card": "#FFFFFF",
+                    "surface-bright": "#fff8f6",
+                    "surface-variant": "#f9dcd6",
+                    "on-secondary-fixed": "#00201c",
+                    "clay-bg": "#F5EFE9",
+                    "background": "#fff8f6",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-primary-fixed": "#3d0600",
+                    "inverse-primary": "#ffb4a3",
+                    "on-surface-variant": "#5b403a",
+                    "tertiary-container": "#7d8ce4",
+                    "on-primary-container": "#5a0c00",
+                    "on-secondary-container": "#006f64",
+                    "on-tertiary-container": "#0d2075",
+                    "primary-container": "#ff5a36",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "surface-container-low": "#fff0ed",
+                    "surface": "#fff8f6",
+                    "error": "#ba1a1a",
+                    "on-background": "#271814",
+                    "tertiary": "#4858ab",
+                    "inverse-on-surface": "#ffede9",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#f9dcd6",
+                    "secondary-fixed": "#70f8e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-section": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "headline-sm": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "button": ["Nunito"],
+                    "label-caps": ["Nunito"]
+            },
+            "fontSize": {
+                    "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                    "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                    "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                    "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                    "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                    "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                    "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                    "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .material-symbols-outlined {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* Custom scrollbar for inner containers */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-low'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant'); 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col overflow-x-hidden">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-surface-container-highest px-6 md:px-10 py-3 bg-surface z-10 sticky top-0">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-extrabold leading-tight tracking-tight">PlaySphere Partner</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shadow-sm border border-outline-variant" data-alt="A confident, diverse business owner in a modern sports facility office, warm natural lighting, shallow depth of field, high-end professional photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMzEtsPDlZ8OZudLpev_7wwBnwczzz6AjGtFicVqGbgRJiXy_dc-wJHdTwzDwuoEvJdzXcxXMVC2UYOFruQCMsoOyRZUZz_-Ivz218lidzpuRC690d11imS0SmRqsxISB7qY3V73v-zsR435Rm8inQ5--YLbp6u7wDqZhVsYiqZhxircIGmVI8l35M4lpC5LueSlHPb822zX2srdBsCRLRLl9JBoSrUJXsxgjVd7sgn1vE3b7Vpmg6')"></div>
+</div>
+</header>
+<!-- Main Layout Grid -->
+<div class="flex flex-1 flex-col md:flex-row h-full">
+<!-- Sidebar Navigation -->
+<aside class="flex flex-col w-full md:w-[280px] border-r border-surface-container-highest bg-surface-container-lowest p-6 gap-8 shrink-0">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 shadow-sm border border-outline-variant" data-alt="A modern, sleek architectural exterior of a premium indoor sports complex, bright sunny day, clear blue sky, high contrast, vibrant athletic aesthetics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYh78QxV6TlX3uKCQAX-vdMeLc8izlFKVN5HMAZcZdz7-lPWrMpjv827qo_haMuDlIruvGmzG_D2eXG6n2lAHOn8zOUXC-XSPPqOVCeN_TKDk05QMrm-JYrLa5ijYE0coTck6Lzlm0lsSRBM45rse-sIwW2GNuyPtKJUiQI3pGDyXxkF9vPWl7ex4weWfcbKNcXVze_TqXZA1F_UkrdL5tS82ew0bunYSbK6Y_uH_kObJzUoEsnsBP')"></div>
+<div class="flex flex-col">
+<h1 class="text-on-surface text-lg font-bold leading-tight">Metro Sportsplex</h1>
+<p class="text-primary text-sm font-semibold leading-normal">Venue Management</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-DEFAULT bg-primary-container text-on-primary-container transition-colors font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-base">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors font-semibold" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-base">Schedule</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors font-semibold" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-base">Finances</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors font-semibold" href="#">
+<span class="material-symbols-outlined">reviews</span>
+<span class="text-base">Reviews</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors font-semibold mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-base">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Dashboard Content -->
+<main class="flex-1 flex flex-col p-6 lg:p-10 gap-8 bg-background overflow-y-auto">
+<!-- Top Metrics Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Total Revenue -->
+<div class="flex flex-col gap-3 rounded-xl p-6 bg-surface-card shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 size-24 bg-primary-fixed opacity-50 rounded-full blur-2xl group-hover:bg-primary-soft transition-colors duration-500"></div>
+<div class="flex justify-between items-start z-10">
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Total Revenue</p>
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<div class="z-10">
+<p class="text-on-surface text-4xl font-black leading-tight">$42,500</p>
+<p class="text-secondary flex items-center gap-1 text-sm font-bold mt-2">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    +12% vs last month
+                                </p>
+</div>
+</div>
+<!-- Monthly Growth -->
+<div class="flex flex-col gap-3 rounded-xl p-6 bg-surface-card shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 size-24 bg-secondary-fixed opacity-50 rounded-full blur-2xl group-hover:bg-secondary-container transition-colors duration-500"></div>
+<div class="flex justify-between items-start z-10">
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Bookings Growth</p>
+<span class="material-symbols-outlined text-secondary">monitoring</span>
+</div>
+<div class="z-10">
+<p class="text-on-surface text-4xl font-black leading-tight">+15%</p>
+<p class="text-secondary flex items-center gap-1 text-sm font-bold mt-2">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    +3% vs last month
+                                </p>
+</div>
+</div>
+<!-- Active Athletes -->
+<div class="flex flex-col gap-3 rounded-xl p-6 bg-surface-card shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 size-24 bg-tertiary-fixed opacity-50 rounded-full blur-2xl group-hover:bg-tertiary-container transition-colors duration-500"></div>
+<div class="flex justify-between items-start z-10">
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Active Athletes</p>
+<span class="material-symbols-outlined text-tertiary">groups</span>
+</div>
+<div class="z-10">
+<p class="text-on-surface text-4xl font-black leading-tight">1,240</p>
+<p class="text-secondary flex items-center gap-1 text-sm font-bold mt-2">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    +8% new users
+                                </p>
+</div>
+</div>
+<!-- Court Utilization -->
+<div class="flex flex-col gap-3 rounded-xl p-6 bg-surface-card shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 size-24 bg-surface-container-high opacity-50 rounded-full blur-2xl group-hover:bg-outline-variant transition-colors duration-500"></div>
+<div class="flex justify-between items-start z-10">
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Avg Utilization</p>
+<span class="material-symbols-outlined text-on-surface-variant">pie_chart</span>
+</div>
+<div class="z-10">
+<p class="text-on-surface text-4xl font-black leading-tight">68%</p>
+<p class="text-primary flex items-center gap-1 text-sm font-bold mt-2">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+                                    -2% peak hours
+                                </p>
+</div>
+</div>
+</section>
+<!-- Middle Section: Occupancy & Schedule -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Live Occupancy Widget -->
+<div class="flex flex-col rounded-xl bg-surface-card shadow-sm border border-outline-variant overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-surface-container-highest">
+<h2 class="text-on-surface text-xl font-extrabold flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+                                    Live Occupancy
+                                </h2>
+<button class="text-primary text-sm font-bold hover:underline">View Details</button>
+</div>
+<div class="p-6 flex flex-col gap-6">
+<div class="flex gap-6 justify-between items-end">
+<div>
+<p class="text-on-surface-variant font-bold mb-1">Courts In Use</p>
+<p class="text-on-surface text-3xl font-black">15<span class="text-outline text-xl font-bold">/20</span></p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold mb-1 text-lg">75% Capacity</p>
+</div>
+</div>
+<div class="rounded-full bg-surface-container-highest h-4 w-full overflow-hidden">
+<div class="h-full bg-primary rounded-full relative" style="width: 75%;">
+<div class="absolute inset-0 bg-white/20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="size-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">sports_tennis</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Tennis</p>
+<p class="text-xs font-semibold text-on-surface-variant">8/10 Active</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="size-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">sports_basketball</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Basketball</p>
+<p class="text-xs font-semibold text-on-surface-variant">4/5 Active</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="size-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">sports_volleyball</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Volleyball</p>
+<p class="text-xs font-semibold text-on-surface-variant">3/5 Active</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant opacity-50">
+<div class="size-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">pool</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Pool</p>
+<p class="text-xs font-semibold text-on-surface-variant">0/1 Active (Maint)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Daily Schedule Mini-view -->
+<div class="flex flex-col rounded-xl bg-surface-card shadow-sm border border-outline-variant overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-surface-container-highest">
+<h2 class="text-on-surface text-xl font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">event_upcoming</span>
+                                    Upcoming Slots
+                                </h2>
+<button class="text-primary text-sm font-bold hover:underline">Full Schedule</button>
+</div>
+<div class="p-0 flex flex-col overflow-y-auto max-h-[380px]">
+<!-- Slot 1 -->
+<div class="flex items-center gap-4 p-4 border-b border-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex flex-col items-center justify-center min-w-[60px] p-2 rounded bg-surface-container-highest text-on-surface">
+<span class="text-sm font-extrabold">2:00</span>
+<span class="text-xs font-bold text-on-surface-variant">PM</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-bold text-base">Elite Tennis Training</p>
+<p class="text-on-surface-variant text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Court 1 &amp; 2
+                                        </p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded text-xs font-bold bg-primary-container text-on-primary-container">Booked</span>
+</div>
+</div>
+<!-- Slot 2 -->
+<div class="flex items-center gap-4 p-4 border-b border-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex flex-col items-center justify-center min-w-[60px] p-2 rounded bg-surface-container-highest text-on-surface">
+<span class="text-sm font-extrabold">2:30</span>
+<span class="text-xs font-bold text-on-surface-variant">PM</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-bold text-base">Open Play Basketball</p>
+<p class="text-on-surface-variant text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Main Gym
+                                        </p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded text-xs font-bold bg-secondary-container text-on-secondary-container">2 Slots Left</span>
+</div>
+</div>
+<!-- Slot 3 -->
+<div class="flex items-center gap-4 p-4 border-b border-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex flex-col items-center justify-center min-w-[60px] p-2 rounded bg-surface-container-highest text-on-surface">
+<span class="text-sm font-extrabold">3:00</span>
+<span class="text-xs font-bold text-on-surface-variant">PM</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-bold text-base">Corporate League Matches</p>
+<p class="text-on-surface-variant text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Courts 3,4,5
+                                        </p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 rounded text-xs font-bold bg-primary-container text-on-primary-container">Booked</span>
+</div>
+</div>
+<!-- Slot 4 -->
+<div class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex flex-col items-center justify-center min-w-[60px] p-2 rounded border border-dashed border-outline-variant text-on-surface-variant">
+<span class="text-sm font-extrabold">4:00</span>
+<span class="text-xs font-bold">PM</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface-variant font-bold text-base italic">Available Court Time</p>
+<p class="text-on-surface-variant text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Court 6
+                                        </p>
+</div>
+<div class="text-right">
+<button class="px-3 py-1 rounded text-xs font-bold border border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Add Booking</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Customer Sentiment -->
+<section class="flex flex-col rounded-xl bg-surface-card shadow-sm border border-outline-variant overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-surface-container-highest bg-surface-bright">
+<div class="flex items-center gap-4">
+<h2 class="text-on-surface text-xl font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">mood</span>
+                                    Customer Sentiment
+                                </h2>
+<div class="flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-extrabold text-on-surface">4.8</span>
+<span class="text-xs font-bold text-on-surface-variant">(128 reviews this month)</span>
+</div>
+</div>
+<button class="text-primary text-sm font-bold hover:underline">Manage Reviews</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-surface-container-lowest">
+<!-- Review 1 -->
+<div class="flex flex-col gap-3 p-5 rounded-lg border border-surface-variant bg-background">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="A close-up portrait of a sweaty, smiling young athlete in athletic gear resting after an intense indoor tennis match, high key bright modern lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOORVZ3pFDdiJsbzK6bSWAPZ1y_L9ZE6xo9nxlYFVXS5YsDPbEIKt1Ubw_7Vn3IPvY4xurq7vTJSmI3XrMzLOongARiYkmmXRrHB41bEsGQrPF1_w7v0cHc5k6Gd9k6U3xaG0XNpJXJvJSLsl2mjk8Ke4_uLuKDVpShGLNRp1l03g_IWQqoY_J6bsA9ul3w5md2cuwYqw9VqvrQuIgFiXBqroRbFlagHUJTHX7d9MOpKNWP1lJAkHt')"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Sarah Jenkins</p>
+<p class="text-xs font-semibold text-on-surface-variant">Tennis Player</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-sm font-semibold italic">"Courts were in immaculate condition today. Check-in via PlaySphere was seamless. Highly recommend this venue for serious players."</p>
+</div>
+<!-- Review 2 -->
+<div class="flex flex-col gap-3 p-5 rounded-lg border border-surface-variant bg-background">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="A portrait of a determined middle-aged man in basketball attire holding a ball, standing in a brightly lit, modern indoor gymnasium setting, high contrast athletic style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBXls-MFrjtkZb2p2IMojSFYBPoaEDRFxKI0l_cC7FXrwUmVZvAdXlWJ-surmNRIfUcW-fAVrPgHnouxeRoprtThBlAV4sBh5i5xKZRahMHwGbhHFEEoLGBMvGVcXb9byG3LiCM4XR82MriP-415wHXYkzFEcUDb2eiUrPAK8qAnzSfO6w4GTl8DjG56ARbLXcMSULdmQBFR6OhuxL8b5HYn-AwQdL-tkYUqej_aOe_lE-LkdlaDID')"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Marcus T.</p>
+<p class="text-xs font-semibold text-on-surface-variant">Basketball Organizer</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-surface-container-high" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-sm font-semibold italic">"Great atmosphere and lighting. Only dock a star because the locker rooms were a bit crowded during peak hours. Will definitely book again though."</p>
+</div>
+<!-- Review 3 -->
+<div class="flex flex-col gap-3 p-5 rounded-lg border border-surface-variant bg-background">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="A casual portrait of an energetic young woman in vibrant volleyball gear, smiling widely in a pristine modern sports hall, clean high-key lighting aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdAW84bwK3yT9MX-_1mCD1oTk1jcEd9jsiMnVExlF_wtm1P1b3SXOM2jUVkWJsXtTyF_Yuf5S9n9d4i6yU_UP2NneZ-n8Lwim5Y94fRlxj8vcGJmXJUZLXynEsTbUNmRR0cQosM160PKMHEDiACBe_VuYtRGqqHq6KufD1pDgKicWfEOAKQz1zY7LboiDfGJs0mZjOAEkVHlZNzkzuCRHxXTYulbofM5OmvVUYTEf4AhTYt7ZAIrxg')"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Elena R.</p>
+<p class="text-xs font-semibold text-on-surface-variant">Volleyball League</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface text-sm font-semibold italic">"The staff is super accommodating and the app integration makes managing our weekly league schedule incredibly easy. Best facility in the city!"</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+</div>
+</body></html>

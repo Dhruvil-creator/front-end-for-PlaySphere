@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "on-background": "#271814",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-container": "#5a0c00",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-dim": "#f0d4ce",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffede9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#0d2075",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "surface": "#fff8f6",
+                        "map-teal": "#00B4A2",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-variant": "#f9dcd6",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "outline": "#8f7069",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00105b",
+                        "primary": "#b52603",
+                        "clay-bg": "#F5EFE9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Claymorphism Utilities */
+        .clay-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .clay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+        }
+        
+        .clay-btn-primary {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .clay-btn-primary:active {
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px);
+        }
+        
+        .clay-btn-social {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.2s ease;
+        }
+        .clay-btn-social:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .clay-btn-social:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .glass-input {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #ff5a36;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02), 0 0 0 4px rgba(255, 90, 54, 0.1);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen flex items-center justify-center p-md overflow-hidden relative">
+<!-- Background Blob Elements -->
+<div class="fixed top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-surface-container-high/60 blur-[80px] -z-10 mix-blend-multiply"></div>
+<div class="fixed bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-secondary-container/30 blur-[100px] -z-10 mix-blend-multiply"></div>
+<div class="w-full max-w-container-max mx-auto h-[90vh] min-h-[600px] flex flex-col md:flex-row rounded-xl overflow-hidden clay-card bg-surface-card border border-white/50 relative z-10">
+<!-- Left Side: Illustration -->
+<div class="hidden md:block md:w-1/2 relative bg-surface-container overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant, stylized digital illustration of an urban basketball court at sunset. The sky is filled with warm orange, coral, and soft purple hues. Silhouettes of diverse players are engaged in a dynamic game. The style is energetic, modern, and employs a soft-tactile, slightly 3D claymorphism aesthetic typical of high-end UI design. The lighting is dramatic and directional, emphasizing the active, community-focused mood of the scene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxQlJrvjWbuF8r4BJTwGATcDhCvDH0ZImdDFU89WC7hN_bA2-PLBsDBI_csfBAYZMFJAnBkiqJsX9dRKeSX4RKCRqXWDrUsllB9_keB0YlkPlopCA0raBvc05GLh0n-vyXeSYHU-Ntl_KODmq2ZSvsu07Brj4MQcNefsAWG9UtSgwZJydzKR49mmRZPTPuDaPJP7fJXJ2__Sy2E2d4NNN_RKzTMWzAXMSd1gvphl3Ph8sdBICQTiGL')"></div>
+<div class="absolute bottom-xl left-lg z-20 text-white p-md">
+<h2 class="font-headline-section text-headline-section mb-base leading-tight">Your City is<br>Your Playground.</h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-md">Join the PlaySphere community to find matches, track stats, and connect with players nearby.</p>
+</div>
+<!-- Abstract decorative elements -->
+<div class="absolute top-1/4 right-1/4 w-32 h-32 rounded-full border-4 border-white/20 z-10"></div>
+<div class="absolute top-1/3 right-1/3 w-16 h-16 rounded-full bg-primary-container/40 blur-xl z-10"></div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="w-full md:w-1/2 p-lg md:p-xl flex flex-col justify-center relative bg-surface/80 backdrop-blur-md">
+<!-- Brand Header -->
+<div class="mb-lg flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined fill">sports_basketball</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm font-black text-primary tracking-tight">PlaySphere</h1>
+</div>
+<div class="mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Step onto the court. Sign in to continue.</p>
+</div>
+<!-- Social Logins -->
+<div class="flex flex-col sm:flex-row gap-sm mb-lg">
+<button class="flex-1 flex items-center justify-center gap-sm py-3 px-4 bg-white rounded-lg clay-btn-social font-button text-button text-on-surface">
+<svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Google
+                </button>
+<button class="flex-1 flex items-center justify-center gap-sm py-3 px-4 bg-white rounded-lg clay-btn-social font-button text-button text-on-surface">
+<svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.34-.73 3.83-.68 2.14.07 3.52 1.08 4.39 2.52-3.8 2.34-3.15 7.32.61 8.89-.92 2.21-2.14 4.09-3.91 5.44zm-5.07-13.6c-.23-2.58 2.08-4.99 4.67-4.99.3 2.94-2.61 5.36-4.67 4.99z" fill="#000000"></path>
+</svg>
+                    Apple
+                </button>
+</div>
+<div class="flex items-center gap-sm mb-lg">
+<div class="h-[1px] flex-1 bg-outline-variant/50"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant px-2">OR EMAIL</span>
+<div class="h-[1px] flex-1 bg-outline-variant/50"></div>
+</div>
+<!-- Form -->
+<form class="space-y-md">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-xs" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">mail</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg glass-input font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="email" placeholder="player@city.com" type="email">
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs">
+<label class="block font-label-caps text-label-caps text-on-surface" for="password">Password</label>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-soft transition-colors" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">lock</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg glass-input font-body-md text-body-md text-on-surface" id="password" placeholder="••••••••" type="password">
+</div>
+</div>
+<button class="w-full mt-lg py-4 px-6 rounded-full bg-primary-container text-white font-button text-button clay-btn-primary flex items-center justify-center gap-sm" type="submit">
+                    Join the Game
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<div class="mt-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    New to the court? <a class="text-primary font-bold hover:underline underline-offset-4" href="#">Sign up</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>

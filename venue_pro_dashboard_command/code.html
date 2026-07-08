@@ -1,0 +1,374 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Venue Manager Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#f9dcd6",
+                        "secondary-fixed": "#70f8e4",
+                        "inverse-on-surface": "#ffede9",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f6",
+                        "tertiary": "#4858ab",
+                        "primary-container": "#ff5a36",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "surface-container-low": "#fff0ed",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary-container": "#0d2075",
+                        "on-surface-variant": "#434655",
+                        "inverse-primary": "#ffb4a3",
+                        "tertiary-container": "#7d8ce4",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-variant": "#f9dcd6",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "background": "#fff8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#b52603",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-container": "#ffe9e5",
+                        "on-error": "#ffffff",
+                        "primary-soft": "#FF8A70",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#271814",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "outline": "#8f7069",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "inverse-surface": "#3e2c28",
+                        "map-teal": "#00B4A2",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-tint": "#b52603",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-dim": "#f0d4ce",
+                        "secondary-container": "#6df5e1",
+                        "primary-fixed": "#ffdad2",
+                        "outline-variant": "#e3beb6",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "button": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }]
+                    },
+                    boxShadow: {
+                        'soft-deep': '0 20px 40px -10px rgba(0,0,0,0.08)',
+                        'clay-inset': 'inset 0 4px 10px rgba(255,255,255,0.7)',
+                        'primary-glow': '0 10px 30px -5px rgba(255, 90, 54, 0.3)'
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Soft-Tactile / Claymorphism-Lite Accents */
+        .clay-btn-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            box-shadow: theme('boxShadow.primary-glow'), theme('boxShadow.clay-inset');
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .clay-btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 15px 35px -5px rgba(255, 90, 54, 0.4), inset 0 4px 12px rgba(255,255,255,0.8);
+        }
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: theme('boxShadow.soft-deep');
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.12);
+        }
+        .blob-bg-1 {
+            position: fixed;
+            top: -10%;
+            left: -5%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, theme('colors.primary-fixed') 0%, transparent 70%);
+            opacity: 0.4;
+            z-index: -1;
+            filter: blur(80px);
+        }
+        .blob-bg-2 {
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, theme('colors.secondary-fixed') 0%, transparent 70%);
+            opacity: 0.3;
+            z-index: -1;
+            filter: blur(100px);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sub-surface Blobs -->
+<div class="blob-bg-1"></div>
+<div class="blob-bg-2"></div>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden lg:flex flex-col h-screen p-md gap-base border-r border-outline-variant bg-clay-bg dark:bg-inverse-surface shadow-xl h-screen w-64 fixed left-0 top-0 z-50">
+<div class="flex items-center gap-sm mb-lg px-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-surface-container-highest shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A clean, modern logo for 'Ahmedabad Arena' featuring an abstract stadium shape in vibrant orange and teal, suitable for a sports venue management dashboard, set against a crisp white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokBTH05DkXwguK0YUhuasF66d2eY0uqfZxzqkvSCDqLW07RNA9XNRi5SEB90l1nN0d8-IemIacEADCrvLa2xNW7Yr3XljxxSL72iXnPPZOP_DmrfXBlq3RUWBP7p6LUGhGEcCHFpYAuYjrQBWom-8O9eBAUvw_6Z8wagdDCuRPQ1vEzlj8STKCDRWqR2mS1NADoer0_kg0K70HdZtFAJcMXi80v6d_uj8ir-JrrSAsxlhAzeqw8Qv">
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface leading-none">Ahmedabad Arena</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Venue Partner</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 shadow-inner-light scale-98 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Bookings</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">stadium</span>
+<span class="font-body-md text-body-md">Facility</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-body-md text-body-md">Promotions</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+</div>
+<button class="clay-btn-primary rounded-full py-3 px-6 mt-auto flex items-center justify-center gap-2 font-button text-button w-full">
+<span class="material-symbols-outlined">add</span>
+            New Booking
+        </button>
+</nav>
+<!-- Main Content Area -->
+<main class="lg:ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar (Mobile / Unified Header) -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-md py-sm bg-surface/80 dark:bg-surface-dim/80 shadow-md backdrop-blur-xl lg:hidden">
+<div class="flex items-center gap-sm">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed tracking-tight">PlaySphere</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-primary dark:text-primary-fixed hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a smiling venue manager, energetic and welcoming, wearing a subtle sports-branded polo shirt, lit with soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIjPhDqLdCFaJ_Y2vG0Qg2CSMSE17-aI7tlKoi-eMTXxHU3Z8THHOx5W9p0EwL17Klgvr2cg3OvAQoF1moxnuUYLor8F6Mdx9_IPnc3RYvbqEAxg5nGSEjcpA0qTQjiWXu_AjhjJrxB-P359tfu5ASHEG_Q-PZmiEp8Q8_-UU-i5kmM7J9Qc5VjdB24eGybKR9bVAUkroxjM6Mcrfy3fm8gCtNczjqPlI3L1qTjMYCtwvfj-a3Mttw">
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-md lg:p-lg max-w-container-max mx-auto w-full flex-1 flex flex-col gap-md lg:gap-lg mt-4 lg:mt-0">
+<!-- Welcome Row -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-2">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface">Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here's what's happening at Ahmedabad Arena today.</p>
+</div>
+<div class="hidden lg:flex gap-3">
+<button class="clay-btn-primary rounded-full py-2 px-6 flex items-center gap-2 font-button text-button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        New Booking
+                    </button>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Financial Overview Card (Spans 8 cols on desktop) -->
+<div class="soft-card p-lg md:col-span-8 flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-surface-container-high rounded-full opacity-50 blur-3xl z-0"></div>
+<div class="relative z-10 flex justify-between items-start mb-6">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">Today's Revenue</p>
+<h3 class="font-display-hero-mobile text-display-hero-mobile text-on-surface">₹42,500</h3>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span>+12% vs last week</span>
+</div>
+</div>
+<!-- Placeholder for Sparkline -->
+<div class="h-32 w-full mt-auto relative z-10 bg-surface-container-lowest rounded-xl flex items-center justify-center border border-surface-container-highest">
+<span class="text-on-surface-variant font-label-caps text-label-caps opacity-50">Revenue Chart Visualization</span>
+<!-- Simulating a chart line -->
+<svg class="absolute inset-0 w-full h-full opacity-30 text-primary" preserveAspectRatio="none" viewBox="0 0 100 30">
+<path d="M0 30 L10 25 L20 28 L30 15 L40 20 L50 5 L60 12 L70 8 L80 15 L90 2 L100 10 L100 30 Z" fill="currentColor" opacity="0.1"></path>
+<path d="M0 30 L10 25 L20 28 L30 15 L40 20 L50 5 L60 12 L70 8 L80 15 L90 2 L100 10" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Live Occupancy Card (Spans 4 cols on desktop) -->
+<div class="soft-card p-lg md:col-span-4 bg-tertiary-fixed flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent z-0"></div>
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-on-tertiary-fixed-variant mb-4">Live Occupancy</p>
+<!-- Visual Court Representation -->
+<div class="grid grid-cols-4 gap-2 mb-6">
+<!-- Active Courts -->
+<div class="w-8 h-12 bg-primary-container rounded-sm shadow-inner flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">sports_tennis</span></div>
+<div class="w-8 h-12 bg-primary-container rounded-sm shadow-inner flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">sports_basketball</span></div>
+<div class="w-8 h-12 bg-primary-container rounded-sm shadow-inner flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">sports_tennis</span></div>
+<!-- Inactive Courts -->
+<div class="w-8 h-12 bg-surface-container-highest rounded-sm border border-outline-variant"></div>
+<div class="w-8 h-12 bg-surface-container-highest rounded-sm border border-outline-variant"></div>
+<div class="w-8 h-12 bg-surface-container-highest rounded-sm border border-outline-variant"></div>
+<div class="w-8 h-12 bg-surface-container-highest rounded-sm border border-outline-variant"></div>
+<div class="w-8 h-12 bg-surface-container-highest rounded-sm border border-outline-variant"></div>
+</div>
+<div class="flex items-baseline justify-center gap-1">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-tertiary-fixed">3</span>
+<span class="font-headline-sm text-headline-sm text-on-tertiary-fixed-variant">/ 8</span>
+</div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant mt-1">Courts Active Now</p>
+</div>
+</div>
+<!-- Upcoming Schedule (Spans 6 cols) -->
+<div class="soft-card p-md md:col-span-6 flex flex-col gap-4">
+<div class="flex justify-between items-center mb-2 px-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Upcoming Schedule</h3>
+<a class="font-button text-button text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-2">
+<!-- List Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center justify-between border border-surface-container-highest hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-button text-button">18:00</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Tennis Court 1</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Rahul Desai • 2 hrs</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center justify-between border border-surface-container-highest hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-button text-button">19:30</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Basketball Full</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Corporate League • 1.5 hrs</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center justify-between border border-surface-container-highest hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-button text-button">20:00</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Padel Court 2</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Sneha Patel • 1 hr</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Customer Sentiment Carousel (Spans 6 cols) -->
+<div class="soft-card p-md md:col-span-6 flex flex-col bg-surface-container-lowest">
+<div class="flex justify-between items-center mb-4 px-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Feedback</h3>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-md text-body-md text-on-surface font-bold">4.8</span>
+</div>
+</div>
+<!-- Simplified Carousel Container -->
+<div class="relative overflow-hidden flex-1 flex rounded-xl bg-clay-bg p-4 border border-surface-container-highest">
+<div class="flex flex-col justify-center gap-3 w-full">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface italic">"Courts were exceptionally well-maintained today. The new LED lighting makes evening tennis much better. Highly recommend!"</p>
+<div class="flex items-center gap-3 mt-2">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small avatar portrait of a satisfied sports facility user, smiling warmly, wearing casual athletic gear, well-lit with a bright background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy2WoYNBumA2sDd9O9R06oXc33C5vUvV4dVP_ASBp-fI3c-7hKm3POoyOeFYJQC8SIcWweNBVkWDoxFR7Fgq78M66jtVrT-XgQWhH7IGHnoaFG1he9bDSmMHro4ofg4skwuvFnXQIsFcEFcZYmb_HWe9yq6el3EOPW2-wP845jGR4Z0EHXiUkkEm1jvht9a97h90Q6lCKpQsaHsdNm_srujoZJNk7TyjmdgDbgkHcdfnOcsdh_iQzZ">
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">- Ankit M. (Tennis)</span>
+</div>
+</div>
+<!-- Navigation Dots -->
+<div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full flex justify-between items-center px-xl mt-auto py-md bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant lg:ml-64 relative z-10 w-[calc(100%-16rem)]">
+<span class="font-label-caps text-label-caps text-on-surface-variant">© 2024 PlaySphere Kinetic Venue Suite. Ahmedabad Operations.</span>
+<div class="flex gap-md font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms</a>
+</div>
+</footer>
+</main>
+</body></html>

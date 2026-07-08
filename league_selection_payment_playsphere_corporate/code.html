@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>League Selection &amp; Payment - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006b5f",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-primary-container": "#5a0c00",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-background": "#271814",
+                    "surface-container-highest": "#f9dcd6",
+                    "background": "#fff8f6",
+                    "primary": "#b52603",
+                    "on-secondary-container": "#006f64",
+                    "inverse-on-surface": "#ffede9",
+                    "on-tertiary-container": "#0d2075",
+                    "tertiary-fixed": "#dee0ff",
+                    "surface-bright": "#fff8f6",
+                    "clay-bg": "#F5EFE9",
+                    "map-teal": "#00B4A2",
+                    "tertiary-container": "#7d8ce4",
+                    "primary-fixed": "#ffdad2",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#005048",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "outline": "#8f7069",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3d0600",
+                    "surface-container": "#ffe9e5",
+                    "inverse-primary": "#ffb4a3",
+                    "surface-dim": "#f0d4ce",
+                    "surface-container-low": "#fff0ed",
+                    "on-surface-variant": "#5b403a",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#ffe2dc",
+                    "on-surface": "#271814",
+                    "secondary-container": "#6df5e1",
+                    "surface-tint": "#b52603",
+                    "on-tertiary-fixed": "#00105b",
+                    "surface-variant": "#f9dcd6",
+                    "outline-variant": "#e3beb6",
+                    "on-tertiary": "#ffffff",
+                    "surface-card": "#FFFFFF",
+                    "primary-soft": "#FF8A70",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#00201c",
+                    "primary-container": "#ff5a36",
+                    "secondary-fixed": "#70f8e4",
+                    "tertiary": "#4858ab",
+                    "surface": "#fff8f6",
+                    "inverse-surface": "#3e2c28",
+                    "tertiary-fixed-dim": "#bac3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "display-hero-mobile": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "headline-sm": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "button": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "headline-section": ["Nunito"]
+            },
+            "fontSize": {
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom radio button styling */
+        input[type="radio"]:checked + div {
+            border-color: theme('colors.primary');
+            background-color: theme('colors.surface-container-low');
+        }
+        input[type="radio"]:checked + div .radio-indicator {
+            border-color: theme('colors.primary');
+        }
+        input[type="radio"]:checked + div .radio-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Minimal Header for Process Flow -->
+<header class="bg-surface-card border-b border-outline-variant px-gutter py-sm flex items-center justify-between sticky top-0 z-50">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-button text-base hidden sm:inline">Back</span>
+</button>
+<div class="flex items-center gap-sm text-on-background">
+<div class="w-6 h-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="font-button text-lg">PlaySphere Registration</span>
+</div>
+<div class="w-8"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-grow">
+<div class="max-w-container-max mx-auto px-gutter py-lg grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Content: League Selection -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Progress Indicator -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-end">
+<p class="font-label-caps text-on-surface-variant uppercase tracking-wider">Step 3 of 4</p>
+<p class="font-button text-primary">League &amp; Pay</p>
+</div>
+<div class="h-2 bg-surface-variant rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Page Titles -->
+<div class="mt-sm">
+<h1 class="text-headline-section text-on-background">League Selection &amp; Payment</h1>
+<p class="text-body-lg text-on-surface-variant mt-xs">Choose your corporate league and complete the registration for your team.</p>
+</div>
+<!-- Leagues Grid -->
+<div class="mt-md">
+<h2 class="text-headline-sm text-on-background mb-md">Available Corporate Leagues</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Selected League Card -->
+<label class="cursor-pointer group">
+<input checked="" class="hidden" name="league" type="radio" value="tech_champions"/>
+<div class="bg-surface-card rounded-DEFAULT overflow-hidden border-2 border-primary ring-4 ring-primary-fixed-dim transition-all h-full flex flex-col shadow-sm relative">
+<div class="absolute top-sm right-sm bg-primary text-on-primary rounded-full p-1 z-10 shadow-md">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="h-40 bg-cover bg-center w-full relative" data-alt="A dynamic, high-energy indoor futsal match taking place in a modern, well-lit urban sports facility. Players in contrasting bright orange and deep teal jerseys are intensely focused on the ball. The lighting is crisp and even, creating a clean light-mode aesthetic. The setting feels premium, corporate yet distinctly sporty, emphasizing action and teamwork." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA85mwe316Pk3pLY9DAOqL-p2PZ3AELVkrpQLrmqqonpUydKS_jAHS1J0nSSkn9SG9Yh-1RUcKhq3IKd4U7d0O3yJOrml0jja-dLESYJCV7wsQJOWgGpJi9ApONzjcNPRyrLAg7QRmtdh5CKbtSfgqD5DOovXaqaXfAQ_HjK8cGzP7bK8imgNzh8MBMnZqN7UJd0c8h2Bs_gkfep1BvGWCojU10xMIzuE3Sv6eW7lerZt9kGuhBz6_e')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-sm left-sm bg-surface-card/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">group</span>
+<span class="text-xs font-bold text-on-surface">5v5 Format</span>
+</div>
+</div>
+<div class="p-sm flex flex-col flex-grow">
+<h3 class="font-headline-sm text-on-background text-[22px] leading-tight mb-2">Tech Champions League</h3>
+<div class="flex flex-col gap-2 mb-md text-on-surface-variant text-[15px]">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">calendar_month</span>
+<span>Starts Oct 15 • 10 Weeks<br/>Tuesdays, 6:00 PM - 9:00 PM</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">location_on</span>
+<span>Downtown Arena, Main Pitch</span>
+</div>
+</div>
+<div class="mt-auto flex items-end justify-between border-t border-outline-variant/30 pt-sm">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Entry Fee</span>
+<span class="font-headline-sm text-primary text-[24px]">$1,200</span>
+</div>
+<div class="bg-primary/10 text-primary font-button px-4 py-2 rounded-full text-sm">
+                                            Selected
+                                        </div>
+</div>
+</div>
+</div>
+</label>
+<!-- Unselected League Card 1 -->
+<label class="cursor-pointer group">
+<input class="hidden" name="league" type="radio" value="summer_cup"/>
+<div class="bg-surface-card rounded-DEFAULT overflow-hidden border border-outline-variant hover:border-primary/50 transition-all h-full flex flex-col relative">
+<div class="h-40 bg-cover bg-center w-full relative" data-alt="An outdoor synthetic turf soccer field bathed in bright, warm afternoon sunlight during a corporate summer tournament. Modern office buildings are visible in the blurred background. The pristine green turf contrasts with white line markings. The scene captures a lively, energetic atmosphere typical of an urban playground, styled with a clean, high-key light-mode aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoOpEflkmp9IzYgJpr3gei6rBo-P9MoYa-DJkN4HH4MpaR2T9rs6NNbZAwUGPlxN637meruX6gN0ZXUfo0NU41LNcvdKYw2zfK34S7BUDv-828adF4ukCCFecT5z-969UnX_3nT15YX-zD7oNMzuzTFsm61NLMRYOo2ERpw3pKMuVH1ma-3fql-1US3cGL3N89LqxbaAriRTS5gsMwD2uvxw62RuBrQX6FedohHVXbkQsUm-jJWlmf')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-sm left-sm bg-surface-card/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">group</span>
+<span class="text-xs font-bold text-on-surface">7v7 Format</span>
+</div>
+</div>
+<div class="p-sm flex flex-col flex-grow">
+<h3 class="font-headline-sm text-on-background text-[22px] leading-tight mb-2 group-hover:text-primary transition-colors">Corporate Summer Cup</h3>
+<div class="flex flex-col gap-2 mb-md text-on-surface-variant text-[15px]">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">calendar_month</span>
+<span>Starts Nov 01 • 8 Weeks<br/>Thursdays, 7:00 PM - 10:00 PM</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">location_on</span>
+<span>Eastside Sports Complex</span>
+</div>
+</div>
+<div class="mt-auto flex items-end justify-between border-t border-outline-variant/30 pt-sm">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Entry Fee</span>
+<span class="font-headline-sm text-on-background text-[24px]">$1,500</span>
+</div>
+<div class="border border-outline-variant text-on-surface-variant font-button px-4 py-2 rounded-full text-sm group-hover:bg-surface-variant transition-colors">
+                                            Select
+                                        </div>
+</div>
+</div>
+</div>
+</label>
+<!-- Unselected League Card 2 -->
+<label class="cursor-pointer group">
+<input class="hidden" name="league" type="radio" value="weekend_warriors"/>
+<div class="bg-surface-card rounded-DEFAULT overflow-hidden border border-outline-variant hover:border-primary/50 transition-all h-full flex flex-col relative">
+<div class="h-40 bg-cover bg-center w-full relative" data-alt="A close-up shot of a sleek, modern soccer ball resting on premium artificial turf, ready for kickoff. The background is slightly out of focus, showing the polished interior structure of a contemporary sports dome. Bright overhead lights cast sharp, clean shadows, highlighting the textures of the ball and turf. The overall mood is anticipation and professional readiness, maintaining a bright, cohesive light-mode palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyCECAYfP-Sx9NRoqObvBnKyQYij0VSvqJFBEyWXx8OWBsSOVtuA53PgZpbJF2gwTaLa-krFz-lM2mS7mqwIJ_HaDHYIIMFdEMF2RsWbTVx--m63-0jmpmCvxZ0JXd2W3iP8LinhZzeCu05726Xu8sa87cgmUtBnNoMIIymE4buHJSSCEszmFyP0FjVLeR21cxz-PUewwUV_CG-0u9_ukks_apIQGETztg8WpH1MR-rQ_PtjOrxY1l')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+</div>
+<div class="p-sm flex flex-col flex-grow">
+<h3 class="font-headline-sm text-on-background text-[22px] leading-tight mb-2 group-hover:text-primary transition-colors">Weekend Warriors League</h3>
+<div class="flex flex-col gap-2 mb-md text-on-surface-variant text-[15px]">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">calendar_month</span>
+<span>Starts Oct 20 • 12 Weeks<br/>Saturdays, 9:00 AM - 1:00 PM</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">location_on</span>
+<span>Metro Sports Dome</span>
+</div>
+</div>
+<div class="mt-auto flex items-end justify-between border-t border-outline-variant/30 pt-sm">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Entry Fee</span>
+<span class="font-headline-sm text-on-background text-[24px]">$1,000</span>
+</div>
+<div class="border border-outline-variant text-on-surface-variant font-button px-4 py-2 rounded-full text-sm group-hover:bg-surface-variant transition-colors">
+                                            Select
+                                        </div>
+</div>
+</div>
+</div>
+</label>
+<!-- Unselected League Card 3 -->
+<label class="cursor-pointer group">
+<input class="hidden" name="league" type="radio" value="friday_futsal"/>
+<div class="bg-surface-card rounded-DEFAULT overflow-hidden border border-outline-variant hover:border-primary/50 transition-all h-full flex flex-col relative">
+<div class="h-40 bg-cover bg-center w-full relative" data-alt="An evening shot of an urban rooftop futsal court surrounded by a wire mesh fence, with glowing city lights and modern skyscrapers in the background. The court is brightly illuminated by industrial floodlights, creating a crisp, high-contrast yet well-lit environment. The aesthetic is energetic, urban, and modern, fitting perfectly within a clean, premium light-mode design scheme." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB--LG9CDHumNE37Wcse9yQM66smSgCJCDIZnxYlN1hJstbn_Kga1NwBsumhjrP0RCGxPw_oQ0t8d1Od2H-i2dQe-rwh3rhNyxp_XHWQQcOJXwms0FUF_4bdhQa-je-a6VYSJ9vvkHNeeeyyEWBEggxyzVGDXDCCCPeIkaY2gVxOjjDCMuE6P6vW3VeJqTKSFNEdusnWV14S9YG5c7IFr0QlPxd-piPMya6THDpOfHnTH5odlYLqAHG')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+</div>
+<div class="p-sm flex flex-col flex-grow">
+<h3 class="font-headline-sm text-on-background text-[22px] leading-tight mb-2 group-hover:text-primary transition-colors">Downtown Friday Futsal</h3>
+<div class="flex flex-col gap-2 mb-md text-on-surface-variant text-[15px]">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">calendar_month</span>
+<span>Starts Nov 15 • 8 Weeks<br/>Fridays, 7:00 PM - 11:00 PM</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg">location_on</span>
+<span>Skyline Rooftop Pitch</span>
+</div>
+</div>
+<div class="mt-auto flex items-end justify-between border-t border-outline-variant/30 pt-sm">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Entry Fee</span>
+<span class="font-headline-sm text-on-background text-[24px]">$950</span>
+</div>
+<div class="border border-outline-variant text-on-surface-variant font-button px-4 py-2 rounded-full text-sm group-hover:bg-surface-variant transition-colors">
+                                            Select
+                                        </div>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Content: Order Summary & Payment -->
+<div class="lg:col-span-4 lg:sticky lg:top-gutter flex flex-col gap-md">
+<!-- Order Summary Card -->
+<div class="bg-surface-container rounded-DEFAULT p-md border border-outline-variant/50 shadow-sm">
+<h3 class="font-headline-sm text-[24px] text-on-background mb-md pb-xs border-b border-outline-variant">Order Summary</h3>
+<div class="flex flex-col gap-sm text-on-surface mb-md">
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-medium">Team Name</span>
+<span class="font-bold text-right">TechNova Titans</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-medium">Selected League</span>
+<span class="font-bold text-right">Tech Champions League</span>
+</div>
+</div>
+<div class="border-t border-dashed border-outline pt-sm flex flex-col gap-xs mb-sm">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>Subtotal</span>
+<span>$1,200.00</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>Taxes (10%)</span>
+<span>$120.00</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-sm flex justify-between items-center">
+<span class="font-bold text-lg text-on-background">Total Due</span>
+<span class="font-headline-sm text-[28px] text-primary">$1,320.00</span>
+</div>
+</div>
+<!-- Payment Method Selection -->
+<div class="bg-surface-card rounded-DEFAULT p-md border border-outline-variant/50 shadow-sm">
+<h3 class="font-bold text-lg text-on-background mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">payments</span>
+                        Payment Method
+                    </h3>
+<div class="flex flex-col gap-xs">
+<label class="cursor-pointer relative">
+<input checked="" class="hidden" name="payment_method" type="radio" value="card"/>
+<div class="border border-outline-variant rounded-lg p-3 flex items-center gap-3 transition-colors hover:bg-surface-container-lowest">
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant relative"></div>
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+<span class="font-bold text-on-background">Credit / Debit Card</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="hidden" name="payment_method" type="radio" value="upi"/>
+<div class="border border-outline-variant rounded-lg p-3 flex items-center gap-3 transition-colors hover:bg-surface-container-lowest">
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant relative"></div>
+<span class="material-symbols-outlined text-on-surface-variant">qr_code_scanner</span>
+<span class="font-bold text-on-background">UPI / QR Code</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="hidden" name="payment_method" type="radio" value="invoice"/>
+<div class="border border-outline-variant rounded-lg p-3 flex items-center gap-3 transition-colors hover:bg-surface-container-lowest">
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant relative"></div>
+<span class="material-symbols-outlined text-on-surface-variant">receipt_long</span>
+<div class="flex flex-col">
+<span class="font-bold text-on-background">Corporate Invoice</span>
+<span class="text-xs text-on-surface-variant font-normal">Pay via bank transfer within 15 days</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Call to Action -->
+<button class="w-full mt-md bg-primary text-on-primary font-button py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-md flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                        Proceed to Secure Payment
+                    </button>
+<p class="text-center text-xs text-on-surface-variant mt-sm flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">encrypted</span>
+                        Your payment information is encrypted and secure.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

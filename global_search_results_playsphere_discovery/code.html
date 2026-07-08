@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Search - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#4858ab",
+                      "on-primary-container": "#5a0c00",
+                      "tertiary-fixed": "#dee0ff",
+                      "primary-fixed": "#ffdad2",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "surface-variant": "#f9dcd6",
+                      "outline-variant": "#e3beb6",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#ff5a36",
+                      "inverse-on-surface": "#ffede9",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "surface-container": "#ffe9e5",
+                      "on-tertiary-container": "#0d2075",
+                      "surface-bright": "#fff8f6",
+                      "on-primary-fixed": "#3d0600",
+                      "inverse-primary": "#ffb4a3",
+                      "surface": "#fff8f6",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fff8f6",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-tint": "#b52603",
+                      "clay-bg": "#F5EFE9",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#5b403a",
+                      "surface-container-highest": "#f9dcd6",
+                      "on-secondary-fixed-variant": "#005048",
+                      "outline": "#8f7069",
+                      "on-secondary-container": "#006f64",
+                      "map-teal": "#00B4A2",
+                      "surface-container-high": "#ffe2dc",
+                      "primary": "#b52603",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#7d8ce4",
+                      "secondary-container": "#6df5e1",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "secondary": "#006b5f",
+                      "secondary-fixed": "#70f8e4",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-background": "#271814",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#00105b",
+                      "inverse-surface": "#3e2c28",
+                      "surface-container-low": "#fff0ed",
+                      "primary-soft": "#FF8A70",
+                      "on-surface": "#271814",
+                      "surface-dim": "#f0d4ce",
+                      "surface-card": "#FFFFFF"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "md": "24px",
+                      "xl": "80px",
+                      "xs": "4px",
+                      "lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "body-md": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "headline-sm": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "display-hero": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "button": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "label-caps": [
+                              "Nunito", "sans-serif"
+                      ],
+                      "headline-section": [
+                              "Nunito", "sans-serif"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-surface');
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .clay-button {
+            box-shadow: 0 8px 24px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .clay-button:active {
+            box-shadow: 0 4px 12px rgba(255, 90, 54, 0.2), inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(2px);
+        }
+
+        .soft-card {
+            transition: all 0.3s ease;
+        }
+
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Hide scrollbar for horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<!-- Note: TopNavBar hidden on small screens as per structural logic, but since it's the only nav requested, we'll show it everywhere for this demo -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-none">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary">
+                PlaySphere
+            </div>
+<nav class="hidden md:flex space-x-6">
+<!-- Intent logic: Global search could fall under "Explore", but we don't have that. We highlight nothing specific or all inactive -->
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300 font-body-md text-body-md" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300 font-body-md text-body-md" href="#">Athletes</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300 font-body-md text-body-md" href="#">Teams</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300 font-body-md text-body-md" href="#">Tournaments</a>
+</nav>
+<div class="flex items-center space-x-4 text-primary dark:text-inverse-primary">
+<button class="scale-95 active:scale-90 transition-transform p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-xl px-4 md:px-lg max-w-container-max mx-auto w-full flex flex-col gap-xl">
+<!-- Search Header -->
+<section class="flex flex-col gap-md">
+<div class="relative w-full max-w-3xl mx-auto">
+<div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full pl-14 pr-6 py-4 bg-surface-card rounded-full soft-shadow text-body-lg font-body-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary border-none" placeholder="Search venues, athletes, teams..." type="text" value="Football in SG Highway"/>
+<button class="absolute inset-y-0 right-2 my-2 px-6 bg-primary-container text-on-primary rounded-full clay-button font-button text-button">
+                    Search
+                </button>
+</div>
+<!-- Tabs -->
+<div class="flex overflow-x-auto no-scrollbar gap-4 py-4 justify-start md:justify-center">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-body-md text-body-md font-bold whitespace-nowrap clay-button">All</button>
+<button class="bg-surface-card text-on-surface-variant px-6 py-2 rounded-full font-body-md text-body-md whitespace-nowrap soft-shadow hover:bg-surface-container-high transition-colors">Venues (12)</button>
+<button class="bg-surface-card text-on-surface-variant px-6 py-2 rounded-full font-body-md text-body-md whitespace-nowrap soft-shadow hover:bg-surface-container-high transition-colors">Athletes (45)</button>
+<button class="bg-surface-card text-on-surface-variant px-6 py-2 rounded-full font-body-md text-body-md whitespace-nowrap soft-shadow hover:bg-surface-container-high transition-colors">Teams (8)</button>
+<button class="bg-surface-card text-on-surface-variant px-6 py-2 rounded-full font-body-md text-body-md whitespace-nowrap soft-shadow hover:bg-surface-container-high transition-colors">Tournaments (3)</button>
+</div>
+</section>
+<!-- Top Result (Bento Grid Style) -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6">Top Result</h2>
+<div class="bg-surface-card rounded-xl overflow-hidden soft-card flex flex-col md:flex-row">
+<div class="md:w-1/2 relative h-64 md:h-auto">
+<img class="w-full h-full object-cover" data-alt="High-quality, wide shot of a pristine green artificial turf football field in an urban setting during early evening. Warm, golden hour light casts long shadows across the bright green synthetic grass. High-contrast, premium sports photography style with vibrant colors, capturing the energetic and welcoming atmosphere of an outdoor urban sports venue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIzSJz_k0ZvLhP9blrgsIRTmNzScBS0P6GbSIs9fAuTBifzcnev5zpj9EJuGcTKdAuyg5glsw8VXJf8vz46eUVuC3WpfcsMIRBFKCdh3DDD1QR5ygiL70F3EnhFmaPPdEZOe_WD4l5ixSheIvKioRcH5Z5CdpzFUdlBBBjTzYeBgj20KpkMVqDYANd0340KkmFu5ueIFZnr3enQuMrjBPRFDecfL0kMa42ZN2PJGUGDi3sCW5tr2mO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 md:hidden">
+<h3 class="text-white font-headline-sm text-headline-sm">Skyline Football Turf</h3>
+</div>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="hidden md:block font-headline-sm text-headline-sm text-on-surface">Skyline Football Turf</h3>
+<div class="bg-surface-container text-primary font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] filled">star</span> 4.8
+                            </div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined">location_on</span> SG Highway, Ahmedabad
+                        </p>
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+                            Premium 7v7 artificial turf with floodlights and shower facilities. Highly rated by local squads.
+                        </p>
+<div class="flex gap-4 mb-6">
+<span class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-body-md text-body-md">7v7 Turf</span>
+<span class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-lg font-body-md text-body-md">Floodlights</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="font-headline-sm text-headline-sm text-primary">₹1200<span class="text-body-md text-on-surface-variant">/hr</span></div>
+<button class="bg-primary-container text-on-primary px-8 py-3 rounded-full font-button text-button clay-button">Book Now</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-highest dark:bg-surface-dim">
+<div class="w-full px-lg py-xl mt-xl flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-8">
+<div class="font-headline-sm text-headline-sm text-on-surface">
+                PlaySphere
+            </div>
+<div class="flex flex-wrap justify-center gap-6 font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Safety</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Community Guidelines</a>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-center md:text-right">
+                © 2024 PlaySphere Kinetic. Your City is Your Playground.
+            </div>
+</div>
+</footer>
+</body></html>

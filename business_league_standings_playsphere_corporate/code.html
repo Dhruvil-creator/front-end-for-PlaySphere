@@ -1,0 +1,434 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Corporate Leagues Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#006b5f",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "outline-variant": "#e3beb6",
+                      "primary-container": "#ff5a36",
+                      "on-secondary-fixed-variant": "#005048",
+                      "surface-container-high": "#ffe2dc",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffdad2",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "surface-dim": "#f0d4ce",
+                      "surface-card": "#FFFFFF",
+                      "tertiary": "#4858ab",
+                      "surface-container": "#ffe9e5",
+                      "on-tertiary-container": "#0d2075",
+                      "surface-container-low": "#fff0ed",
+                      "inverse-surface": "#3e2c28",
+                      "on-surface-variant": "#5b403a",
+                      "surface-bright": "#fff8f6",
+                      "on-secondary-container": "#006f64",
+                      "tertiary-fixed": "#dee0ff",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#5a0c00",
+                      "secondary-container": "#6df5e1",
+                      "on-secondary-fixed": "#00201c",
+                      "clay-bg": "#F5EFE9",
+                      "surface-container-highest": "#f9dcd6",
+                      "primary": "#b52603",
+                      "on-surface": "#271814",
+                      "inverse-primary": "#ffb4a3",
+                      "map-teal": "#00B4A2",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#00105b",
+                      "outline": "#8f7069",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "surface-variant": "#f9dcd6",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#70f8e4",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#7d8ce4",
+                      "on-primary": "#ffffff",
+                      "surface": "#fff8f6",
+                      "background": "#fff8f6",
+                      "surface-tint": "#b52603",
+                      "inverse-on-surface": "#ffede9",
+                      "primary-soft": "#FF8A70",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#3d0600",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-background": "#271814"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "md": "24px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "lg": "48px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5EFE9; /* clay-bg */
+        }
+        
+        .soft-card {
+            background-color: #FFFFFF;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+        }
+
+        .clay-button {
+            background-color: #ff5a36; /* primary-container */
+            color: #ffffff;
+            border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255,255,255,0.4);
+            transition: all 0.2s ease;
+        }
+        
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 90, 54, 0.4), inset 0 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        .bg-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Background Ambient Blobs -->
+<div class="bg-blob bg-primary-fixed w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
+<div class="bg-blob bg-secondary-fixed w-[400px] h-[400px] top-[40%] right-[-50px]"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 px-gutter bg-white/80 dark:bg-inverse-surface/80 shadow-md backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-container-max mx-auto h-20">
+<div class="font-display-hero-mobile text-headline-sm font-black text-primary">PlaySphere Corporate</div>
+<div class="hidden md:flex gap-md items-center h-full">
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:scale-105 transition-transform duration-200" href="#">Leagues</a>
+<a class="font-button text-button text-primary border-b-4 border-primary pb-1 flex items-center h-full hover:scale-105 transition-transform duration-200" href="#">Standings</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:scale-105 transition-transform duration-200" href="#">Registration</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary transition-colors flex items-center h-full hover:scale-105 transition-transform duration-200" href="#">Dashboard</a>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex gap-base text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">business_center</span>
+</div>
+<button class="clay-button font-button text-button px-md py-sm">Manage Team</button>
+<img alt="Company Admin Profile" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="A small circular profile picture of a corporate admin, professional, smiling, bright light-mode aesthetic, corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7rqMmMelC7swxPu2wlTs-xzK0iHN9REfixSm1mA62ncNJy0hdzJKilCoJWRISyfXag11CUEZAnqr7y3exljzb5vuF3gbSbnv-9Nbk6c_McjoDkfO4n5HL0XOqX3JmvMxdhG-mE48Nd3GxZ1_jqp6ayIKwCUU-SmzUi9e0zbGtF7cRtuqxT0tNcl4xMxLlkrTwLJYjb9sTQHkGy04lWiinwoJZGVxDTDm-xTuuE5-srsB6Sb_X9OLZ">
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-xl px-gutter max-w-container-max mx-auto w-full flex flex-col gap-xl">
+<!-- Header Section -->
+<section class="text-center flex flex-col items-center gap-sm">
+<h1 class="font-display-hero text-display-hero text-primary mb-2 hidden md:block">Corporate Leaderboard</h1>
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-primary mb-2 md:hidden">Leaderboard</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Discover which companies are dominating the urban playground. Rankings span across multiple sports and seasons.</p>
+<!-- Filters -->
+<div class="flex flex-wrap justify-center gap-sm mt-md">
+<select class="soft-card px-md py-sm font-button text-button text-on-surface-variant border-none focus:ring-primary outline-none">
+<option>All Industries</option>
+<option>Tech</option>
+<option>Finance</option>
+<option>Healthcare</option>
+</select>
+<select class="soft-card px-md py-sm font-button text-button text-on-surface-variant border-none focus:ring-primary outline-none">
+<option>All Sizes</option>
+<option>Startup (&lt;50)</option>
+<option>Mid-Market (50-500)</option>
+<option>Enterprise (500+)</option>
+</select>
+<button class="soft-card px-md py-sm font-button text-button text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">tune</span> Filters
+                </button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Top Company Spotlight (Large Tile) -->
+<div class="md:col-span-8 soft-card p-md flex flex-col gap-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-y-1/2 translate-x-1/3"></div>
+<div class="flex justify-between items-start z-10">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-xs block">Current Champion</span>
+<h2 class="font-headline-section text-headline-section text-on-surface">TechNova Solutions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Leading across Basketball, Volleyball, and 5K Series.</p>
+</div>
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-lg text-white font-display-hero-mobile text-headline-sm font-black">
+                        #1
+                    </div>
+</div>
+<div class="flex gap-sm z-10 mt-auto">
+<div class="bg-surface-container p-sm rounded-lg flex-1">
+<div class="font-label-caps text-label-caps text-on-surface-variant">Total Points</div>
+<div class="font-headline-sm text-headline-sm text-primary">12,450</div>
+</div>
+<div class="bg-surface-container p-sm rounded-lg flex-1">
+<div class="font-label-caps text-label-caps text-on-surface-variant">Win Rate</div>
+<div class="font-headline-sm text-headline-sm text-secondary">78%</div>
+</div>
+<div class="bg-surface-container p-sm rounded-lg flex-1">
+<div class="font-label-caps text-label-caps text-on-surface-variant">Active Teams</div>
+<div class="font-headline-sm text-headline-sm text-tertiary">14</div>
+</div>
+</div>
+</div>
+<!-- Rivalry Highlight (Medium Tile) -->
+<div class="md:col-span-4 soft-card p-md flex flex-col items-center justify-center text-center gap-sm">
+<span class="font-label-caps text-label-caps text-error uppercase tracking-wider block">Featured Rivalry</span>
+<div class="flex items-center gap-md w-full justify-center my-2">
+<div class="flex flex-col items-center">
+<img class="w-16 h-16 rounded-full shadow-md object-cover mb-2" data-alt="A minimalist tech company logo featuring a blue stylized cloud, isolated on a white circular background with a soft shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaegnJAVxIAz4gIMYEZ7Pt-IMyDjpCE8bQNfE2hUndMbeb_l9S5NlDaXCgdnJljdj16kVkWGnucP8mY07dMqVgt-eRB5dmefgesj-BsbJt3c6KHnPqUiBbvhr3v6hm6XdaXlmRjdw9bvW4pvk2QbucDtkeeWNbDR-lLeXHs3S-VI0EiWirozloUhQK_NOjM0IpR1D8g-w7XXq7eO18-UCgFuI4xlGUu_ys7epsyRA7p0IE5uEhPieq">
+<span class="font-body-md text-body-md font-bold">CloudNet</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-surface-variant italic">VS</span>
+<div class="flex flex-col items-center">
+<img class="w-16 h-16 rounded-full shadow-md object-cover mb-2" data-alt="A modern finance company logo with a green geometric leaf design, isolated on a white circular background with a soft shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZOXg3WrTfuW64uHuwInrcj4x1M6Rfrt_FDdVEWo3m6hoPv-oT7L-YqlWo8W4DKSd0rr4ATHQSam6k9urussaOuLzm2tuUEkfHSunlZXAWg2wFbHBn6EM2TJNXmAZd8_0FXnCKYRZBgEf6NO1ocXgJyVvoxaZ30XcpHGgLdXoHrepvUCDpm7I5Jzf6uVZRJFlh3-OsNzuRSPaWcuU2_oUVtesP_UOcqSlY43kwYDR69IUTd-WhAO2M">
+<span class="font-body-md text-body-md font-bold">FinTrust</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Next Match: Downtown Courts, Friday 6PM</p>
+<button class="clay-button font-button text-button px-md py-sm w-full mt-2">View Matchup</button>
+</div>
+<!-- Full Rankings Table (Spans full width) -->
+<div class="md:col-span-12 soft-card p-0 overflow-hidden">
+<div class="p-md border-b border-outline-variant/30 flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Global Rankings</h3>
+<button class="font-button text-button text-secondary hover:underline flex items-center gap-xs">
+                        View Detailed Stats <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant border-b border-outline-variant/50">
+<th class="p-md font-label-caps text-label-caps w-16 text-center">Rank</th>
+<th class="p-md font-label-caps text-label-caps">Company</th>
+<th class="p-md font-label-caps text-label-caps">Industry</th>
+<th class="p-md font-label-caps text-label-caps text-right">Points</th>
+<th class="p-md font-label-caps text-label-caps text-center">Trend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container-low transition-colors group">
+<td class="p-md text-center font-headline-sm text-headline-sm text-primary">1</td>
+<td class="p-md flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A futuristic startup logo with a sharp orange geometric shape, soft shadow on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6O08dybYxOyk3fwLmj4iuQ4xhcC3hccq5ZOBU3YH36M0lSjmQzxvyYeyhFI0ImLdqC0d0WI4kUWgUymqrFIZ5JJMBi4tAcHL6JTw2bDNKZ88jYwerOqsmkoLvdslkaU_Cj2aWRrcHM9mLhG9FGeGfyK04ZGkt41i5BlnmKA-kGay5TjFUf3qnIiWQtBCHhh6vk-5ku5l9fijzgWi6xn8_6T9CHY5je-Sm5m80kKaD4u1Se67chkpX">
+<span class="font-body-lg text-body-lg font-bold">TechNova Solutions</span>
+</td>
+<td class="p-md font-body-md text-body-md text-on-surface-variant">Technology</td>
+<td class="p-md font-body-lg text-body-lg font-bold text-right">12,450</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-secondary">trending_up</span></td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container-low transition-colors group">
+<td class="p-md text-center font-headline-sm text-headline-sm text-on-surface">2</td>
+<td class="p-md flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A corporate health company logo with a red cross motif, soft shadow on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHn3rq6IavjW5BIlIBZwoh3snOpZws_k3Q4O-p5F1yyORiEUZwQzPNrg03xl5tuNVdD0xO4HAfgycNLBloncuhCc4_AFavJG8V54Jz0LAntL8EfU6Bs6B4w4U1c4zGzku1PXOr5xdPZ1ZBDBr-41KkeraqFLnaKCnkBChVxDEQkhZpeHNUS5MK1hz2AEaYRO6dpMe6Y2Kd6XLxh7anxMBn95fdxdkjs5Gtf9_pW-VxbXffDGXDhHqu">
+<span class="font-body-lg text-body-lg font-bold">MediLife Group</span>
+</td>
+<td class="p-md font-body-md text-body-md text-on-surface-variant">Healthcare</td>
+<td class="p-md font-body-lg text-body-lg font-bold text-right">11,200</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-outline">horizontal_rule</span></td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container-low transition-colors group">
+<td class="p-md text-center font-headline-sm text-headline-sm text-on-surface">3</td>
+<td class="p-md flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A modern finance logo with intersecting gold circles, soft shadow on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVcsHHnwg9BI8-rYvf-GukuJyYJfDKiNavqifUYO50tR-k1D93Qn6QXcJwhfxWt3SFeLPQCeEclCKxTSZ3fHC3o-J64Si1yVKWsDUravpUVKrzM_NPFfnk18yDEExm38S7C8qJW3iiNOvblZVsinTEkDxs70U8rnK9PoCCLUI_zvndzr0xqFVsstYrqy-sgRWtZTjNi7s8qy0Axlmbr9r7faWx4krG5G49ffqpOIbCnou8_bWB5I_V">
+<span class="font-body-lg text-body-lg font-bold">Apex Financial</span>
+</td>
+<td class="p-md font-body-md text-body-md text-on-surface-variant">Finance</td>
+<td class="p-md font-body-lg text-body-lg font-bold text-right">10,850</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-secondary">trending_up</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md text-center font-body-lg text-body-lg text-on-surface-variant">4</td>
+<td class="p-md flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="An energetic marketing agency logo with a yellow lightning bolt, soft shadow on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmTWGn-pUt9AL4Bo2GaopOXeHYUJau9IXEpHwUS7OywqC3uztZuRkt8hfX2kna5Qao6vuksQS4WXqd9VrhsPqt95_E1Yq3w2V-OKNDdlUaiffiYQPZjkfDCkBnJVj_WEJumSlRRcy-Q6vQTfAmntmmmDxCH6Oxs1JDgdqDWGi_xjh3I5Accbing2nhJpFIV6sqMGyvEtf53SrMZ8s1wXF3zpg-cItS82ESBrmzH8tmLRCmcjpS1KUn">
+<span class="font-body-lg text-body-lg font-bold">Creative Sparks</span>
+</td>
+<td class="p-md font-body-md text-body-md text-on-surface-variant">Marketing</td>
+<td class="p-md font-body-lg text-body-lg font-bold text-right">9,420</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-error">trending_down</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Top Corporate Athletes -->
+<div class="md:col-span-12 soft-card p-md bg-surface-container-lowest mt-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Top Corporate Athletes</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Athlete 1 -->
+<div class="flex items-center gap-sm p-sm rounded-xl hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" data-alt="A professional headshot of a fit corporate employee in sports gear, bright lighting, soft tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf7ZXwKk0heUkZMIfll9qvqm_8NV_8_UFL6vfa_jgHUokhPTOr4HH1bWLbz9Gw4iSbmctnKaG5Ucy9636fOjPtlYQC4_a5wpVIkzgZFuIH3Eh5voRTqODo6gQDJJTDlSu_vmCzSaUHUKhX3ftKnxYxgiKFIdzAFnFi_nD5Hv-nMOoLZ1tTRgMBf1mbpUBHmmqH9dybSu1L4CrtwxFMSKe_-vwR1ECGTUkCvLKbqZ_EeQNbUnWPTwUt">
+<div class="absolute -bottom-2 -right-2 bg-primary-container text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white">1</div>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Sarah J.</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">TechNova Solutions</div>
+<div class="font-label-caps text-label-caps text-secondary mt-1">MVP - Volleyball</div>
+</div>
+</div>
+<!-- Athlete 2 -->
+<div class="flex items-center gap-sm p-sm rounded-xl hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" data-alt="A professional headshot of a smiling male employee in athletic wear, warm light mode aesthetic, soft tactile shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnBhaNg6nVU-RxhUZweORhPj0iunGxAvfeOuRtP_O9pR61ZlRwW6l9PVWXJx5lj9xklkyb37S4V21GUY3ifBwlmMhwKgRtkc8AX8Tq3Zd1Ddn_tEbJt0gds5P8wGNlJvfWCEh0HYau1JZzqwC62EJaFJX8o4CWudda6cuB05KTjGs7GkakFxslCpd25BFbYjXytu0KPG_N24TIRHpUeLZsR6W6sLp2IcyXdwxQKJ3_mNXl3mmdYcil">
+<div class="absolute -bottom-2 -right-2 bg-surface-variant text-on-surface w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white">2</div>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Marcus T.</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">MediLife Group</div>
+<div class="font-label-caps text-label-caps text-secondary mt-1">Top Scorer - Basketball</div>
+</div>
+</div>
+<!-- Athlete 3 -->
+<div class="flex items-center gap-sm p-sm rounded-xl hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" data-alt="A professional headshot of a female employee with a confident expression, wearing a runner's bib, soft lighting, tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTy3wZ9-s2XT1--xBa2AZP0yGXY6rwk7Jax2sNmblYA6e01E4c0AXfdM6dOXGE4ftQ5tcfqxwLEk0T-XZR3ZanjR80-3c7nTZGP8Smk5r0tAlHsaJBPl6qulGJOq0uQ8FrV-VcSwrLW1w1h9WhSOSvVKc0Yn4h5gRmDQxBJVtmSCqLZtKJhPm3hvK5UauG_uTdh8T_N0GiVi8lR8sR7ynYtHWEXsti2HfpD8YxCyqbB070I-VpjdoW">
+<div class="absolute -bottom-2 -right-2 bg-surface-variant text-on-surface w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white">3</div>
+</div>
+<div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">Elena R.</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">Apex Financial</div>
+<div class="font-label-caps text-label-caps text-secondary mt-1">Fastest - 5K Series</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-gutter bg-inverse-surface dark:bg-surface-dim mt-auto shadow-sm">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-md">
+<div class="font-display-hero-mobile text-headline-sm text-primary-fixed">PlaySphere Corporate</div>
+<div class="flex gap-md font-body-md text-body-md">
+<a class="text-surface-variant hover:text-white transition-colors transition-opacity duration-300 hover:underline decoration-primary-container" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-white transition-colors transition-opacity duration-300 hover:underline decoration-primary-container" href="#">League Rules</a>
+<a class="text-surface-variant hover:text-white transition-colors transition-opacity duration-300 hover:underline decoration-primary-container" href="#">Contact Support</a>
+<a class="text-surface-variant hover:text-white transition-colors transition-opacity duration-300 hover:underline decoration-primary-container" href="#">Brand Assets</a>
+</div>
+<div class="text-surface-variant text-sm">
+                © 2024 PlaySphere Kinetic. Professional League Division.
+            </div>
+</div>
+</footer>
+</body></html>

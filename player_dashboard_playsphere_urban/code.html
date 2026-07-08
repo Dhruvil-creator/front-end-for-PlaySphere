@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Player Dashboard</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#fff8f6",
+                        "primary": "#b52603",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-surface-variant": "#434655",
+                        "inverse-surface": "#3e2c28",
+                        "on-tertiary-container": "#0d2075",
+                        "surface-container-low": "#fff0ed",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "outline": "#8f7069",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "inverse-primary": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600",
+                        "outline-variant": "#e3beb6",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2dc",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64",
+                        "on-surface": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed-variant": "#005048",
+                        "tertiary-container": "#7d8ce4",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "tertiary": "#4858ab",
+                        "surface-container": "#ffe9e5",
+                        "primary-soft": "#FF8A70",
+                        "on-background": "#271814",
+                        "surface-dim": "#f0d4ce",
+                        "surface-card": "#FFFFFF",
+                        "primary-container": "#ff5a36",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006b5f",
+                        "surface-tint": "#b52603",
+                        "map-teal": "#00B4A2",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f6",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-secondary-fixed": "#00201c",
+                        "inverse-on-surface": "#ffede9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    fontFamily: {
+                        "button": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    fontSize: {
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fff8f6; /* bg-surface-bright fallback */
+            color: #271814; /* text-on-surface fallback */
+            overflow-x: hidden;
+        }
+        .clay-shadow {
+            box-shadow: 0 20px 40px rgba(181, 38, 3, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        /* Custom scrollbar for horizontal lists */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface flex min-h-screen">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 py-lg w-64 rounded-r-lg bg-clay-bg dark:bg-on-surface shadow-xl bg-clay-bg border-r border-outline-variant">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_volleyball</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tighter">PlaySphere</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Your City, Your Court</p>
+</div>
+</div>
+</div>
+<div class="flex-1 px-sm flex flex-col gap-sm">
+<!-- Active Tab: Playgrounds (Acting as Dashboard proxy for this view) -->
+<a class="flex items-center gap-base bg-primary-container text-on-primary-container rounded-full px-md py-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] transition-transform translate-x-2" href="#">
+<span class="material-symbols-outlined">sports_basketball</span>
+<span class="font-body-md text-body-md">Playgrounds</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all hover:text-primary-soft transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md text-body-md">Squads</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all hover:text-primary-soft transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-body-md text-body-md">Tournaments</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all hover:text-primary-soft transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-body-md text-body-md">Stats</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all hover:text-primary-soft transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-md text-body-md">Community</span>
+</a>
+</div>
+<div class="px-md mt-auto flex flex-col gap-sm">
+<button class="w-full bg-primary-container text-on-primary-container font-button text-button py-sm rounded-full shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform">
+                Find a Match
+            </button>
+<div class="border-t border-outline-variant my-sm"></div>
+<a class="flex items-center gap-base text-on-surface-variant px-sm py-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body-md text-[16px]">Settings</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-sm py-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+<span class="font-body-md text-[16px]">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-md md:p-lg max-w-container-max mx-auto w-full">
+<!-- Top Bar (Mobile / Contextual) -->
+<header class="flex justify-between items-center mb-lg md:hidden">
+<h1 class="font-headline-sm text-headline-sm text-primary">Overview</h1>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full bg-surface-card soft-deep-shadow flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A vibrant, modern user profile avatar illustration featuring a stylized character with a colorful sunset orange background, representing an active sports player in a claymorphism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPjZzmNKB7yr6aoCGu_HUtYMKaKSzJqUZMXslnkCXg4bpnVH4zIyeYC9odk9X3rqmd5yJGeTKbe7RXbY5MWHNpTRw4BHbS0LA9Nc3SaA3mhZW6WKABXuzShWjD82fGmdBSf6QCLYISvOqEEZzNTaDte4CYQsnUQ5ywEY71zNHz6gew_ClndD0nmDkxDMJABhSRf5cOXRUjdQqQTlJPitNzFVb5EzEuBpX9TlDRLX8iAilgYqfveLbl">
+</div>
+</header>
+<!-- Desktop Header -->
+<div class="hidden md:flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface">Welcome back, <span class="text-primary">Player</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Ahmedabad's courts are waiting for you.</p>
+</div>
+<div class="flex gap-md items-center">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-card soft-deep-shadow border-none rounded-full py-sm pl-xl pr-md font-body-md text-body-md focus:ring-2 focus:ring-primary-container outline-none w-64" placeholder="Find venues or players..." type="text">
+</div>
+<button class="w-12 h-12 rounded-full bg-surface-card soft-deep-shadow flex items-center justify-center text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img class="w-12 h-12 rounded-full object-cover border-2 border-primary-container cursor-pointer" data-alt="A vibrant, modern user profile avatar illustration featuring a stylized character with a colorful sunset orange background, representing an active sports player in a claymorphism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfVdBiYjHOQk6-HRer38nyDDHJE3i-7j3bXidsfvjihzJYmFwVHdc-i6GIHW19ssZknmmo12OY2HmVGax-sNeTG5J7MBVlp3yK8PFd0-7Fl7NtsuFYrK0JQtuCUr2Eal_32NtaTIuEmeeATbK5pwgSEBVasnhKhRXO7plDulxSkyvYwUR--155xuO_7kGxBadMvm5v_Qh5KA6DM-AILoeTK8MsS4av2J8wRKGNyzmdHFzK4fjwwRmj">
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Left Column: Hero & Venues -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<!-- Today's Activity Hero Card -->
+<section class="relative bg-surface-card rounded-xl p-md md:p-lg soft-deep-shadow overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl group-hover:bg-primary-container/30 transition-colors duration-700"></div>
+<div class="absolute -left-10 -bottom-10 w-48 h-48 bg-secondary-container/20 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<span class="inline-block px-sm py-xs bg-error-container text-on-error-container font-label-caps text-label-caps rounded-full mb-sm flex items-center gap-xs w-max">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span> High Activity Today
+                            </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Evening Pickup Basket</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">location_on</span> Vastrapur Lake Courts, Ahmedabad
+                            </p>
+</div>
+<div class="bg-primary-container text-on-primary-container rounded-lg p-sm text-center min-w-[100px] clay-shadow">
+<span class="block font-label-caps text-label-caps opacity-80">Starts In</span>
+<span class="block font-headline-sm text-headline-sm">02:45</span>
+</div>
+</div>
+<div class="relative z-10 mt-lg flex items-center justify-between">
+<div class="flex -space-x-4">
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a young athletic male with dark hair smiling gently, rendered in a bright, modern lighting setup with warm sunset accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQSAKGZ_H3EQEAxnUM0LAK2Hm3l1uVNqaJpOaIYDwXnJufi1zaEEedo5c0Y8BFE21soDyC-iDRdIZQ4iAe8Q6F2N4sP97fRyBDGTt1QOrvELacE67Rs3LLWSBTKKr-sLAH61kGSldRI771pU0jQirrnJk6Hw8obUmbCd9AWFdN4OW98VTCOEEF9r57ZSXmAttUrddmwiWYzZLP0dsq--zvIEpeVG9_flFRPNOHV_Pc1DfKJqCXQl3Q">
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a sporty female wearing a headband, lit by bright daylight with a soft teal secondary light, expressing energy and readiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq4P9HmYyWW572eF2viJxGbpT33xlae7qAJ8RZ96qBUk-Kk8_hJK3ofSaxh25Z8rJ61k03v6iWpU-585K2LrvtOt79JxQjeECnqP1k-A7rjhe8vML44G0R3IzQtP0Iw5p3J_zzL5UK8h5YWwpQjveYE4BJbCiDyuRfvSgAEgI5kJkVp622pJhJjOB9l-1kohwGw5Dqg3xu7lPhy5rOLxW1fmG93gDe-eeWC8LEWW7UVJpLJZfoq_Si">
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a young man with a slight beard in athletic gear, neutral bright lighting, looking determined, soft clay aesthetic background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2XOkAZrA-URbdoJHbkOnN7HWx6jbwgtaOKXKyIsd2qX3Fs1QEFgadeQeKt8XPgi5-I8brJ5PCbh1S2KSxGYYojxJNeo-Me3M9OGXcE_GWIRFVVormC6kXQNxRJdgSOZQ_D7tkjPq3uvuV2bBzp7iw42gdQHV5lgZD_zORSRywRKYIxU7EoC19D0GLXyjOppRxyzEdqeUtvrqeeF3caBvNaIzDvCvDsBl9bjAQCjQzODaylwWVyPw4">
+<div class="w-10 h-10 rounded-full border-2 border-surface-card bg-surface-variant flex items-center justify-center font-body-md text-sm text-on-surface-variant">+5</div>
+</div>
+<button class="bg-primary text-on-primary font-button text-button px-lg py-sm rounded-full clay-shadow hover:-translate-y-1 transition-transform">
+                            Join Match
+                        </button>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="grid grid-cols-2 gap-md">
+<div class="bg-surface-variant rounded-lg p-md flex items-center gap-sm cursor-pointer hover:bg-surface-dim transition-colors group">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center soft-deep-shadow text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">stadium</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface">Book Venue</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[11px]">Instant Reserve</p>
+</div>
+</div>
+<div class="bg-surface-variant rounded-lg p-md flex items-center gap-sm cursor-pointer hover:bg-surface-dim transition-colors group">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center soft-deep-shadow text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">person_search</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface">Find Players</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[11px]">Local Squads</p>
+</div>
+</div>
+</section>
+<!-- Recommended Venues (Horizontal Scroll) -->
+<section>
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-headline-sm text-[24px] text-on-surface">Top Rated in SG Highway</h3>
+<a class="font-body-md text-body-md text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scroll pb-md">
+<!-- Venue Card 1 -->
+<div class="min-w-[280px] bg-surface-card rounded-lg soft-deep-shadow overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+<div class="h-32 bg-surface-variant relative" data-alt="A pristine outdoor basketball court located in an urban setting during golden hour, with sunset orange light hitting the painted clay surface, surrounded by modern cityscape silhouettes." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD-3vS2qRsLvrbtXU8NJBaJIuZpzINe39UfshmBZ1ioSeJ_iNN0tScv8HJlMbdift9eNISCwVXYWzD_yL-aZsA7Z5HsOdLXI1uLCB05hDQckytWYvQaum3Et4wiX2PZgglT6OdBfxbanip7lhDYqzllFm7ticiINwaIMiYslfvuOC1gvpbVpmQ_ODkrOkebzhRtZhi3j2L-6LIG6XfQS2_tVnNxcI7HFHxQcuADL0Oli_KW6w8rDt_'); background-size: cover; background-position: center;">
+<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded text-[12px] font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.9
+                                </div>
+</div>
+<div class="p-md">
+<h4 class="font-body-md text-body-md text-on-surface">Eklavya Sports Arena</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[12px] mt-xs">2.4 km away • Multi-sport</p>
+</div>
+</div>
+<!-- Venue Card 2 -->
+<div class="min-w-[280px] bg-surface-card rounded-lg soft-deep-shadow overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+<div class="h-32 bg-surface-variant relative" data-alt="A lush green artificial turf football field enclosed by high netting, illuminated by bright stadium lights against a twilight sky, creating a high-energy athletic mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmn7HfcMq_vn6Fy2wBoVdtcFdCNM7XSZQxiXA85iphzMxGCyli_BoZSI3qrbNBPqEI9koKAbN_QKitlK_LptxSlOwszh7fZgmcb8J_las0hYlgHoCYR2Cu4RV4EpzngoxSOQTgOYAeG5PfxvO9wE0GCH86Cv-_hu9vWGbVNB-Elr7SXVyu6Q8sOG2xVaWvlB4KVPcrxThtyR19Mg_IKPZFUAttT9ADf77z4SFHZo7enOf16iuTkB8O'); background-size: cover; background-position: center;">
+<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded text-[12px] font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.7
+                                </div>
+</div>
+<div class="p-md">
+<h4 class="font-body-md text-body-md text-on-surface">Karnavati Turf</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[12px] mt-xs">5.1 km away • Football</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar content (Upcoming, Players) -->
+<div class="flex flex-col gap-md">
+<!-- Upcoming Matches List -->
+<section class="bg-clay-bg rounded-xl p-md border border-outline-variant">
+<h3 class="font-headline-sm text-[22px] text-on-surface mb-md">Your Schedule</h3>
+<div class="flex flex-col gap-sm">
+<!-- Match 1 -->
+<div class="bg-surface-card rounded-lg p-sm flex items-center gap-sm soft-deep-shadow">
+<div class="w-12 h-12 bg-primary-fixed rounded flex flex-col items-center justify-center text-on-primary-fixed">
+<span class="font-label-caps text-[10px]">OCT</span>
+<span class="font-headline-sm text-[18px]">14</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-[16px] text-on-surface leading-tight">Navrangpura League</h4>
+<p class="font-label-caps text-[11px] text-on-surface-variant">vs. The Spartans</p>
+</div>
+<div class="text-right">
+<span class="block font-body-md text-[14px] text-primary">18:00</span>
+</div>
+</div>
+<!-- Match 2 -->
+<div class="bg-surface-card rounded-lg p-sm flex items-center gap-sm soft-deep-shadow opacity-75">
+<div class="w-12 h-12 bg-surface-variant rounded flex flex-col items-center justify-center text-on-surface-variant">
+<span class="font-label-caps text-[10px]">OCT</span>
+<span class="font-headline-sm text-[18px]">18</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md text-[16px] text-on-surface leading-tight">Friendly 5v5</h4>
+<p class="font-label-caps text-[11px] text-on-surface-variant">Decathlon Applewoods</p>
+</div>
+<div class="text-right">
+<span class="block font-body-md text-[14px] text-on-surface-variant">07:00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Nearby Players -->
+<section class="glass-panel rounded-xl p-md mt-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-body-md text-body-md text-on-surface">Ready to Play Nearby</h3>
+<div class="w-2 h-2 bg-secondary-container rounded-full animate-pulse"></div>
+</div>
+<div class="flex flex-wrap gap-sm">
+<div class="relative cursor-pointer group">
+<img class="w-14 h-14 rounded-full border-2 border-surface-card object-cover group-hover:border-secondary transition-colors" data-alt="A circular profile picture of an Indian youth in a yellow sports jersey, smiling brightly in a sunny outdoor setting, with a vibrant, welcoming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQOJKtzyb-ywRK2Igia2cCCrp6lLh2Qd1r1X4yMzf18clBbCvAArEayM9J7VCao1rIECbSELNW6YJLOZ9OzuB_kPkPUKsBIOGyT_xFfbRlT4VN4mMagvWik5eQ8HnTVlKfSA0hErO2a6HEYHO9JjBJQhBcg_MfKbWW0ZKSV33WkV4q9_5wNkdemIDLvae71YZBtf8LnF51B5SKcW0ARLKQRfEFmXSo4B8H9EVCGu_RPOkyzyNOqo9">
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-secondary-container border-2 border-surface-card rounded-full"></div>
+</div>
+<div class="relative cursor-pointer group">
+<img class="w-14 h-14 rounded-full border-2 border-surface-card object-cover group-hover:border-secondary transition-colors" data-alt="A circular profile picture of a young woman with a high ponytail wearing athletic wear, looking focused against a blurred urban background with soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvvCXlwXR1w-T5tCEs8iYAi_0gdEGye7DujQIwzyeRgiv4VSqIrPoH9QC3_uxn2Xkst9M5lhm3u81LITMkWiGksi3Z9cjO8RWesJ4kc8LCXXWI5H3HI0Xm6JcBcbLPmnbL_OYZLhFSWQXDmgYeu6PQGuLPeFKoLXA2KsvvyR2u3K9KkpFVt91NHEA7DFot9DvI_102HgkiqZhcAYzuo2qxz8l9c6B4PXl5NkEjhz0PlMmublOqti7j">
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-secondary-container border-2 border-surface-card rounded-full"></div>
+</div>
+<div class="relative cursor-pointer group">
+<img class="w-14 h-14 rounded-full border-2 border-surface-card object-cover group-hover:border-secondary transition-colors" data-alt="A circular profile picture of a man in his late 20s wearing a blue dry-fit shirt, bathed in warm sunset light, exuding an energetic and friendly mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXyoVZnAWW3ekKqRzoJVxR7XSR4s7PH_Qo2qXWh3JON39lO8zSdsYnFNNzwu6pGQjm0Uih7_dVoJ3GbUrAbHNC6xZEeZ8IGzGK4YWeRKy41fIy5kvD9TFgBO7e-TGMDp9ZEYrH19JrA_EabNdgilACUw_Q4cyZET0CGGIVcI-725ezalF72omZeyy4-B9zXvuC09HDQxZ7-vH2qDluKp2UKNKIzmVvvRmFr91jlJ2JvyDTsIDyT5IE">
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-secondary-container border-2 border-surface-card rounded-full"></div>
+</div>
+<div class="w-14 h-14 rounded-full bg-surface-variant border-2 border-dashed border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-dim cursor-pointer transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

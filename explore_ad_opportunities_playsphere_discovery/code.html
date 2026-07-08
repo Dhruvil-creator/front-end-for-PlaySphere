@@ -1,0 +1,350 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Ad Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#ff5a36",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "primary-fixed": "#ffdad2",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#e3beb6",
+                        "map-teal": "#00B4A2",
+                        "on-background": "#271814",
+                        "inverse-surface": "#3e2c28",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "outline": "#8f7069",
+                        "surface-dim": "#f0d4ce",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#4858ab",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-bright": "#fff8f6",
+                        "surface-container": "#ffe9e5",
+                        "on-tertiary-container": "#0d2075",
+                        "background": "#fff8f6",
+                        "on-surface": "#271814",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#dee0ff",
+                        "inverse-primary": "#ffb4a3",
+                        "primary": "#b52603",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-tint": "#b52603",
+                        "primary-soft": "#FF8A70",
+                        "on-surface-variant": "#434655",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "surface": "#fff8f6",
+                        "surface-container-low": "#fff0ed",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "secondary": "#006b5f",
+                        "on-tertiary-fixed": "#00105b",
+                        "surface-variant": "#f9dcd6",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-container": "#6df5e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "button": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05), inset 0 2px 0 rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+        .clay-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1), inset 0 2px 0 rgba(255,255,255,0.9);
+        }
+        .clay-btn-primary {
+            box-shadow: 0 10px 20px rgba(255, 90, 54, 0.3), inset 0 2px 0 rgba(255,255,255,0.4);
+        }
+        .filter-pill.active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .story-card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen antialiased flex flex-col md:flex-row">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-md px-sm border-r border-outline-variant/30 bg-clay-bg dark:bg-inverse-surface shadow-[0_20px_40px_rgba(0,0,0,0.1)] fixed left-0 top-0 w-72 z-40">
+<div class="flex items-center gap-sm mb-lg px-4">
+<img class="w-10 h-10 rounded-lg object-cover shadow-sm" data-alt="A stylized, modern geometric logo representing a sports community hub, featuring vibrant orange and teal interlocking shapes on a soft clay background. The design feels dynamic, physical, and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJmZHjKHxvPsa_pBJKYk5BEffwsm3iAU_-BPquy-4U_Um7crsh_pR3TRKhrI58L_994l9TIUCwpaOlbjZ2wEX7PnIK2RGsgRfO-6ya1qplpEf_6_6b3X7OU_lhhT0iSeMi_f3TOl3I3NEWNxIEG5D0wVqNR5SORtjaX5ZQysHHVgTRVE6JRXaHDJ9e8DmR4UvLeUwQiHR3w9cHiuynCajdDoE2_vDXxKRqjq_neJzP3xGDCEZG7xfu">
+<div>
+<h1 class="font-headline-sm text-headline-sm font-black text-on-surface">PlaySphere Kinetic</h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Enterprise Partner</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-3 rounded-full mb-8 clay-btn-primary flex items-center justify-center gap-sm hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+            New Campaign
+        </button>
+<div class="flex-1 flex flex-col gap-sm">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">campaign</span>
+<span class="font-body-md">Campaigns</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 shadow-md inset-shadow-sm scale-98 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-body-md font-bold">Marketplace</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">palette</span>
+<span class="font-body-md">Creatives</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-sm pt-md border-t border-outline-variant/30">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-xl">contact_support</span>
+<span class="font-body-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar (Mobile & Desktop Header) -->
+<header class="sticky md:fixed top-0 w-full md:w-[calc(100%-18rem)] z-50 flex justify-between items-center px-gutter h-20 backdrop-blur-xl bg-surface/80 dark:bg-surface-dim/80 shadow-sm border-b-0">
+<div class="flex items-center gap-md">
+<div class="md:hidden">
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary-soft font-black tracking-tight">Partner Portal</h1>
+</div>
+<div class="hidden md:block">
+<!-- Breadcrumbs or contextual title on desktop -->
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Ad Marketplace</h2>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200 hidden sm:block">
+<span class="material-symbols-outlined">help</span>
+</button>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-surface-card shadow-sm cursor-pointer ml-sm" data-alt="A smiling, active adult in casual athletic wear, serving as a profile avatar for a brand partner, set against a bright, warm clay-colored backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMBAdk0SQZg7uTc_wMEekJyQpEskvrEVmSwUflz0I6-SoYtKPUAr7Qs6nh4Y9r5PGESVgbbKVlBOjAIhm23J2hYu1sWqgrtJ0lY-97RZ6aAXzw-oLDS_eKhwqDP3IFTqyItK6jYZg7IfgFuu0Bz4X5czjSCojl7G4GZhY1IwEFS6EPpXuEmg42y-rrsyv5KiOJSGcNq-OTdCcReLVx3MABW29ccb1UNovrWa-i0x3LZnvI-M264cf">
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 p-gutter pt-md md:pt-28 pb-xl max-w-container-max mx-auto w-full relative z-10">
+<!-- Hero Section -->
+<section class="mb-xl relative rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] h-80 flex items-end p-lg">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic, wide-angle shot of a vibrant, sunlit urban basketball court in a bustling city park. Players are in mid-action, surrounded by energetic spectators. The lighting is warm and golden, casting soft, deep shadows. Prominent, modern digital billboards and painted court logos showcase high-impact advertising spaces. The scene conveys high energy and community engagement, typical of the PlaySphere Kinetic aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC58MCp4_cmlmRrVz37s8RLVcNCDd8YFDAVedy3mVM17L5FMGS6BMifiJcUihU7AO8Nk5QkRS9S21BdPqvgTw7_xoHK7ETr_ogXov_8D4K4K6BqtGD-atpubHUJ00wtSOL2-Hw8OMxuhhKo5eU1klO7CUsmg_VR4DLh4k136-VYv4oJLUx05YP_k4zmNwuS-_pTG5gOqAwXDpnvyU_jTZkaGNH0NoJm4nVeSb0B9aR_207w6eamRj8m')"></div>
+<div class="absolute inset-0 story-card-overlay"></div>
+<div class="relative z-10 w-full md:w-2/3">
+<span class="font-label-caps text-label-caps text-secondary-fixed mb-sm inline-block">Premium Inventory</span>
+<h2 class="font-headline-section text-headline-section text-on-primary mb-md">Dominate the Court</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest mb-md">Secure exclusive, high-visibility placements across our most active urban venues. Connect with engaged local communities.</p>
+</div>
+</section>
+<!-- Filters -->
+<section class="mb-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div class="flex flex-wrap gap-sm">
+<button class="filter-pill active bg-surface-card text-on-surface font-label-caps text-label-caps px-4 py-2 rounded-full border border-outline-variant/50 shadow-sm hover:shadow-md transition-all">All Opportunities</button>
+<button class="filter-pill bg-clay-bg text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-transparent hover:bg-surface-variant transition-all">Tournament Title</button>
+<button class="filter-pill bg-clay-bg text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-transparent hover:bg-surface-variant transition-all">Venue Takeover</button>
+<button class="filter-pill bg-clay-bg text-on-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full border border-transparent hover:bg-surface-variant transition-all">Digital Screens</button>
+</div>
+<div class="flex gap-sm w-full md:w-auto">
+<div class="relative flex-1 md:w-48">
+<select class="w-full appearance-none bg-surface-card border-none rounded-lg py-2 pl-4 pr-10 shadow-sm text-on-surface font-body-md focus:ring-2 focus:ring-primary-container">
+<option>Any Sport</option>
+<option>Basketball</option>
+<option>Tennis</option>
+<option>Skateboarding</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<button class="bg-surface-card p-2 rounded-lg shadow-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</section>
+<!-- Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<article class="bg-surface-card rounded-lg overflow-hidden clay-card flex flex-col cursor-pointer group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-angle, dynamic shot of a massive, multi-court tennis facility during a local tournament. The courts are bright blue and green, filled with active players. Surrounding the courts are large, blank banners and digital screens, ripe for advertising. The lighting is bright and cheerful, emphasizing the active, outdoor lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh-NvANEZBGrUrxTOPug-7XOQSjm5_F0bX0bxRFfNkipYjg4BI_wUvNcWrQvJOp6wqIuIzAfXBd92Um_V_hiAo_TksE7TbNiECycpjLK_2fESes8XIvZE_4l31kwjzILR9BIEkT-fh3fEvv6ARgFtCi917c6TQOdvBnNoBnvAii4xPDm6verEOaf5wHJBKAY1XW9s2Sn3dY3opRlOXspIRdeLqULK5-8YKqA478tXfEf5cCjZaCca2">
+<div class="absolute top-sm right-sm bg-primary text-on-primary font-label-caps text-label-caps px-3 py-1 rounded-full shadow-sm">Hot</div>
+<div class="absolute bottom-sm left-sm bg-surface-card/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">sports_tennis</span> Tennis
+                        </div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Downtown Open Title Sponsor</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-md flex-1">Full naming rights for the annual summer classic. Includes court decals and primary digital placement.</p>
+<div class="flex justify-between items-end border-t border-outline-variant/30 pt-sm mt-auto">
+<div>
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Est. Reach</p>
+<p class="font-body-lg font-bold text-on-surface flex items-center gap-xs"><span class="material-symbols-outlined text-secondary text-sm">groups</span> 45k+</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Starts at</p>
+<p class="font-headline-sm text-primary-container font-black">$12,500</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-card rounded-lg overflow-hidden clay-card flex flex-col cursor-pointer group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide, low-angle shot of a popular urban skatepark at sunset. Skaters are performing tricks on ramps and rails. The background features large, blank concrete walls and half-pipes, ideal for bold, painted murals or digital projections. The warm sunset light creates a dramatic, energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd4E34LbFE98Mpz4ajebECrYUhDGzBmlY1K9Lc39BFC7PDoygUY9NdpHj8G30aRbuLSbar7WsgwF50YaKe7cwxcc56iM3Q37CaSlQ4rpVipGcm3WFUNfPpCBrKgjSZOk_AghdfbHulC71-sqm2XCX3hQhBLoBvGOLReXUmwNqBfWEwGqASBoXD2w0sJVNfV_JDXKOm4osm5xsT-S1SrsgGRQy0SZXsnWvRon-eq8gm0KXmBGtPArya">
+<div class="absolute bottom-sm left-sm bg-surface-card/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">skateboarding</span> Skate
+                        </div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Concrete Jungle Takeover</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-md flex-1">Complete visual domination of the Westside Skatepark. Includes ramp murals and sampling booths.</p>
+<div class="flex justify-between items-end border-t border-outline-variant/30 pt-sm mt-auto">
+<div>
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Est. Reach</p>
+<p class="font-body-lg font-bold text-on-surface flex items-center gap-xs"><span class="material-symbols-outlined text-secondary text-sm">groups</span> 28k+</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Starts at</p>
+<p class="font-headline-sm text-primary-container font-black">$8,000</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-card rounded-lg overflow-hidden clay-card flex flex-col cursor-pointer group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up, dramatic shot of a high-tech digital scoreboard towering over a packed community basketball court during a night game. The screen is currently displaying a generic placeholder graphic, highlighting its potential for dynamic video advertising. The surrounding area is dimly lit, making the screen pop intensely." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-QvdLhWiHTqP2b80jv6-Nk6rzsqZpjcphHfFwwWw64-_ob8BM3AwSfNXy1Ef2woeg1f9nrzLI4vyqbR6I7Ic2jXnX7cF8HrKrf9zOgnumh9hKnbEmhHlyr8Ltucots_p-UHpZEOEffbOA8TwicvkqagF05SUr_rclMn480dfhvLtZQMhJzzs_qKKy6YlnaC8SP3xQQ4fYvwRn4gzxBges8nYlWZ-0mlGiF8f1fV6Zu7Ekh-FqKc1w">
+<div class="absolute bottom-sm left-sm bg-surface-card/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-3 py-1 rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">sports_basketball</span> Basketball
+                        </div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Jumbotron Rotation: Eastside</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-md flex-1">High-frequency digital spots on the main court jumbotron during peak weekend league games.</p>
+<div class="flex justify-between items-end border-t border-outline-variant/30 pt-sm mt-auto">
+<div>
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Est. Reach</p>
+<p class="font-body-lg font-bold text-on-surface flex items-center gap-xs"><span class="material-symbols-outlined text-secondary text-sm">groups</span> 15k/wk</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant font-label-caps uppercase tracking-wider mb-xs">Starts at</p>
+<p class="font-headline-sm text-primary-container font-black">$2,500<span class="text-sm font-body-md text-on-surface-variant">/mo</span></p>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-lg px-gutter flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/20 mt-auto z-10 relative">
+<p class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed-dim">© 2024 PlaySphere Kinetic Global. All Rights Reserved.</p>
+<div class="flex gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Security Architecture</a>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav (Visible only on md:hidden) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-card border-t border-outline-variant/20 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] flex justify-around items-center h-20 pb-safe">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-[10px] font-bold">Campaigns</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="text-[10px] font-bold">Marketplace</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-bold">Analytics</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-[10px] font-bold">More</span>
+</a>
+</nav>
+<script>
+        // Simple filter pill toggle interaction
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                // Remove active from sibling pills in the same container (naive approach for demo)
+                this.parentElement.querySelectorAll('.filter-pill').forEach(p => {
+                    p.classList.remove('active', 'bg-surface-card', 'text-on-surface', 'border-outline-variant/50', 'shadow-sm');
+                    p.classList.add('bg-clay-bg', 'text-on-surface-variant', 'border-transparent');
+                });
+                
+                // Add active to clicked
+                this.classList.add('active', 'bg-surface-card', 'text-on-surface', 'border-outline-variant/50', 'shadow-sm');
+                this.classList.remove('bg-clay-bg', 'text-on-surface-variant', 'border-transparent');
+            });
+        });
+    </script>
+</body></html>

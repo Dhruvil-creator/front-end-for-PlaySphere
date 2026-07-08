@@ -1,0 +1,311 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ahmedabad Titans - PlaySphere Squads</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#4858ab",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-container": "#ffe9e5",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "map-teal": "#00B4A2",
+                        "tertiary-fixed": "#dee0ff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "outline-variant": "#e3beb6",
+                        "background": "#fff8f6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "surface-container-low": "#fff0ed",
+                        "on-primary-fixed": "#3d0600",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-surface": "#271814",
+                        "surface-container-highest": "#f9dcd6",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "surface-container-high": "#ffe2dc",
+                        "outline": "#8f7069",
+                        "clay-bg": "#F5EFE9",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "on-surface-variant": "#434655",
+                        "primary-container": "#ff5a36",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-tint": "#b52603",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#7d8ce4",
+                        "inverse-on-surface": "#ffede9",
+                        "on-tertiary-container": "#0d2075",
+                        "secondary-fixed": "#70f8e4",
+                        "on-primary-container": "#5a0c00",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdad2",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "inverse-surface": "#3e2c28",
+                        "secondary": "#006b5f",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary-container": "#006f64",
+                        "on-background": "#271814",
+                        "on-secondary-fixed": "#00201c",
+                        "on-error": "#ffffff",
+                        "primary": "#b52603"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    fontSize: {
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-background');
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 90, 54, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(109, 245, 225, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 90, 54, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+
+        .clay-btn {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 
+                inset 0 4px 10px rgba(255,255,255,0.4),
+                0 10px 20px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .clay-btn:active {
+            transform: scale(0.95);
+            box-shadow: 
+                inset 0 2px 5px rgba(255,255,255,0.2),
+                0 5px 10px rgba(255, 90, 54, 0.2);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: theme('borderRadius.lg');
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to top, theme('colors.clay-bg') 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24 md:pb-0">
+<!-- TopNavBar (Web Only) -->
+<header class="hidden md:flex justify-between items-center px-gutter py-md max-w-container-max mx-auto docked full-width top-0 sticky z-50">
+<div class="bg-white/80 backdrop-blur-xl shadow-md rounded-full w-full flex justify-between items-center px-6 py-4">
+<div class="font-headline-sm text-headline-sm font-black text-primary">
+                PlaySphere Squads
+            </div>
+<nav class="flex space-x-8">
+<!-- Squads is active for Team Details intent -->
+<a class="font-body-md text-body-md text-primary border-b-4 border-primary pb-2 hover:text-primary transition-colors flex flex-col justify-end" href="#">My Squads</a>
+<a class="font-body-md text-body-md text-on-surface-variant pb-2 hover:text-primary transition-colors flex flex-col justify-end" href="#">Discovery</a>
+<a class="font-body-md text-body-md text-on-surface-variant pb-2 hover:text-primary transition-colors flex flex-col justify-end" href="#">Analytics</a>
+<a class="font-body-md text-body-md text-on-surface-variant pb-2 hover:text-primary transition-colors flex flex-col justify-end" href="#">Schedule</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="clay-btn px-6 py-3 font-button text-button">Create Squad</button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Manager Profile" class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a sports team manager. The person is wearing premium athletic leisure wear. The lighting is bright and modern, set against a soft, light-mode background with warm earthy tones. The image has a clean, energetic aesthetic typical of modern fitness apps." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhPtw6MXnkJYGmeYhiYQd84sdbmi79emqZbIi1d2k8k4GsyHEE2NsgkCTh5bLecNrcmpfaKXBaWCP0oy3ZJhTi4EmeKrp6wSDVMnLHeA4yvVhAnjks6oqwDCw2DoU5LmygdRGr0OyuEp1omlhsnTMWFYSvI33SU8ZRzVwLBmShVCPt7q1Lf-UTime1_ZG3lv2Q8_jxCbLfO7eXABcL6O4rYzCFGEv-egrgYcNLexjGuSYc-L1kim43">
+</div>
+</div>
+</div>
+</header>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface rounded-t-lg shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-3 shadow-inner active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-label-caps text-label-caps">Squads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined mb-1">leaderboard</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</a>
+</nav>
+<main class="max-w-container-max mx-auto px-4 md:px-gutter mt-4 md:mt-8 space-y-xl">
+<!-- Hero Section -->
+<section class="relative rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] h-[500px] md:h-[600px] flex items-end p-8 md:p-12">
+<div class="absolute inset-0 z-0">
+<img alt="Team Cover Photo" class="w-full h-full object-cover" data-alt="A wide, cinematic cover photo of an outdoor urban sports court at golden hour. The setting is vibrant and energetic, featuring soft-focus silhouettes of players in action. The lighting is warm and dynamic, casting long soft shadows on a clay-colored surface. The overall aesthetic is premium, tactile, and highly athletic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YeXDzh47pDJC4yzdmnH87Ua1AHlvCRlaVC4AVwsx-_LXYem91HoIKbxZ0nZ4eqtsA41iNXpb0ToN449C01uursX-ayp2cqzFPmq9bs0WwAfKH1z0XlojGunycOkKUR7Nvm2VguVctbSKw6zIHS-0KhN1R2m31T_6vDz4c1gt9Is5GZop9hLHKUmG3B4_PqdkSAuR3VLn70yxo48Im23nFYmrDdJQZGjqTugDd3HB7O3z8xiZn5uR">
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 w-full flex flex-col md:flex-row md:items-end gap-8 md:gap-12">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-surface-card shadow-[0_15px_30px_rgba(0,0,0,0.2)] overflow-hidden bg-white shrink-0">
+<img alt="Ahmedabad Titans Emblem" class="w-full h-full object-contain p-4" data-alt="A highly detailed, modern e-sports or athletic team emblem for the 'Ahmedabad Titans'. The logo features bold, energetic typography and a stylized geometric titan or gladiator motif. The colors are vibrant sunset orange and deep teal, presented on a pristine white background. The design is sleek, premium, and vector-style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4VAA_O4AIQ_h39Zv15Tb5QPmw7x_lJ8SgRpiHhHVNo1g_xhFjfV8jzmFLJpEcW2ENeEYI0oECp2fNZgh86aZzRitxd1cRfw4L9SR0mtS6t8kzzcRyrCSXhnqMigvttcny7wrMXFffCXfl5pqkrvoDSTB_Utwmg5T6EJ715kCqB6Uf9W63-baY6fEv8x6_t6CouVY0eH_OOutiG16F7LbsQrYkATKnhIkyggi4RENCUYKmPCHBvuq4">
+</div>
+<div class="flex-1 pb-4">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-2 drop-shadow-md">Ahmedabad Titans</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined">location_on</span>
+                        Ahmedabad, Gujarat • Est. 2023
+                    </p>
+</div>
+<div class="pb-4">
+<button class="clay-btn px-8 py-4 font-button text-button flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span>
+                        Challenge Squad
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+<div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+<div class="font-headline-sm text-headline-sm text-primary mb-1">42</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Matches Won</div>
+</div>
+<div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+<div class="font-headline-sm text-headline-sm text-secondary mb-1">8</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Win Streak</div>
+</div>
+<div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+<div class="font-headline-sm text-headline-sm text-tertiary mb-1">#14</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Global Rank</div>
+</div>
+<div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+<div class="font-headline-sm text-headline-sm text-on-surface mb-1">86%</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Win Rate</div>
+</div>
+</section>
+<!-- Roster Section -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-section text-headline-section text-on-surface">Active Roster</h2>
+<a class="font-button text-button text-primary hover:text-primary-soft transition-colors flex items-center gap-1" href="#">
+                    View All <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Player Card 1 -->
+<div class="soft-card flex items-center p-6 gap-6">
+<div class="w-20 h-20 rounded-full overflow-hidden shadow-md shrink-0">
+<img alt="Player" class="w-full h-full object-cover" data-alt="A close-up profile picture of an athletic person in a vibrant orange sports jersey. The person is smiling confidently. The lighting is soft and flattering, set against a blurred, light-mode background of an urban playground. The image feels energetic, approachable, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfkzZKUXvBC_0FuW-PJvCdnJogZFL3TmFj_Mwj6kNJi_CV9rL5kovHTxPOYMjvVe_wSOHfaZajXyK7X8sSxFdx6LTGgznF7tYIIuFk65naN0_Fr31-C-kSMtMHGGE3CLoWWzGfyfYGnsmC_iK-tvc2zC4JnjurnkiHqOwo-ACo2oxVaeosMhAI4GKCX62pxtJ_IAg5RMOcxO-C01yDJXXwCKQzSLmD0bmgRgrvsTaEWthOSMbv-b_g">
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-primary mb-1">Captain • Striker</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rahul Desai</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">24 Goals • 12 Assists</p>
+</div>
+</div>
+<!-- Player Card 2 -->
+<div class="soft-card flex items-center p-6 gap-6">
+<div class="w-20 h-20 rounded-full overflow-hidden shadow-md shrink-0">
+<img alt="Player" class="w-full h-full object-cover" data-alt="A close-up profile picture of an athletic person in a crisp white sports jersey with teal accents. They have a focused, intense expression. The lighting is bright and modern, set against a soft, sunny outdoor sports court background. High resolution, tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfvTjVyhsWRGMAGg5NqzN8u4QNrqjiFMmqyGFCg9Y4Z49oQ7ToFd6YbN-_Cco9H3xV67cjgUFaH_JcZg0rt1etud0psgt73a16HXGVankAxLHjQ5QFzDCR8_Z30hH-gnqeF4jltkF-OhTcGVm7JqpAKWa5gHtpR4o5WQDFUKIhrkzRkKzDie0yau9bEno41JuR8Nlu8irHPiBhEkr377g9q8Ep464xbWd0Vk9d3t4FDALTwm3xQBwS">
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-secondary mb-1">Midfielder</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Karan Patel</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">15 Goals • 28 Assists</p>
+</div>
+</div>
+<!-- Player Card 3 -->
+<div class="soft-card flex items-center p-6 gap-6">
+<div class="w-20 h-20 rounded-full overflow-hidden shadow-md shrink-0">
+<img alt="Player" class="w-full h-full object-cover" data-alt="A close-up profile picture of an energetic athletic person in an orange and black jersey. They are mid-laugh or cheering. The scene is brightly lit with natural sunlight, highlighting the tactile textures of their athletic wear. Soft deep shadow backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqCTgoTsWnOYbG9Xj92PafQ3XvBY6koLgFwEYaSVfWtIMLluNsYnOZoTR00OxXSmq-GTeU_LDGsuV-lnUe8UUIGFQ07ZyMJDkUBsv7DbPAG0CcdPRkvhZbV3MlIlmouprtvzw6x8YmlovZ4N4GkrKsJ5G16E2s6iFpwoRcmWTmkMj60O4fDhMnmNocQURt_LYEJIVwPkfVEOINk_owKm7TLdsW642GfQo5U3LpnrQn3Q9LyFFp51pc">
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-tertiary mb-1">Defender</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Vikram Singh</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">42 Interceptions</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="mb-xl">
+<h2 class="font-headline-section text-headline-section text-on-surface mb-8 text-center">Team Moments</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+<div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg relative group cursor-pointer">
+<img alt="Team Celebration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An action-packed, wide-angle photo of a local sports team celebrating a goal on a brightly lit urban turf court. The sun is setting, casting a warm orange glow (golden hour). The players are in mid-air high-fives. Premium, editorial sports photography style with soft bokeh in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWljNqDouyKOwTl_6LYDMfpmOWf_MjdrMYDE4LT24PhZvnIr09NwAKUPxISc4TxAYfArN0yrAr21kr2oih-L5O7qflp6KT4WiUwCo0uhYff_r-dYAR_kYd1MfTf4E5BXjjMr7UbNfbjalyoFk2TykANNBhLxdWdmilCYGxy8MjPWYBEZfyItKNPZ30NxcmM_fmu8faXe5aDY-oHEgbw4YPfN8j2vMww2NJDB4l972Dw5ErPdgzW1b4">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="font-body-lg text-body-lg text-white">Championship Finals 2023</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden shadow-md relative group cursor-pointer">
+<img alt="Match Ball" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A detailed, close-up shot of a sports ball resting on a textured clay-colored court surface. Sunlight is hitting the ball, highlighting the tactile material. A soft, deep shadow drops behind it. The aesthetic is clean, modern, and highly physical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVQhsthzCQYspuHoAh9D_sxRIxE9CBoWS-3_6ssP_x42UCJD3Ca9LQEDKswuEETOvqgAgS816cauRMMqao-6IHaD-F18DdlGqHQWKKNH0pQUx0qibB25C45Ml3SvsIb2gzkzNqC_GowOiYX_WsBi4QN9_5k9Ob15_X43kqXhWLplbd3cI9xgg3wl5BoAMCM60hMOj9eY-Iu9ci3rV3cb1lHd9lgZ9_zavhIp3I2IBvH6o4OmqwNMfr">
+</div>
+<div class="rounded-xl overflow-hidden shadow-md relative group cursor-pointer">
+<img alt="Team Huddle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A candid photo of the team huddled together during a timeout. They look exhausted but determined, sweating under bright stadium lights. Vibrant orange jerseys pop against a dark, moody background. Emotional, high-stakes sports editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYOvUZ6tYXdUKhkGiuJukijAzu3V1ykCauTSZPqcBpsawOY6UZFX_O8QtyUtLLdY4yQeiHGK0NEnDBT-0c4CINKRavP5wMdAjjD-yzI6WECZQzqo-lMB6rB4CX1ftVHYmCIX_01gFI04Z2e5lmIJpAkkERV6TdVnjk0gmsX38GU46jD-KWoTrv41_R0Ffln_NiBRd_LbLdc2PgQWaGrPYnl1McIbtCm-AM1GnhvVvw6XTOydop6XZ3">
+</div>
+<div class="col-span-2 rounded-xl overflow-hidden shadow-md relative group cursor-pointer">
+<img alt="Fans Cheering" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A wide shot of fans cheering behind a chain-link fence at an urban playground. The scene is full of kinetic energy and movement, with motion blur on waving flags. Bright, optimistic lighting conveying community spirit and local sports culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE_YV8Ba6AlejZI26h_7LpKFLq3NVYkZw8oMVCuvn4_zu1Aw69uZxl0JBWoz3ysmmgDqMdsBD2YA1s5ndMmfJUf1lY56lAiK0Z2lzH7B2e-uWjelzWRTadsAMG_RuizobGtudYX_ht1PesQ2pYHdmnOLafzgE-9VwqSoR1uzwDVhK6vl1XPKYhRjl9K63cWZLGqd-ebN3YPscEHVNwvg9Sno6xVFpMM__ijQwtaHL8n0YjHZAxJ3Am">
+</div>
+</div>
+</section>
+</main>
+</body></html>

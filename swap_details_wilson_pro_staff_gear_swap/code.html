@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Gear Swap Item</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-card": "#FFFFFF",
+                    "secondary-container": "#6df5e1",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "background": "#fff8f6",
+                    "primary-soft": "#FF8A70",
+                    "secondary-fixed": "#70f8e4",
+                    "surface-tint": "#b52603",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#f9dcd6",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#e3beb6",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#ffe2dc",
+                    "on-surface-variant": "#5b403a",
+                    "clay-bg": "#F5EFE9",
+                    "primary": "#b52603",
+                    "error": "#ba1a1a",
+                    "map-teal": "#00B4A2",
+                    "outline": "#8f7069",
+                    "inverse-surface": "#3e2c28",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ffede9",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-container-highest": "#f9dcd6",
+                    "on-tertiary-container": "#0d2075",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-surface": "#271814",
+                    "tertiary": "#4858ab",
+                    "tertiary-fixed": "#dee0ff",
+                    "inverse-primary": "#ffb4a3",
+                    "primary-container": "#ff5a36",
+                    "on-secondary-container": "#006f64",
+                    "secondary": "#006b5f",
+                    "primary-fixed": "#ffdad2",
+                    "on-primary-fixed": "#3d0600",
+                    "surface-container": "#ffe9e5",
+                    "surface-container-low": "#fff0ed",
+                    "on-background": "#271814",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-error-container": "#93000a",
+                    "surface": "#fff8f6",
+                    "tertiary-container": "#7d8ce4",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#5a0c00",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#f0d4ce",
+                    "surface-bright": "#fff8f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "sm": "12px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "button": ["Nunito"],
+                    "headline-sm": ["Nunito"]
+            },
+            "fontSize": {
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.clay-bg'); }
+        .soft-deep-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .clay-button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.1), 0 5px 10px rgba(255, 90, 54, 0.2);
+        }
+        .soft-card {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+        .map-marker {
+            animation: bounce 2s infinite ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md bg-clay-bg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(0,0,0,0.05)] shadow-md">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto hidden md:flex">
+<div class="font-headline-sm text-headline-sm font-black text-primary italic tracking-tighter">PlaySphere</div>
+<ul class="flex items-center gap-md">
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200 block p-2" href="#">Explore</a></li>
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-button text-button hover:scale-105 transition-transform duration-200 block p-2" href="#">Community</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200 block p-2" href="#">Tournaments</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200 block p-2" href="#">Shop</a></li>
+</ul>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="search">search</span>
+<button class="bg-primary-container text-on-primary font-button text-button px-6 py-3 rounded-full clay-button">Join Now</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-xl px-gutter max-w-container-max mx-auto w-full">
+<!-- Breadcrumbs & Back -->
+<div class="flex items-center gap-sm mb-lg">
+<a class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-caps text-label-caps uppercase">Back to Gear Swap</span>
+</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Gallery & Details -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Image Gallery Bento -->
+<div class="grid grid-cols-2 grid-rows-2 gap-sm h-[500px] rounded-xl overflow-hidden soft-deep-shadow bg-surface-card p-sm">
+<div class="col-span-2 row-span-1 md:col-span-1 md:row-span-2 relative rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed close-up shot of a well-used but well-maintained professional tennis racket. The racket is resting against a vibrant, soft orange clay-like surface, catching warm sunlight. The lighting is cinematic, highlighting the texture of the worn grip and the tension of the strings. The overall aesthetic is energetic and tactile, fitting a sports community platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1lJ1WA4M2k-AbkI52Bj6XQ-qqvPq1yRZrCbOJDdatvyYAyP6Mf66PAs547YjL7oPq0jPqVH4zskFlKPkbgKdb0sDVqTFvdKFkDHr_xF0SxtH92Ttujs7EyDV2gNaXX3FdquHUOGR1hB1zk9cmWG0v12u0S5IBJSYUTXNJ6jw88u_6QOBSYCBHAlq9NF3e3XhlxgJgYeJy_vInxW6GQ32BNxRYl__ZWWma8TSWMWyp3qkgXjaw-oxM">
+</div>
+<div class="relative rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A close-up macro shot of the head of a used tennis racket, focusing on the brand logo and the string pattern. The background is softly blurred, showing hints of a bright, sunny tennis court with soft orange and teal accents. The lighting is natural and bright, emphasizing the tactile quality of the sports equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFqmqSb4CBfe45Vy6xsZ1LgjZ3sxOVEpN1afFRGQ5ybiQWUpxrqQJyc9GgmjTrT5QQLLmmL18rw-43mtMIuwHUDEu4Xg-_Jo-l2AgrhQPdfyvXen6A8u52ZItdGY1aV0_5O16V7WwSqDMiIk_TQ5EsCid57BpWzVcTEG6UTS7x2Haz1R_HKFZqAU73-CTunk7Vo_PS8DnKjKFYFB14Nuit8nua0PVYFMCX7DubkXUzTOWCF6q4JKYQ">
+</div>
+<div class="relative rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A detailed shot of the grip handle of a used tennis racket, showing signs of wear and sweat, conveying a sense of authentic use and active play. The handle is resting on a clean, soft white surface. The lighting is soft and diffused, creating a realistic and approachable community-driven aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjsiFMxkEN1Ko9w566fFT3ScdVw40xF-n0QkcydjLC5rAi1MYQkz__w21wuNKaNShFz1TZS1AGWug8_brEfndJ_2aADzyO6iW-wfQ3OQKppDrNR0FpdyDDNEVZ-KlUt_039mOcJjcIp8Ua0m8FX6l46Qjt7RPqb26w0QYz_NgALfU6VzoRB8R-Bf-IW7eArTKOnM7S_V7-t3schnUKvS-chGoxUJMocVf6MfiiWSY38y83kxSwc73s">
+</div>
+</div>
+<!-- Product Header -->
+<div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-on-surface mb-sm">Pro Staff 97 v13</h1>
+<div class="flex flex-wrap items-center gap-md text-on-surface-variant">
+<span class="font-headline-sm text-headline-sm text-primary">₹12,500</span>
+<div class="flex items-center gap-xs bg-surface-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="verified">verified</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Good Condition</span>
+</div>
+<span class="text-sm">Posted 2 days ago</span>
+</div>
+</div>
+<!-- Condition Report -->
+<div class="bg-surface-card rounded-xl p-md soft-deep-shadow soft-card">
+<h2 class="font-headline-sm text-headline-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-soft" data-icon="grading" data-weight="fill">grading</span>
+                        Condition Report
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md leading-relaxed">
+                        Selling my beloved Pro Staff 97. It's been my main stick for the past year. There are a few scuffs on the bumper guard from low volleys, and some minor cosmetic paint chips at 3 and 9 o'clock (detailed in photos). Structurally, it's perfectly sound—no cracks. Freshly restrung with Luxilon ALU Power at 52lbs last week. Needs a new overgrip. Great control racket for an advanced player.
+                    </p>
+<div class="grid grid-cols-2 gap-sm">
+<div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-on-surface">Structurally Sound</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-on-surface">Fresh Strings</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="warning">warning</span>
+<span class="font-body-md text-on-surface">Minor Paint Chips</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="warning">warning</span>
+<span class="font-body-md text-on-surface">Needs Overgrip</span>
+</div>
+</div>
+</div>
+<!-- Tech Specs -->
+<div class="bg-surface-card rounded-xl p-md soft-deep-shadow soft-card">
+<h2 class="font-headline-sm text-headline-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-soft" data-icon="memory" data-weight="fill">memory</span>
+                        Technical Specs
+                    </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">Head Size</p>
+<p class="font-body-lg text-body-lg text-on-surface">97 sq in</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">Weight (Unstrung)</p>
+<p class="font-body-lg text-body-lg text-on-surface">315g</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">String Pattern</p>
+<p class="font-body-lg text-body-lg text-on-surface">16 x 19</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-xs uppercase">Grip Size</p>
+<p class="font-body-lg text-body-lg text-on-surface">L3 (4 3/8)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Seller Profile & Action -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Sticky Container -->
+<div class="sticky top-[140px]">
+<div class="bg-surface-card rounded-xl p-md soft-deep-shadow flex flex-col gap-md">
+<!-- Seller Info -->
+<div class="flex items-center gap-md pb-md border-b border-surface-variant">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A bright, cheerful portrait photo of a young adult tennis player, wearing a stylish athletic top. They are smiling warmly. The background is a slightly blurred tennis court on a sunny day. The overall vibe is energetic, friendly, and active, fitting a community sports platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaHkX5S1k-GYZu0cz0gI14hi6oMFeDwbGlFpG6g6ghoClb1vj5Om9HfN_t4acL7J0OgeO1p9zxpWMOqrRdn-l0ryQaPCCClsNy4T0mdQUAIp2OXzMLYAQIKT0sf8Vp6ksZzDkrMJc6_XSYObaQmn9jwxVsXlOaI0XecyZNLT0ddjIqH34Ax_ft4kB18ae02OMfHhLgu-sQFaSOGXYyMkbvx4IpJ9eNvRjk0yMGfyI5pQCvi6Si9D3X">
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface">Rohan Patel</h3>
+<div class="flex items-center gap-xs text-secondary mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="font-body-md text-body-md">4.9 (12 Swaps)</span>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                                    Navrangpura, Ahmedabad
+                                </p>
+</div>
+</div>
+<!-- CTA -->
+<div class="flex flex-col gap-sm pt-sm">
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-4 rounded-full clay-button flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                                Chat with Seller
+                            </button>
+<button class="w-full bg-white text-on-surface-variant border border-outline-variant font-button text-button py-4 rounded-full soft-card flex items-center justify-center gap-sm hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+                                Save for Later
+                            </button>
+</div>
+<!-- Safety Tip -->
+<div class="bg-surface-container-low p-sm rounded-lg mt-sm flex gap-sm items-start">
+<span class="material-symbols-outlined text-primary-soft mt-1" data-icon="shield">shield</span>
+<p class="text-sm text-on-surface-variant">Meet in a public place like a local club or cafe to complete the swap safely.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest w-full rounded-t-xl bg-surface-container-high mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg px-gutter py-xl max-w-container-max mx-auto">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-sm text-headline-sm text-primary-soft">PlaySphere</span>
+<span class="text-on-surface-variant font-body-md text-body-md">© 2024 PlaySphere Kinetic. Ahmedabad's Pulse.</span>
+</div>
+<div class="col-span-2 flex flex-wrap gap-lg justify-end">
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Discover Venues</a>
+<a class="text-primary underline hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Community Hub</a>
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Terms of Play</a>
+</div>
+</div>
+</footer>
+</body></html>

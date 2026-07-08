@@ -1,0 +1,372 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Find Players | PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-card": "#FFFFFF",
+                        "on-primary-fixed": "#3d0600",
+                        "primary-container": "#ff5a36",
+                        "on-secondary-container": "#006f64",
+                        "inverse-surface": "#3e2c28",
+                        "surface-container": "#ffe9e5",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface-variant": "#434655",
+                        "on-background": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "primary-soft": "#FF8A70",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#f9dcd6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#4858ab",
+                        "on-surface": "#271814",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-fixed": "#70f8e4",
+                        "outline": "#8f7069",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#0d2075",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "map-teal": "#00B4A2",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1",
+                        "surface-tint": "#b52603",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-dim": "#f0d4ce",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "primary": "#b52603",
+                        "outline-variant": "#e3beb6",
+                        "on-tertiary-fixed": "#00105b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .clay-button:active {
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+        .radar-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen overflow-x-hidden pt-24 font-body-md">
+<!-- Top Navigation (From JSON) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] rounded-b-lg md:rounded-full md:top-4 md:w-[calc(100%-48px)] transition-all">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="sports_basketball" style="font-variation-settings: 'FILL' 1;">sports_basketball</span>
+            PlaySphere
+        </div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Leagues</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Events</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary-container transition-colors cursor-pointer scale-105 duration-300" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined hover:text-primary-container transition-colors cursor-pointer scale-105 duration-300" data-icon="person_pin_circle">person_pin_circle</span>
+</div>
+<button class="clay-button bg-primary-container text-on-primary font-button text-button px-6 py-3 rounded-full hover:bg-primary transition-colors">
+                Book Now
+            </button>
+</div>
+</nav>
+<!-- Side Navigation (Desktop only, From JSON) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-24 h-[calc(100vh-120px)] w-64 rounded-r-lg bg-surface-container-low dark:bg-inverse-surface p-md shadow-xl z-40">
+<div class="mb-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">PlaySphere Kinetic</h2>
+<p class="text-sm text-on-surface-variant">Ahmedabad Hub</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 font-label-caps text-label-caps rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="sports_score">sports_score</span>
+                Trending Sports
+            </a>
+<a class="flex items-center gap-3 p-3 text-primary-container font-extrabold bg-primary-fixed rounded-full font-label-caps text-label-caps hover:translate-x-2 transition-transform ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group_work">group_work</span>
+                My Squads
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 font-label-caps text-label-caps rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="live_tv">live_tv</span>
+                Live Matches
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 font-label-caps text-label-caps rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="emoji_events">emoji_events</span>
+                Tournaments
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:text-primary hover:translate-x-2 transition-transform ease-in-out duration-200 font-label-caps text-label-caps rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                Community Hub
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-4">
+<button class="w-full clay-button bg-primary-container text-on-primary font-button text-button py-3 rounded-full">
+                Create Squad
+            </button>
+<div class="flex justify-around pt-4 border-t border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="help_outline">help_outline</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-[280px] p-md md:p-gutter max-w-container-max mx-auto pb-xl">
+<!-- Header -->
+<header class="mb-lg text-center md:text-left">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary">Find Players</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Connect with local athletes in Ahmedabad. Discover matches, build your squad, and own the court.</p>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+<!-- Filters & Radar Column -->
+<div class="xl:col-span-4 flex flex-col gap-gutter">
+<!-- Matchmaking Radar (Abstract Representation) -->
+<div class="soft-card bg-surface-card rounded-lg p-md relative overflow-hidden h-64 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-low to-surface-variant opacity-50 z-0"></div>
+<div class="relative z-10 w-32 h-32 rounded-full bg-primary-soft/20 flex items-center justify-center">
+<div class="absolute w-full h-full rounded-full border-2 border-primary-container radar-pulse"></div>
+<div class="absolute w-24 h-24 rounded-full border-2 border-primary-soft radar-pulse" style="animation-delay: 0.5s;"></div>
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="my_location">my_location</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-center z-10">
+<p class="font-label-caps text-label-caps text-primary-container bg-surface-card/80 backdrop-blur-sm inline-block px-4 py-2 rounded-full shadow-sm">Scanning Bopal Area...</p>
+</div>
+</div>
+<!-- Filters -->
+<div class="soft-card bg-surface-card rounded-lg p-md">
+<h3 class="font-headline-sm text-headline-sm mb-4">Filters</h3>
+<div class="space-y-6">
+<!-- Sport Type -->
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Sport</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary font-body-md text-sm shadow-sm">Basketball</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-body-md text-sm transition-colors">Football</button>
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-body-md text-sm transition-colors">Tennis</button>
+</div>
+</div>
+<!-- Skill Level -->
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Skill Level</label>
+<input class="w-full accent-primary-container h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" max="5" min="1" type="range" value="3">
+<div class="flex justify-between mt-2 text-xs font-label-caps text-on-surface-variant">
+<span>Beginner</span>
+<span>Pro</span>
+</div>
+</div>
+<!-- Area -->
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Area (Ahmedabad)</label>
+<select class="w-full bg-surface-container border-none rounded-lg p-3 font-body-md focus:ring-2 focus:ring-primary-container text-on-surface outline-none">
+<option>Bopal</option>
+<option>Satellite</option>
+<option>Navrangpura</option>
+<option>Vastrapur</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Player Grid Column -->
+<div class="xl:col-span-8">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-sm text-headline-sm">Available Players</h2>
+<span class="font-body-md text-on-surface-variant">12 Online near you</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Player Card 1 -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full -z-10"></div>
+<div class="flex items-start gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover shadow-md border-2 border-white" data-alt="A vibrant, energetic headshot of a young athletic man in a modern urban sports setting. He is wearing a bright orange sports jersey that aligns with the PlaySphere soft clay and sunset orange color palette. The background features a subtly blurred outdoor basketball court with soft, warm, light-mode illumination. The image style is bright, inviting, and tactile, conveying an approachable community sports vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyiOGddTPg9e-vcJ79sApREGhSs4UUb0-W_JD0H_ibbq9BRUMIz9rvul0tjzBRgMhzh9wSHGYT82ETTfF2-rYKwzvYGhUFHxi3rE_C5zOolSnfMdBPXoozfK4yeI9INhwTs5oG3YAYGz9EXKTBFsgj4zN9Q3pfx7yIXcncqbh2K16SXbWSFwxAqLzQ_iJI2OVx-J4Y9QnoDbLIWwLDcwhtt8dk-ceJaW7X8wXkmPf6-yBQJNV_OIqw">
+<div>
+<h4 class="font-body-lg text-body-lg">Vikram S.</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Bopal (2km away)
+                                </p>
+<div class="flex gap-2 mt-2">
+<span class="bg-secondary-container text-on-secondary-container text-xs px-2 py-1 rounded-md font-bold">Intermediate</span>
+<span class="bg-surface-container text-on-surface text-xs px-2 py-1 rounded-md font-bold">PG</span>
+</div>
+</div>
+</div>
+<div class="bg-clay-bg rounded-lg p-3 mb-4 flex-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Recent Form</p>
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-xs ml-2 font-bold text-primary">W L W W W</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span> 3 Mutual Friends
+                            </p>
+</div>
+<button class="w-full clay-button bg-primary-container text-on-primary font-button text-button py-3 rounded-full flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="send">send</span> Send Game Invite
+                        </button>
+</div>
+<!-- Player Card 2 -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-container/20 rounded-bl-full -z-10"></div>
+<div class="flex items-start gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover shadow-md border-2 border-white" data-alt="A bright, energetic headshot of a female athlete in a modern urban sports environment. She is wearing a soft teal athletic top that complements the PlaySphere soft clay background. The setting is a slightly out-of-focus indoor sports facility with natural sunlight streaming in, creating a high-key, warm light-mode aesthetic. Her expression is focused and friendly, fitting the community sports theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChdH1KX4xjveO_Wq8r4mHyWqP0uQfjqSeOZ8I5KUSxTlWwTAhg0vlCkivGm2IrAhlp1GXb1HAfoFpXG-o-Ds5LxT-LnrLsw518JpOgMKO3WoHrJ0BKLmjkF6ueUIT1QsrOGMQH5RzILX9FDfQMTIX-egxAcd9Yw9GacWMjsnP69l2AsQOWfRc-Hev0NO-WngzmflOI6DgbhvbAIq5qJH1Byndfo43t9kaNjokTpLbn81RGT3wxrDor">
+<div>
+<h4 class="font-body-lg text-body-lg">Anjali D.</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Satellite (4km away)
+                                </p>
+<div class="flex gap-2 mt-2">
+<span class="bg-primary-fixed text-on-primary-fixed text-xs px-2 py-1 rounded-md font-bold">Advanced</span>
+<span class="bg-surface-container text-on-surface text-xs px-2 py-1 rounded-md font-bold">SF</span>
+</div>
+</div>
+</div>
+<div class="bg-clay-bg rounded-lg p-3 mb-4 flex-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Recent Form</p>
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="text-xs ml-2 font-bold text-primary">W W W W L</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span> 1 Mutual Friend
+                            </p>
+</div>
+<button class="w-full bg-surface-container hover:bg-surface-variant text-primary font-button text-button py-3 rounded-full transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span> Connect
+                        </button>
+</div>
+<!-- Player Card 3 -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex flex-col relative overflow-hidden">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center text-primary-container font-headline-sm shadow-md border-2 border-white">
+                                RD
+                            </div>
+<div>
+<h4 class="font-body-lg text-body-lg">Rahul D.</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Bopal (1km away)
+                                </p>
+<div class="flex gap-2 mt-2">
+<span class="bg-surface-container text-on-surface text-xs px-2 py-1 rounded-md font-bold">Beginner</span>
+</div>
+</div>
+</div>
+<div class="bg-clay-bg rounded-lg p-3 mb-4 flex-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Status</p>
+<p class="text-sm italic text-on-surface">"Looking for a casual shoot-around this evening."</p>
+</div>
+<button class="w-full clay-button bg-primary-container text-on-primary font-button text-button py-3 rounded-full flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="send">send</span> Send Game Invite
+                        </button>
+</div>
+</div>
+<div class="mt-8 text-center">
+<button class="bg-white px-8 py-3 rounded-full font-button text-button text-primary shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+                        Load More Players
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (From JSON) -->
+<footer class="w-full mt-xl px-gutter flex flex-col items-center gap-md bg-surface-container-highest dark:bg-on-surface py-lg border-t border-outline-variant z-10 relative">
+<div class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Venue Partners</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<p class="text-sm text-on-surface-variant mt-4">© 2024 PlaySphere Kinetic. Ahmedabad's Playground.</p>
+</footer>
+</body></html>

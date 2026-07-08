@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ahmedabad Titans - Team Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#271814",
+                        "primary": "#b52603",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5a0c00",
+                        "secondary": "#006b5f",
+                        "on-secondary-fixed-variant": "#005048",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "outline": "#8f7069",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "background": "#fff8f6",
+                        "on-secondary-container": "#006f64",
+                        "on-tertiary-fixed": "#00105b",
+                        "inverse-surface": "#3e2c28",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "on-surface": "#271814",
+                        "primary-container": "#ff5a36",
+                        "tertiary": "#4858ab",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-container": "#0d2075",
+                        "outline-variant": "#e3beb6",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "map-teal": "#00B4A2",
+                        "on-surface-variant": "#5b403a",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e5",
+                        "tertiary-fixed": "#dee0ff",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-highest": "#f9dcd6",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-background');
+        }
+        
+        .clay-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .clay-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            border-radius: theme('borderRadius.full');
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .clay-button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.1), 0 4px 8px rgba(255, 90, 54, 0.2);
+        }
+
+        .ambient-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-xl">
+<!-- Ambient Background Blobs -->
+<div class="ambient-blob bg-primary-soft w-96 h-96 top-0 left-0"></div>
+<div class="ambient-blob bg-secondary-container w-[500px] h-[500px] bottom-0 right-0"></div>
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-surface-container/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary">PlaySphere</div>
+<div class="hidden md:flex gap-md">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Venues</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Athletes</a>
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary border-b-4 border-primary dark:border-inverse-primary pb-1 scale-95 active:scale-90 transition-transform" href="#">Teams</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Tournaments</a>
+</div>
+<div class="flex gap-sm">
+<button class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-lg pt-[120px] grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Header -->
+<header class="col-span-full mb-md flex flex-col md:flex-row justify-between items-end gap-md">
+<div>
+<h1 class="font-display-hero text-display-hero text-on-background mb-xs">Ahmedabad Titans</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Season 2024 Analytics Dashboard</p>
+</div>
+<button class="clay-button px-md py-sm font-button text-button flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                Export Report
+            </button>
+</header>
+<!-- Bento Grid Main Area -->
+<div class="col-span-full lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Performance Overview (Full Width) -->
+<div class="clay-card p-md col-span-full">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Performance Overview</h2>
+<span class="bg-surface-container text-on-surface px-sm py-xs rounded-full font-label-caps text-label-caps">Last 10 Matches</span>
+</div>
+<div class="h-64 rounded-DEFAULT bg-surface-container-lowest border border-outline-variant flex items-end justify-between p-sm relative overflow-hidden">
+<!-- Placeholder for Chart -->
+<div class="w-full h-full absolute inset-0 opacity-20" data-alt="A stylized, light-mode line chart graphic showing an upward trending line in sunset orange against a crisp white background. The chart features soft, glowing data points and subtle grid lines, embodying a clean, energetic urban sports aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCam0WktGgwqASi5QOQR0hDGciXRZjlnvGlckBk8Fv7i6IQJUskSwxP1OEHc_31Fxrgq7tM0tnukQQ8po32M5WZWWUdRsQVRCCK5I5tavqLQqxU8YoRf4-YLkcUBHSmp4TSV6n8Pgy4cL5zTIK0maiXH_Y7nzHea2DmTNhI78iq6ivN0bRUTfcgJL-pC-ssGG0Xo3zjjCNawlFouAQ9BszS0p4hq0asjW6z7UlvlRZt1rU1ZgVjgZsW')"></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-primary-container rounded-t-sm" style="height: 40%"></div><span class="text-xs font-bold text-on-surface-variant">W</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-surface-variant rounded-t-sm" style="height: 20%"></div><span class="text-xs font-bold text-on-surface-variant">L</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-primary-container rounded-t-sm" style="height: 60%"></div><span class="text-xs font-bold text-on-surface-variant">W</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-primary-container rounded-t-sm" style="height: 80%"></div><span class="text-xs font-bold text-on-surface-variant">W</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-surface-variant rounded-t-sm" style="height: 30%"></div><span class="text-xs font-bold text-on-surface-variant">L</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-primary-container rounded-t-sm" style="height: 70%"></div><span class="text-xs font-bold text-on-surface-variant">W</span></div>
+<div class="z-10 flex flex-col items-center gap-1"><div class="w-8 bg-primary-container rounded-t-sm" style="height: 90%"></div><span class="text-xs font-bold text-on-surface-variant">W</span></div>
+</div>
+</div>
+<!-- Team Synergy Heatmap -->
+<div class="clay-card p-md">
+<h2 class="font-body-lg text-body-lg text-on-background mb-sm">Team Synergy</h2>
+<div class="h-48 rounded-DEFAULT bg-surface-container relative overflow-hidden" data-alt="A vibrant, light-mode heatmap graphic overlaying an abstracted sports court diagram. The heatmap features bright, warm orange and energetic teal blobs representing player density and movement zones, styled with a soft, tactile, claymorphism aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDztt_W2vAOQINyBIRYWtyo5RPro1hJQ91UH5td4TQ899g2q7c3GJjO6Z1QvL6_tp4UsPAugdPul0tTHnYzaEjiYo1etYzhqf9pZ7A9yv37A2r0fNzfo8Y3p_yRdkeMclQOBdlZctPt7icOgDE_jfPw1cQEYB9fB7vZVshJ7jnCRDv7M90BMR6KlPoKSYpMCQJon_ECpM7DFBYBe_FFLlQKaklQTepoKWRW2lYTPl1opbfpsmW42quc')">
+<!-- Abstract representation of heatmap points -->
+<div class="absolute top-1/4 left-1/4 w-12 h-12 bg-primary-soft rounded-full filter blur-md opacity-80"></div>
+<div class="absolute top-1/2 left-1/2 w-16 h-16 bg-secondary-container rounded-full filter blur-md opacity-70"></div>
+<div class="absolute bottom-1/4 right-1/4 w-10 h-10 bg-primary rounded-full filter blur-sm opacity-60"></div>
+</div>
+<div class="mt-sm flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>Defensive Zone</span>
+<span>Offensive Zone</span>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="clay-card p-md flex flex-col justify-between">
+<h2 class="font-body-lg text-body-lg text-on-background mb-sm">Season Totals</h2>
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-container-low p-sm rounded-DEFAULT text-center">
+<span class="font-headline-sm text-headline-sm text-primary block">42</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Goals</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded-DEFAULT text-center">
+<span class="font-headline-sm text-headline-sm text-secondary block">28</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Assists</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded-DEFAULT text-center col-span-2 mt-xs">
+<span class="font-headline-sm text-headline-sm text-on-background block">8</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Clean Sheets</span>
+</div>
+</div>
+</div>
+<!-- Squad Stats Table (Full Width in this sub-grid) -->
+<div class="clay-card p-md col-span-full">
+<h2 class="font-headline-sm text-headline-sm text-on-background mb-md">Squad Stats</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-surface-variant">
+<th class="py-sm font-label-caps text-label-caps text-on-surface-variant">Player</th>
+<th class="py-sm font-label-caps text-label-caps text-on-surface-variant">Pos</th>
+<th class="py-sm font-label-caps text-label-caps text-on-surface-variant">Gls</th>
+<th class="py-sm font-label-caps text-label-caps text-on-surface-variant">Ast</th>
+<th class="py-sm font-label-caps text-label-caps text-on-surface-variant">MVP</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-surface-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-sm flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, stylized circular avatar portrait of an athletic young male player wearing a vibrant orange jersey against a soft, light background, reflecting a dynamic urban sports style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAMJwOe8t7lIhXUr2I0RYFUzVzAd8GkCf6zk_jADMaptap0P83EHtk2xUx5fViFnwrVeH6Qjm8etjkGVH4mDQEiXJOqDAKdp1OymSMKhf3v76MIgar1kMuQrqhl-akRM2CBbLsdrdv-heGGxns2lb06PTQ_dlZW__w_PBkvru2EZ8SWEOQEUSuvOgZDTqNyfXN0h7nv2i7izmR3eU6K7hIlbbQ1xifgeApxP7dWw5lsNGXn1dWBPnx"/>
+<span class="font-bold text-on-background">A. Sharma</span>
+</td>
+<td class="py-sm text-on-surface-variant">FWD</td>
+<td class="py-sm font-bold text-primary">12</td>
+<td class="py-sm">4</td>
+<td class="py-sm">3</td>
+</tr>
+<tr class="border-b border-surface-variant hover:bg-surface-container-lowest transition-colors">
+<td class="py-sm flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container text-xs">RM</div>
+<span class="font-bold text-on-background">R. Mehta</span>
+</td>
+<td class="py-sm text-on-surface-variant">MID</td>
+<td class="py-sm">5</td>
+<td class="py-sm font-bold text-secondary">9</td>
+<td class="py-sm">2</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-sm flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, stylized circular avatar portrait of a focused athletic male player wearing a clean, modern jersey, captured with soft lighting in an urban playground setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqfOtYgVK_oAEldeJo-szjQE3KwjmU3oonbLMMXJ5rsENlaDNDmEMfGujtZvkL1qLCA5-Dh0jMtMchIE9PiVmz__4BCruj0i1p7CNXUg8i7LzRYL1LJZSdQzm3Zm39KfR0IMUNL5LE4wJri3KGbTg-cscFA9taWKtbrpJqJuVVWn4u_HUF5-g0nKyW0Vpm8KBYiDShSayRDEOTP_i8CH2aX5ypVPbUKrMLhH53mN1LbtB29na0n7_a"/>
+<span class="font-bold text-on-background">K. Patel</span>
+</td>
+<td class="py-sm text-on-surface-variant">DEF</td>
+<td class="py-sm">1</td>
+<td class="py-sm">2</td>
+<td class="py-sm">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="col-span-full lg:col-span-4 flex flex-col gap-gutter">
+<!-- Recent Match Analysis -->
+<div class="clay-card p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="sports_soccer">sports_soccer</span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Recent Match</h2>
+</div>
+<div class="bg-surface-container-low rounded-DEFAULT p-sm mb-md">
+<p class="font-label-caps text-label-caps text-on-surface-variant text-center mb-xs">Final Score</p>
+<div class="flex justify-center items-center gap-md">
+<span class="font-bold text-on-background">Titans</span>
+<span class="font-headline-section text-headline-section text-primary">3 - 1</span>
+<span class="font-bold text-on-surface-variant">Rangers</span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-background mb-sm">Key Takeaways</h3>
+<ul class="space-y-sm font-body-md text-body-md text-on-surface">
+<li class="flex items-start gap-xs">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="check_circle">check_circle</span>
+<span>High pressing in the final third led to 2 turnovers resulting in goals.</span>
+</li>
+<li class="flex items-start gap-xs">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="check_circle">check_circle</span>
+<span>Midfield passing accuracy improved to 88%.</span>
+</li>
+<li class="flex items-start gap-xs">
+<span class="material-symbols-outlined text-error mt-1" data-icon="warning">warning</span>
+<span>Vulnerable to quick counter-attacks down the left flank.</span>
+</li>
+</ul>
+</div>
+<!-- Upcoming Fixture -->
+<div class="clay-card p-md relative overflow-hidden">
+<div class="absolute inset-0 bg-primary opacity-5 z-0"></div>
+<div class="relative z-10">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Next Match</h2>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-background">vs. City Strikers</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Oct 24, 6:00 PM
+                            </p>
+</div>
+<div class="w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-primary font-bold">
+                            CS
+                        </div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-highest dark:bg-surface-dim px-lg py-xl mt-xl flex flex-col md:flex-row justify-between items-center shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="font-headline-sm text-headline-sm text-on-surface mb-md md:mb-0">PlaySphere</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-center md:text-left mb-md md:mb-0">
+            © 2024 PlaySphere Kinetic. Your City is Your Playground.
+        </div>
+<div class="flex gap-md font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Safety</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Community Guidelines</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Global Calendar - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434655",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-container": "#ff5a36",
+                        "surface-tint": "#b52603",
+                        "secondary-fixed": "#70f8e4",
+                        "inverse-surface": "#3e2c28",
+                        "secondary": "#006b5f",
+                        "on-surface": "#271814",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-dim": "#f0d4ce",
+                        "primary-soft": "#FF8A70",
+                        "surface-container": "#ffe9e5",
+                        "tertiary": "#4858ab",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "background": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "outline": "#8f7069",
+                        "clay-bg": "#F5EFE9",
+                        "on-error-container": "#93000a",
+                        "map-teal": "#00B4A2",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-tertiary-container": "#0d2075",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#6df5e1",
+                        "primary": "#b52603",
+                        "surface-variant": "#f9dcd6",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5a0c00",
+                        "primary-fixed": "#ffdad2",
+                        "on-secondary-fixed": "#00201c",
+                        "inverse-primary": "#ffb4a3",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#006f64",
+                        "surface-container-high": "#ffe2dc",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-background": "#271814",
+                        "surface-container-low": "#fff0ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Nunito', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        .event-dot { width: 6px; height: 6px; border-radius: 50%; }
+        .event-pill { font-size: 10px; padding: 2px 6px; border-radius: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- Immutable Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-outline-variant px-10 py-3 bg-surface z-10 sticky top-0">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-4">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">PlaySphere</h2>
+</div>
+<div class="flex items-center gap-9"></div>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full bg-surface-container">
+<div class="text-outline flex border-none items-center justify-center pl-4 rounded-l-xl border-r-0" data-icon="search" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-on-surface focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-outline px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value="">
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5 hover:bg-surface-container-high transition-colors">
+<div class="text-on-surface" data-icon="notifications" data-size="20px" data-weight="regular">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5 hover:bg-surface-container-high transition-colors">
+<div class="text-on-surface" data-icon="settings" data-size="20px" data-weight="regular">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="A close up profile picture of a young athletic man smiling confidently, lit by bright daylight, wearing a simple sports jersey. Solid light blue background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6ezS_uRqSZagJoQlnb9MqSULbPs0NAFXFUeA2aM0jfvm-CsHAWL0hQVvKyLm3dGXJDS30-y5-_072gwHfsQFT20vasVQdwFa94Ul1LZkYjQFikMk9KMRx6A8O1NrfSQC3ADzA7DYmiMm8-rT_gM3w_0H99Rhr_qflOO0_kTRB09wTKTzXsQKrRRiklpRbp2zXuEzBG4XmVjFrxT2XVCVXClAEHAohf9PT2WIomHxLqbBw_jcNH7w2');"></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Immutable Left Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-outline-variant bg-surface-container-lowest p-4 flex flex-col gap-6 overflow-y-auto hidden md:flex">
+<div class="flex gap-3 items-center pb-4 border-b border-outline-variant">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="A close up profile picture of a young athletic man smiling confidently, lit by bright daylight, wearing a simple sports jersey. Solid light blue background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC82xLlBnGUi9pU3GL38I0ikNjTTiWe8jK2qzoP5WWTynvaqNTqomC2jULCkjhf_kmMXgVUKQDvXdbOrc1KsO_yUvWc4lF3L4uKULeA6wp9ar2YGaVByxJqTWxgmnOkXmvS_hhU0sdaT9NdRni0gdwT_2PCYuGTjVKmzRtTfLhiO7idQ43RryezKTswqPDlUfph8-TZl4HspgRHpkm-F4pP_xTtDXDbdl-6RvyMTRHby9vevC9vCxyy');"></div>
+<div class="flex flex-col">
+<h1 class="text-on-surface text-base font-bold leading-normal">Alex Walker</h1>
+<p class="text-primary text-sm font-semibold leading-normal">Pro Member</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-container transition-colors" href="#">
+<div class="text-on-surface-variant" data-icon="home" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">home</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm">Home</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-bold" href="#">
+<div class="text-on-primary-container" data-icon="calendar_month" data-size="24px" data-weight="fill">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<p class="text-on-primary-container font-body-md text-sm">Calendar</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-container transition-colors" href="#">
+<div class="text-on-surface-variant" data-icon="group" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">group</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm">Teams</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-container transition-colors" href="#">
+<div class="text-on-surface-variant" data-icon="person" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm">Profile</p>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8 bg-background flex flex-col gap-6 lg:flex-row">
+<!-- Calendar Section -->
+<div class="flex-1 flex flex-col gap-6 min-w-0">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h1 class="text-on-background font-headline-section text-4xl">Global Calendar</h1>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 self-start sm:self-auto shadow-sm">
+<button class="px-6 py-2 rounded-full bg-surface text-on-surface font-button text-sm shadow-sm">Monthly</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-button text-sm hover:text-on-surface transition-colors">Weekly</button>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap gap-4 items-center bg-surface-container-lowest p-3 rounded-2xl border border-outline-variant shadow-sm text-sm font-body-md">
+<span class="text-on-surface-variant uppercase tracking-wider text-xs font-bold mr-2">Legend:</span>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-secondary"></div><span>Confirmed Booking</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-tertiary"></div><span>Team Practice</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-primary"></div><span>Tournament Match</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-orange-400"></div><span>Community Event</span></div>
+</div>
+<!-- Calendar Grid Container -->
+<div class="bg-surface-container-lowest rounded-[2rem] border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<!-- Calendar Header -->
+<div class="flex items-center justify-between p-4 border-b border-outline-variant bg-surface">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<h2 class="text-on-surface font-headline-sm text-2xl">November 2023</h2>
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Days Header -->
+<div class="grid grid-cols-7 border-b border-outline-variant bg-surface-container-lowest">
+<div class="py-3 text-center text-on-surface-variant font-label-caps">SUN</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">MON</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">TUE</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">WED</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">THU</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">FRI</div>
+<div class="py-3 text-center text-on-surface-variant font-label-caps">SAT</div>
+</div>
+<!-- Grid -->
+<div class="calendar-grid p-2 bg-surface-container-low min-h-[500px]">
+<!-- Empty slots for previous month -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest/50 opacity-50"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest/50 opacity-50"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest/50 opacity-50"></div>
+<!-- Day 1 -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">1</span>
+</div>
+<!-- Day 2 -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">2</span>
+<div class="event-pill bg-tertiary/20 text-tertiary font-bold">Practice: U18s</div>
+</div>
+<!-- Day 3 -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">3</span>
+</div>
+<!-- Day 4 -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">4</span>
+<div class="event-pill bg-secondary/20 text-secondary font-bold">Skyline Turf</div>
+</div>
+<!-- Day 5 (Today/Active) -->
+<div class="min-h-[100px] p-2 rounded-xl bg-primary-container border-2 border-primary cursor-pointer flex flex-col gap-1 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<animated-svg class="w-full h-full object-cover" src="{{DATA:ANIMATION:ANIMATION_0}}"></animated-svg>
+</div>
+<span class="font-body-md text-on-primary-container font-bold block mb-1">5</span>
+<div class="event-pill bg-primary text-on-primary font-bold shadow-sm">Tournament QF</div>
+<div class="event-pill bg-orange-400/20 text-orange-800 font-bold">Open Scrimmage</div>
+</div>
+<!-- Fill out remaining dummy days to show structure -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">6</span>
+</div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">7</span>
+<div class="event-pill bg-secondary/20 text-secondary font-bold">Downtown Arena</div>
+</div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">8</span>
+</div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">9</span>
+<div class="event-pill bg-tertiary/20 text-tertiary font-bold">Conditioning</div>
+</div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">10</span>
+</div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary transition-colors cursor-pointer flex flex-col gap-1">
+<span class="font-body-md text-on-surface block mb-1">11</span>
+<div class="event-pill bg-orange-400/20 text-orange-800 font-bold">Charity Match</div>
+</div>
+<!-- Skip remaining days for brevity in mock, just add empty blocks -->
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+<div class="min-h-[100px] p-2 rounded-xl bg-surface-container-lowest border border-outline-variant"></div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar / Action Panel -->
+<aside class="w-full lg:w-80 flex-shrink-0 flex flex-col gap-6">
+<!-- Sync Widget -->
+<div class="bg-primary text-on-primary rounded-2xl p-6 shadow-md relative overflow-hidden group cursor-pointer">
+<div class="absolute -right-4 -top-4 opacity-20 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined" style="font-size: 120px;">event_seat</span>
+</div>
+<div class="relative z-10 flex flex-col gap-2">
+<span class="material-symbols-outlined text-3xl">calendar_add_on</span>
+<h3 class="font-headline-sm text-xl mt-2">Sync Calendar</h3>
+<p class="font-body-md text-sm opacity-90 mb-2">Keep your external calendars up to date with PlaySphere.</p>
+<button class="bg-on-primary text-primary font-button px-4 py-2 rounded-full w-max text-sm hover:bg-white transition-colors">Sync to Google</button>
+</div>
+</div>
+<!-- Actionable Invites -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 border border-outline-variant shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">mark_email_unread</span>
+                            Actionable Invites
+                        </h3>
+<span class="bg-error text-on-error text-xs font-bold px-2 py-0.5 rounded-full">2</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Invite Item 1 -->
+<div class="bg-surface p-3 rounded-xl border border-outline-variant hover:border-primary-soft transition-colors group">
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 flex-shrink-0 mt-1" data-alt="A generic team logo featuring a stylized eagle head in bold blue and yellow colors on a dark background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKVFpfD0cYeVJEKETip8zH-RgsiFu8LrKKtPrx9nPGyOykZW6KR1E-xwe1B36mK4JMxR34b6GK8fxN_Ld8Jsvx4NiP8Par_byZBuzuaR_f-bxPHyj47o7QNfY5_cryYUR7_AlrVU3fE8t8DsuBc2RdCr74yveL5aLumQQW97Z81Jr7Bc2oNhBwPAUAJl7PZMytzYevCk64otNlXGKhwqty99v7qyQQ-NFaC8yvP8FECmboLRgx-ulY');"></div>
+<div class="flex flex-col flex-1">
+<p class="font-body-md text-sm text-on-surface"><span class="font-bold">Metro City FC</span> invited you to a 5v5 Friendly.</p>
+<p class="text-xs text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Tomorrow, 8:00 PM
+                                    </p>
+<div class="flex gap-2 mt-3">
+<button class="flex-1 bg-primary text-on-primary rounded-lg py-1.5 text-xs font-bold hover:bg-surface-tint transition-colors">Accept</button>
+<button class="flex-1 bg-surface-container-high text-on-surface rounded-lg py-1.5 text-xs font-bold hover:bg-surface-container-highest transition-colors">Decline</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Invite Item 2 -->
+<div class="bg-surface p-3 rounded-xl border border-outline-variant hover:border-primary-soft transition-colors group">
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 flex-shrink-0 mt-1" data-alt="A portrait of a female sports coach looking thoughtful, wearing a green track jacket outdoors on a sunny day." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBheYwAbfrNRbwAGCeno5Yg0jXzgCJXW1kRYa5tdcN-9YqBjeBXH_76jXf7PC5iIHLM3p3ozyBmt16aCCOsQIUqnJ7sdtAsTypLk39wCH7QZ3V35KP_IAjdOW_SL6wGhPRxEXr-LRwSgJHTahf15uJBGDYZbJbYDaHYPaazSCN7XIAfKefHiiC9DaWB95VE_l8qtt_0T0PCJDXiUowISXcfMKjimH9CdnjhWUjnb-gdaW3SlxcaS6Kf');"></div>
+<div class="flex flex-col flex-1">
+<p class="font-body-md text-sm text-on-surface"><span class="font-bold">Sarah J.</span> requested to sub for your match.</p>
+<p class="text-xs text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Skyline Turf
+                                    </p>
+<div class="flex gap-2 mt-3">
+<button class="flex-1 bg-primary text-on-primary rounded-lg py-1.5 text-xs font-bold hover:bg-surface-tint transition-colors">Approve</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="text-primary text-sm font-bold text-center mt-2 hover:underline">View All Requests</button>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

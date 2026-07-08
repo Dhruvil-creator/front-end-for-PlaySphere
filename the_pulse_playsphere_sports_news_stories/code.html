@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Pulse - PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "secondary": "#006b5f",
+                    "on-secondary-fixed": "#00201c",
+                    "clay-bg": "#F5EFE9",
+                    "map-teal": "#00B4A2",
+                    "inverse-surface": "#3e2c28",
+                    "tertiary-fixed": "#dee0ff",
+                    "primary-fixed": "#ffdad2",
+                    "on-background": "#271814",
+                    "inverse-primary": "#ffb4a3",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ffe9e5",
+                    "on-surface": "#271814",
+                    "outline-variant": "#e3beb6",
+                    "secondary-fixed": "#70f8e4",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-primary-container": "#5a0c00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#f9dcd6",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#3d0600",
+                    "surface-variant": "#f9dcd6",
+                    "on-surface-variant": "#434655",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#006f64",
+                    "surface": "#fff8f6",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#fff0ed",
+                    "primary-container": "#ff5a36",
+                    "secondary-container": "#6df5e1",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-tertiary-container": "#0d2075",
+                    "tertiary": "#4858ab",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "primary-soft": "#FF8A70",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "inverse-on-surface": "#ffede9",
+                    "tertiary-container": "#7d8ce4",
+                    "primary": "#b52603",
+                    "surface-dim": "#f0d4ce",
+                    "surface-tint": "#b52603",
+                    "surface-bright": "#fff8f6",
+                    "outline": "#8f7069",
+                    "background": "#fff8f6",
+                    "surface-card": "#FFFFFF",
+                    "surface-container-high": "#ffe2dc",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "md": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-section": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "button": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "headline-sm": ["Nunito"]
+            },
+            "fontSize": {
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-background');
+        }
+        
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+        }
+        
+        .clay-button-shadow {
+            box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.15);
+        }
+
+        .story-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+        
+        /* Floating animations for markers or accents */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Ambient Background Blobs (Level 1) -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-primary-fixed-dim/30 blur-3xl mix-blend-multiply opacity-70"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-tertiary-fixed-dim/30 blur-3xl mix-blend-multiply opacity-60"></div>
+</div>
+<!-- Top Navigation (Level 3 - Floating) -->
+<header class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky border-b border-outline-variant/30 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-md py-sm max-w-container-max mx-auto z-50">
+<!-- Brand -->
+<a class="font-headline-sm text-headline-sm font-extrabold text-primary dark:text-primary-fixed" href="#">
+                PlaySphere
+            </a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-button text-button hover:opacity-80 transition-opacity" href="#">Sports</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-button text-button hover:opacity-80 transition-opacity" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-button text-button hover:opacity-80 transition-opacity" href="#">Tournaments</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-button text-button hover:opacity-80 transition-opacity" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-button text-button hover:opacity-80 transition-opacity" href="#">Trainers</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-button text-button hover:opacity-80 transition-opacity" href="#">Academies</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-sm">
+<button aria-label="search" class="p-xs text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-gutter py-sm rounded-full clay-button-shadow hover-lift hidden md:block">
+                    Get Started
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-md py-lg md:py-xl flex flex-col gap-xl">
+<!-- Hero Header -->
+<section class="text-center flex flex-col items-center gap-sm">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Community Hub</span>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">The Pulse</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-sm">Ahmedabad's heartbeat for local sports, fresh stories, and playground culture.</p>
+</section>
+<!-- Bento Grid Layout for News -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-gutter">
+<!-- Large Feature Card (Spans 8 cols on desktop) -->
+<article class="md:col-span-8 rounded-xl overflow-hidden relative soft-deep-shadow hover-lift group h-[400px] md:h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A dynamic, high-quality sports photography shot of a local cricket tournament in Ahmedabad. The scene captures a dramatic sunset over a dusty urban field, with intense action as a batsman strikes the ball. Vivid sunset orange and teal tones dominate the light-mode athletic aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCtVMnYLG3Mew_qdySMiweBWryqhf9il4qdcrleW9PHKQXwnju9xzqaxWOLyQti_rgrHgmD4jXhxpMM_OcCcE6bdMta41tWhJ3iZuuW8wC4zmhYbEKNo3WlZZaAGM04SXPRHBxG_XAYaDoeMzMmwPOhrEXkhMRvAD3w1CEejRzwMuI2oGKC_i70KZA-SQnn6lSAWJctL-xr1dLOXkfVNmoJajefZGKXTsJDo3avTCTs2Z61HJfis1B')"></div>
+<div class="absolute inset-0 story-gradient flex flex-col justify-end p-lg">
+<span class="bg-primary text-on-primary font-label-caps text-label-caps px-sm py-xs rounded-full w-fit mb-sm">Trending</span>
+<h2 class="font-headline-section text-headline-section text-white mb-sm">Monsoon Cup Highlights: SG Highway Titans Take the Trophy</h2>
+<p class="font-body-md text-body-md text-surface-container-high line-clamp-2 max-w-xl">In a thrilling final match under the lights, the Titans secured victory with a dramatic last-over boundary against the Navrangpura Knights.</p>
+</div>
+<a aria-label="Read Monsoon Cup Highlights" class="absolute inset-0 z-10" href="#"></a>
+</article>
+<!-- Secondary Feature (Spans 4 cols on desktop) -->
+<article class="md:col-span-4 rounded-xl overflow-hidden relative soft-deep-shadow hover-lift group h-[300px] md:h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A modern, high-end artificial turf football pitch recently opened in an urban neighborhood. The vibrant green turf contrasts beautifully with the warm sunset lighting and the surrounding urban architecture. Styled in a crisp, energetic light-mode aesthetic emphasizing outdoor community play." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBaXDGk_pQQhMfn9xfKHexjQmA9EC2sy3PyZ4FMeVWytVEOSL2llbO6V8xGIbb8MLjRXe9Y4y67sejMgAde0VWLTMj3a8oWt7JXsnL65A_oUp6lETjTcD-LFRqqpnqaK1I5FXQsa7Y1LJC3EbgoSCYg7sidG624HEJgtxX53GK3dqTCjFDEQ_5osOa64_MCCSF50gq5yzRMknwDgAFQG94kfj7P1yw6u2eRiFOdoRgro7rDEBetWqeY')"></div>
+<div class="absolute inset-0 story-gradient flex flex-col justify-end p-md">
+<span class="bg-secondary text-on-secondary font-label-caps text-label-caps px-sm py-xs rounded-full w-fit mb-sm">New Venue</span>
+<h3 class="font-headline-sm text-headline-sm text-white mb-xs">New 5-a-side Turf Opening in Satellite</h3>
+<p class="font-body-md text-body-md text-surface-container-high line-clamp-2">State-of-the-art facilities arrive in West Ahmedabad.</p>
+</div>
+<a aria-label="Read New Turf Opening" class="absolute inset-0 z-10" href="#"></a>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant w-full mt-auto">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-md px-md py-xl max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="col-span-2 md:col-span-2 flex flex-col gap-sm">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">PlaySphere</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">Your City is Your Playground.</p>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mt-auto">© 2024 PlaySphere Ahmedabad. All rights reserved.</p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-2 md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-md">
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Careers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Support</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

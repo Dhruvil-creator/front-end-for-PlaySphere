@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Gear Swap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-card": "#FFFFFF",
+                      "secondary-container": "#6df5e1",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "background": "#fff8f6",
+                      "primary-soft": "#FF8A70",
+                      "secondary-fixed": "#70f8e4",
+                      "surface-tint": "#b52603",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#f9dcd6",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#e3beb6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#ffe2dc",
+                      "on-surface-variant": "#5b403a",
+                      "clay-bg": "#F5EFE9",
+                      "primary": "#b52603",
+                      "error": "#ba1a1a",
+                      "map-teal": "#00B4A2",
+                      "outline": "#8f7069",
+                      "inverse-surface": "#3e2c28",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ffede9",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-container-highest": "#f9dcd6",
+                      "on-tertiary-container": "#0d2075",
+                      "on-tertiary-fixed": "#00105b",
+                      "on-surface": "#271814",
+                      "tertiary": "#4858ab",
+                      "tertiary-fixed": "#dee0ff",
+                      "inverse-primary": "#ffb4a3",
+                      "primary-container": "#ff5a36",
+                      "on-secondary-container": "#006f64",
+                      "secondary": "#006b5f",
+                      "primary-fixed": "#ffdad2",
+                      "on-primary-fixed": "#3d0600",
+                      "surface-container": "#ffe9e5",
+                      "surface-container-low": "#fff0ed",
+                      "on-background": "#271814",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-error-container": "#93000a",
+                      "surface": "#fff8f6",
+                      "tertiary-container": "#7d8ce4",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#5a0c00",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#f0d4ce",
+                      "surface-bright": "#fff8f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "md": "24px",
+                      "lg": "48px",
+                      "sm": "12px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(181, 38, 3, 0.3);
+        }
+        .clay-button:hover {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 12px 20px rgba(181, 38, 3, 0.4);
+            transform: translateY(-2px);
+        }
+        .clay-button:active {
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 8px rgba(181, 38, 3, 0.2);
+            transform: translateY(1px);
+        }
+        
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+        
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative overflow-x-hidden pt-24">
+<!-- Background blobs for depth -->
+<div class="bg-blob bg-primary-soft w-[600px] h-[600px] top-[-200px] left-[-200px]"></div>
+<div class="bg-blob bg-secondary-container w-[500px] h-[500px] bottom-[20%] right-[-100px]"></div>
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-white/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(0,0,0,0.05)] shadow-md">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary italic tracking-tighter hover:scale-105 transition-transform duration-200 cursor-pointer">
+                PlaySphere
+            </div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 transition-transform duration-200" href="#">Explore</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 transition-transform duration-200" href="#">Community</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 transition-transform duration-200" href="#">Tournaments</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-105 transition-transform duration-200" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Search bar right aligned per JSON -->
+<div class="hidden lg:flex relative mr-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container rounded-full py-2 pl-10 pr-4 border-none focus:ring-2 focus:ring-primary text-on-surface text-sm w-48 transition-all focus:w-64" placeholder="Search gear..." type="text">
+</div>
+<button class="clay-button bg-primary text-on-primary font-button text-button px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 Active: scale-95 transition-all">
+                    Join Now
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter pb-xl relative">
+<!-- Header Section -->
+<header class="text-center py-lg md:py-xl">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-sm">Gear Swap</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Pre-loved equipment from your local community. Play hard, tread lightly.</p>
+</header>
+<!-- Filters & Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="lg:col-span-1 space-y-md">
+<div class="bg-surface-card rounded-DEFAULT p-md soft-deep-shadow">
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-sm text-headline-sm">Filters</h2>
+<span class="material-symbols-outlined text-primary">tune</span>
+</div>
+<!-- Sport Filter -->
+<div class="mb-lg">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-sm uppercase">Sport</h3>
+<div class="flex flex-wrap gap-xs">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-full font-button text-sm">Cricket</button>
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-button text-sm transition-colors">Tennis</button>
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-button text-sm transition-colors">Football</button>
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-button text-sm transition-colors">Basketball</button>
+</div>
+</div>
+<!-- Condition Filter -->
+<div class="mb-lg">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-sm uppercase">Condition</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary bg-surface-container border-none w-5 h-5" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">New / Like New</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary bg-surface-container border-none w-5 h-5" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Good</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary bg-surface-container border-none w-5 h-5" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Fair</span>
+</label>
+</div>
+</div>
+<!-- Price Filter -->
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-sm uppercase">Price Range</h3>
+<div class="px-2">
+<input class="w-full h-2 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary" max="1000" min="0" type="range">
+<div class="flex justify-between mt-2 font-label-caps text-xs text-on-surface-variant">
+<span>$0</span>
+<span>$1000+</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid (Bento Style) -->
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-md">
+<!-- Product Card 1 -->
+<div class="bg-surface-card rounded-lg overflow-hidden soft-deep-shadow card-hover group cursor-pointer flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-110 transition-transform duration-500" data-alt="A brightly lit, high-quality photograph of a slightly used professional cricket bat leaning against a textured brick wall in an urban setting. The lighting is warm and sunny, highlighting the wood grain and colorful grip tape. The scene evokes a sporty, energetic, light-mode aesthetic with vibrant warm tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnxZXbyX-cO0RUKv4VF7Qf9GwB8QpooOx4RuHfbfFKrfhXU7yA455cs_JS3MjwTDoRhp7f0-hNNrAr2i_uh8j0BH_x5DbqBQTuwC6bCQT-J55kPi0eJ2rb-GNm4OC3AEiiv9IfQ4yRZOlXWW8S-AMKOPDUp_CwOp6_ikSPE18faddUSGFCbrZqEDFm3_DeUlEjDWXzUhaMaEbucBG0lVPHPF3MxYnnwqiYvRd4JmXRKmunfnKkBDTT')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-map-teal text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-xs text-on-surface">Verified</span>
+</div>
+<div class="absolute bottom-4 right-4 bg-primary text-on-primary font-headline-sm text-headline-sm px-4 py-1 rounded-lg shadow-lg">
+                            $45
+                        </div>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold leading-tight">Kookaburra Kahuna Bat</h3>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-xs px-2 py-1 rounded-md">Good</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Used for one season. Minor scuffs on the toe, great ping.</p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-surface-container">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container text-sm">JS</div>
+<span class="text-sm font-medium text-on-surface">Jake S.</span>
+<span class="text-xs text-on-surface-variant ml-auto">2 hours ago</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface-card rounded-lg overflow-hidden soft-deep-shadow card-hover group cursor-pointer flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-110 transition-transform duration-500" data-alt="A close-up, vivid photo of a pair of neon green and black football boots resting on green artificial turf. The sunlight is bright and clear, casting soft shadows. The visual style is energetic and high-contrast, fitting a modern urban playground marketplace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHjL1fhcZwp-Sn7rkfVG1-8FiAYQB3rzellDmZw2a2Wi03VUpFc2MoIqYv9S1IbrQ_PRVGRyL9NQoS6p0DNGSD_jCkbUaM5I7TI2BQhxzMlZhDleQeC3HRuL-5nZZbw8uVWD3G3H1I4rYUmoNWYtCgbqIQ4yc0rdFq8d2-i6d5y1ZG71ByXelDzeKZCs-KDFqIvwpoBlBJ_q3I6qAveS8d9zbmXjG4cGsrr_k2qmNl6Qb_pMABid2C')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-map-teal text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-xs text-on-surface">Verified</span>
+</div>
+<div class="absolute bottom-4 right-4 bg-primary text-on-primary font-headline-sm text-headline-sm px-4 py-1 rounded-lg shadow-lg">
+                            $80
+                        </div>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold leading-tight">Nike Mercurial Vapors Size 10</h3>
+<span class="bg-secondary-container text-on-secondary-container font-label-caps text-xs px-2 py-1 rounded-md">Like New</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Worn once on grass. Too tight for me. Perfect condition.</p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-surface-container">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center font-bold text-on-primary-container text-sm">MR</div>
+<span class="text-sm font-medium text-on-surface">Maya R.</span>
+<span class="text-xs text-on-surface-variant ml-auto">1 day ago</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 (Feature Card) -->
+<div class="bg-primary-soft rounded-lg overflow-hidden soft-deep-shadow card-hover group cursor-pointer flex flex-col md:col-span-2 xl:col-span-1 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="An artistic, slightly low-angle photo of a professional tennis racket resting on a clay court surface. A single yellow tennis ball sits nearby. The lighting is dramatic but warm, emphasizing the texture of the clay and the strings of the racket. The mood is highly energetic and premium." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCQ0OofxW5Q1dSyvI4bHG31pmBVn3njhLBnCURIOuiBfK1ATLCBuUGNmxbykoCDvm9yJzLcYHsvFG_9zwd0N7wPftonaVVTR1Mf7fCQOEgee7IPFdAp3fIj7hDxl1yXeGkHOCs41leyAucFv7_fOhuCg3KRo0gEECCemxtSaWfMEWn3lk2ubiibZ_UipjBZsTGUA57LsX780gFCDKYAlc6b2xYcORWmp5aXkoZq7omWHeNd5gtClZA')"></div>
+<div class="relative z-20 h-full flex flex-col justify-end p-md min-h-[350px]">
+<div class="mb-auto self-end">
+<div class="bg-white text-primary font-headline-sm text-headline-sm px-4 py-1 rounded-lg shadow-lg">
+                                $120
+                            </div>
+</div>
+<div>
+<span class="bg-white/20 backdrop-blur text-white font-label-caps text-xs px-2 py-1 rounded-md mb-2 inline-block">New</span>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold leading-tight mb-2">Wilson Pro Staff 97</h3>
+<p class="text-white/80 text-sm mb-4">Brand new, unstrung. Unwanted gift. Still in plastic wrap.</p>
+<div class="flex items-center gap-3 pt-4 border-t border-white/20">
+<div class="w-8 h-8 rounded-full bg-surface text-primary flex items-center justify-center font-bold text-sm">DT</div>
+<span class="text-sm font-medium text-white">David T.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 z-50 clay-button bg-primary text-on-primary rounded-full px-6 py-4 flex items-center gap-2 font-button shadow-2xl hover:scale-105 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+        List Your Gear
+    </button>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest w-full rounded-t-xl mt-xl border-t-[8px] border-surface-container-high">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg px-gutter py-xl max-w-container-max mx-auto">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary-soft mb-4">PlaySphere</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4">© 2024 PlaySphere Kinetic. Ahmedabad's Pulse.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:translate-x-1 transition-transform inline-flex" href="#">Discover Venues</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:translate-x-1 transition-transform inline-flex" href="#">Community Hub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:translate-x-1 transition-transform inline-flex" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:translate-x-1 transition-transform inline-flex" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:translate-x-1 transition-transform inline-flex" href="#">Terms of Play</a>
+</div>
+</div>
+</footer>
+</body></html>

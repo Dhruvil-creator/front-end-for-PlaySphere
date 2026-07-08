@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coach Rohan Mehta - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#271814",
+                        "primary": "#b52603",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5a0c00",
+                        "secondary": "#006b5f",
+                        "on-secondary-fixed-variant": "#005048",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "outline": "#8f7069",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "background": "#fff8f6",
+                        "on-secondary-container": "#006f64",
+                        "on-tertiary-fixed": "#00105b",
+                        "inverse-surface": "#3e2c28",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "on-surface": "#271814",
+                        "primary-container": "#ff5a36",
+                        "tertiary": "#4858ab",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-container": "#0d2075",
+                        "outline-variant": "#e3beb6",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "map-teal": "#00B4A2",
+                        "on-surface-variant": "#5b403a",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e5",
+                        "tertiary-fixed": "#dee0ff",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-highest": "#f9dcd6",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.clay-bg'); }
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(181, 38, 3, 0.2);
+        }
+        .clay-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .clay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+        }
+        .gradient-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="hidden md:flex justify-between items-center px-lg py-md max-w-container-max mx-auto bg-white/80 dark:bg-surface-container/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary">PlaySphere</div>
+<div class="flex gap-md font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Venues</a>
+<a class="text-primary dark:text-inverse-primary border-b-4 border-primary dark:border-inverse-primary pb-1" href="#">Athletes</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Teams</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary-soft dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Tournaments</a>
+</div>
+<div class="flex gap-sm">
+<button class="scale-95 active:scale-90 transition-transform text-primary dark:text-inverse-primary"><span class="material-symbols-outlined">notifications</span></button>
+<button class="scale-95 active:scale-90 transition-transform text-primary dark:text-inverse-primary"><span class="material-symbols-outlined">person</span></button>
+</div>
+</nav>
+<!-- SideNavBar (Mobile) -->
+<nav class="md:hidden flex flex-col h-screen py-lg bg-clay-bg dark:bg-surface-container-low h-full w-64 fixed left-0 top-0 shadow-xl z-50">
+<div class="px-4 mb-xl font-headline-sm text-headline-sm text-primary">PlaySphere</div>
+<div class="flex flex-col gap-sm font-body-md text-body-md">
+<a class="text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all flex items-center gap-2" href="#"><span class="material-symbols-outlined">map</span> Map Explorer</a>
+<a class="bg-primary-container text-on-primary-container rounded-r-full font-bold px-4 py-3 flex items-center gap-2" href="#"><span class="material-symbols-outlined">group</span> Local Hub</a>
+<a class="text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all flex items-center gap-2" href="#"><span class="material-symbols-outlined">emoji_events</span> Leaderboards</a>
+<a class="text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all flex items-center gap-2" href="#"><span class="material-symbols-outlined">settings</span> Settings</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-[100px] md:pt-[120px] pb-xl max-w-container-max mx-auto w-full px-md md:px-lg md:ml-0">
+<!-- Hero Section -->
+<div class="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-xl clay-card">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A high-energy, dynamic photograph of an athletic coach demonstrating a complex basketball drill on a stylized urban court. The lighting mimics a warm sunset, casting deep, tactile shadows that align with the Soft-Clay design system. Vibrant sunset orange accents highlight the coach's motion against a soft, earthy background. The mood is intense yet approachable and community-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIug6Pm9NaSSFs6PyqggHC630XhkisI5auPPDIU0xlyRlNUasrVoTnPTfuqsKhsTUAY51_Y6mLmPX0F3LYQ2Oqn--2msbxZVlhOg2uWOxDCI8Ut7emnuUdI1WPvxU3X2RvGhd8bLfFCi7N50R7nIqVkmBwdZTSzLZTJivETLUUtg_JRYwdRLjP9jU9kDfxc5rc-GvdyXGY_m6CpLCd4X2-iUKYNt06aprwa7JRmPcNiN6wpEY4HNTb"/>
+<div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-lg">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-white mb-sm">Coach Rohan Mehta</h1>
+<p class="font-body-lg text-body-lg text-surface-container-high max-w-2xl">Elite Performance Specialist &amp; Urban Basketball Strategist. Elevating community play to professional standards.</p>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Bio & Philosophy -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- About Card -->
+<div class="bg-surface-card rounded-xl p-lg clay-card">
+<h2 class="font-headline-sm text-headline-sm text-on-background mb-md">Professional Background</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">With over a decade of experience bridging streetball agility with structured professional training, Rohan Mehta has transformed the local urban leagues. Formerly a collegiate point guard, he now focuses on biomechanics and tactical awareness.</p>
+<div class="flex flex-wrap gap-sm">
+<span class="bg-surface-container text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">verified</span> FIBA Certified</span>
+<span class="bg-surface-container text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">fitness_center</span> Biomechanics Expert</span>
+<span class="bg-surface-container text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">psychology</span> Sports Psychology</span>
+</div>
+</div>
+<!-- Philosophy Card -->
+<div class="bg-surface-card rounded-xl p-lg clay-card relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary-container opacity-20 rounded-full blur-2xl"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-background mb-md relative z-10">Coaching Philosophy</h2>
+<blockquote class="font-body-lg text-body-lg text-on-surface-variant italic border-l-4 border-primary pl-md relative z-10">
+                        "The city is our arena. True athleticism isn't just about physical dominance; it's about spatial intelligence, community respect, and the relentless pursuit of flow state on any surface."
+                    </blockquote>
+</div>
+</div>
+<!-- Right Column: Booking Widget -->
+<div class="lg:col-span-4">
+<div class="bg-surface-card rounded-xl p-lg clay-card sticky top-[120px]">
+<h2 class="font-headline-sm text-headline-sm text-on-background mb-md">Session Schedule</h2>
+<!-- Calendar Placeholder -->
+<div class="bg-clay-bg rounded-lg p-md mb-md">
+<div class="flex justify-between items-center mb-sm font-body-md text-body-md">
+<button><span class="material-symbols-outlined">chevron_left</span></button>
+<span class="font-bold">October 2024</span>
+<button><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center font-label-caps text-label-caps text-on-surface-variant mb-xs">
+<div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center font-body-md text-body-md">
+<!-- Dummy Dates -->
+<div class="p-2 text-on-surface-variant opacity-50">28</div><div class="p-2 text-on-surface-variant opacity-50">29</div><div class="p-2 text-on-surface-variant opacity-50">30</div>
+<div class="p-2">1</div><div class="p-2">2</div><div class="p-2">3</div><div class="p-2">4</div>
+<div class="p-2">5</div><div class="p-2">6</div><div class="p-2">7</div><div class="p-2 bg-primary text-white rounded-full font-bold">8</div><div class="p-2">9</div><div class="p-2">10</div><div class="p-2">11</div>
+</div>
+</div>
+<!-- Time Slots -->
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Available Slots (Oct 8)</h3>
+<div class="grid grid-cols-2 gap-sm mb-lg">
+<button class="py-2 border-2 border-outline-variant rounded-full font-body-md text-body-md hover:border-primary transition-colors text-on-surface">09:00 AM</button>
+<button class="py-2 border-2 border-primary bg-surface-container rounded-full font-body-md text-body-md text-primary font-bold">11:30 AM</button>
+<button class="py-2 border-2 border-outline-variant rounded-full font-body-md text-body-md hover:border-primary transition-colors text-on-surface">02:00 PM</button>
+<button class="py-2 border-2 border-outline-variant rounded-full font-body-md text-body-md text-on-surface-variant opacity-50 cursor-not-allowed">04:30 PM</button>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary text-white rounded-full py-4 font-button text-button clay-button hover:bg-primary-container transition-colors flex justify-center items-center gap-2">
+                        Book Session <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center font-label-caps text-label-caps text-on-surface-variant mt-sm mt-4">1 Hr Session • $85 USD</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-lg py-xl mt-xl flex flex-col md:flex-row justify-between items-center bg-surface-container-highest dark:bg-surface-dim relative">
+<div class="font-headline-sm text-headline-sm text-on-surface mb-md md:mb-0">PlaySphere</div>
+<div class="font-label-caps text-label-caps text-primary dark:text-primary-fixed mb-md md:mb-0 text-center">
+            © 2024 PlaySphere Kinetic. Your City is Your Playground.
+        </div>
+<div class="flex gap-md font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Safety</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Community Guidelines</a>
+</div>
+</footer>
+</body></html>

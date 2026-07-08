@@ -1,0 +1,454 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Gift Card Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-card": "#FFFFFF",
+                      "secondary-container": "#6df5e1",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "background": "#fff8f6",
+                      "primary-soft": "#FF8A70",
+                      "secondary-fixed": "#70f8e4",
+                      "surface-tint": "#b52603",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#f9dcd6",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#e3beb6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#ffe2dc",
+                      "on-surface-variant": "#5b403a",
+                      "clay-bg": "#F5EFE9",
+                      "primary": "#b52603",
+                      "error": "#ba1a1a",
+                      "map-teal": "#00B4A2",
+                      "outline": "#8f7069",
+                      "inverse-surface": "#3e2c28",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ffede9",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-container-highest": "#f9dcd6",
+                      "on-tertiary-container": "#0d2075",
+                      "on-tertiary-fixed": "#00105b",
+                      "on-surface": "#271814",
+                      "tertiary": "#4858ab",
+                      "tertiary-fixed": "#dee0ff",
+                      "inverse-primary": "#ffb4a3",
+                      "primary-container": "#ff5a36",
+                      "on-secondary-container": "#006f64",
+                      "secondary": "#006b5f",
+                      "primary-fixed": "#ffdad2",
+                      "on-primary-fixed": "#3d0600",
+                      "surface-container": "#ffe9e5",
+                      "surface-container-low": "#fff0ed",
+                      "on-background": "#271814",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-error-container": "#93000a",
+                      "surface": "#fff8f6",
+                      "tertiary-container": "#7d8ce4",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#5a0c00",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#f0d4ce",
+                      "surface-bright": "#fff8f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "md": "24px",
+                      "lg": "48px",
+                      "sm": "12px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom Styles for Claymorphism/Soft-Tactile Feel */
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-background');
+        }
+
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.3), 0 10px 20px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.4), 0 15px 25px rgba(255, 90, 54, 0.4);
+        }
+        
+        .clay-button:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2), 0 5px 10px rgba(255, 90, 54, 0.2);
+        }
+
+        .soft-button {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .soft-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Abstract Blob Background */
+        .blob-bg {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, theme('colors.surface-container-high') 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(80px);
+        }
+        .blob-bg-2 {
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, theme('colors.secondary-container') 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(80px);
+        }
+
+        /* Active amount selector */
+        .amount-selector-active {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.3), 0 10px 20px rgba(255, 90, 54, 0.3);
+            border-color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Ambient Background Blobs -->
+<div class="blob-bg"></div>
+<div class="blob-bg-2"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] shadow-md">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary italic tracking-tighter">
+                PlaySphere
+            </div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-md items-center bg-white/80 rounded-full px-6 py-2 shadow-sm">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Explore</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Community</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Tournaments</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-button text-button hover:scale-105 transition-transform duration-200" href="#">Shop</a>
+</nav>
+<button class="hidden md:block font-button text-button clay-button px-6 py-2">
+                Join Now
+            </button>
+<!-- Mobile Menu Icon (Placeholder for interaction) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-xl px-gutter max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<section class="text-center mb-xl">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-sm">Gift a Match</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Give the gift of play. Choose a vibrant design, set an amount, and send an unforgettable experience to their inbox.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Card Selection (Span 7) -->
+<div class="lg:col-span-7 flex flex-col gap-lg">
+<!-- Card Designs -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Choose Design</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Design 1: The Weekend Warrior -->
+<div class="soft-card relative overflow-hidden h-64 group cursor-pointer border-4 border-transparent hover:border-primary-container transition-colors">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A vibrant, urban-style digital gift card design titled 'The Weekend Warrior'. The scene features a dynamic, abstracted basketball court at sunset with energetic brush strokes in sunset orange and deep teal. The style is modern, energetic, and slightly distressed, fitting an active urban lifestyle. The lighting is warm and dramatic, casting long shadows. It evokes a feeling of competitive fun and community sports." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2QuEP8Q8Ih4Z7rZqsv434GRpP_WBdfoM4iot4pyWtQ9lhAaMNPlKm-xyr3wlUCAiT5S_1qKmTWW_PQlesWWO86LZTUzT9Mi8Q59WvJgvccGVN1KSZM0qYTSJFqlAvpGhqiVnWB8r358lseJpW8MGmoB1gJ-PZzK38jQG77lslyt6_lCGJR8n9HOb6HWRB_AFgeYTd9IiA6nqgx00aTgFKZn6ZKI4v0ivWm3X1FIAQ8PazpawPE8A6')"></div>
+<div class="absolute inset-0 story-card-overlay flex flex-col justify-end p-md">
+<h3 class="font-button text-button text-white mb-xs">The Weekend Warrior</h3>
+<p class="font-body-md text-body-md text-white/80">For the casual competitor.</p>
+</div>
+<!-- Selection Indicator -->
+<div class="absolute top-4 right-4 bg-primary-container text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">check</span>
+</div>
+</div>
+<!-- Design 2: The Pro Starter -->
+<div class="soft-card relative overflow-hidden h-64 group cursor-pointer border-4 border-primary-container">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A high-energy digital gift card design titled 'The Pro Starter'. It features a sleek, abstract representation of a tennis racket striking a ball, surrounded by glowing neon cyan and deep navy blue geometric shapes. The style is highly polished, modern, and slightly futuristic. The lighting is bright and high-contrast, suggesting peak performance and focus. The overall mood is intense and professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaTFs5hp6PqAciOHhaj1PYqQLT1rWNZgA09D1tm6-PH3nRGR9cgfrWhS2su6X5Pgp8PXs46F1XY-nsJg7HlC5CdagnZlKh0PROdPD6olDsnuDFE6QLYi38f2PCSUa3QpQLsKfmh414BcZBOdqcEk8ouG2aQ4uz1n1S59lK4Il1LyoBEjcj1rXgW5ubePp3j80ZmwSd8QacGoNLfzd0aTXCgG24ZVNCv8urickjmnXfhvpyAVl8YKTB')"></div>
+<div class="absolute inset-0 story-card-overlay flex flex-col justify-end p-md">
+<h3 class="font-button text-button text-white mb-xs">The Pro Starter</h3>
+<p class="font-body-md text-body-md text-white/80">Level up their game.</p>
+</div>
+<!-- Selection Indicator Active -->
+<div class="absolute top-4 right-4 bg-primary-container text-white rounded-full p-2 shadow-lg">
+<span class="material-symbols-outlined">check</span>
+</div>
+</div>
+<!-- Design 3: Community Hub -->
+<div class="soft-card relative overflow-hidden h-64 group cursor-pointer border-4 border-transparent hover:border-primary-container transition-colors md:col-span-2">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A warm, inviting digital gift card design titled 'Community Hub'. The illustration shows a diverse group of stylized people high-fiving on a stylized, abstract urban playground. The color palette uses soft clays, sunset oranges, and gentle teal accents. The lighting is soft and ambient, creating a welcoming and inclusive mood. The visual style is vector-based with soft-tactile, slightly rounded features." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA62VBqYG7QNWnuAJ15lavrOw7gPnMYLBVO6lX_tyHqJXOEjpBbIvDiFmdlweElGh4pVYDQNISvECadOBzMMAZ4Pj5Nt40tvFZjVy3YU6-KNemSzO1OTXIpb-B7c5E3vhp106Dd_C-1T5cZry0aG8uXU0cQfaw51Z4uOzOBO0YXSQU2NRgwu_CoAwPyLje9bNsIq7I1A1Bd1N_wrkaio0j5yUk7x_-7q-B1Z039FOT222qN14Cr4KMc')"></div>
+<div class="absolute inset-0 story-card-overlay flex flex-col justify-end p-md">
+<h3 class="font-button text-button text-white mb-xs">Community Hub</h3>
+<p class="font-body-md text-body-md text-white/80">Share the local vibe.</p>
+</div>
+<!-- Selection Indicator -->
+<div class="absolute top-4 right-4 bg-primary-container text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">check</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Amount Selection -->
+<section class="soft-card p-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Select Amount</h2>
+<div class="flex flex-wrap gap-sm mb-md">
+<button class="soft-button px-6 py-3 font-button text-button border-2 border-surface-variant hover:border-primary-container text-on-surface-variant">
+                            $25
+                        </button>
+<button class="amount-selector-active px-6 py-3 font-button text-button border-2 rounded-full transition-all">
+                            $50
+                        </button>
+<button class="soft-button px-6 py-3 font-button text-button border-2 border-surface-variant hover:border-primary-container text-on-surface-variant">
+                            $100
+                        </button>
+<button class="soft-button px-6 py-3 font-button text-button border-2 border-surface-variant hover:border-primary-container text-on-surface-variant">
+                            $200
+                        </button>
+</div>
+<div class="relative w-full max-w-sm">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 font-button text-button text-on-surface-variant">$</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-2 border-surface-variant rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-0 transition-colors" placeholder="Custom Amount" type="number">
+</div>
+</section>
+</div>
+<!-- Right Column: Personalization & Checkout (Span 5) -->
+<div class="lg:col-span-5">
+<div class="soft-card p-md sticky top-32">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Personalize &amp; Send</h2>
+<form class="flex flex-col gap-md">
+<!-- Recipient Info -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs ml-2">Recipient Name</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-2 border-surface-variant rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-0 transition-colors" placeholder="Alex Chen" type="text">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs ml-2">Recipient Email</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-2 border-surface-variant rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-0 transition-colors" placeholder="alex@example.com" type="email">
+</div>
+<!-- Sender Info -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs ml-2">Your Name</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-2 border-surface-variant rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-0 transition-colors" placeholder="Your Name" type="text">
+</div>
+<!-- Message -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs ml-2">Message (Optional)</label>
+<textarea class="w-full px-4 py-3 bg-surface-container-low border-2 border-surface-variant rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-0 transition-colors resize-none" placeholder="Let's hit the courts soon!" rows="4"></textarea>
+</div>
+<!-- Summary -->
+<div class="mt-4 pt-4 border-t-2 border-surface-variant flex justify-between items-center">
+<span class="font-body-lg text-body-lg text-on-surface">Total</span>
+<span class="font-headline-sm text-headline-sm text-primary">$50.00</span>
+</div>
+<!-- CTA -->
+<button class="clay-button w-full py-4 font-button text-button mt-4 flex justify-center items-center gap-2" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">card_giftcard</span>
+                            Gift a Match
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest w-full rounded-t-xl mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg px-gutter py-xl max-w-container-max mx-auto bg-surface-container-high">
+<div class="flex flex-col gap-sm">
+<div class="font-headline-sm text-headline-sm text-primary-soft">
+                    PlaySphere
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 PlaySphere Kinetic. Ahmedabad's Pulse.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-primary underline font-body-md text-body-md hover:translate-x-1 transition-transform" href="#">Discover Venues</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md hover:translate-x-1 transition-transform" href="#">Community Hub</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md hover:translate-x-1 transition-transform" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md hover:translate-x-1 transition-transform" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md hover:translate-x-1 transition-transform" href="#">Terms of Play</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script to handle amount button selection
+        document.addEventListener('DOMContentLoaded', () => {
+            const amountButtons = document.querySelectorAll('button:not(.clay-button)');
+            
+            amountButtons.forEach(button => {
+                // filter out the menu button and non amount buttons
+                if(button.textContent.includes('$')) {
+                     button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Reset all to soft-button
+                        amountButtons.forEach(btn => {
+                            if(btn.textContent.includes('$')){
+                                btn.className = 'soft-button px-6 py-3 font-button text-button border-2 border-surface-variant hover:border-primary-container text-on-surface-variant';
+                            }
+                        });
+                        // Set clicked to active
+                        button.className = 'amount-selector-active px-6 py-3 font-button text-button border-2 rounded-full transition-all';
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Invoice Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "primary-container": "#ff5a36",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-soft": "#FF8A70",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "inverse-on-surface": "#ffede9",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-tertiary-container": "#0d2075",
+                        "tertiary": "#4858ab",
+                        "error-container": "#ffdad6",
+                        "primary": "#b52603",
+                        "surface-dim": "#f0d4ce",
+                        "tertiary-container": "#7d8ce4",
+                        "on-surface-variant": "#5b403a",
+                        "surface-card": "#FFFFFF",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#b52603",
+                        "surface-bright": "#fff8f6",
+                        "outline": "#8f7069",
+                        "background": "#fff8f6",
+                        "primary-fixed": "#ffdad2",
+                        "on-background": "#271814",
+                        "inverse-primary": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "secondary": "#006b5f",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "map-teal": "#00B4A2",
+                        "inverse-surface": "#3e2c28",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-surface": "#271814",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "on-primary-container": "#5a0c00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed": "#00105b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-section": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 90, 54, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(109, 245, 225, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        
+        .clay-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05), inset 0 2px 0 rgba(255,255,255,0.8);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .clay-button-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 10px 20px rgba(255, 90, 54, 0.3), inset 0 3px 0 rgba(255,255,255,0.4);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        
+        .clay-button-primary:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 5px 10px rgba(255, 90, 54, 0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        .clay-button-secondary {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05), inset 0 2px 0 rgba(255,255,255,0.8);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        
+        .clay-button-secondary:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.02), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased min-h-screen flex flex-col pt-24 pb-12">
+<!-- Header (Transactional context, no global nav, just a back button and title) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm h-20 px-gutter flex items-center max-w-container-max mx-auto">
+<a class="flex items-center text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined mr-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="font-button text-button hidden md:inline">Back to History</span>
+</a>
+<h1 class="font-headline-sm text-headline-sm font-black text-primary italic tracking-tighter mx-auto absolute left-1/2 -translate-x-1/2">PlaySphere</h1>
+</header>
+<main class="flex-grow px-gutter w-full max-w-3xl mx-auto flex flex-col gap-lg">
+<!-- Page Title -->
+<div class="text-center mt-md">
+<h2 class="font-headline-section text-headline-section text-on-surface">Invoice Details</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Booking Ref: #PS-48291A</p>
+</div>
+<!-- Main Invoice Card -->
+<div class="clay-card p-md md:p-lg relative overflow-hidden group hover:-translate-y-2 hover:scale-[1.01]">
+<!-- Decorative Blob -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl group-hover:bg-primary-container/20 transition-colors duration-500"></div>
+<!-- Venue Info Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-surface-container-high pb-md mb-md relative z-10">
+<div class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[32px]">sports_soccer</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Skyline Football Turf</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Downtown Arena District
+                        </p>
+</div>
+</div>
+<div class="mt-md md:mt-0 text-left md:text-right">
+<span class="inline-block bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-sm py-xs rounded-full uppercase tracking-wider mb-sm">Paid</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Oct 24, 2023</p>
+<p class="font-body-md text-body-md text-on-surface-variant">18:00 - 20:00</p>
+</div>
+</div>
+<!-- Breakdown -->
+<div class="space-y-sm relative z-10">
+<div class="flex justify-between items-center py-xs">
+<span class="font-body-md text-body-md text-on-surface">Court Fee (2 Hours)</span>
+<span class="font-body-md text-body-md text-on-surface">$80.00</span>
+</div>
+<div class="flex justify-between items-center py-xs">
+<span class="font-body-md text-body-md text-on-surface-variant">Equipment Rental (Ball x1)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">$5.00</span>
+</div>
+<div class="flex justify-between items-center py-xs">
+<span class="font-body-md text-body-md text-on-surface-variant">Service Charge</span>
+<span class="font-body-md text-body-md text-on-surface-variant">$2.50</span>
+</div>
+<div class="flex justify-between items-center py-xs">
+<span class="font-body-md text-body-md text-on-surface-variant">Taxes (8%)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">$7.00</span>
+</div>
+<div class="border-t-2 border-dashed border-surface-container-high my-sm pt-sm">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">Total Paid</span>
+<span class="font-headline-sm text-headline-sm text-primary">$94.50</span>
+</div>
+</div>
+<div class="flex items-center gap-sm mt-md bg-surface-container-low p-sm rounded-xl">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Paid via Visa ending in 4242</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-md justify-center items-center mt-md">
+<button class="clay-button-primary w-full sm:w-auto px-xl py-sm flex items-center justify-center gap-sm font-button text-button group">
+<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">download</span>
+                Download PDF
+            </button>
+<button class="clay-button-secondary w-full sm:w-auto px-xl py-sm flex items-center justify-center gap-sm font-button text-button">
+<span class="material-symbols-outlined">share</span>
+                Share Receipt
+            </button>
+</div>
+<!-- Help Link -->
+<div class="text-center mt-xl">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">
+                Need Help with this transaction?
+            </a>
+</div>
+</main>
+<!-- Footer (Suppressed for focused transactional flow, but provided as anchor reference if needed. Left out intentionally per "Automatic Suppression" rule.) -->
+</body></html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Loyalty Rewards Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-card": "#FFFFFF",
+                        "secondary-container": "#6df5e1",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "background": "#fff8f6",
+                        "primary-soft": "#FF8A70",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-tint": "#b52603",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd6",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#e3beb6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#ffe2dc",
+                        "on-surface-variant": "#5b403a",
+                        "clay-bg": "#F5EFE9",
+                        "primary": "#b52603",
+                        "error": "#ba1a1a",
+                        "map-teal": "#00B4A2",
+                        "outline": "#8f7069",
+                        "inverse-surface": "#3e2c28",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ffede9",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-tertiary-container": "#0d2075",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "tertiary-fixed": "#dee0ff",
+                        "inverse-primary": "#ffb4a3",
+                        "primary-container": "#ff5a36",
+                        "on-secondary-container": "#006f64",
+                        "secondary": "#006b5f",
+                        "primary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-low": "#fff0ed",
+                        "on-background": "#271814",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "surface": "#fff8f6",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#5a0c00",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#f0d4ce",
+                        "surface-bright": "#fff8f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+        .clay-button-inner {
+            box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+        }
+        .organic-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen overflow-x-hidden font-body-md selection:bg-primary-soft selection:text-white pb-xl">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] shadow-md">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary italic tracking-tighter hover:scale-105 transition-transform duration-200 cursor-pointer">
+                PlaySphere
+            </div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 duration-200 active:scale-95 transition-all" href="#">Explore</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-button text-button hover:scale-105 duration-200 active:scale-95 transition-all" href="#">Community</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 duration-200 active:scale-95 transition-all" href="#">Tournaments</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-button text-button hover:scale-105 duration-200 active:scale-95 transition-all" href="#">Shop</a>
+</div>
+<button class="bg-primary-container text-white px-md py-sm rounded-full font-button text-button clay-button-inner hover:scale-105 transition-transform duration-200 active:scale-95">
+                Join Now
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter pt-32 relative">
+<!-- Decorative Ambient Background Blobs -->
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-soft/10 organic-blob -z-10 blur-3xl"></div>
+<div class="absolute top-[40%] left-[-200px] w-[500px] h-[500px] bg-secondary-container/20 organic-blob -z-10 blur-3xl" style="animation-delay: -4s;"></div>
+<!-- Header -->
+<header class="text-center mb-xl relative z-10">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-sm">Rewards Hub</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Your hustle, rewarded. Earn Sphere Points on the court and unlock exclusive gear, free playtime, and bragging rights in Ahmedabad.</p>
+</header>
+<!-- Balance & Tier Card (Level 3 Floating) -->
+<section class="mb-xl">
+<div class="bg-surface-card rounded-xl p-lg clay-shadow relative overflow-hidden group hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary-container/30 rounded-full blur-2xl group-hover:bg-secondary-container/50 transition-colors duration-500"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg relative z-10">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-2">Current Balance</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-hero text-display-hero text-on-surface">12,450</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">SP</span>
+</div>
+<div class="mt-4 flex gap-xs items-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-body-md text-body-md">+450 this week</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex justify-between items-end mb-sm">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Current Tier</span>
+<span class="font-headline-sm text-headline-sm text-primary">Pro Athlete</span>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Next Tier</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">Elite</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-4 bg-surface-container-high rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: 82%;"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm text-right">2,550 SP to Elite</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Two Column Layout for Quests & Leaderboard -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg mb-xl">
+<!-- Active Quests (Left - 7 cols) -->
+<section class="lg:col-span-7">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-[32px]">local_fire_department</span>
+<h2 class="font-headline-section text-headline-section text-on-surface">Active Quests</h2>
+</div>
+<div class="space-y-md">
+<!-- Quest Card 1 -->
+<div class="bg-surface-card rounded-lg p-md clay-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-md hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[32px]">wb_twilight</span>
+</div>
+<div>
+<h3 class="font-button text-button text-on-surface mb-1">Early Bird Kicks</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Book 3 morning games (before 9 AM) this month.</p>
+<div class="mt-2 w-48 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 66%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary mt-1 block">2/3 Completed</span>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-button text-button whitespace-nowrap">
+                            +500 SP
+                        </div>
+</div>
+<!-- Quest Card 2 -->
+<div class="bg-surface-card rounded-lg p-md clay-shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-md hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[32px]">group_add</span>
+</div>
+<div>
+<h3 class="font-button text-button text-on-surface mb-1">Squad Builder</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Invite 2 new players to join your team roster.</p>
+<div class="mt-2 w-48 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 0%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1 block">0/2 Completed</span>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-button text-button whitespace-nowrap">
+                            +1000 SP
+                        </div>
+</div>
+</div>
+</section>
+<!-- Leaderboard (Right - 5 cols) -->
+<section class="lg:col-span-5">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary text-[32px]">trophy</span>
+<h2 class="font-headline-section text-headline-section text-on-surface">City Leaders</h2>
+</div>
+<div class="bg-surface-card rounded-lg p-md clay-shadow">
+<div class="space-y-sm">
+<!-- Top 1 -->
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<div class="w-8 font-button text-button text-primary text-center">1</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container relative">
+<img alt="User Avatar" class="object-cover w-full h-full" data-alt="A stylized digital portrait of a confident young athlete wearing vibrant urban sportswear, looking directly at the camera with a slight smile. The background is a soft, bright clay-colored gradient. The lighting is crisp and modern, highlighting the high-energy athletic aesthetic of a community sports platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TxoY3ErJGr0ZJ2eNA4ZM7-sPJmfWfSp6hk8aaShgxkIs1V5hukbD8L1iUBEGkN6qKR6o9GYAa2G3JcTOVdBYjoL9g1C4UfyjrH5uOdiYxeKnLibDfrSMJaDoBgY2Ag3CuThsY93lPdiFkW7CqDBud0Qh5OkEA1JKg_AnAq_olNnyJT1v7WfnqGaXhinXeRitpdtXviUCuRj3Dbp0NTHnU9ZPpRo9Xhm4KeMdB_UU3ZBpmVAD43jK">
+</div>
+<span class="font-body-md text-body-md font-bold text-on-surface">Aarav M.</span>
+</div>
+<span class="font-button text-button text-primary">32,100 SP</span>
+</div>
+<!-- Top 2 -->
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 font-button text-button text-on-surface-variant text-center">2</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container relative">
+<img alt="User Avatar" class="object-cover w-full h-full" data-alt="A stylized digital portrait of a female urban sports player wearing a brightly colored headband and athletic tank top. The background is a soft, bright mint-colored gradient. The lighting is crisp and modern, fitting a lively, energetic community app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp7d_CXKYbDclc-rfoF1fYpK3LkuuIww7tHOBQgmmImtzRYk4W_8IrEnpC0yVqAIHQFNDcYY9ob6zGjaNoyHHGW_s1TgdW2_nqaZ6oig5JJBlwT0VBdv4IFdoHHGXXuIpUGfJ4yzQX8cBsvTPkHo4NBzm4utGUxfVAePYNfGtaFsPr3o6vgQ_Bfen62MQNMN4XNHNZ5TTPlzsZVk4wW4MqrKvaZ_rls_6nObiMDY7wDfhZWX08idCa">
+</div>
+<span class="font-body-md text-body-md text-on-surface">Riya P.</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">28,450 SP</span>
+</div>
+<!-- Top 3 -->
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 font-button text-button text-on-surface-variant text-center">3</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant font-button">
+                                    K
+                                </div>
+<span class="font-body-md text-body-md text-on-surface">Karan S.</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">27,900 SP</span>
+</div>
+<!-- You -->
+<div class="flex items-center justify-between p-sm mt-md pt-md border-t border-surface-container-high">
+<div class="flex items-center gap-sm">
+<div class="w-8 font-button text-button text-on-surface-variant text-center">42</div>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-button shadow-md">
+                                    Y
+                                </div>
+<span class="font-body-md text-body-md font-bold text-on-surface">You</span>
+</div>
+<span class="font-button text-button text-primary">12,450 SP</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Rewards Catalog (Bento Grid) -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-section text-headline-section text-on-surface">Rewards Catalog</h2>
+<a class="font-button text-button text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md auto-rows-[250px]">
+<!-- Large Reward (Spans 2 cols on lg) -->
+<div class="lg:col-span-2 bg-surface-card rounded-lg overflow-hidden clay-shadow relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full z-0 transform group-hover:scale-105 transition-transform duration-700" data-alt="A dynamic, high-quality photograph of premium urban basketball shoes and athletic gear laid out on a textured clay-like surface. The lighting is warm and sunset-inspired, casting deep, soft shadows. The overall aesthetic is energetic, tactile, and highly desirable, representing a premium sports reward." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXTPk6c6GP3--HAVn-NmkT_yR8Jgep_0AtKzGok8lY5o3iOCky-WKQ-5Oxc44ZtvE1mhJcQhNLH3I_aU5Jd9OnB80LfR5QkFuDEBc6sDsxX7Y_orDwgMcI_5OSEGfFIdPYBVBOO1njIYXL1cbKdX6c21WrR78OFtA5-X2aiUZS1pCuFdpkE4ew7Z9YIzPk7k5cC9q-PC9ZCnQKsqxU_2J7JKVrvAbxKGQ7bR_8D7ieJr9GLXlZIcpL')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<div class="absolute bottom-0 left-0 p-md z-20 w-full">
+<span class="bg-primary/90 text-white px-sm py-xs rounded-full font-label-caps text-label-caps inline-block mb-2 backdrop-blur-sm">Exclusive Gear</span>
+<h3 class="font-headline-sm text-headline-sm text-white mb-1">PlaySphere Kinetic Merch Drop</h3>
+<div class="flex justify-between items-center mt-2">
+<span class="font-button text-button text-secondary-container">15,000 SP</span>
+<span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Standard Reward 1 -->
+<div class="bg-surface-card rounded-lg p-md clay-shadow flex flex-col justify-between group cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-primary mb-4 float-anim">
+<span class="material-symbols-outlined text-[32px]">schedule</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Court Time</span>
+<h3 class="font-button text-button text-on-surface mb-2">1 Free Court Hour</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-button text-button text-primary">5,000 SP</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Reward 2 -->
+<div class="bg-surface-card rounded-lg p-md clay-shadow flex flex-col justify-between group cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-primary mb-4 float-anim" style="animation-delay: 1s;">
+<span class="material-symbols-outlined text-[32px]">sports_soccer</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Equipment</span>
+<h3 class="font-button text-button text-on-surface mb-2">Pro Match Ball Rental</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-button text-button text-primary">2,500 SP</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Reward 3 (Spans 2 cols on md) -->
+<div class="md:col-span-2 lg:col-span-2 bg-secondary rounded-lg p-md clay-shadow relative overflow-hidden group cursor-pointer flex flex-col justify-center">
+<div class="absolute right-0 top-0 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl -z-0"></div>
+<div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-md">
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-caps text-label-caps inline-block mb-3">Partner Offer</span>
+<h3 class="font-headline-sm text-headline-sm text-white mb-2">20% Off at Urban Sports Co.</h3>
+<p class="font-body-md text-body-md text-white/80">Upgrade your footwear with our exclusive local partner.</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-xl p-sm border border-white/20 text-center flex-shrink-0">
+<span class="block font-label-caps text-label-caps text-white/70 mb-1">Redeem For</span>
+<span class="font-headline-sm text-headline-sm text-secondary-container font-bold block mb-2">8,000 SP</span>
+<button class="w-full bg-white text-secondary font-button text-button py-2 px-4 rounded-full hover:scale-105 transition-transform">
+                                Claim
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container dark:bg-surface-container-lowest mt-xl relative border-t-8 border-surface-container-high">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg px-gutter py-xl max-w-container-max mx-auto flat no shadows text-center md:text-left">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary-soft mb-sm">PlaySphere</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 PlaySphere Kinetic. Ahmedabad's Pulse.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Discover Venues</a>
+<a class="text-primary underline hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Community Hub</a>
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary hover:translate-x-1 transition-transform font-body-md text-body-md" href="#">Terms of Play</a>
+</div>
+</div>
+</footer>
+</body></html>

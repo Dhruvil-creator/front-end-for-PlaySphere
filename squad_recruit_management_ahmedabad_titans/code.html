@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere Kinetic - Recruit Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline": "#8f7069",
+                        "tertiary-container": "#7d8ce4",
+                        "on-tertiary-fixed": "#00105b",
+                        "clay-bg": "#F5EFE9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-bright": "#fff8f6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-error": "#ffffff",
+                        "on-background": "#271814",
+                        "primary-container": "#ff5a36",
+                        "inverse-primary": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2dc",
+                        "map-teal": "#00B4A2",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "primary": "#b52603",
+                        "surface-container-low": "#fff0ed",
+                        "on-surface-variant": "#5b403a",
+                        "on-tertiary-container": "#0d2075",
+                        "tertiary": "#4858ab",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "surface-container-highest": "#f9dcd6",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-card": "#FFFFFF",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#271814",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-primary-container": "#5a0c00",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ffe9e5",
+                        "secondary": "#006b5f",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-secondary-container": "#006f64",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#f0d4ce",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-tint": "#b52603",
+                        "primary-soft": "#FF8A70",
+                        "surface": "#fff8f6",
+                        "secondary-container": "#6df5e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "headline-section": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .clay-button:active {
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px);
+        }
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12);
+        }
+        body {
+            background-color: theme('colors.clay-bg');
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen pt-32 pb-32 md:pb-12 relative overflow-x-hidden">
+<!-- Background Decoration Level 1 (Sub-surface) -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-surface-container rounded-full blur-[100px] opacity-60"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-surface-container-high rounded-full blur-[120px] opacity-70"></div>
+</div>
+<!-- Top Navigation (Web) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/80 dark:bg-surface-dim/80 bg-white/80 dark:bg-surface-container/80 shadow-[0_20px_40px_rgba(0,0,0,0.08)] shadow-lg flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto left-1/2 -translate-x-1/2 rounded-b-xl mt-4 w-[calc(100%-48px)]">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-black text-primary italic">PlaySphere Kinetic</span>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 duration-200 active:scale-95" href="#">Browse</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 duration-200 active:scale-95" href="#">Rules</a>
+<a class="text-primary border-b-4 border-primary pb-1 font-button text-button hover:scale-105 duration-200 active:scale-95" href="#">Live Hub</a>
+</nav>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<button class="hover:scale-105 transition-transform duration-200 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+<button class="hover:scale-105 transition-transform duration-200 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter md:px-lg relative z-10">
+<!-- Header Section -->
+<div class="mb-xl text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Squad Recruits</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ahmedabad Titans • <span class="text-primary font-bold">12 Pending</span></p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-full bg-white text-on-surface-variant font-button text-button shadow-[0_10px_20px_rgba(0,0,0,0.05)] hover:bg-surface-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">filter_list</span> Filter
+                </button>
+<button class="px-6 py-3 rounded-full clay-button font-button text-button flex items-center gap-2">
+<span class="material-symbols-outlined">add</span> Invite Player
+                </button>
+</div>
+</div>
+<!-- Recruit List Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+<!-- Recruit Card 1 -->
+<div class="soft-card rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center">
+<div class="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-4 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young male athlete looking determined, wearing a bright orange athletic jersey. The background is a slightly blurred outdoor urban sports court during golden hour, emphasizing the vibrant, energetic 'PlaySphere Kinetic' aesthetic with soft lighting and warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZwtirUVEPVrVH3H54S9fpJH1Pl7p5jYfdDbmQ-s5TAI3WLkfaI-g-QmkJTzUXpppKVdorHx9aW5Mzmr3apUYmwpIkkbIXMXUvyl_X7r0GxvhzM50TXhsruXld8VcCDj8BQKruEZLTvMPudCufJNvTArdWvHTngPMaXgwTMntQ6jsOM3oTwMNnFFqja2M__b8083cyQuyFnfKNPORDshA3rFbrES5e2WEdSYYEWhe9NJaQCkPirt0c"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Rohan Desai</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Basketball • Point Guard</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">PRO LEVEL</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">95% WIN RATE</span>
+</div>
+</div>
+<div class="flex md:flex-col gap-3 w-full md:w-auto shrink-0">
+<button class="flex-1 md:flex-none px-4 py-2 rounded-full clay-button font-button text-sm flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">check</span> Accept
+                    </button>
+<button class="flex-1 md:flex-none px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-button text-sm flex justify-center items-center gap-1 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span> Decline
+                    </button>
+</div>
+</div>
+<!-- Recruit Card 2 -->
+<div class="soft-card rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center">
+<div class="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-4 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a female athlete with a focused expression, wearing a lightweight teal sports jacket. The setting is an urban playground with subtle geometric shadows and a bright, soft light-mode aesthetic, aligning with the community-centric PlaySphere brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9cACPF7TF5WMPiYJRVfc9SyiprcUAs_j_BDWDppnAaSNqA6lblRDeyFv1XncrsmrX8vf52aU07r_Yubs3YvaozXHM4K8OOIWsnawSABL8eY8oG06wUrmoJyDi8YuT7DFYMZVJsX7jjDfURAfxWB8UEDatCFVgCfFDjUSCupHRdFkfMaRNWENxdDzzj-6isa3TO-Xc5KYMEDPxvTB_V2Vi2ldLO148OkGqGOWPjG3cYzo-cyX9sT0W"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Priya Patel</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Tennis • Singles</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">INTERMEDIATE</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">LOCAL CHAMP</span>
+</div>
+</div>
+<div class="flex md:flex-col gap-3 w-full md:w-auto shrink-0">
+<button class="flex-1 md:flex-none px-4 py-2 rounded-full clay-button font-button text-sm flex justify-center items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">check</span> Accept
+                    </button>
+<button class="flex-1 md:flex-none px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-button text-sm flex justify-center items-center gap-1 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span> Decline
+                    </button>
+</div>
+</div>
+<!-- Recruit Card 3 -->
+<div class="soft-card rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center opacity-80">
+<div class="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-4 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male athlete adjusting his sports headband, wearing a minimalist white athletic shirt. The background is a softly lit clay-colored wall with ambient shadows, reflecting a modern, tactile, and energetic urban sports vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU81KZ-ZKQoY6bMHtgPHGaS42Y_iB3yiD2_Jpc87bZODJi3ewXeyOy3xRXpJweUOyvULqOIoFQT9qH1_fUtMF-QSECwRgRaz6pXEs1TSwpsTpgW-1aFbTNopCTly-pMHaf8x6J9bVk_JoUPHrnkl7ION6XkUstf-fGve_tsVX4SNQ2Ev3r_j1KSC8zc-xvkESk5ySMzct3rzOBpl4fliy7rJDvyNl9kIjU-9pjtY4TqaKyHIg3V2Xo"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Amit Shah</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Football • Midfielder</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">AMATEUR</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[10px]">NEW TO CITY</span>
+</div>
+</div>
+<div class="flex md:flex-col gap-3 w-full md:w-auto shrink-0">
+<button class="flex-1 md:flex-none w-full px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-button text-sm flex justify-center items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span> Profile
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-white/90 dark:bg-surface-container-highest/90 backdrop-blur-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] shadow-xl z-50 rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-90 duration-150 ease-out p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">sports_kabaddi</span>
+<span class="font-label-caps text-label-caps text-[10px]">Tournaments</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)] hover:bg-surface-container-low transition-colors active:scale-90 duration-150 ease-out" href="#">
+<span class="material-symbols-outlined mb-1">podium</span>
+<span class="font-label-caps text-label-caps text-[10px]">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-90 duration-150 ease-out p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">groups</span>
+<span class="font-label-caps text-label-caps text-[10px]">My Teams</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-90 duration-150 ease-out p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">account_circle</span>
+<span class="font-label-caps text-label-caps text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Sports Passport</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#fff8f6",
+                        "primary": "#b52603",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-surface-variant": "#434655",
+                        "inverse-surface": "#3e2c28",
+                        "on-tertiary-container": "#0d2075",
+                        "surface-container-low": "#fff0ed",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "outline": "#8f7069",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "inverse-primary": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600",
+                        "outline-variant": "#e3beb6",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2dc",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64",
+                        "on-surface": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed-variant": "#005048",
+                        "tertiary-container": "#7d8ce4",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "tertiary": "#4858ab",
+                        "surface-container": "#ffe9e5",
+                        "primary-soft": "#FF8A70",
+                        "on-background": "#271814",
+                        "surface-dim": "#f0d4ce",
+                        "surface-card": "#FFFFFF",
+                        "primary-container": "#ff5a36",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006b5f",
+                        "surface-tint": "#b52603",
+                        "map-teal": "#00B4A2",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f6",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-secondary-fixed": "#00201c",
+                        "inverse-on-surface": "#ffede9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    fontFamily: {
+                        "button": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    fontSize: {
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Utilities for Tactile / Claymorphism Look */
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .shadow-clay-btn {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(181, 38, 3, 0.2);
+        }
+        .shadow-inset-soft {
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .bg-passport-pattern {
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 90, 54, 0.05) 0%, transparent 60%);
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen flex antialiased">
+<!-- Desktop SideNavBar (from JSON) -->
+<nav class="hidden md:flex flex-col bg-clay-bg border-r border-outline-variant shadow-xl h-screen w-64 rounded-r-lg fixed left-0 top-0 z-40 py-lg">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm">
+<img alt="PlaySphere Logo Icon" class="w-10 h-10 rounded-full shadow-sm" data-alt="A stylized geometric logo for PlaySphere, featuring a vibrant orange sphere interwoven with dynamic motion lines, rendered in a modern flat aesthetic against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Dj0Xwx90Rtb-gNcEoDXIwF0JSJL34KFzl_pWGsWlynH5D8tHxu126ov3NL872UjRSwgEZ5CVwxuj1OWSry-RzSlgLG5LKFzdUTtl8hoMmfqlCdRfxlWE4v75OjscfvxfSCuBvp3jV1jVuaLZ67lz1hOCsXWTVp-FnBU1j8LKtROHnOH-F1Rs_GfPR8fur8p3hRPdmjOQdyvtm4L1A_upePGsrZ75Mj-WvrOh_Q2t8cPvqqOgsHjC">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tighter">PlaySphere</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Your City, Your Court</p>
+</div>
+</div>
+</div>
+<ul class="flex flex-col gap-xs px-sm flex-1">
+<!-- Playgrounds -->
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">sports_basketball</span>
+<span>Playgrounds</span>
+</a>
+</li>
+<!-- Squads -->
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">groups</span>
+<span>Squads</span>
+</a>
+</li>
+<!-- Tournaments -->
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">workspace_premium</span>
+<span>Tournaments</span>
+</a>
+</li>
+<!-- Stats (ACTIVE for Passport) -->
+<li>
+<a class="flex items-center gap-base bg-primary-container text-on-primary-container rounded-full px-md py-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] translate-x-2 transition-transform font-bold relative overflow-hidden" href="#">
+<div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"></div>
+<span class="material-symbols-outlined relative z-10" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="relative z-10">Stats</span>
+</a>
+</li>
+<!-- Community -->
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">forum</span>
+<span>Community</span>
+</a>
+</li>
+</ul>
+<div class="px-md mt-auto mb-md">
+<button class="w-full bg-primary text-on-primary font-button text-button rounded-full py-sm shadow-clay-btn hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">search</span> Find a Match
+            </button>
+</div>
+<ul class="flex flex-col gap-xs px-sm border-t border-outline-variant/30 pt-sm">
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Mobile TopNavBar (from JSON, visible only on mobile) -->
+<nav class="md:hidden fixed top-0 w-full z-50 flex justify-between items-center px-md py-sm max-w-container-max mx-auto bg-white/80 dark:bg-on-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] shadow-md">
+<div class="flex items-center gap-sm">
+<span class="font-headline-section text-headline-sm text-primary tracking-tighter">PlaySphere</span>
+</div>
+<div class="flex items-center gap-md text-primary">
+<button class="hover:text-primary-soft transition-colors duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:text-primary-soft transition-colors duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-primary-soft transition-colors duration-300">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<img alt="User profile with active status" class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="A small circular avatar of a user looking energetic, wearing a sports cap, set against a bright white background, symbolizing an active profile status." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz6y-GwSguWC4CeITst-D-qk1SuAgcZjjF2XYB7IyU9ojhTrVT5ya4mOxaQDCG6Uw37XZQmrm3IGhUjhUCsoy4bzIx8D1U29RyWVYbot3Ma3r6JM4X8hR0sicSk2am-1xfEANKGRIWWTbzlIo7KMWTXOmF-pV1ODlgwkyg3-tQOfGo7w4y3CuCTit5jFFRLY-L1FSmyG3EpHPu8tGJNv2m0ziOgwXyyZ4oaEA8hRpAhFw67rcAOGkj">
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 w-full max-w-container-max mx-auto px-md py-xl md:py-lg pt-24 md:pt-lg">
+<!-- Header -->
+<header class="mb-lg text-center md:text-left">
+<h2 class="font-headline-section text-headline-section text-on-surface">Sports Passport</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Your athletic identity and city-wide milestones.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- 1. Physical Passport Card (Hero) -->
+<div class="md:col-span-8 bg-surface-card rounded-xl p-md shadow-soft-deep relative overflow-hidden flex flex-col hover-lift border border-surface-variant/50">
+<div class="absolute inset-0 bg-passport-pattern opacity-50 pointer-events-none"></div>
+<!-- Watermark Logo -->
+<div class="absolute -right-10 -bottom-10 opacity-[0.03] rotate-12 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]">language</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-lg items-center sm:items-start relative z-10">
+<!-- Avatar Column -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-32 h-32 rounded-[2rem] overflow-hidden shadow-soft-deep border-4 border-surface-bright relative group">
+<img alt="Alex Rivers Passport Photo" class="w-full h-full object-cover" data-alt="A highly detailed, professional headshot of a fit young athlete named Alex Rivers, looking determined. They are wearing a futuristic breathable sports jersey in sunset orange and dark charcoal. The background is a blurred urban sports court at dusk, with warm, golden hour lighting highlighting their features. Shot in a premium, modern cinematic style with soft focus on the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFcWk8V2Cx1BppJnudaLaY8TonJFS6i_AhM5YwtR2XR994mcknsuj-tKaqtvB7PtocPH4ZCdZGhPn44usb5H-5rO5izAzig_tyPjXKrg0lWAJ7LAmfVRtIkRB4SsubbLgKmPg0xkEzv7r0P1X9JLyPcTlKgNnDSn34b1P4DZR8piF6zKHQGC1vHBlV1hfAV2cf0sHWMfweIA-_h2uTPAMVS48zxTVjJtoDPuLVwUtFb2ogsLjw7Mup">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-2">
+<span class="text-surface-bright font-label-caps text-[10px]">Update Photo</span>
+</div>
+</div>
+<div class="bg-surface-container-high px-3 py-1 rounded-full border border-outline-variant flex items-center gap-1 shadow-inset-soft">
+<div class="w-2 h-2 rounded-full bg-map-teal animate-pulse"></div>
+<span class="font-label-caps text-[11px] text-on-surface-variant">Active in City</span>
+</div>
+</div>
+<!-- Details Column -->
+<div class="flex-1 w-full text-center sm:text-left">
+<div class="flex flex-col sm:flex-row justify-between items-center sm:items-start mb-4">
+<div>
+<p class="font-label-caps text-label-caps text-primary tracking-widest mb-1">CITIZEN OF PLAY</p>
+<h3 class="font-headline-section text-[40px] text-on-surface leading-none mb-2">Alex Rivers</h3>
+<p class="font-body-md text-on-surface-variant">UID: #PS-8492-AX</p>
+</div>
+<!-- Level Badge -->
+<div class="mt-4 sm:mt-0 flex flex-col items-center bg-surface-container-low p-3 rounded-lg border border-outline-variant shadow-sm rotate-3 transform origin-top-right">
+<span class="material-symbols-outlined text-primary text-3xl mb-1" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-headline-sm text-headline-sm text-on-surface leading-none">LVL 14</span>
+<span class="font-label-caps text-[10px] text-primary-soft">PRO TIER</span>
+</div>
+</div>
+<!-- XP Bar Section -->
+<div class="mt-auto bg-surface-bright p-sm rounded-lg border border-surface-variant shadow-inset-soft">
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-md text-sm text-on-surface">Next Rank: <strong class="text-primary">Elite</strong></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">8,450 / 10,000 XP</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden shadow-inner">
+<div class="h-full bg-gradient-to-r from-primary-soft to-primary rounded-full relative" style="width: 84.5%;">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-30"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Athletic Identity -->
+<div class="md:col-span-4 bg-surface-card rounded-xl p-md shadow-soft-deep flex flex-col hover-lift">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">fingerprint</span>
+<h3 class="font-headline-sm text-[22px] text-on-surface">Athletic Identity</h3>
+</div>
+<ul class="flex-1 flex flex-col justify-between gap-y-3 mt-2">
+<li class="flex justify-between items-center py-2 border-b border-surface-variant border-dashed">
+<span class="font-body-md text-on-surface-variant">Height</span>
+<span class="font-body-md text-on-surface font-bold">182 cm</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-surface-variant border-dashed">
+<span class="font-body-md text-on-surface-variant">Weight</span>
+<span class="font-body-md text-on-surface font-bold">78 kg</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-surface-variant border-dashed">
+<span class="font-body-md text-on-surface-variant">Dominant Side</span>
+<div class="flex gap-1">
+<span class="bg-surface-container-high px-2 py-1 rounded text-xs font-bold text-on-surface">R Foot</span>
+<span class="bg-surface-container-high px-2 py-1 rounded text-xs font-bold text-on-surface">R Hand</span>
+</div>
+</li>
+<li class="flex flex-col gap-1 py-2 pt-3">
+<span class="font-body-md text-on-surface-variant text-sm">Play Style</span>
+<span class="font-headline-sm text-lg text-primary italic">"Aggressive Playmaker"</span>
+</li>
+</ul>
+</div>
+<!-- 3. Sports Visas (Badges) -->
+<div class="md:col-span-6 bg-surface-card rounded-xl p-md shadow-soft-deep hover-lift">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">sports_score</span>
+<h3 class="font-headline-sm text-[22px] text-on-surface">Sports Visas</h3>
+</div>
+<button class="text-primary font-label-caps text-label-caps hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Football Badge -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-bright border-2 border-primary/20 shadow-soft-deep flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all duration-300 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-50"></div>
+<span class="material-symbols-outlined text-3xl text-on-surface z-10" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+</div>
+<span class="font-label-caps text-[11px] text-on-surface-variant text-center">Football<br><span class="text-primary font-bold">Pro</span></span>
+</div>
+<!-- Cricket Badge -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-bright border-2 border-secondary/20 shadow-soft-deep flex items-center justify-center group-hover:scale-110 group-hover:border-secondary transition-all duration-300 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-50"></div>
+<span class="material-symbols-outlined text-3xl text-on-surface z-10" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+</div>
+<span class="font-label-caps text-[11px] text-on-surface-variant text-center">Cricket<br><span class="text-secondary font-bold">Veteran</span></span>
+</div>
+<!-- Basketball Badge -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-bright border-2 border-outline-variant shadow-soft-deep flex items-center justify-center group-hover:scale-110 group-hover:border-outline transition-all duration-300 relative overflow-hidden grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100">
+<div class="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-50"></div>
+<span class="material-symbols-outlined text-3xl text-on-surface z-10">sports_basketball</span>
+</div>
+<span class="font-label-caps text-[11px] text-on-surface-variant text-center">Basketball<br><span class="text-outline font-bold">Rookie</span></span>
+</div>
+<!-- Tennis Badge -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-16 h-16 rounded-full bg-surface-bright border-2 border-outline-variant shadow-soft-deep flex items-center justify-center group-hover:scale-110 group-hover:border-outline transition-all duration-300 relative overflow-hidden grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100">
+<div class="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-50"></div>
+<span class="material-symbols-outlined text-3xl text-on-surface z-10">sports_tennis</span>
+</div>
+<span class="font-label-caps text-[11px] text-on-surface-variant text-center">Tennis<br><span class="text-outline font-bold">Novice</span></span>
+</div>
+</div>
+</div>
+<!-- 4. Location Stamps (Ahmedabad) -->
+<div class="md:col-span-6 bg-surface-card rounded-xl p-md shadow-soft-deep hover-lift relative overflow-hidden">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-fixed rounded-bl-full opacity-20 -z-10 blur-2xl"></div>
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-map-teal">local_activity</span>
+<h3 class="font-headline-sm text-[22px] text-on-surface">City Stamps</h3>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-xs font-bold text-on-surface border border-outline-variant shadow-inset-soft">Ahmedabad</span>
+</div>
+<div class="flex flex-wrap gap-6 relative p-4 bg-clay-bg/30 rounded-lg border border-surface-variant min-h-[140px] items-center justify-around">
+<!-- Stamp 1 -->
+<div class="relative w-24 h-24 border-4 border-primary/40 rounded-full flex flex-col items-center justify-center -rotate-12 hover:rotate-0 transition-transform cursor-default bg-white/50 backdrop-blur-sm shadow-sm mix-blend-multiply">
+<span class="material-symbols-outlined text-primary/60 text-xl absolute top-2">stadium</span>
+<span class="font-headline-sm text-xs text-primary/80 uppercase tracking-widest mt-2">Bopal</span>
+<span class="font-label-caps text-[8px] text-primary/60 mt-1">12 Matches</span>
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full scale-[0.85] border-dashed"></div>
+</div>
+<!-- Stamp 2 -->
+<div class="relative w-28 h-28 border-[3px] border-secondary/50 flex flex-col items-center justify-center rotate-6 hover:rotate-0 transition-transform cursor-default bg-white/50 backdrop-blur-sm shadow-sm mix-blend-multiply" style="border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;">
+<span class="font-label-caps text-[10px] text-secondary/80 absolute top-3">OFFICIAL PLAY</span>
+<span class="font-headline-sm text-sm text-secondary/90 uppercase tracking-widest mt-3">Vastrapur</span>
+<span class="font-label-caps text-[9px] text-secondary/70 mt-1">Champion</span>
+<span class="material-symbols-outlined text-secondary/40 text-lg absolute bottom-2">verified</span>
+</div>
+<!-- Stamp 3 -->
+<div class="relative w-20 h-20 border-4 border-on-surface-variant/30 rounded flex flex-col items-center justify-center rotate-[24deg] hover:rotate-0 transition-transform cursor-default bg-white/50 backdrop-blur-sm shadow-sm mix-blend-multiply">
+<span class="font-headline-sm text-[10px] text-on-surface-variant/80 uppercase tracking-widest">SG Highway</span>
+<span class="font-label-caps text-[8px] text-on-surface-variant/60 mt-1">Visited</span>
+<div class="absolute inset-0 border border-on-surface-variant/20 m-1"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Us - PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-surface-variant": "#434655",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed": "#70f8e4",
+                        "outline-variant": "#e3beb6",
+                        "on-surface": "#271814",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "on-background": "#271814",
+                        "inverse-primary": "#ffb4a3",
+                        "map-teal": "#00B4A2",
+                        "inverse-surface": "#3e2c28",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "secondary": "#006b5f",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-card": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#b52603",
+                        "background": "#fff8f6",
+                        "surface-bright": "#fff8f6",
+                        "outline": "#8f7069",
+                        "surface-dim": "#f0d4ce",
+                        "primary": "#b52603",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "inverse-on-surface": "#ffede9",
+                        "on-tertiary-container": "#0d2075",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4858ab",
+                        "primary-container": "#ff5a36",
+                        "surface-container-low": "#fff0ed",
+                        "surface": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 12px 24px rgba(255, 90, 54, 0.4);
+        }
+        
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+
+        .blob-bg {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative min-h-screen flex flex-col">
+<!-- Background Blobs (Level 1) -->
+<div class="blob-bg bg-primary-soft w-[600px] h-[600px] top-[-200px] left-[-200px]"></div>
+<div class="blob-bg bg-tertiary-container w-[500px] h-[500px] bottom-[20%] right-[-100px]"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-gutter max-w-container-max mx-auto bg-white/80 dark:bg-surface-container/80 backdrop-blur-xl rounded-full mt-md mx-md h-16 shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-transform duration-300">
+<div class="flex items-center gap-md pl-md">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim">PlaySphere Ahmedabad</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Venues</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Map</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">Events</a>
+</div>
+<div class="flex items-center gap-sm pr-sm">
+<button class="hidden md:flex clay-button bg-primary text-on-primary font-button text-button px-lg py-sm rounded-full items-center justify-center">
+                Join the Game
+            </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-soft shrink-0">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up portrait of an active young professional in Ahmedabad, smiling warmly. The lighting is bright and sunny, highlighting a modern urban sports aesthetic with a soft, warm clay-toned background. High quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV9uA_YLzBjn3eb4aP0N5DsKl72KmUF703CJ9IOL_a-mcVm7kvaoAFC0YWFgsSikP57y9igiYj_2Rlw9lXMTNYygETiw_YJUKivzb3DfsPoDwiDXdfIl4-z22dPYDnPtXvSjyFa6-ECeODmagycEAipTSND-XbbpFynj0IyKNzfhpBDGyE3Enzo44YKsXvhj-22tGd0MgYC6U_AQybMN28xZQa7VXHxEIDMBGWszeGqGq3Md5ku6FK">
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-xl px-gutter max-w-container-max mx-auto w-full z-10 flex flex-col gap-xl">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-1 flex flex-col gap-md text-center md:text-left">
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface">
+                    Your City, <br> <span class="text-primary">Your Playground.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0">
+                    We believe every street corner, open court, and local park in Ahmedabad holds the potential for connection, competition, and community. PlaySphere is here to unlock it.
+                </p>
+</div>
+<div class="flex-1 w-full relative">
+<div class="absolute inset-0 bg-secondary-container rounded-[3rem] transform translate-x-4 translate-y-4 opacity-50"></div>
+<div class="relative rounded-[3rem] overflow-hidden soft-card aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="A wide angle shot of a vibrant community basketball game taking place on an outdoor court in Ahmedabad during golden hour. The warm sunset light casts long, dramatic shadows. Players of diverse backgrounds are actively engaged, showcasing an energetic, tactile, and community-centric urban sports vibe. High quality, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPEE4LDWWSbNosU0WScW37bbzgIlhVtU63ILPLWPo5KZg0iJEKThfFzObrJLk71Guz9nDLPuw2sU1BwkwdKdkA7mw0M0mOUn9hGB52RC6aUAka799AvoGqbi4mtrkHShUgoe6wKT8KWbs37LSSikXfEZ0OYIy0T0ULKYIuz0ghndvjYSXTqvRT-7eTBIY3Ko9rT3QXH0nCBD2_gHbBaMj_SbNkGoavq6Hk7pe2YyVZjqtWnadx2VEi">
+</div>
+</div>
+</section>
+<!-- Our Story / Bento Grid -->
+<section class="flex flex-col gap-lg">
+<div class="text-center">
+<h2 class="font-headline-section text-headline-section text-on-surface">Our Story</h2>
+<div class="w-16 h-2 bg-primary-soft mx-auto rounded-full mt-sm"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Large Card -->
+<div class="md:col-span-2 soft-card bg-surface-card rounded-[2rem] p-lg flex flex-col justify-center relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-surface-container-low rounded-full blur-2xl group-hover:bg-primary-fixed transition-colors duration-500"></div>
+<span class="material-symbols-outlined text-[48px] text-primary mb-md relative z-10">sports_basketball</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm relative z-10">Born from the Streets</h3>
+<p class="font-body-md text-body-md text-on-surface-variant relative z-10">
+                        PlaySphere Kinetic started with a simple observation: Ahmedabad is buzzing with athletic energy, but finding a game, a court, or a crew was harder than it needed to be. We set out to build a digital bridge to physical play.
+                     </p>
+</div>
+<!-- Small Card 1 -->
+<div class="soft-card bg-tertiary-container rounded-[2rem] p-lg flex flex-col justify-end relative overflow-hidden min-h-[300px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="A close up, low angle shot of a worn basketball resting on a colorful, painted urban court in Ahmedabad. The texture of the ball and the court surface are prominent, evoking a tactile, 'squishy' claymorphism feel. Warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANhYh9TcomiK8KFgaKRkR1YEiV1Ti861J48qaQuypHTLGP3poST7anHGxLdreO1BQaxE20G49wui9OHUa_pry9PZYWuewH80XyocZjrVyNXAIGA0gI2XGacX2ollJWvRaj4yHbyW7Hav8YmChbVFxyOkFVDrW_NTNptmQ5bzFoMd6IGDB7W-H5myfoywomKVB-HcXxQWSjflwOHsKshHsI3xIicjg9OIWNYB8VxXY0qGd8W4bT_IJn">
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-tertiary">10k+</h3>
+<p class="font-body-md text-body-md text-on-tertiary/80">Active Players</p>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="soft-card bg-surface-card rounded-[2rem] p-lg flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-secondary mb-md">map</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">50+ Venues</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mapped and ready across the city.</p>
+</div>
+<!-- Large Card 2 -->
+<div class="md:col-span-2 soft-card bg-surface-card rounded-[2rem] p-lg flex flex-col md:flex-row items-center gap-md">
+<div class="w-full md:w-1/2 aspect-square rounded-[1.5rem] overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover" data-alt="A diverse group of friends high-fiving after a game of futsal on a well-lit astroturf pitch in Ahmedabad. The scene is energetic and welcoming, featuring bright accent colors in their sportswear against a warm, soft clay-toned urban background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjIxWzQni4THl-UO6g4wQQNorWinbjhhP7telJT28fJ2VJyi7SY-zxwX82mJSbCqgxZ804EJvVT1kevAi-Qf58MpbXFFNBQwt_QDTq69YBkyV5QRDWQNtkTgKo7FgHMMwR5NV603aLPMoAi-tM6nZZqzS5lZbBQAJRRcVZJBW5NgfSi9PGdrss1PnLe7aort12hKor52HyFXAZ3qOJWX797ZR4yPPWkIvy8vdvb_J6VTGL23NjjcpW">
+</div>
+<div class="w-full md:w-1/2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Connecting the Dots</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            We aren't just an app; we are a community movement. By making local sports accessible, we aim to transform how urban spaces are utilized and how neighbors interact.
+                         </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-gutter flex flex-col items-center gap-md bg-surface-container-low dark:bg-surface-container-lowest w-full rounded-t-lg z-20 relative">
+<span class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Ahmedabad</span>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Safety Rules</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">© 2024 PlaySphere Kinetic. Your City, Your Playground.</p>
+</footer>
+</body></html>

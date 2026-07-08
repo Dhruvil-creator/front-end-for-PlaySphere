@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Facility Profile Manager | PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#f9dcd6",
+                    "secondary-fixed": "#70f8e4",
+                    "inverse-on-surface": "#ffede9",
+                    "on-primary": "#ffffff",
+                    "on-background": "#271814",
+                    "error": "#ba1a1a",
+                    "surface": "#fff8f6",
+                    "tertiary": "#4858ab",
+                    "primary-container": "#ff5a36",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "surface-container-low": "#fff0ed",
+                    "on-secondary-container": "#006f64",
+                    "on-primary-container": "#5a0c00",
+                    "on-tertiary-container": "#0d2075",
+                    "on-surface-variant": "#434655",
+                    "inverse-primary": "#ffb4a3",
+                    "tertiary-container": "#7d8ce4",
+                    "on-primary-fixed": "#3d0600",
+                    "surface-variant": "#f9dcd6",
+                    "surface-bright": "#fff8f6",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-secondary-fixed": "#00201c",
+                    "clay-bg": "#F5EFE9",
+                    "background": "#fff8f6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#b52603",
+                    "surface-card": "#FFFFFF",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "surface-container": "#ffe9e5",
+                    "on-error": "#ffffff",
+                    "primary-soft": "#FF8A70",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#271814",
+                    "tertiary-fixed": "#dee0ff",
+                    "secondary": "#006b5f",
+                    "outline": "#8f7069",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "inverse-surface": "#3e2c28",
+                    "map-teal": "#00B4A2",
+                    "surface-container-high": "#ffe2dc",
+                    "surface-tint": "#b52603",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-secondary-fixed-variant": "#005048",
+                    "surface-dim": "#f0d4ce",
+                    "secondary-container": "#6df5e1",
+                    "primary-fixed": "#ffdad2",
+                    "outline-variant": "#e3beb6",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "headline-sm": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "button": ["Nunito"]
+            },
+            "fontSize": {
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+        }
+        
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px -10px rgba(181, 38, 3, 0.05), 0 10px 20px -5px rgba(181, 38, 3, 0.02);
+        }
+        
+        .shadow-clay-inset {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(255, 90, 54, 0.3);
+        }
+        
+        .blob-bg {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        
+        /* Custom Toggle */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: theme('colors.primary-container');
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: theme('colors.primary-container');
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Ambient Background Blobs -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+<div class="blob-bg w-[600px] h-[600px] bg-primary-fixed top-[-100px] left-[-100px]"></div>
+<div class="blob-bg w-[500px] h-[500px] bg-secondary-container bottom-[-50px] right-[-50px]"></div>
+</div>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden lg:flex flex-col h-screen p-md gap-base border-r border-outline-variant bg-clay-bg dark:bg-inverse-surface shadow-xl h-screen w-64 fixed left-0 top-0 z-50">
+<div class="mb-xl">
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-2">Ahmedabad Arena</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Venue Partner</p>
+</div>
+<button class="bg-primary-container text-on-primary rounded-full py-3 px-6 mb-lg shadow-clay-inset font-button text-button hover:scale-105 transition-transform">
+            New Booking
+        </button>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all font-label-caps text-label-caps hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all font-label-caps text-label-caps hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                    Bookings
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 shadow-inner-light font-label-caps text-label-caps hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="stadium">stadium</span>
+                    Facility
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all font-label-caps text-label-caps hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                    Promotions
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all font-label-caps text-label-caps hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 p-gutter md:p-lg max-w-[container-max] w-full mx-auto relative z-10 pb-32">
+<!-- Header Section -->
+<header class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-background mb-2">Facility Manager</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Update your digital storefront and court configurations.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-card text-on-surface rounded-full py-3 px-6 shadow-soft-deep font-button text-button hover:scale-105 transition-transform">
+                    Preview Page
+                </button>
+<button class="bg-primary-container text-on-primary rounded-full py-3 px-6 shadow-clay-inset font-button text-button hover:scale-105 transition-transform">
+                    Save Changes
+                </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-lg">
+<!-- 1. Court Configurations (Takes up more space) -->
+<section class="lg:col-span-8 bg-surface-card rounded-xl p-md shadow-soft-deep hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<div class="flex items-center justify-between mb-lg border-b border-outline-variant pb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+                        Court Configurations
+                    </h3>
+<button class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="add">add</span> Add Court
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Court Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-tertiary-container rounded-bl-full -mr-8 -mt-8 opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface">Court 1 - Alpha</h4>
+<span class="font-label-caps text-label-caps text-tertiary">Premium Turf</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-caps text-label-caps text-xs">Active</span>
+</div>
+<div class="flex gap-4 text-on-surface-variant font-body-md text-body-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]" data-icon="straighten">straighten</span> 5v5</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]" data-icon="wb_sunny">wb_sunny</span> Outdoor</span>
+</div>
+</div>
+<!-- Court Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary-container rounded-bl-full -mr-8 -mt-8 opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface">Court 2 - Beta</h4>
+<span class="font-label-caps text-label-caps text-primary">Red Clay</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-caps text-label-caps text-xs">Active</span>
+</div>
+<div class="flex gap-4 text-on-surface-variant font-body-md text-body-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]" data-icon="straighten">straighten</span> Singles</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]" data-icon="roofing">roofing</span> Covered</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Amenities Checklist (Side column) -->
+<section class="lg:col-span-4 bg-surface-card rounded-xl p-md shadow-soft-deep hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-lg flex items-center gap-3 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                    Amenities
+                </h3>
+<ul class="space-y-4">
+<!-- Toggle Item -->
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Floodlights</span>
+</div>
+<label class="relative inline-block w-12 h-6 cursor-pointer">
+<input checked="" class="opacity-0 w-0 h-0 toggle-checkbox absolute z-10 cursor-pointer" type="checkbox">
+<span class="toggle-label absolute inset-0 bg-surface-variant rounded-full transition-colors duration-300 before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition-transform before:duration-300 peer-checked:bg-primary-container peer-checked:before:translate-x-6 shadow-inner"></span>
+</label>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" data-icon="local_cafe">local_cafe</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Cafeteria</span>
+</div>
+<label class="relative inline-block w-12 h-6 cursor-pointer">
+<input checked="" class="opacity-0 w-0 h-0 toggle-checkbox absolute z-10 cursor-pointer" type="checkbox">
+<span class="toggle-label absolute inset-0 bg-surface-variant rounded-full transition-colors duration-300 before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition-transform before:duration-300 peer-checked:bg-primary-container peer-checked:before:translate-x-6 shadow-inner"></span>
+</label>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" data-icon="wifi">wifi</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Free Wi-Fi</span>
+</div>
+<label class="relative inline-block w-12 h-6 cursor-pointer">
+<input class="opacity-0 w-0 h-0 toggle-checkbox absolute z-10 cursor-pointer" type="checkbox">
+<span class="toggle-label absolute inset-0 bg-surface-variant rounded-full transition-colors duration-300 before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition-transform before:duration-300 shadow-inner"></span>
+</label>
+</li>
+</ul>
+</section>
+</div>
+</main>
+</body></html>

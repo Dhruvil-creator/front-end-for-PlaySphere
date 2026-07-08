@@ -1,0 +1,389 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Corporate - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#006b5f",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "outline-variant": "#e3beb6",
+                        "primary-container": "#ff5a36",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-container-high": "#ffe2dc",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "surface-dim": "#f0d4ce",
+                        "surface-card": "#FFFFFF",
+                        "tertiary": "#4858ab",
+                        "surface-container": "#ffe9e5",
+                        "on-tertiary-container": "#0d2075",
+                        "surface-container-low": "#fff0ed",
+                        "inverse-surface": "#3e2c28",
+                        "on-surface-variant": "#5b403a",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "surface-container-highest": "#f9dcd6",
+                        "primary": "#b52603",
+                        "on-surface": "#271814",
+                        "inverse-primary": "#ffb4a3",
+                        "map-teal": "#00B4A2",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#00105b",
+                        "outline": "#8f7069",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-variant": "#f9dcd6",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#70f8e4",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#7d8ce4",
+                        "on-primary": "#ffffff",
+                        "surface": "#fff8f6",
+                        "background": "#fff8f6",
+                        "surface-tint": "#b52603",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-soft": "#FF8A70",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-background": "#271814"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xl": "80px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xs": "4px"
+                    },
+                    fontFamily: {
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    fontSize: {
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.clay-bg'); }
+        
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .soft-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .soft-card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .clay-button:active {
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 2px 4px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 px-gutter shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-md">
+<span class="font-display-hero-mobile text-headline-sm font-black text-primary">PlaySphere Corporate</span>
+</div>
+<nav class="hidden md:flex gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Leagues</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Standings</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Registration</a>
+<a class="text-primary border-b-4 border-primary pb-1 font-button text-button" href="#">Dashboard</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex p-2 rounded-full hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="notifications">notifications</span>
+</button>
+<button class="hidden md:flex p-2 rounded-full hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="business_center">business_center</span>
+</button>
+<button class="clay-button rounded-full px-md py-base font-button text-button ml-sm hidden md:block">
+                    Manage Team
+                </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 rounded-full bg-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-[100px]"> <!-- pt to account for fixed header -->
+<!-- Side Navigation (Desktop) -->
+<aside class="hidden lg:flex bg-surface-container-low border-r border-outline-variant h-[calc(100vh-100px)] w-64 rounded-r-lg shadow-sm sticky top-[100px] flex-col py-md px-sm">
+<div class="mb-lg px-sm">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern geometric logo for a corporate entity, featuring sharp angles and a vibrant color palette of sunset orange and soft teal on a light clay background. Professional yet energetic design system aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlyYsTx_vQM_GTvOv7LzqAF6DMvkmQCGKDi-gYNuzPVshY28FYQ61DLitNqnmyAUB9VkCnlgM9kQFR8Gx5hDKDjYmgC3ZaOm71Thle5vRvmUKvHfKxymKN_cd2hyWdAvvSgpblSg2_XgScgWT1E7h3ssto6Oh2ijUijhaNomv-LVnVeSHlqPEKOsyxOc6UzNfce0iXUER6GDBxv41jL1QG_-6fLsnx6raMR1aLrimrg0cP7NIMkSxG">
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Corporate Portal</h2>
+<p class="font-body-md text-sm text-on-surface-variant">League Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-base">
+<a class="flex items-center gap-sm p-sm bg-secondary-container text-on-secondary-container rounded-xl font-bold font-body-md text-body-md group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors hover:translate-x-1 duration-200 rounded-xl font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Employee Rosters</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors hover:translate-x-1 duration-200 rounded-xl font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Match Schedule</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors hover:translate-x-1 duration-200 rounded-xl font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Resources</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant flex flex-col gap-base">
+<button class="clay-button rounded-full w-full py-sm font-button text-button mb-sm">
+                    Add New Team
+                </button>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors hover:translate-x-1 duration-200 rounded-xl font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors hover:translate-x-1 duration-200 rounded-xl font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-gutter py-lg flex flex-col gap-xl">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Welcome back, Admin</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here is your company's play overview for the Spring Season.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-card soft-shadow rounded-full px-md py-sm font-button text-button text-primary hover:scale-105 transition-transform flex items-center gap-sm">
+<span class="material-symbols-outlined">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Stat Card 1 -->
+<div class="bg-surface-card rounded-lg p-lg soft-shadow soft-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed rounded-full opacity-50 blur-xl"></div>
+<div class="flex items-center justify-between mb-md relative z-10">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Employees Registered</h3>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+</div>
+<div class="relative z-10">
+<p class="font-display-hero-mobile text-[48px] font-black text-on-surface leading-none">142</p>
+<p class="font-body-md text-sm text-secondary flex items-center mt-xs">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span> +12% from last season
+                        </p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-card rounded-lg p-lg soft-shadow soft-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -left-4 -bottom-4 w-32 h-32 bg-secondary-fixed rounded-full opacity-30 blur-2xl"></div>
+<div class="flex items-center justify-between mb-md relative z-10">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Teams</h3>
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+</div>
+</div>
+<div class="relative z-10">
+<p class="font-display-hero-mobile text-[48px] font-black text-on-surface leading-none">8</p>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center mt-xs">
+                            Across 3 sports
+                        </p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-primary-container text-on-primary-container rounded-lg p-lg soft-shadow soft-card-hover flex flex-col justify-between relative overflow-hidden md:col-span-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),_0_20px_40px_rgba(255,90,54,0.2)]">
+<div class="absolute right-0 top-0 w-64 h-64 bg-white/20 rounded-full -mr-20 -mt-20 blur-2xl"></div>
+<div class="flex items-center justify-between mb-md relative z-10">
+<h3 class="font-label-caps text-label-caps text-white/90 uppercase">Company Win Rate</h3>
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+</div>
+<div class="relative z-10 flex items-end justify-between">
+<div>
+<p class="font-display-hero-mobile text-[64px] font-black text-white leading-none">64%</p>
+<p class="font-body-md text-white/80 mt-1">24 Matches Won / 38 Played</p>
+</div>
+<div class="h-16 w-32 bg-white/10 rounded-lg flex items-end p-2 gap-1 overflow-hidden">
+<!-- Dummy bar chart -->
+<div class="w-1/5 bg-white/40 h-[40%] rounded-t-sm"></div>
+<div class="w-1/5 bg-white/60 h-[60%] rounded-t-sm"></div>
+<div class="w-1/5 bg-white/80 h-[50%] rounded-t-sm"></div>
+<div class="w-1/5 bg-white h-[90%] rounded-t-sm"></div>
+<div class="w-1/5 bg-white/90 h-[75%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Teams & Schedule Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Teams List (Takes 2 columns) -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Your Teams</h2>
+<a class="font-button text-button text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Team Card 1 -->
+<div class="bg-surface-card rounded-lg p-md soft-shadow soft-card-hover flex flex-col gap-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-variant flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Dynamic shot of a corporate basketball team huddled together on a sunny outdoor court, vibrant orange and teal uniforms. High energy, bright lighting, soft clay aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0y01S9eF0dJurugqqQYB-OsWAHj-1JuAb9pg4tOjIsA4lYgEP5TEvMB8cyfyE5hMTyCXXDWP2Xvex1MZTtJURhp2yT-_vdPpsE4rc5Sdfu1DgCfrRqH9vWvA4_bsgcLx77KwCMLdvhlsTsobF0gvh1FrO1cCD2eX9bPeekGY0vhS8GnH6KI3UlZabREYR9AkQXlTApzKa98Em-ixZ9RyrxzWvWxeHxhRodyWydSHgS1OyZYKpeM3i">
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Tech Titans</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Basketball \u2022 Men's League</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-md text-xs font-bold uppercase tracking-wider">Active</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm flex justify-between items-center">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Standing</p>
+<p class="font-button text-primary font-bold">2nd Place</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Roster</p>
+<p class="font-body-md font-bold text-on-surface">12/15</p>
+</div>
+</div>
+</div>
+<!-- Team Card 2 -->
+<div class="bg-surface-card rounded-lg p-md soft-shadow soft-card-hover flex flex-col gap-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-variant flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A diverse group of co-workers high-fiving after a casual soccer match on a bright green turf field. Energetic, welcoming atmosphere, warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNm5H_N2mnbL2EA-Ii7D6JZRyLZPONk4YNaab_io38lUdyhOpfVgE1rTjbaTD-mimaOtbmT1oyukcR6hTQphblhTz8ZBRZGVn68QIW0aylhAAeLW0HeLZe3WodkTcGUAYo1-W7MRfafd3DOoHH5jOh40DPYKVJuwvJteNCop-Ah3FBbNQcOao3uSvIpCdrJzwoieUvtZ0BziI6vk2atJxmqA8X2l3DhFJfETV8gTnzPt9_2NZIw9_g">
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Sales Strikers</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Soccer \u2022 Co-ed Casual</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-bold uppercase tracking-wider">Registration</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm flex justify-between items-center">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Standing</p>
+<p class="font-button text-on-surface font-bold">--</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Roster</p>
+<p class="font-body-md font-bold text-secondary">8/12</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Schedule (Takes 1 column) -->
+<div class="flex flex-col gap-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Upcoming Matches</h2>
+<div class="bg-surface-card rounded-lg soft-shadow p-sm flex flex-col gap-2">
+<!-- Match Item 1 -->
+<div class="p-sm rounded-xl hover:bg-surface-container-low transition-colors flex gap-sm items-start cursor-pointer group">
+<div class="bg-primary-fixed text-primary rounded-lg flex flex-col items-center justify-center p-2 min-w-[60px]">
+<span class="font-label-caps text-xs uppercase">Oct</span>
+<span class="font-button text-xl font-bold">12</span>
+</div>
+<div class="flex-1">
+<h5 class="font-body-lg text-base font-bold text-on-surface group-hover:text-primary transition-colors">Tech Titans vs. GloboGym</h5>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 6:30 PM
+                                </p>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> City Park Court 2
+                                </p>
+</div>
+</div>
+<hr class="border-outline-variant mx-sm">
+<!-- Match Item 2 -->
+<div class="p-sm rounded-xl hover:bg-surface-container-low transition-colors flex gap-sm items-start cursor-pointer group">
+<div class="bg-surface-container text-on-surface-variant rounded-lg flex flex-col items-center justify-center p-2 min-w-[60px]">
+<span class="font-label-caps text-xs uppercase">Oct</span>
+<span class="font-button text-xl font-bold">14</span>
+</div>
+<div class="flex-1">
+<h5 class="font-body-lg text-base font-bold text-on-surface group-hover:text-primary transition-colors">Marketing Spikes vs. HR Heroes</h5>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 7:00 PM
+                                </p>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Community Center Gym
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

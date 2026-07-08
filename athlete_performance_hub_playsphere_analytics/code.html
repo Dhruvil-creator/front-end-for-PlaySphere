@@ -1,0 +1,419 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Analytics - Performance Deep Dive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fff8f6",
+                    "on-surface": "#271814",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#f9dcd6",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdad2",
+                    "inverse-on-surface": "#ffede9",
+                    "surface-bright": "#fff8f6",
+                    "primary": "#b52603",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#e3beb6",
+                    "surface-container-low": "#fff0ed",
+                    "clay-bg": "#F5EFE9",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#70f8e4",
+                    "secondary-container": "#6df5e1",
+                    "primary-container": "#ff5a36",
+                    "primary-soft": "#FF8A70",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-secondary-container": "#006f64",
+                    "on-tertiary-container": "#0d2075",
+                    "inverse-surface": "#3e2c28",
+                    "tertiary": "#4858ab",
+                    "surface-tint": "#b52603",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#ffb4a3",
+                    "surface-container-highest": "#f9dcd6",
+                    "on-secondary-fixed": "#00201c",
+                    "on-background": "#271814",
+                    "surface-dim": "#f0d4ce",
+                    "outline": "#8f7069",
+                    "on-tertiary-fixed": "#00105b",
+                    "tertiary-container": "#7d8ce4",
+                    "on-surface-variant": "#5b403a",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "on-secondary-fixed-variant": "#005048",
+                    "tertiary-fixed": "#dee0ff",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "secondary": "#006b5f",
+                    "on-primary-container": "#5a0c00",
+                    "surface-container-high": "#ffe2dc",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#ffe9e5",
+                    "surface-card": "#FFFFFF",
+                    "map-teal": "#00B4A2",
+                    "background": "#fff8f6",
+                    "on-primary-fixed": "#3d0600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Nunito"],
+                    "button": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "headline-sm": ["Nunito"]
+            },
+            "fontSize": {
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { background-color: #F5EFE9; }
+        .soft-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .clay-button-shadow { box-shadow: 0 10px 20px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255,255,255,0.5); }
+        .marker-bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+        .bg-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen relative">
+<!-- Background Blobs -->
+<div class="bg-blob bg-primary-fixed-dim w-[600px] h-[600px] top-[-100px] left-[-200px]"></div>
+<div class="bg-blob bg-secondary-fixed-dim w-[500px] h-[500px] top-[40%] right-[-100px]"></div>
+<!-- Navigation Shells -->
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface-container dark:bg-inverse-surface docked left-0 h-screen w-64 shadow-xl fixed left-0 top-0 bottom-0 flex flex-col w-64 z-40 bg-clay-bg dark:bg-surface-dim">
+<div class="p-md flex items-center gap-sm">
+<img alt="Urban Sports Logo" class="w-12 h-12 rounded-full shadow-sm" data-alt="A stylized, modern geometric logo for an urban sports analytics app, featuring a sleek interlocking sphere design in sunset orange and deep teal colors against a clean white background. The style is energetic, premium, and vector-based." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_7Syhv1i63onCREky_fMooOj4eedNiabnUQxjl8hjd9lqio-lVwy_kKsol7a2ADyvk76j18OJOVaG6kXbxwGlPxuGujtYYsuvUpNqzl8Dp-wBsrpSZTT-yXYpwwmdnzbD6CYi7Cn7cdioi-_VheRxA-tG-qZIg1fAoOK-C80hoLjAv6B9uQ9NLu1Afl-ux74ifj-Q2GyCHs1uncnZOOo_mVb-WRFvEoqd4UlEdItXyWuSEKkV9fmb">
+<div>
+<h1 class="font-headline-sm text-headline-sm font-black text-on-surface dark:text-inverse-on-surface">PlaySphere</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">City Analytics</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-xs mt-md">
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">dashboard</span>Dashboard
+            </a>
+<a class="bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 flex items-center p-3 shadow-inner font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">insights</span>Performance
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">map</span>Heatmaps
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">leaderboard</span>Leaderboards
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">groups</span>Team Hub
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">analytics</span>Analytics
+            </a>
+</div>
+<div class="p-md">
+<button class="w-full bg-primary-container text-on-primary-container font-button text-button py-3 rounded-full clay-button-shadow hover:scale-105 active:scale-95 transition-transform">
+                Upgrade Pro
+            </button>
+</div>
+<div class="mt-auto border-t border-outline-variant p-sm flex flex-col">
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">help</span>Help
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 flex items-center p-3 font-label-caps text-label-caps hover:translate-x-1 transition-all duration-200 active:scale-98" href="#">
+<span class="material-symbols-outlined mr-sm">logout</span>Logout
+            </a>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) -->
+<nav class="md:hidden sticky top-0 z-50 flex justify-between items-center px-md h-20 w-full bg-white/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere Analytics</h1>
+<div class="flex gap-sm">
+<button class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-soft transition-colors scale-95 active:scale-90 transition-transform p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-soft transition-colors scale-95 active:scale-90 transition-transform p-2">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User Performance Profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="A small, stylized profile avatar of an athletic urban youth, wearing bright sports gear against a clean white background. High contrast, clean lighting, premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhMdRV_s_Ns8WfGfLHICwj6tN1E-g4gtu6iXSP8FxHXJC0rv6rOZd47pC2PQ0pOihgRL2RKHcY1pajNIJiNIK8EgjC8PBRgQWsiK9xMhuQ1CQxqoFPQ2lWwe2fBHYPxfHm-X7QfV9460BzcVpFk3oc7dIhiSsKqdohnO9qkAXsMZUdM6Rk-a-xGhOwmH8XDiD-JosJVfHKrhbFdZ0WXVhQi_F6DcaJyg4Al6pdZwH__gQ4HJ6XYnyy">
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="md:ml-64 p-md md:p-lg max-w-[1280px] mx-auto min-h-screen">
+<!-- Athlete Header Section -->
+<header class="flex flex-col md:flex-row items-start md:items-center justify-between gap-md mb-xl relative z-10">
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<img alt="Alex Rivers Profile" class="w-32 h-32 md:w-48 md:h-48 rounded-[2rem] object-cover soft-shadow transition-transform duration-300 group-hover:scale-105" data-alt="A dynamic, high-energy portrait of a young male athlete (Alex Rivers) looking intensely focused, standing on a sun-drenched urban basketball court. He is wearing vibrant, modern activewear in sunset orange and deep teal. Soft, cinematic lighting highlights his athletic build. The background features slightly blurred city elements and chain-link fences, reinforcing the urban playground aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ2IXTQIskzqUoxlnchyg3QN-C4C-GX9Pdf5OSz6AKGOXywYuf2BD72sm7aeDDYwEEPUiQjZ6xPmPzb3t-6SoxsYs6Ox_Ib4xD1v-PL_bGie0tzV_xXosfZQeURrZsF85oohh7NMrubg6i2uvC-ct4ozXDzCj2CPx_7GehE0V5xjeSaomyD29-mzuvsueOaDCX63_Bv8dcK-TyZ99M21Yk4H0xLw2WJ0lqblylZldjHP_BkcdzBoHE">
+<div class="absolute -bottom-4 -right-4 bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-full clay-button-shadow flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span> Pro
+                    </div>
+</div>
+<div>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-xs">Alex Rivers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">location_on</span> Brooklyn, NY
+                    </p>
+<div class="flex gap-sm">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps">Basketball</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps">Street Soccer</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-card rounded-lg p-md soft-shadow w-full md:w-auto mt-md md:mt-0 card-hover transition-all duration-300 cursor-default">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Next Milestone</h3>
+<div class="flex items-end gap-2 mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Elite Rank</span>
+<span class="font-body-md text-body-md text-primary mb-1">85%</span>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%;"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Win 3 more local tournaments</p>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Skill Progression Radar (Spans 4 cols) -->
+<div class="col-span-1 md:col-span-4 bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300 flex flex-col h-full">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Skill Progression</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<div class="flex-1 flex items-center justify-center relative min-h-[300px]">
+<!-- Simulated Radar Chart with SVG -->
+<svg class="w-full h-full max-w-[250px]" viewBox="0 0 200 200">
+<!-- Background Grid -->
+<polygon fill="none" points="100,20 170,60 170,140 100,180 30,140 30,60" stroke="#f0d4ce" stroke-width="1"></polygon>
+<polygon fill="none" points="100,40 152,70 152,130 100,160 48,130 48,70" stroke="#f0d4ce" stroke-width="1"></polygon>
+<polygon fill="none" points="100,60 135,80 135,120 100,140 65,120 65,80" stroke="#f0d4ce" stroke-width="1"></polygon>
+<!-- Axis Lines -->
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="100" y1="100" y2="20"></line>
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="170" y1="100" y2="60"></line>
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="170" y1="100" y2="140"></line>
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="100" y1="100" y2="180"></line>
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="30" y1="100" y2="140"></line>
+<line stroke="#f0d4ce" stroke-width="1" x1="100" x2="30" y1="100" y2="60"></line>
+<!-- Data Polygon -->
+<polygon fill="rgba(255, 90, 54, 0.2)" points="100,45 150,85 160,130 100,150 50,110 45,75" stroke="#ff5a36" stroke-width="3"></polygon>
+<!-- Data Points -->
+<circle cx="100" cy="45" fill="#ff5a36" r="4"></circle>
+<circle cx="150" cy="85" fill="#ff5a36" r="4"></circle>
+<circle cx="160" cy="130" fill="#ff5a36" r="4"></circle>
+<circle cx="100" cy="150" fill="#ff5a36" r="4"></circle>
+<circle cx="50" cy="110" fill="#ff5a36" r="4"></circle>
+<circle cx="45" cy="75" fill="#ff5a36" r="4"></circle>
+<!-- Labels (Simulated positioning) -->
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="middle" x="100" y="15">Agility</text>
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="start" x="180" y="55">Power</text>
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="start" x="180" y="145">Stamina</text>
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="middle" x="100" y="195">Defense</text>
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="end" x="20" y="145">Vision</text>
+<text class="text-[10px] font-bold fill-on-surface" text-anchor="end" x="20" y="55">Speed</text>
+</svg>
+</div>
+</div>
+<!-- Performance by Sport (Spans 8 cols) -->
+<div class="col-span-1 md:col-span-8 bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Performance Breakdown</h3>
+<div class="flex gap-2">
+<button class="bg-surface-variant text-on-surface px-4 py-1 rounded-full font-label-caps text-label-caps hover:bg-surface-dim transition-colors">Weekly</button>
+<button class="bg-primary text-on-primary px-4 py-1 rounded-full font-label-caps text-label-caps clay-button-shadow">All Time</button>
+</div>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Sport 1 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">sports_basketball</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-body-md text-body-md text-on-surface">Street Basketball</span>
+<span class="font-body-md text-body-md text-primary font-bold">124 Hrs</span>
+</div>
+<div class="w-full bg-surface-container h-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+<!-- Sport 2 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[24px]">sports_soccer</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-body-md text-body-md text-on-surface">Urban Soccer</span>
+<span class="font-body-md text-body-md text-secondary font-bold">86 Hrs</span>
+</div>
+<div class="w-full bg-surface-container h-4 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Sport 3 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[24px]">directions_run</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-body-md text-body-md text-on-surface">Parkour / Freerunning</span>
+<span class="font-body-md text-body-md text-tertiary font-bold">42 Hrs</span>
+</div>
+<div class="w-full bg-surface-container h-4 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Match History (Spans 6 cols) -->
+<div class="col-span-1 md:col-span-6 bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Match History</h3>
+<span class="font-label-caps text-label-caps text-primary-container bg-primary-fixed-dim px-3 py-1 rounded-full">Win Rate: 72%</span>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Match Item -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-variant/30 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#2E7D32] font-bold">W</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface">3v3 Kings Tournament</h4>
+<p class="text-sm text-on-surface-variant">vs. Downtown Ballers</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-body-lg text-body-lg text-on-surface block">21 - 18</span>
+<span class="text-xs text-on-surface-variant">2 days ago</span>
+</div>
+</div>
+<!-- Match Item -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-variant/30 transition-colors border-t border-surface-container-high">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#2E7D32] font-bold">W</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface">Pickup Game</h4>
+<p class="text-sm text-on-surface-variant">Rucker Park</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-body-lg text-body-lg text-on-surface block">15 - 11</span>
+<span class="text-xs text-on-surface-variant">4 days ago</span>
+</div>
+</div>
+<!-- Match Item -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-variant/30 transition-colors border-t border-surface-container-high">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#FFEBEE] flex items-center justify-center text-[#C62828] font-bold">L</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface">City League Finals</h4>
+<p class="text-sm text-on-surface-variant">vs. Eastside Elites</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-body-lg text-body-lg text-on-surface block">64 - 68</span>
+<span class="text-xs text-on-surface-variant">1 week ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Physical Metrics (Spans 6 cols) -->
+<div class="col-span-1 md:col-span-6 grid grid-cols-2 gap-gutter">
+<!-- Metric Card 1 -->
+<div class="bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-sm">
+<div class="p-2 rounded-lg bg-primary-fixed-dim text-primary">
+<span class="material-symbols-outlined">directions_run</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">This Month</span>
+</div>
+<div>
+<h4 class="font-display-hero-mobile text-display-hero-mobile text-on-surface">142<span class="font-body-md text-body-md text-on-surface-variant ml-1">km</span></h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Distance Covered</p>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-sm">
+<div class="p-2 rounded-lg bg-secondary-fixed-dim text-secondary">
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">This Month</span>
+</div>
+<div>
+<h4 class="font-display-hero-mobile text-display-hero-mobile text-on-surface">32<span class="font-body-md text-body-md text-on-surface-variant ml-1">k</span></h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Calories Burned</p>
+</div>
+</div>
+<!-- Metric Card 3 (Spans 2 cols within nested grid) -->
+<div class="col-span-2 bg-surface-card rounded-xl p-md soft-shadow card-hover transition-all duration-300 flex items-center justify-between overflow-hidden relative">
+<div class="z-10">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Top 5%</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Compared to local peers</p>
+</div>
+<div class="z-10 flex -space-x-4">
+<img alt="Peer 1" class="w-12 h-12 rounded-full border-2 border-white" data-alt="Small circular profile avatar of an urban athlete in a blue sports top." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL5Eg4WiXmLS9gY71nI2usU0kKvPZrB8r1nLmtELMKHkBm3nt5RyTVf4AEktgRGRAixaVa90rBGrVTkSEouQGH1-fgWQvf4r_t-Bs1ZKVbz9F_9rypSIWULaRCBo71yDf-DkPl6WYCYDQAiO_kWwbC2nyzHVyjPg9Ao0jQDEYWGELgIn0naPveeYw9qmRbfmvCQqBkloOxZDhNSYk2G7o0TWSW6E3rDDLsa3XZ_FeduqSd4t7oDrPs">
+<img alt="Peer 2" class="w-12 h-12 rounded-full border-2 border-white" data-alt="Small circular profile avatar of a female urban athlete with a headband." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXOCjq1ziX0rbVG_phQ66T1kZwxWnXiX63rK3DZw75MlF4phq2cGxkGlNkoBFBxBsMZ4Htg3GX0C-c47ghOWCX55qLxjaVrsGZPt6ssLXUH5rmt6_H9FWMoCzHMGH48FlqCDQrl_Z-32_jf6qAU22RhEm9OhI0Z3Q1DPWp3U5jcRhadlNVx7HDvPkCV7EMwOAAnzrhXdnL5BAOb9-7WL2qPzRBmrFIfp-OdQ4U74yMBWtnoooFAEUI">
+<img alt="Peer 3" class="w-12 h-12 rounded-full border-2 border-white" data-alt="Small circular profile avatar of a male urban athlete wearing sunglasses." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2-oeOmByfqXF_xpCJuWm1ldnkSV-NjrJz8JrGftt9Bzqja8GipzhkTtqyIh36MiECU0BRbetMvw-Fqvuud-ZM5dvjC8yN9SziFF2Ao0zxJfBCkYEaUtOTZS65tDHCQJsK_yb8VOidQns4s3uMNbcVdqcByhokv3EoSbslYsOuYmv8PfCrHe2Y_mdSS4lZdeftNZdXcZIDSegjIvuNHSTrRKt5d551xCBCkOWWb6P0iD_w1UFZJE_n">
+<div class="w-12 h-12 rounded-full border-2 border-white bg-surface-variant flex items-center justify-center font-bold text-on-surface-variant">+24</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute right-[-20%] top-[-50%] w-64 h-64 bg-primary-fixed-dim rounded-full opacity-30"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

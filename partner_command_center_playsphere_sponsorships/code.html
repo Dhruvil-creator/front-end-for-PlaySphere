@@ -1,0 +1,477 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Partner Portal Dashboard - PlaySphere Kinetic</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (Provided) -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#ff5a36",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "primary-fixed": "#ffdad2",
+                    "secondary-fixed": "#70f8e4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#e3beb6",
+                    "map-teal": "#00B4A2",
+                    "on-background": "#271814",
+                    "inverse-surface": "#3e2c28",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-secondary-container": "#006f64",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "outline": "#8f7069",
+                    "surface-dim": "#f0d4ce",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#4858ab",
+                    "clay-bg": "#F5EFE9",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary-container": "#7d8ce4",
+                    "surface-bright": "#fff8f6",
+                    "surface-container": "#ffe9e5",
+                    "on-tertiary-container": "#0d2075",
+                    "background": "#fff8f6",
+                    "on-surface": "#271814",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#3d0600",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#dee0ff",
+                    "inverse-primary": "#ffb4a3",
+                    "primary": "#b52603",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ffe2dc",
+                    "surface-tint": "#b52603",
+                    "primary-soft": "#FF8A70",
+                    "on-surface-variant": "#434655",
+                    "error": "#ba1a1a",
+                    "surface-card": "#FFFFFF",
+                    "inverse-on-surface": "#ffede9",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "surface": "#fff8f6",
+                    "surface-container-low": "#fff0ed",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "secondary": "#006b5f",
+                    "on-tertiary-fixed": "#00105b",
+                    "surface-variant": "#f9dcd6",
+                    "surface-container-highest": "#f9dcd6",
+                    "on-primary-container": "#5a0c00",
+                    "secondary-container": "#6df5e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "container-max": "1280px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "button": [
+                            "Nunito"
+                    ],
+                    "display-hero-mobile": [
+                            "Nunito"
+                    ],
+                    "headline-section": [
+                            "Nunito"
+                    ],
+                    "display-hero": [
+                            "Nunito"
+                    ],
+                    "label-caps": [
+                            "Nunito"
+                    ],
+                    "headline-sm": [
+                            "Nunito"
+                    ],
+                    "body-md": [
+                            "Nunito"
+                    ],
+                    "body-lg": [
+                            "Nunito"
+                    ]
+            },
+            "fontSize": {
+                    "button": [
+                            "18px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-hero-mobile": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "headline-section": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "display-hero": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.03em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "label-caps": [
+                            "14px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-sm": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom Styles for PlaySphere Kinetic */
+        body {
+            background-color: theme('colors.clay-bg');
+            overflow-x: hidden;
+        }
+
+        /* Material Icons Baseline */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Soft Deep Shadow for tactile floating elements */
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Clay Button Highlight */
+        .clay-btn-inner {
+            box-shadow: inset 0 4px 6px -1px rgba(255, 255, 255, 0.4), 0 10px 15px -3px rgba(255, 90, 54, 0.3);
+        }
+
+        /* Sub-surface blobs for depth */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* Scrollbar Styling for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+        
+        .bento-card {
+            background: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased text-on-surface flex flex-col md:flex-row min-h-screen">
+<!-- Sub-surface Ambient Depth -->
+<div class="blob bg-primary-soft/20 w-96 h-96 top-0 left-1/4"></div>
+<div class="blob bg-secondary-fixed/20 w-96 h-96 bottom-1/4 right-0"></div>
+<!-- SideNavBar (Desktop Shell) -->
+<nav class="hidden md:flex flex-col h-full py-md px-sm border-r border-outline-variant/30 fixed left-0 top-0 w-72 bg-clay-bg dark:bg-inverse-surface shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-40">
+<!-- Brand Header -->
+<div class="flex items-center gap-sm mb-xl px-2">
+<img alt="Partner Brand Logo" class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="A premium 3D rendered circular logo for PlaySphere Kinetic, featuring vibrant orange and teal geometric shapes suggesting motion and community, set against a pristine white background. High resolution, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL20npGaJczyw6AhzhccJTYfrSMbL-7mzhGGE_zf61VRyaSV5MKs3wCDiIu9mjqpYIjwH_rdZvoPzl1pi9Zwu8RlTBrNbsenduklYJo03nYIQpJR-Yc1KzV4YtxMeUNABDAqLAPtCj08jD3BpXVhkjKQY1FtVbaDygQLAdvrLxPtHvEs2PvmM5EWw7P2R-ttOQZY_-nroAA8ZrMsPUvvopJqULjr1d26yZFJNW73YId2yIDUs2yehs">
+<div>
+<h1 class="font-headline-sm text-headline-sm font-black text-on-surface leading-tight">PlaySphere Kinetic</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Enterprise Partner</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex flex-col gap-sm flex-1">
+<!-- Active Tab: Campaigns (matches dashboard context) -->
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 shadow-md inset-shadow-sm font-body-md text-body-md hover:scale-[1.02] transition-all duration-300 scale-98" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span>Campaigns</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span>Creatives</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="mb-md px-2">
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-3 rounded-full clay-btn-inner hover:scale-[1.02] transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Campaign
+            </button>
+</div>
+<!-- Footer Tabs -->
+<div class="flex flex-col gap-sm mt-auto border-t border-outline-variant/30 pt-md">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen relative w-full pb-xl">
+<!-- TopNavBar (Mobile Shell & Top Bar) -->
+<header class="fixed top-0 w-full md:w-[calc(100%-18rem)] z-50 flex justify-between items-center px-gutter h-20 backdrop-blur-xl bg-white/80 dark:bg-surface-container-low shadow-sm">
+<!-- Mobile Brand (Hidden on Desktop) -->
+<div class="md:hidden font-headline-sm text-headline-sm text-primary dark:text-primary-soft font-bold">
+                Partner Portal
+            </div>
+<!-- Desktop Context Title -->
+<div class="hidden md:block font-headline-sm text-headline-sm text-on-surface font-black">
+                Dashboard Overview
+            </div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-200 hidden sm:block">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="ml-2 pl-4 border-l border-outline-variant/30">
+<img alt="Brand Partner Avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer hover:scale-105 transition-transform" data-alt="A modern, high-quality avatar portrait of a business professional looking confident, set against a warm, soft clay colored background with subtle studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCw3ylXXoXow_Zl1niQMeAV8V768wKmr_442VJv0HiRYq37Gponhl1V0eBeTNDz74PQ84VhTFUIki8qGQK759S9U3u9QP92FmzdBRErHCubo9O-h1WaUywr0HjOO1FGaepaU7llzrmn3iIIAGbLwltgsvqSKA4PXwapTqUQhYqp_FXZ9wsrjZBM07-TKXsxgv9X3JlcfvcJj1sqeZiZP3rw_AZMe6FhCmvgR_-mR70Gk6KPm1PwaI_">
+</div>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="flex-1 mt-24 px-gutter lg:px-lg max-w-container-max mx-auto w-full">
+<!-- Hero Metrics Bento Grid -->
+<section class="mb-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-md auto-rows-[160px]">
+<!-- Main KPI: Ad Spend -->
+<div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 p-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-primary-fixed/30 rounded-full blur-2xl group-hover:bg-primary-fixed/50 transition-colors"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Total Ad Spend (MTD)</p>
+<h2 class="font-display-hero-mobile text-display-hero-mobile text-on-surface mt-xs">$124,500</h2>
+</div>
+<div class="flex items-center gap-xs text-secondary font-body-md text-body-md">
+<span class="material-symbols-outlined text-[20px] bg-secondary-fixed/30 rounded-full p-1">trending_up</span>
+<span>+12.4% vs last month</span>
+</div>
+</div>
+<!-- Secondary KPI: Reach -->
+<div class="bento-card p-md flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Reach</p>
+<span class="material-symbols-outlined text-primary-container">groups</span>
+</div>
+<div>
+<h3 class="font-headline-section text-headline-section text-on-surface">2.4M</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Unique Impressions</p>
+</div>
+</div>
+<!-- Secondary KPI: ROI -->
+<div class="bento-card p-md flex flex-col justify-between bg-primary-container text-on-primary">
+<div class="flex justify-between items-start">
+<p class="font-label-caps text-label-caps text-on-primary/80 uppercase">Est. ROI</p>
+<span class="material-symbols-outlined text-on-primary">monitoring</span>
+</div>
+<div>
+<h3 class="font-headline-section text-headline-section text-on-primary">3.2x</h3>
+<p class="font-body-md text-body-md text-on-primary/80 text-sm mt-1">Return on Ad Spend</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Campaigns List & Marketplace Grid (Asymmetric Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left Column: Live Campaigns (Takes up 2 cols on lg) -->
+<section class="lg:col-span-2">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-black">Live Campaigns</h2>
+<a class="font-label-caps text-label-caps text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Campaign Item 1 -->
+<div class="bento-card p-sm flex items-center gap-md">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img alt="Campaign Visual" class="w-full h-full object-cover" data-alt="A vibrant, high-energy photograph of a local urban basketball tournament taking place at dusk. Bright stadium lights illuminate the court, casting dramatic shadows. The style is highly saturated and active." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbF5Fv1CKbT4W1vnijUBwStVbbwXSuvwdxqAW0SpPIVE9WffyBZ6SaxLhRvnUsmGG4VosRPCt_C8a35JNAQNwvsFrohbAMonVBmchQ2jtB0ZzDSWXMYAuB0bJ88TpU4GWQQnyg66y3U463xCprm4Y_8dfdCvu6rrUDPKtmvrmF1ta0LoOx3cqoXK8VqqyYy1gfdrxfq649xk-BM8rzS6OX0lXS9CnpFKk6ecbr2d718nFe-l0X4jt1">
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg text-on-surface leading-tight">Summer Slam Title Sponsor</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Downtown Courts \u2022 45K Reach</p>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-secondary-fixed/30 text-secondary font-label-caps text-[10px]">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Active
+                                </span>
+<span class="font-body-md text-body-md text-on-surface font-bold">$12k/wk</span>
+</div>
+</div>
+<!-- Campaign Item 2 -->
+<div class="bento-card p-sm flex items-center gap-md">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<div class="bg-cover bg-center w-full h-full" data-alt="A sleek, modern digital billboard mockup displayed on a concrete wall in a bustling urban subway station. Soft, cool lighting with high contrast. Minimalist and premium aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6gYn8VekuuUeKrFFUW7RwTjRLZdBWfGJHwiH9bx0bg7oUy63VCoGG0-1ZGzkp79axA0QNafQKng3_K6bya9pP9h8gvq2LZiN5qVzMRWcVUDmnjYH-8C7YuvyEjwYO4g2AlW-RSAkNUd5AppJvOYkoz-yYU2MZdxoDR4SyKzud9Oq1iXy73qBy89TKgfLpCXnnTGtaf-_4qwGSSoGBM0X65eBE7NkElf3LtlRasc45-rq9e4_ewWg9')"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg text-on-surface leading-tight">Metro Transit Digital Boards</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Citywide \u2022 120K Reach</p>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-tertiary-fixed/50 text-on-tertiary-fixed font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">schedule</span> Scheduled
+                                </span>
+<span class="font-body-md text-body-md text-on-surface font-bold">$8k/wk</span>
+</div>
+</div>
+<!-- Campaign Item 3 -->
+<div class="bento-card p-sm flex items-center gap-md opacity-75">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">image</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg text-on-surface leading-tight">Youth Soccer League Kits</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Suburbs \u2022 15K Reach</p>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">pause</span> Paused
+                                </span>
+<span class="font-body-md text-body-md text-on-surface-variant font-bold">$3k/wk</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Marketplace Opportunities -->
+<section class="lg:col-span-1">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-black">Spotlight Spots</h2>
+</div>
+<div class="bento-card h-full flex flex-col overflow-hidden relative">
+<!-- Featured Spot Image Area -->
+<div class="h-48 relative">
+<img alt="Marketplace Spotlight" class="w-full h-full object-cover" data-alt="A wide, sweeping shot of a large outdoor sports arena during a major local tournament. Focus on a massive, blank hero banner space above the main stands waiting for sponsorship. Bright, sunny, energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7SgarixPSla1I4eXo3--KVMfCBq8C7BUkAUwMhkq8Wp2EsWTp6NymcOmBAQma4oSI2Tl_4UHcM2l17mD3GNWG-CsYyDwnqThL4SqFbE8u7cmpPvVGdRMHJW3VNpvFgwSkyBwrxjwL8bICwA9yCe_shlZyGI8fhuY2pQWEX23-whltRCMvRFJOSChPTHf6m_79tIS-55gJ5IhxEz75nKmo_9ey_fVOyz3Bl_P58wYYBXB8nwVYmHTy">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-sm">
+<h3 class="font-headline-sm text-headline-sm text-white leading-tight">Monsoon Cup Finals Hero Banner</h3>
+</div>
+<div class="absolute top-sm right-sm bg-primary-container text-on-primary px-2 py-1 rounded font-label-caps text-[10px] uppercase">
+                                High Demand
+                            </div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Premium visibility at the year's biggest amateur soccer tournament. Est. 50k foot traffic over weekend.</p>
+<div class="flex gap-2 flex-wrap mb-md">
+<span class="px-2 py-1 bg-surface-variant rounded text-on-surface-variant font-label-caps text-[10px]">Physical</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-on-surface-variant font-label-caps text-[10px]">High Impact</span>
+</div>
+</div>
+<button class="w-full bg-white text-on-surface font-button text-button py-3 rounded-full shadow-soft-deep hover:scale-[1.02] transition-transform border border-outline-variant/30 flex justify-center items-center gap-xs">
+                                Review Details
+                                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer Shell -->
+<footer class="w-full py-lg px-gutter flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/20 mt-auto z-10 relative">
+<p class="font-label-caps text-label-caps text-on-surface-variant">\u00a9 2024 PlaySphere Kinetic Global. All Rights Reserved.</p>
+<div class="flex gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Security Architecture</a>
+</div>
+</footer>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) - Semantic mapping dictates Campaigns/Dashboard focus -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-low shadow-[0_-10px_30px_rgba(0,0,0,0.1)] z-50 flex justify-around items-center h-16 px-4">
+<!-- Active -->
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<div class="px-4 py-1 bg-primary-container/20 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<span class="font-label-caps text-[10px]">Campaigns</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-caps text-[10px]">Analytics</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px]">Marketplace</span>
+</a>
+</nav>
+</body></html>

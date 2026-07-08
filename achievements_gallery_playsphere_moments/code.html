@@ -1,0 +1,330 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Achievements &amp; Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#fff8f6",
+                        "primary": "#b52603",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-surface-variant": "#434655",
+                        "inverse-surface": "#3e2c28",
+                        "on-tertiary-container": "#0d2075",
+                        "surface-container-low": "#fff0ed",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "outline": "#8f7069",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "inverse-primary": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600",
+                        "outline-variant": "#e3beb6",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2dc",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64",
+                        "on-surface": "#271814",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed-variant": "#005048",
+                        "tertiary-container": "#7d8ce4",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "tertiary": "#4858ab",
+                        "surface-container": "#ffe9e5",
+                        "primary-soft": "#FF8A70",
+                        "on-background": "#271814",
+                        "surface-dim": "#f0d4ce",
+                        "surface-card": "#FFFFFF",
+                        "primary-container": "#ff5a36",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006b5f",
+                        "surface-tint": "#b52603",
+                        "map-teal": "#00B4A2",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f6",
+                        "surface": "#fff8f6",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-secondary-fixed": "#00201c",
+                        "inverse-on-surface": "#ffede9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    fontFamily: {
+                        "button": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    fontSize: {
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.3s ease;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 12px 24px rgba(255, 90, 54, 0.4);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+        .trophy-item {
+            animation: float 4s ease-in-out infinite;
+        }
+        .trophy-item:nth-child(2) { animation-delay: 0.5s; }
+        .trophy-item:nth-child(3) { animation-delay: 1s; }
+        .trophy-item:nth-child(4) { animation-delay: 1.5s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .bg-gradient-mint-coral {
+            background: linear-gradient(135deg, #00B4A2 0%, #ff5a36 100%);
+        }
+        
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen relative overflow-x-hidden pt-24 pb-24 md:pb-0 md:pl-64">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex fixed top-0 w-full z-50 justify-between items-center px-md py-sm max-w-container-max mx-auto bg-white/80 dark:bg-on-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+<div class="flex items-center gap-md">
+<span class="font-headline-section text-headline-sm text-primary tracking-tighter">PlaySphere</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary-soft transition-colors duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary-soft transition-colors duration-300">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<img alt="User profile with active status" class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A detailed, modern avatar illustration of an active user wearing sporty gear, brightly lit against a soft clay background, embodying the energetic PlaySphere brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj4qmMNKTXcuw2FuECDxZVhzMpHGm18uYLzKCEgOgTtmKXox2REOBB9eOjJZibCQ8pszf2aCcYuC3_KUT5OtSDZu0iDJIVyopQg0h6PS8_JliWsyJw9RfL_aF0EO4nWtwfRjwS_X6Op8XD3_kokpYlm1nt8rnbcgvp41M0pyZAiS4eIo79wgsb-FWXD10nqwXkp_2z02tPjFyDPOdlesUMXzfERUUrvA_xI8ud5dm3smP4vVokDngd">
+</div>
+</nav>
+<!-- SideNavBar (Web) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-40 flex-col py-lg w-64 rounded-r-lg bg-clay-bg border-r border-outline-variant shadow-xl">
+<div class="px-md mb-lg">
+<h1 class="font-headline-sm text-headline-sm text-primary">PlaySphere</h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Your City, Your Court</p>
+</div>
+<div class="px-md mb-lg">
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-sm rounded-full clay-button">
+                Find a Match
+            </button>
+</div>
+<nav class="flex-1 px-sm space-y-2">
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">sports_basketball</span>
+<span class="font-body-md text-body-md">Playgrounds</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md text-body-md">Squads</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-body-md text-body-md">Tournaments</span>
+</a>
+<a class="flex items-center gap-base bg-primary-container text-on-primary-container rounded-full px-md py-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-body-md text-body-md font-bold">Stats</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-md text-body-md">Community</span>
+</a>
+</nav>
+<div class="px-sm mt-auto space-y-2">
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant px-md py-sm hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-md py-xl md:py-xl">
+<!-- Header -->
+<header class="mb-xl text-center md:text-left relative z-10">
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-sm">Your Legacy</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A showcase of your greatest victories and the unforgettable moments on the court.</p>
+</header>
+<!-- Trophy Cabinet Section -->
+<section class="mb-xl relative z-10">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<h3 class="font-headline-section text-headline-section text-on-surface">Trophy Cabinet</h3>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md md:gap-lg">
+<!-- Trophy 1 -->
+<div class="soft-card bg-surface-card rounded-xl p-md flex flex-col items-center text-center trophy-item">
+<div class="w-24 h-24 rounded-full bg-surface-variant flex items-center justify-center mb-sm shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-mint-coral opacity-20"></div>
+<img alt="Summer Slam MVP" class="w-16 h-16 object-contain z-10" data-alt="A highly detailed, 3D rendered illustration of a golden basketball trophy. It sits on a soft clay pedestal with soft, ambient studio lighting highlighting its curves, giving it a premium, tactile, almost squishy feel in a light-mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9bagYbm9RiRlhwMQ8lNp3AMrUlZe2HY2JvHlQ9egp_qH9u9j5VPcRWYWtDkWiXhQeQT_fcqUHotFm2McuPi4P3cnjLTQKiXnwaFg_JjJVKm59sQe_4-LLnVaWD286pRkCyr2clY5CwOhmdPhhVgaykZPVuomLgeVQEKaEGHHKGDeM4mVKHeHuyrUB3_4q1W2CmlMUNl5e6--2Aict_9vn9uiJEc6o1BFH0INn1o_lF6xdXHc9Ys12">
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-lg">Summer Slam MVP</h4>
+<p class="font-label-caps text-label-caps text-primary mt-xs">2023</p>
+</div>
+<!-- Trophy 2 -->
+<div class="soft-card bg-surface-card rounded-xl p-md flex flex-col items-center text-center trophy-item">
+<div class="w-24 h-24 rounded-full bg-surface-variant flex items-center justify-center mb-sm shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-mint-coral opacity-20"></div>
+<img alt="Downtown Classic - 1st" class="w-16 h-16 object-contain z-10" data-alt="A vivid, tactile 3D illustration of a silver tournament medal with a vibrant orange ribbon. Rendered in a soft-clay style with deep, satisfying drop shadows, perfectly capturing the PlaySphere energetic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhfMrhkmgSZjxmf2NTJbEimlvtxA90RsVCwKu-FZcxdXT2AvtmTilf02b6JS_IbHGv7NZ7oTRXLfG6fHsX2xUq4qruBL0BtWn4hs4DRvZQ0_OS2MAkRHxYxYlZzuh4c03H8V-4sqbONW4a1kzM2Ztha4qpKBRHKbacS1qO6ep4OlyPNhGOsVZwl0WwE-jfoBTIP8IACvsWKWaX6gbaVw5ch1yDbDeha5zXQ2lhntgW_C9JTmmkR45o">
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-lg">Downtown Classic</h4>
+<p class="font-label-caps text-label-caps text-map-teal mt-xs">1st Place</p>
+</div>
+<!-- Trophy 3 -->
+<div class="soft-card bg-surface-card rounded-xl p-md flex flex-col items-center text-center trophy-item">
+<div class="w-24 h-24 rounded-full bg-surface-variant flex items-center justify-center mb-sm shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-mint-coral opacity-20"></div>
+<img alt="Top Scorer" class="w-16 h-16 object-contain z-10" data-alt="A stylized 3D rendered bronze shoe trophy representing a 'Top Scorer' award. The design uses soft, rounded geometry and sits in a bright, inviting space with warm lighting and subtle mint accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMIgbW2p3up_CyG08WCH3AUt62RWqp8bB6C5jE0UugHbYpsvQCNztXg2pblaiCh_cwkZ3iyCz_kTUmvbDD7Qm8WjI9O1v6lsDNK_624MeOEn4vNWD0IHslaGHR1HbCuqZhK4qAxL3bJJm8ZH3DS-a3ECjGKriWel0t3K-aiqSTHExHH7jYyOsLaeYwa2ruKTLWJYMRlYJEEZtNhN6lEEeP65USC5gFxIWH0ylDrA7qRbkl6stQ2pEJ">
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-lg">Top Scorer</h4>
+<p class="font-label-caps text-label-caps text-primary mt-xs">Winter League</p>
+</div>
+<!-- Empty Slot -->
+<div class="soft-card bg-surface-card/50 border-2 border-dashed border-outline-variant rounded-xl p-md flex flex-col items-center justify-center text-center min-h-[200px]">
+<span class="material-symbols-outlined text-outline-variant text-4xl mb-sm">lock</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Play more tournaments to unlock.</p>
+</div>
+</div>
+</section>
+<!-- Court Moments Gallery Section -->
+<section class="relative z-10">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-map-teal text-3xl" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+<h3 class="font-headline-section text-headline-section text-on-surface">Court Moments</h3>
+</div>
+<div class="masonry-grid">
+<!-- Gallery Item 1 -->
+<div class="masonry-item soft-card bg-surface-card rounded-lg overflow-hidden group">
+<div class="relative">
+<img alt="Sunset pickup game" class="w-full h-auto object-cover" data-alt="A high-energy, perfectly lit photograph of an outdoor street basketball game at dusk. The sky has sunset hues of orange and pink, matching the PlaySphere brand. Players are mid-action, capturing a sense of community and athletic vigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQTI0BqUESTOkYTSFrl-67_eGtD26mVSju71kyCaU82hXrtMVRRuNmYOtkrQZ2GWDq_fohjQ2mNEaKjs-_0buYPq3JMv_a3En9-flUftAYVfxR2MS4YD8oxhkNAWTZHy0BYenxtfj9ULrml6eSVzqqeih6rgLzbJJhJEUtv6N2vypDwwzf-PZPMfxZRsSL5dvUNX3XBH84-jHJG7I6JyObwzi7cIlOrxdPjruCKNAOVbF2jANwtMSU">
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 to-transparent">
+<p class="font-body-md text-body-md text-white">Sunset pickup game</p>
+<div class="flex items-center gap-xs text-white/80 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-label-caps text-label-caps text-xs">Rucker Park</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="masonry-item soft-card bg-surface-card rounded-lg overflow-hidden group">
+<div class="relative">
+<img alt="Post-match celebration" class="w-full h-auto object-cover" data-alt="A vibrant, close-up photograph of hands high-fiving after a sports match. The lighting is bright and summery. The players wear colorful gear that complements the PlaySphere mint and coral palette, emphasizing friendship and teamwork." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlRbHLCE1Qh7XGEwfVbFl5w4uPFuZF09EURXSeRBHkQOgkLXYlS5m6CTyqN7lL2O6Zbw45yllrlVrDc-QoP0IPR8f6mNZe79iciJlAYIIw2NibqEFYR-SsZdhYtYVwWR5yjxq0fNJP_OEm4J5Pw3otby4BfIOKMHkn3tddPNNmJNejo5v21F9jCs19GaWdCQ1UpIhusPhz4ooZNLr61nCwuAIAAnWfx3AwZjZdBP0dMkUXUN4URXJR">
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 to-transparent">
+<p class="font-body-md text-body-md text-white">Post-match celebration</p>
+<div class="flex items-center gap-xs text-white/80 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-label-caps text-label-caps text-xs">Brooklyn Courts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="masonry-item soft-card bg-surface-card rounded-lg overflow-hidden group">
+<div class="relative">
+<img alt="Community Tournament finals" class="w-full h-auto object-cover" data-alt="A wide-angle, bright daytime shot of a community basketball tournament. Spectators are cheering on the sidelines. The court surface is brightly painted in teal and orange hues, perfectly aligning with the PlaySphere energetic visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVXuUromtHmsnFE9CA5GEs1NoZStUsNoyUzJ6Q4mRHW-G0s_rtlSZhw9cSDzfWuSd2K-YyY8eYZBG9YEwTruuuDTYxGq-nJs02hlBpOaIjHvs80EU5dKHDoDsh5xb3V_uQ30Mttrfx3UEKyqqwfYpEailD6Vw1ELA-DCERWV7WmheAUtftf4kIg5wT5iqrGvtp8hFEs4VBi-JEE4ZSpdTkoH6iOTOcffJEW-sVEZShe3l20zLm23tf">
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 to-transparent">
+<p class="font-body-md text-body-md text-white">Community Finals</p>
+<div class="flex items-center gap-xs text-white/80 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-label-caps text-label-caps text-xs">Venice Beach</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-md flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto bg-surface-dim mt-xl relative z-10 md:ml-64">
+<span class="font-headline-sm text-primary mb-sm md:mb-0">PlaySphere</span>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Play</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Arena</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Community Rules</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-md md:mt-0">© 2024 PlaySphere Kinetic. Play the City.</p>
+</footer>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-primary-container rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
+<div class="absolute bottom-[-10%] left-[10%] w-96 h-96 bg-map-teal rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
+</div>
+</body></html>

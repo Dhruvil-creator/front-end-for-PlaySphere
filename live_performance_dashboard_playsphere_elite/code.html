@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Performance Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-secondary": "#ffffff",
+                "surface-card": "#FFFFFF",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-container": "#006f64",
+                "clay-bg": "#F5EFE9",
+                "surface-dim": "#f0d4ce",
+                "error-container": "#ffdad6",
+                "secondary": "#006b5f",
+                "on-surface": "#271814",
+                "on-primary-fixed": "#3d0600",
+                "background": "#fff8f6",
+                "surface-container-high": "#ffe2dc",
+                "on-error-container": "#93000a",
+                "tertiary-fixed": "#dee0ff",
+                "on-background": "#271814",
+                "surface-container": "#ffe9e5",
+                "map-teal": "#00B4A2",
+                "on-tertiary": "#ffffff",
+                "on-surface-variant": "#5b403a",
+                "inverse-primary": "#ffb4a3",
+                "surface-bright": "#fff8f6",
+                "secondary-fixed": "#70f8e4",
+                "inverse-surface": "#3e2c28",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed": "#00201c",
+                "primary-soft": "#FF8A70",
+                "surface-container-low": "#fff0ed",
+                "on-secondary-fixed-variant": "#005048",
+                "tertiary-fixed-dim": "#bac3ff",
+                "error": "#ba1a1a",
+                "tertiary-container": "#7d8ce4",
+                "secondary-container": "#6df5e1",
+                "primary-fixed-dim": "#ffb4a3",
+                "primary-container": "#ff5a36",
+                "on-tertiary-fixed-variant": "#2f3f92",
+                "on-tertiary-container": "#0d2075",
+                "on-primary-fixed-variant": "#8c1900",
+                "primary-fixed": "#ffdad2",
+                "outline-variant": "#e3beb6",
+                "secondary-fixed-dim": "#4fdbc8",
+                "surface-tint": "#b52603",
+                "tertiary": "#4858ab",
+                "on-primary-container": "#5a0c00",
+                "on-tertiary-fixed": "#00105b",
+                "on-error": "#ffffff",
+                "inverse-on-surface": "#ffede9",
+                "surface-container-highest": "#f9dcd6",
+                "surface": "#fff8f6",
+                "primary": "#b52603",
+                "outline": "#8f7069",
+                "surface-variant": "#f9dcd6"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "md": "24px",
+                "container-max": "1280px",
+                "gutter": "24px",
+                "sm": "12px",
+                "base": "8px",
+                "lg": "48px",
+                "xs": "4px",
+                "xl": "80px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Nunito"
+                ],
+                "headline-section": [
+                        "Nunito"
+                ],
+                "display-hero-mobile": [
+                        "Nunito"
+                ],
+                "display-hero": [
+                        "Nunito"
+                ],
+                "body-md": [
+                        "Nunito"
+                ],
+                "button": [
+                        "Nunito"
+                ],
+                "headline-sm": [
+                        "Nunito"
+                ],
+                "label-caps": [
+                        "Nunito"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-section": [
+                        "48px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "display-hero-mobile": [
+                        "56px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "display-hero": [
+                        "80px",
+                        {
+                                "lineHeight": "1.05",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "body-md": [
+                        "18px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "600"
+                        }
+                ],
+                "button": [
+                        "18px",
+                        {
+                                "lineHeight": "1",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-sm": [
+                        "28px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "800"
+                        }
+                ],
+                "label-caps": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body { font-family: 'Nunito', sans-serif; }
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- Shared Component: TopNavBar (Used here as the primary Dashboard Header per logic rules) -->
+<div class="relative flex h-auto w-full flex-col bg-[#fcf9f8] group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f4e9e6] px-10 py-3">
+<div class="flex items-center gap-4 text-[#1d0f0c]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-[#1d0f0c] text-lg font-bold leading-tight tracking-[-0.015em]">Live Performance Dashboard</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9"></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDoFkmNKDOyKe7JDJLiJXADaUtVdZ0gvh9xpuXKUbx9FSGJlEufdl2kWV17I5xQ6ZRyGbcza0nD7dRnPvCeZ64rVNf0SLhGqlMVNxmYjqznSbqxh-hiaFOQoGC8Sl6b6TD_S5pw8Ra9X_QhKtnmtPQKecj_7xZK9zDSYpcwrEy8wMijNz5t8vqM2qnNr4ktZGG1HQa7h1NlAkxe1oYRbMFxOSr6DeKAMn_fJ9f6dPqcKTOVlbQ92K0d");'></div>
+</div>
+</header>
+<h3 class="text-[#1d0f0c] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Ahmedabad Monsoon Cup</h3>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#ead2cd]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Time Elapsed</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">45:23</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#ead2cd]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Score</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">12 - 8</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#ead2cd]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Match Status</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">Active Match</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 p-4">
+<div class="flex gap-6 justify-between"><p class="text-[#1d0f0c] text-base font-medium leading-normal">Live Intensity</p></div>
+<div class="rounded bg-[#ead2cd]"><div class="h-2 rounded bg-[#ff5b36]" style="width: 78%;"></div></div>
+<p class="text-[#a15645] text-sm font-normal leading-normal">High</p>
+</div>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4e9e6]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Heart Rate</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">145 BPM</p>
+<p class="text-[#078809] text-base font-medium leading-normal">+5%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4e9e6]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Distance Covered</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">5.2 km</p>
+<p class="text-[#078809] text-base font-medium leading-normal">+10%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4e9e6]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Sprint Speed</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">22 km/h</p>
+<p class="text-[#078809] text-base font-medium leading-normal">+2%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f4e9e6]">
+<p class="text-[#1d0f0c] text-base font-medium leading-normal">Calorie Burn</p>
+<p class="text-[#1d0f0c] tracking-light text-2xl font-bold leading-tight">450 kcal</p>
+<p class="text-[#078809] text-base font-medium leading-normal">+8%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expanded Dashboard Layout (Gauge, Heatmap, Insights) -->
+<main class="flex flex-1 justify-center px-4 sm:px-10 md:px-40 pb-12 w-full bg-background">
+<div class="w-full max-w-[960px] flex flex-col md:flex-row gap-6 mt-6">
+<!-- Center Panel: Visualizations -->
+<div class="flex flex-col flex-1 gap-6">
+<!-- Live Intensity Circular Gauge -->
+<div class="glass-panel border border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center relative overflow-hidden shadow-sm">
+<h3 class="font-headline-sm text-on-surface self-start w-full text-center md:text-left mb-6">Zone Intensity</h3>
+<div class="relative w-56 h-56 flex items-center justify-center">
+<!-- Outer Track -->
+<svg class="w-full h-full transform -rotate-90 drop-shadow-sm" viewbox="0 0 100 100">
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="6"></circle>
+<!-- Progress Track -->
+<circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="62.2" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<!-- Inner Content -->
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-display-hero-mobile text-on-surface leading-none">78<span class="text-2xl text-on-surface-variant">%</span></span>
+<span class="font-label-caps text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">local_fire_department</span> High Output
+                        </span>
+</div>
+</div>
+<div class="w-full flex justify-between mt-8 px-4">
+<div class="text-center">
+<p class="text-sm font-semibold text-on-surface-variant">Aerobic Base</p>
+<p class="font-bold text-on-surface">22m</p>
+</div>
+<div class="text-center border-l border-r border-outline-variant px-6">
+<p class="text-sm font-semibold text-on-surface-variant">Anaerobic</p>
+<p class="font-bold text-primary">14m</p>
+</div>
+<div class="text-center">
+<p class="text-sm font-semibold text-on-surface-variant">VO2 Max</p>
+<p class="font-bold text-error">9m</p>
+</div>
+</div>
+</div>
+<!-- Live Heatmap -->
+<div class="bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-on-surface">Court Heatmap</h3>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="text-sm font-bold text-primary">LIVE</span>
+</div>
+</div>
+<div class="w-full h-64 rounded-lg bg-surface-container relative overflow-hidden flex items-center justify-center" data-alt="A highly detailed top-down view of a sports court acting as a heatmap for player movement. The court is illuminated in bright, clean white and light grey tones, fitting a modern light-mode interface. Glowing overlays of intense red, deep orange, and vibrant teal indicate areas of high foot traffic and activity. The visual style is highly technical, clean, data-driven, and seamlessly integrates into a sophisticated athletic dashboard." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpxbryFJKk4ic0bp0jQzg3KFSUs7W9vU0v0IBzVPuD4QIOMNWSLTxytdJ9_c_zGHmUfnyjsXuIqvUg4Kv-q2bb8jU79i2Jl8L3qZQSyJeXlSoy0OkiFA-X9jla981p5zRMnoL9gEuB5LRxnOPDten6mZHvA_h1CmthV3x5nkuBjk37oykqbQhwGm9c5CnVWD1jdSggvGGFDG9ASgitC1XEuxxiZmllH_t4LHGWgcrxIx2mJaDqylkB')">
+<!-- Fallback/Overlay content if image fails or to add UI on top -->
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Insights Sidebar -->
+<div class="w-full md:w-80 flex flex-col gap-6">
+<div class="bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col h-full shadow-sm">
+<div class="flex items-center gap-2 mb-6 pb-4 border-b border-surface-variant">
+<span class="material-symbols-outlined text-secondary text-3xl">psychology</span>
+<h3 class="font-headline-sm text-on-surface">Live Insights</h3>
+</div>
+<div class="flex flex-col gap-4 overflow-y-auto">
+<!-- Insight 1 -->
+<div class="bg-surface-container-low border-l-4 border-primary rounded-r-lg p-4 flex gap-4 items-start hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary mt-1">speed</span>
+<div>
+<h4 class="font-body-md text-on-surface">Increase Lateral Movement</h4>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Opponent is consistently targeting the wide forehand zone. Shift base position left.</p>
+</div>
+</div>
+<!-- Insight 2 -->
+<div class="bg-surface-container-low border-l-4 border-secondary rounded-r-lg p-4 flex gap-4 items-start hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-secondary mt-1">water_drop</span>
+<div>
+<h4 class="font-body-md text-on-surface">Optimal Hydration</h4>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Electrolyte levels are stable. Maintain current hydration strategy during breaks.</p>
+</div>
+</div>
+<!-- Insight 3 -->
+<div class="bg-surface-container-low border-l-4 border-error rounded-r-lg p-4 flex gap-4 items-start hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-error mt-1">monitor_heart</span>
+<div>
+<h4 class="font-body-md text-on-surface">Heart Rate Spike</h4>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Detected rapid BPM increase (+15%) post-rally. Recommend deep breathing before next serve.</p>
+</div>
+</div>
+<!-- Insight 4 -->
+<div class="bg-surface-container-low border-l-4 border-tertiary rounded-r-lg p-4 flex gap-4 items-start hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-tertiary mt-1">query_stats</span>
+<div>
+<h4 class="font-body-md text-on-surface">First Serve % Drop</h4>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Accuracy has decreased by 8% in the last 10 minutes. Focus on toss consistency.</p>
+</div>
+</div>
+</div>
+<button class="mt-auto pt-6 flex items-center justify-center gap-2 text-primary font-button hover:text-primary-container transition-colors">
+                    View Full Analysis <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

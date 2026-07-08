@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post Match Summary - PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#f9dcd6",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "outline": "#8f7069",
+                      "tertiary-container": "#7d8ce4",
+                      "on-tertiary-fixed": "#00105b",
+                      "clay-bg": "#F5EFE9",
+                      "inverse-surface": "#3e2c28",
+                      "surface-bright": "#fff8f6",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-error": "#ffffff",
+                      "on-background": "#271814",
+                      "primary-container": "#ff5a36",
+                      "inverse-primary": "#ffb4a3",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#ffe2dc",
+                      "map-teal": "#00B4A2",
+                      "outline-variant": "#e3beb6",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "background": "#fff8f6",
+                      "primary": "#b52603",
+                      "surface-container-low": "#fff0ed",
+                      "on-surface-variant": "#5b403a",
+                      "on-tertiary-container": "#0d2075",
+                      "tertiary": "#4858ab",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "surface-container-highest": "#f9dcd6",
+                      "inverse-on-surface": "#ffede9",
+                      "surface-card": "#FFFFFF",
+                      "primary-fixed": "#ffdad2",
+                      "on-surface": "#271814",
+                      "secondary-fixed": "#70f8e4",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-fixed": "#dee0ff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-primary-container": "#5a0c00",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#ffe9e5",
+                      "secondary": "#006b5f",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-container": "#006f64",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#f0d4ce",
+                      "on-primary-fixed": "#3d0600",
+                      "surface-tint": "#b52603",
+                      "primary-soft": "#FF8A70",
+                      "surface": "#fff8f6",
+                      "secondary-container": "#6df5e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "lg": "48px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "xl": "80px"
+              },
+              "fontFamily": {
+                      "button": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        .clay-inset {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.12);
+        }
+
+        .blob-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Ambient Post-Match Dark Mode override for this specific screen context */
+        body {
+            background-color: #1a1514; /* Deep warm dark */
+            color: #fff8f6;
+        }
+        
+        .dark-surface {
+            background-color: #2a2220;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .dark-surface-elevated {
+            background-color: #3e2c28;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden font-body-md text-body-md">
+<!-- Ambient Blobs -->
+<div class="blob-bg bg-primary/40 w-[600px] h-[600px] top-[-200px] right-[-200px]"></div>
+<div class="blob-bg bg-tertiary/30 w-[500px] h-[500px] bottom-[-100px] left-[-100px]"></div>
+<!-- Main Content Canvas (No Nav Shell due to Linear/Transactional Post-Match state) -->
+<main class="max-w-container-max mx-auto px-gutter py-xl relative z-10">
+<!-- Header Section -->
+<header class="text-center mb-lg">
+<span class="font-label-caps text-label-caps text-primary-soft uppercase tracking-wider mb-sm block">Match Concluded</span>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-md">Ahmedabad Monsoon Cup</h1>
+<div class="flex items-center justify-center gap-md text-surface-variant">
+<span class="flex items-center gap-base"><span class="material-symbols-outlined" data-icon="schedule">schedule</span> 45:20</span>
+<span class="flex items-center gap-base"><span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span> Oct 12, 2024</span>
+<span class="flex items-center gap-base"><span class="material-symbols-outlined" data-icon="location_on">location_on</span> Navrangpura Courts</span>
+</div>
+</header>
+<!-- Scoreboard Glass Card -->
+<section class="dark-surface rounded-xl p-lg soft-shadow backdrop-blur-xl mb-xl hover-lift relative overflow-hidden">
+<!-- Subtle internal glow -->
+<div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg items-center relative z-10">
+<!-- Team A (User's Team - Victory) -->
+<div class="text-center flex flex-col items-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-md border-4 border-primary">
+<img class="w-full h-full object-cover" data-alt="A stylized, vibrant team logo featuring an aggressive lion head in neon orange and deep black, representing an urban streetball team. Soft, glowing lighting highlights the fierce expression. Claymorphism art style, bold lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzJs9cj-WwmwhwOq2uNEjOglS1-loIHIlY81J5-Vfjs3P0LMdEBua8P29HysDaqPri5Kdf5QfSN9hUSQmKEns-abSw944N0S22glnzgjsiUQlRN9iFHfdAj_YhM3X3qPXE0EAM3EZQJeuO7mjs2FFvwU9jMUDWumZk38XJBtSE5jw56h9bYArg15VbXcerkHJxloyBRSg_n63RmFyyIp1fnbBu-Ml3Y_HN5ruw9SWemJ7Pzdu7tWRe"/>
+</div>
+<h2 class="font-headline-sm text-headline-sm mb-xs">Urban Strikers</h2>
+<span class="text-primary-soft font-label-caps text-label-caps">Victory</span>
+</div>
+<!-- Score Display -->
+<div class="text-center flex flex-col items-center justify-center">
+<div class="font-display-hero text-display-hero flex items-center justify-center gap-md">
+<span class="text-primary">14</span>
+<span class="text-surface-variant/50 font-headline-sm">-</span>
+<span class="text-surface-variant">12</span>
+</div>
+<div class="mt-md bg-white/10 rounded-full px-md py-sm backdrop-blur-sm">
+<span class="font-body-md text-body-md text-primary-soft">+2 MMR</span>
+</div>
+</div>
+<!-- Team B -->
+<div class="text-center flex flex-col items-center opacity-70">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-md border-4 border-surface-variant/30">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="A stylized, modern team logo featuring a stylized geometric hawk in deep blue and silver tones, representing an opposing street sports team. Muted, moody lighting. Claymorphism art style, sleek forms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdUb47grSBUgYBv3iJjM9PG-JNLqkkTS0eGTDPRZMXifPQV0my3rLzR55eOjACXdVu02WMgK5y3qFa2NorP84J_vUWjb4Ue4PM-n4alCys6fc6mQ-V7tHghl4GR6yUyol_AAXLRMfdyX7vi0cD5yLTbXNBosZgTznauU79rC4YyI6OD_oIroa364btz99HYjftkeSQuGwMxRRgu0n5JiaBzD2yvbBPapO3Zh62UsdWof7j2VzZz37F"/>
+</div>
+<h2 class="font-headline-sm text-headline-sm mb-xs">Navrang Hawks</h2>
+<span class="text-surface-variant font-label-caps text-label-caps">Defeat</span>
+</div>
+</div>
+</section>
+<!-- Two Column Layout for Stats and MVP -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Personal Stats Bento -->
+<section class="md:col-span-7 flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="bar_chart">bar_chart</span> Performance
+                </h3>
+<div class="grid grid-cols-2 gap-md h-full">
+<!-- XP Card -->
+<div class="dark-surface-elevated rounded-lg p-md flex flex-col justify-between hover-lift">
+<span class="material-symbols-outlined text-tertiary-container text-4xl mb-sm" data-icon="star" data-weight="fill">star</span>
+<div>
+<div class="text-surface-variant font-label-caps text-label-caps mb-xs">XP Earned</div>
+<div class="font-headline-section text-headline-section text-white">+450</div>
+</div>
+<div class="mt-sm w-full bg-black/40 rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full w-[70%] shadow-[0_0_10px_rgba(125,140,228,0.5)]"></div>
+</div>
+</div>
+<!-- Highlight Card -->
+<div class="dark-surface-elevated rounded-lg p-md flex flex-col justify-between hover-lift">
+<span class="material-symbols-outlined text-primary text-4xl mb-sm" data-icon="local_fire_department" data-weight="fill">local_fire_department</span>
+<div>
+<div class="text-surface-variant font-label-caps text-label-caps mb-xs">Match Rating</div>
+<div class="font-headline-section text-headline-section text-white">8.4</div>
+</div>
+<div class="text-sm text-primary-soft mt-sm">Top 10% this week</div>
+</div>
+<!-- Stats List -->
+<div class="dark-surface-elevated rounded-lg p-md col-span-2 hover-lift">
+<div class="flex justify-between items-center border-b border-white/10 pb-sm mb-sm">
+<span class="text-surface-variant">Goals Scored</span>
+<span class="font-body-lg text-body-lg text-white">3</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-sm mb-sm">
+<span class="text-surface-variant">Assists</span>
+<span class="font-body-lg text-body-lg text-white">2</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-surface-variant">Distance Covered</span>
+<span class="font-body-lg text-body-lg text-white">4.2 km</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MVP Voting Section -->
+<section class="md:col-span-5 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-container" data-icon="military_tech">military_tech</span> Vote MVP
+                </h3>
+<div class="dark-surface rounded-xl p-md flex-grow flex flex-col">
+<p class="text-surface-variant mb-md">Recognize outstanding play. Who carried the match?</p>
+<div class="flex flex-col gap-sm overflow-y-auto pr-sm custom-scrollbar">
+<!-- Player 1 -->
+<button class="w-full flex items-center p-sm rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-primary/50 transition-all text-left group">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-md">
+<img class="w-full h-full object-cover" data-alt="A portrait of an energetic young male athlete smiling, wearing a vibrant orange sports jersey, sweat on brow, urban court background in soft focus. Warm, golden hour lighting. Claymorphism soft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt0cfMs8BT2aBsE9tHYugNRSMXewhxcYgsk9NcCFk1lDHyX6CFCfcpqPH5ZtGyxxZXCgLPoD_OZdrMjhPKYq1B-Qm2hT-2j9zjdrt2uQHs06oj4LRNSf3ghGtu9uLyGsV_GhX0DiW44aF65c0MY_7V3C3kHe97spNZXHUxsY1qvaTLXDrKKxXUkyERCVyNInKLLmkubEpdjRn0zyAWVEKmWFUj74z-Fa39KXI2eSI15KNH_z0QulOA"/>
+</div>
+<div class="flex-grow">
+<div class="font-body-lg text-body-lg text-white group-hover:text-primary transition-colors">Rahul Sharma</div>
+<div class="text-surface-variant text-sm">2 Goals, Solid Defense</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100" data-icon="thumb_up">thumb_up</span>
+</button>
+<!-- Player 2 -->
+<button class="w-full flex items-center p-sm rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-primary/50 transition-all text-left group">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-md">
+<img class="w-full h-full object-cover" data-alt="A portrait of a focused female athlete looking intensely towards the camera, wearing a dark athletic top. Moody urban lighting with neon orange rim light. Claymorphism soft aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBQXMFUilQFJOljmmzwkdMI-p6H62ZC13-4Tfe1Kztwqw9J9H4fThVV0G09siI3RpoaDGgMV1_AsUT1ZdQOypEZ_vl-OwItoKlxsMoutov7113rqFR-CoaY1Yi99auM0SjQq8GKgGErHrxVK5MSjvJ6do0ZFJBX_KIM4X9jHcl0o72aLlhoimPn6cc-14L8pQEtm9HUXfGyhImA8PFWzDl8LMZuyMqMQgldmxl5MMuy1EK6COQVx8c"/>
+</div>
+<div class="flex-grow">
+<div class="font-body-lg text-body-lg text-white group-hover:text-primary transition-colors">Priya Patel</div>
+<div class="text-surface-variant text-sm">Playmaker</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100" data-icon="thumb_up">thumb_up</span>
+</button>
+</div>
+<div class="mt-auto pt-md">
+<button class="w-full bg-surface-variant text-on-surface-variant font-button text-button py-sm rounded-full hover:bg-white transition-colors">Skip Voting</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Action Footer -->
+<div class="mt-xl flex justify-center pb-xl">
+<button class="bg-primary text-white font-button text-button py-md px-xl rounded-full clay-inset hover:scale-105 transition-transform duration-200 flex items-center gap-sm shadow-[0_10px_20px_rgba(255,90,54,0.3)]">
+                Continue to Lobby <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

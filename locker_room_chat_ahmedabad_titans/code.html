@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ahmedabad Titans - Team Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#4858ab",
+                      "on-secondary-fixed-variant": "#005048",
+                      "surface-container": "#ffe9e5",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "map-teal": "#00B4A2",
+                      "tertiary-fixed": "#dee0ff",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "outline-variant": "#e3beb6",
+                      "background": "#fff8f6",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "surface-container-low": "#fff0ed",
+                      "on-primary-fixed": "#3d0600",
+                      "surface": "#fff8f6",
+                      "secondary-container": "#6df5e1",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-surface": "#271814",
+                      "surface-container-highest": "#f9dcd6",
+                      "surface-variant": "#f9dcd6",
+                      "primary-soft": "#FF8A70",
+                      "surface-container-high": "#ffe2dc",
+                      "outline": "#8f7069",
+                      "clay-bg": "#F5EFE9",
+                      "inverse-primary": "#ffb4a3",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#fff8f6",
+                      "on-surface-variant": "#434655",
+                      "primary-container": "#ff5a36",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "surface-tint": "#b52603",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-tertiary-fixed": "#00105b",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#7d8ce4",
+                      "inverse-on-surface": "#ffede9",
+                      "on-tertiary-container": "#0d2075",
+                      "secondary-fixed": "#70f8e4",
+                      "on-primary-container": "#5a0c00",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdad2",
+                      "error": "#ba1a1a",
+                      "surface-card": "#FFFFFF",
+                      "inverse-surface": "#3e2c28",
+                      "secondary": "#006b5f",
+                      "surface-dim": "#f0d4ce",
+                      "on-secondary-container": "#006f64",
+                      "on-background": "#271814",
+                      "on-secondary-fixed": "#00201c",
+                      "on-error": "#ffffff",
+                      "primary": "#b52603"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "xl": "80px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-hero": ["Nunito"],
+                      "headline-section": ["Nunito"],
+                      "headline-sm": ["Nunito"],
+                      "label-caps": ["Nunito"],
+                      "body-md": ["Nunito"],
+                      "display-hero-mobile": ["Nunito"],
+                      "button": ["Nunito"],
+                      "body-lg": ["Nunito"]
+              },
+              "fontSize": {
+                      "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                      "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                      "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                      "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                      "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                      "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .clay-button {
+            box-shadow: inset 0 4px 6px -1px rgba(255, 255, 255, 0.4), 0 10px 15px -3px rgba(255, 90, 54, 0.3);
+        }
+        
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Hide scrollbar for a cleaner chat interface */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen text-on-background flex flex-col font-body-md text-body-md overflow-hidden">
+<!-- Top Navigation (Desktop Only) -->
+<header class="hidden md:flex justify-between items-center px-gutter py-md max-w-container-max mx-auto w-full bg-white/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] docked full-width top-0 sticky z-50 rounded-b-xl shadow-md">
+<div class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Squads</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant pb-2 font-label-caps text-label-caps uppercase hover:text-primary transition-colors duration-200" href="#">My Squads</a>
+<a class="text-on-surface-variant pb-2 font-label-caps text-label-caps uppercase hover:text-primary transition-colors duration-200" href="#">Discovery</a>
+<a class="text-on-surface-variant pb-2 font-label-caps text-label-caps uppercase hover:text-primary transition-colors duration-200" href="#">Analytics</a>
+<a class="text-on-surface-variant pb-2 font-label-caps text-label-caps uppercase hover:text-primary transition-colors duration-200" href="#">Schedule</a>
+</nav>
+<button class="bg-primary-container text-on-primary clay-button rounded-full px-lg py-sm font-button text-button hover:-translate-y-1 transition-transform duration-200">Create Squad</button>
+</header>
+<!-- Main Chat Container -->
+<main class="flex-1 flex overflow-hidden w-full max-w-container-max mx-auto px-gutter md:py-md">
+<!-- Sidebar: Team Members (Desktop & Tablet) -->
+<aside class="hidden md:flex flex-col w-80 bg-surface-card rounded-lg soft-deep-shadow mr-lg overflow-hidden h-full z-10">
+<div class="p-lg border-b border-surface-container-high bg-surface-container-lowest">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-sm">Ahmedabad Titans</h2>
+<p class="text-on-surface-variant text-sm">Locker Room Banter</p>
+</div>
+<div class="p-md flex-1 overflow-y-auto no-scrollbar bg-surface-container-lowest">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md uppercase">Team Roster (12)</h3>
+<ul class="space-y-sm">
+<!-- Online Member -->
+<li class="flex items-center gap-md p-sm hover:bg-surface-container transition-colors rounded-DEFAULT cursor-pointer group">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="A vibrant, stylized portrait of a young male athlete smiling confidently, wearing a casual orange and white sports jersey. Soft, bright lighting creates a friendly atmosphere. Shot with a shallow depth of field against a blurred, sunny outdoor sports court background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLzU33Pi38G3bF4vq-B339bXubGBtbllK-RD_y0ElL7so2_4s9OraziGGQZKpsnFR07FPnoy5cfyMnEg6Z2INJZh_7rBtFvf8UpxqotiKycQgLJ1K3YOUAksAI9OBbjQJ9o97H-eh_pcI21Px92oYNlCghZD25cxkXVD85nXzdP4WQgEa-PQDAZAQ2Umg6ImtHNq2Ht3K4BE9gl9r-qSeFzMfsxRRuzBQVvM-u6cTnyaeSOKnRQKFQ">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-white"></span>
+</div>
+<div>
+<p class="font-button text-button text-on-background group-hover:text-primary transition-colors">Vikram Singh</p>
+<p class="text-xs text-on-surface-variant">Captain - Online</p>
+</div>
+</li>
+<!-- Online Member -->
+<li class="flex items-center gap-md p-sm hover:bg-surface-container transition-colors rounded-DEFAULT cursor-pointer group">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="A dynamic portrait of an athletic woman in a sleek teal athletic top. She has a focused expression, brightly lit by natural sunlight. The background is a gently blurred urban park setting with subtle bokeh. Bright, optimistic, and active mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU28XrTzUSgTjyA3Ay9zqXEUITubrw5gywpgcluzpQH7xj3jZiSSTduA8rU5965cRa3ZgaHXMVu0rxpNJql_PTcALLmb84lDud_LEJcWLJNrECGGr9dsCkl4gR_FqHM9Aw5LiA_qHFn2bXW5Dcg9pvGBO3pLvIxDF7Ua7EQ5lkC12rRbyLPQ7ujal5KCZgQwMnP0uQ_c5Kd69ri7D7bMb7ag8iw3rRPnQtMMq1bCGBvtIu5XvNc7lU">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-white"></span>
+</div>
+<div>
+<p class="font-button text-button text-on-background group-hover:text-primary transition-colors">Priya Patel</p>
+<p class="text-xs text-on-surface-variant">Vice-Captain - Typing...</p>
+</div>
+</li>
+<!-- Offline Member -->
+<li class="flex items-center gap-md p-sm hover:bg-surface-container transition-colors rounded-DEFAULT cursor-pointer group opacity-75">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm grayscale-[30%]" data-alt="A candid, high-quality photo of a young man tying his shoes on a running track. He is wearing dark sports gear. The lighting is late afternoon, casting long shadows, but the overall tone is warm and inviting. Soft clay tones dominate the scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAykggg2EUsMp40zoXoy4yCu-ol2oY-atoiAhfnriBREs00QrS6Ri0qmFrUz018BUS6dg2HEcrtIKFFzGoUNdYkVcJesvk5X49pocDhEJOl7z3TLDleKL2PrshJuX_HbCTNc1E-djjahhKbXbFRd1YRFpRHRpwqkQ72nHa9xSI6Z-P4mNNX81Wg98ZH_MjOdsJiYykLP9B3tcH8PKy6Dqf18hbmAx9rUBp3znKOJfLe4umkrZiHPjB6">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-outline rounded-full border-2 border-white"></span>
+</div>
+<div>
+<p class="font-button text-button text-on-background group-hover:text-primary transition-colors">Rahul Sharma</p>
+<p class="text-xs text-on-surface-variant">Last seen 2h ago</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="p-md bg-surface-container-low border-t border-surface-container-high mt-auto">
+<button class="w-full flex items-center justify-center gap-sm bg-white text-primary border border-primary-fixed-dim rounded-full py-sm hover:bg-primary hover:text-white transition-all duration-300 font-button text-button soft-deep-shadow">
+<span class="material-symbols-outlined">person_add</span>
+                    Invite Player
+                </button>
+</div>
+</aside>
+<!-- Chat Area -->
+<section class="flex-1 flex flex-col bg-surface-card md:rounded-lg md:soft-deep-shadow relative z-20 h-full">
+<!-- Chat Header (Mobile & Desktop) -->
+<div class="p-md border-b border-surface-container-high flex justify-between items-center bg-surface-container-lowest md:rounded-t-lg shadow-sm z-30">
+<div class="flex items-center gap-md">
+<!-- Mobile back button to roster (simulated) -->
+<button class="md:hidden text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-3xl">arrow_back</span>
+</button>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background md:hidden">Ahmedabad Titans</h2>
+<h2 class="font-headline-sm text-headline-sm text-on-background hidden md:block">Locker Room Banter</h2>
+<p class="text-sm text-secondary">3 Online</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="p-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-full transition-colors" title="Team Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-full transition-colors md:hidden" title="View Roster">
+<span class="material-symbols-outlined">group</span>
+</button>
+</div>
+</div>
+<!-- Chat Messages Scrollable Area -->
+<div class="flex-1 overflow-y-auto p-md space-y-lg bg-surface-bright no-scrollbar pb-32 md:pb-md">
+<!-- Date Divider -->
+<div class="flex justify-center">
+<span class="bg-surface-container-high text-on-surface-variant text-xs font-label-caps uppercase px-md py-xs rounded-full">Today, 10:00 AM</span>
+</div>
+<!-- Incoming Message -->
+<div class="flex items-end gap-md">
+<img class="w-10 h-10 rounded-full object-cover flex-shrink-0" data-alt="A vibrant, stylized portrait of a young male athlete smiling confidently, wearing a casual orange and white sports jersey. Soft, bright lighting creates a friendly atmosphere. Shot with a shallow depth of field against a blurred, sunny outdoor sports court background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBBEkRy_n9MHtMDRkfzntPQ3pqRbQzVs570DhJ5cuDJYqdpqJP2xFWfn0MusZHcyJj5LMaVhwQfhwgzJRZzomL4Bj2XfDP4UKf0Du_u7VUtntq666JQQ4T3wXpSGavIqpySyFZbLBFA4XXHH7n0HBdsXI3pIse9Y9cOtSh4AAylNGrqyAX9wTOeOYKzZLkTgR0mWeVO-3XTeKvSx4WJ17kw3S84KheQe1BqJMr-X6hWMEvIBn-rDpG">
+<div class="max-w-[75%]">
+<p class="text-xs text-on-surface-variant mb-xs ml-sm">Vikram Singh</p>
+<div class="bg-surface-container-low text-on-background p-md rounded-2xl rounded-bl-sm shadow-sm">
+<p>Great practice session yesterday team! The new drills are really helping our coordination.</p>
+</div>
+</div>
+</div>
+<!-- Incoming Action Message (Poll) -->
+<div class="flex items-end gap-md">
+<img class="w-10 h-10 rounded-full object-cover flex-shrink-0" data-alt="A dynamic portrait of an athletic woman in a sleek teal athletic top. She has a focused expression, brightly lit by natural sunlight. The background is a gently blurred urban park setting with subtle bokeh. Bright, optimistic, and active mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8gVsCLCYXZOQEgb0wql4tGZjB_bw7CDeU_NS4ny3Mou8HXqHqsLaH3CRN95r05RXFFAK4tKfAnqiT3j3IDQxQMB9wGaKIzcrmtTmBsWmdWDHtx1PCdD6h6qqFufV1YGxjd8DQuHA09v5UApAdug8uu2cDHnCi4tA2omWK1iyRzaMm57gMCjv0jl0WPABk7qUI3AzXQAaTb1reoahvdNWwmckAu5vCPso0e7DVcF15iWr6CAYszCjF">
+<div class="max-w-[75%] w-full md:w-96">
+<p class="text-xs text-on-surface-variant mb-xs ml-sm">Priya Patel</p>
+<div class="bg-surface-container-low p-md rounded-2xl rounded-bl-sm shadow-sm">
+<p class="mb-md font-button text-button text-primary">Poll: When should we schedule the next practice match?</p>
+<div class="space-y-sm">
+<button class="w-full flex justify-between items-center p-sm bg-white rounded-lg border border-outline-variant hover:border-primary transition-colors group">
+<span class="text-on-background">Saturday Morning</span>
+<span class="text-xs text-on-surface-variant group-hover:text-primary">4 votes</span>
+</button>
+<button class="w-full flex justify-between items-center p-sm bg-white rounded-lg border border-outline-variant hover:border-primary transition-colors group">
+<span class="text-on-background">Sunday Evening</span>
+<span class="text-xs text-on-surface-variant group-hover:text-primary">2 votes</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Outgoing Message (User) -->
+<div class="flex items-end justify-end gap-md">
+<div class="max-w-[75%]">
+<div class="bg-primary text-on-primary p-md rounded-2xl rounded-br-sm shadow-sm clay-button">
+<p>I'm good for Saturday. Need to work on my serves though!</p>
+</div>
+<p class="text-xs text-right text-on-surface-variant mt-xs mr-sm">Read 10:15 AM</p>
+</div>
+</div>
+<!-- System Message / Shared Location -->
+<div class="flex items-center justify-center my-lg">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant p-md rounded-xl max-w-sm text-center shadow-sm flex flex-col items-center gap-sm">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+<p class="font-button text-button">Venue Updated for Saturday</p>
+<p class="text-sm">Sabarmati Riverfront Sports Complex</p>
+<button class="mt-sm bg-white text-tertiary px-md py-sm rounded-full text-sm font-bold shadow-sm hover:-translate-y-1 transition-transform">View on Map</button>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<div class="p-md bg-surface-container-lowest border-t border-surface-container-high md:rounded-b-lg absolute bottom-0 left-0 w-full z-40 md:relative md:bottom-auto md:left-auto mb-16 md:mb-0">
+<div class="flex items-center gap-sm md:gap-md bg-surface-container-low p-sm rounded-full shadow-inner focus-within:ring-2 focus-within:ring-primary-soft transition-all">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-white" title="Attach Media">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-background font-body-md placeholder:text-outline py-sm" placeholder="Type a message..." type="text">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-white md:hidden" title="Share Location">
+<span class="material-symbols-outlined">location_on</span>
+</button>
+<button class="bg-primary text-on-primary p-sm rounded-full clay-button hover:-translate-y-1 transition-transform flex items-center justify-center h-12 w-12" title="Send">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<!-- Quick Actions Desktop -->
+<div class="hidden md:flex gap-md mt-sm px-md">
+<button class="text-xs text-on-surface-variant hover:text-primary flex items-center gap-xs font-label-caps uppercase"><span class="material-symbols-outlined text-sm">poll</span> Create Poll</button>
+<button class="text-xs text-on-surface-variant hover:text-primary flex items-center gap-xs font-label-caps uppercase"><span class="material-symbols-outlined text-sm">location_on</span> Share Location</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface rounded-t-lg shadow-[0_-10px_30px_rgba(0,0,0,0.05)] shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-caps text-label-caps mt-1">Squads</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-3 shadow-inner Active: scale-90 duration-150" href="#">
+<span class="material-symbols-outlined fill">chat_bubble</span>
+<span class="font-label-caps text-label-caps mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps mt-1">Stats</span>
+</a>
+</nav>
+</body></html>

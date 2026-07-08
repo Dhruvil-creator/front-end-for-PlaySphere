@@ -1,0 +1,465 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Trainer &amp; Academy Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#dee0ff",
+                      "surface-bright": "#fff8f6",
+                      "on-surface": "#271814",
+                      "secondary-container": "#6df5e1",
+                      "inverse-surface": "#3e2c28",
+                      "secondary-fixed": "#70f8e4",
+                      "on-secondary-fixed-variant": "#005048",
+                      "outline-variant": "#e3beb6",
+                      "primary": "#b52603",
+                      "secondary": "#006b5f",
+                      "clay-bg": "#F5EFE9",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "map-teal": "#00B4A2",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-container-low": "#fff0ed",
+                      "surface-container-high": "#ffe2dc",
+                      "on-tertiary-fixed": "#00105b",
+                      "background": "#fff8f6",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "tertiary": "#4858ab",
+                      "outline": "#8f7069",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "primary-container": "#ff5a36",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#006f64",
+                      "inverse-on-surface": "#ffede9",
+                      "surface-tint": "#b52603",
+                      "on-error": "#ffffff",
+                      "surface": "#fff8f6",
+                      "primary-soft": "#FF8A70",
+                      "on-surface-variant": "#5b403a",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#ffb4a3",
+                      "on-tertiary-container": "#0d2075",
+                      "on-primary-container": "#5a0c00",
+                      "on-primary": "#ffffff",
+                      "on-background": "#271814",
+                      "primary-fixed": "#ffdad2",
+                      "surface-card": "#FFFFFF",
+                      "on-primary-fixed": "#3d0600",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#f9dcd6",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#f9dcd6",
+                      "surface-container": "#ffe9e5",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-dim": "#f0d4ce",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "md": "24px",
+                      "gutter": "24px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+        }
+        
+        .clay-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .clay-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+        }
+
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 10px 20px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: theme('spacing.sm') theme('spacing.md');
+            font-family: theme('fontFamily.button');
+            font-size: theme('fontSize.button')[0];
+            font-weight: theme('fontSize.button')[1].fontWeight;
+        }
+
+        .clay-button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 5px 10px rgba(255, 90, 54, 0.3);
+        }
+
+        .soft-button {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: theme('spacing.sm') theme('spacing.md');
+            font-family: theme('fontFamily.button');
+            font-size: theme('fontSize.button')[0];
+            font-weight: theme('fontSize.button')[1].fontWeight;
+        }
+        
+        .soft-button:hover {
+            transform: scale(1.05);
+        }
+
+        .story-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .organic-blob-1 {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, theme('colors.secondary-container') 0%, transparent 70%);
+            opacity: 0.4;
+            z-index: -1;
+            filter: blur(60px);
+        }
+        
+        .organic-blob-2 {
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, theme('colors.primary-fixed-dim') 0%, transparent 70%);
+            opacity: 0.3;
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        /* Nav Padding Compensation */
+        main {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md relative overflow-x-hidden min-h-screen flex flex-col">
+<div class="organic-blob-1"></div>
+<div class="organic-blob-2"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto backdrop-blur-xl bg-white/80 dark:bg-inverse-surface/80 shadow-[0_20px_40px_rgba(0,0,0,0.1)] rounded-b-xl" style="width: calc(100% - 48px); left: 24px;">
+<div class="flex items-center gap-sm">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary">PlaySphere Kinetic</span>
+</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-bold" href="#">Discover Venues</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-bold" href="#">Community Hub</a>
+<a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 transition-transform duration-200 font-body-md text-body-md" href="#">Find Academies</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-2 hover:scale-105 transition-transform duration-200 active:scale-95 text-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:scale-105 transition-transform duration-200 active:scale-95 text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-tertiary-container overflow-hidden border-2 border-white shadow-md cursor-pointer hover:scale-105 transition-transform">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A close up portrait of an athletic young adult smiling in a brightly lit outdoor sports setting. Vibrant colors, soft sunlight, high resolution, energetic mood, part of the PlaySphere Kinetic platform user profiles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa66AfWsNsx1lTHDIZJOpb7PX82hSljGd-CiVVSvB3av52_QECS6u72rd6_6Umo3myGPVY6lag0zHM1XtiMG_FfXmHFJleTv-f3ES_bBrmNKZ9-ZWOKIBsISiHv7bZpKLqbqT204ks1YpnlZsOQS7BwrEoqHJrmaXTa3inK5lyM-9uP8--oNiP2VH56mw53fm-jeqw54OGua7BXkAEBEIryxpFIjLmYGNzgV3Lpr5YELKGkBgItRV1">
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-container-max mx-auto w-full px-gutter md:px-lg mb-xl relative z-10">
+<!-- Hero Section -->
+<section class="py-xl text-center flex flex-col items-center">
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-primary mb-md">Find Your Game</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">Discover top trainers and premier academies across Ahmedabad. Your city is your playground.</p>
+<!-- Quick Filters (Clay Pills) -->
+<div class="flex flex-wrap justify-center gap-sm w-full max-w-3xl">
+<button class="clay-button gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sports_cricket">sports_cricket</span> Cricket
+                </button>
+<button class="soft-button gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sports_soccer">sports_soccer</span> Football
+                </button>
+<button class="soft-button gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sports_tennis">sports_tennis</span> Tennis
+                </button>
+<button class="soft-button gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="self_improvement">self_improvement</span> Yoga
+                </button>
+</div>
+</section>
+<!-- Bento Grid Layout for Main Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Filter Sidebar (Desktop) -->
+<aside class="md:col-span-3 hidden md:block">
+<div class="clay-card p-md sticky top-[120px]">
+<div class="flex items-center justify-between mb-md pb-xs border-b-2 border-surface-variant">
+<h3 class="font-headline-sm text-headline-sm text-primary">Filters</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="tune">tune</span>
+</div>
+<div class="space-y-md">
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Area</h4>
+<div class="space-y-xs">
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">Satellite</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">Vastrapur</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">SG Highway</span>
+</label>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Skill Level</h4>
+<div class="space-y-xs">
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">Beginner</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">Intermediate</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary h-5 w-5 bg-surface-bright" type="checkbox">
+<span class="font-body-md text-body-md">Pro</span>
+</label>
+</div>
+</div>
+<button class="clay-button w-full mt-sm">Apply Filters</button>
+</div>
+</div>
+</aside>
+<!-- Results Canvas -->
+<div class="md:col-span-9 space-y-lg">
+<!-- Section Header -->
+<div class="flex justify-between items-end border-b-2 border-outline-variant/30 pb-xs">
+<h2 class="font-headline-section text-headline-section text-on-surface">Featured Academies</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Showing 12 results in Vastrapur</span>
+</div>
+<!-- Bento Grid for Results -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Featured Large Card -->
+<div class="md:col-span-2 clay-card overflow-hidden relative group cursor-pointer h-[400px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A wide, sweeping shot of a pristine, brightly lit turf football field at sunset in Ahmedabad. Young athletes are training energetically. The sky is a warm sunset orange, contrasting with the vibrant green turf. High contrast, dynamic angles, energetic, PlaySphere Kinetic aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIiuokk3IDxNvyd7VHrPlfI8AGVPLNQMdduUTWHfa6k2z0RPe2jdRerOzn4oA2x_cKAWFXA86R6-A1wOshw05dEhNccOT2r2O1-l9rnuAiTL7p3eoUQfrlJpGj37LdGsf2ehPKDMueezXZ9wuX2uxgyjIMY9VcaGIUZHenLk0glG2UPcNREU-ikS0kEGp81VMc6g6xzkaGc4VH66j7yhPYqpOFUVFM9OMV3G9DGTeq0iFXCWkeO3cD')"></div>
+<div class="absolute inset-0 story-gradient"></div>
+<div class="absolute top-md right-md bg-white/90 backdrop-blur rounded-full px-sm py-xs flex items-center gap-xs shadow-lg">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="font-button text-button text-on-surface">4.9</span>
+</div>
+<div class="absolute bottom-0 left-0 p-md w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="inline-block bg-primary text-on-primary font-label-caps text-label-caps px-sm py-xs rounded-full mb-xs">Featured • Football</span>
+<h3 class="font-headline-section text-headline-section text-white leading-tight">Vastrapur FC Elite</h3>
+<p class="font-body-md text-body-md text-surface-variant mt-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Alpha Turf, Vastrapur
+                                    </p>
+</div>
+<div class="text-right">
+<div class="flex -space-x-2 justify-end mb-xs">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-tertiary-container overflow-hidden"><img class="w-full h-full object-cover" data-alt="Small headshot of an athlete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXTjr3wUI43aZJTRXJ-hoqI5noKXLlwiNWGvUaUXX0bYXaQDeNJltuPjRophq_mSC1P0O81aCglcgFguTfFN51Br_8Go1BKkHrV0Jhs-EvqSs_HlS25iVQmMcMLyzCZvRXyVWv2v2T_dw_ZfBfE1yxvnlI2QRKgKgfQnd5rEfRR96lzvCgEUo7Vu8-FlHICdRi4fkOTRwTldCnTN8lk0cfpnSs1C_lgF9a3Rgx0BcU4I0T41q-LAjy"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-container overflow-hidden"><img class="w-full h-full object-cover" data-alt="Small headshot of an athlete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeavaWQOJ_IdTr5TnQ7DmbykfbUiIFoUBSpqr1KJG_ZpM_mzTxfPvzOp0PszMiQlI8z-zime1whdRMGp15WGbTQMDWhfJ4pF17j1EycyJq6oMrQhVKBp9XXBZeFF832pLD5hGmjkz-7GaRBeAOfh7jNahBPggnas6UzXhiqG-KXdNQvwJhP4whxWrfAtrohQamZYBCao9oPgwR8G9YezUABoA8V7fINW4jsryXoTbSMYK0dQmv1L5y"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container overflow-hidden flex items-center justify-center text-xs font-bold text-white">+42</div>
+</div>
+<span class="font-label-caps text-label-caps text-surface-variant">Active Athletes</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="clay-card p-sm flex flex-col cursor-pointer group">
+<div class="h-48 rounded-lg overflow-hidden relative mb-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A bright, sunlit tennis court in an urban setting. Two players mid-volley. Warm earthy tones around the court edge, crisp white lines, bright sunny day, energetic and welcoming mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZ6Ty9U5aSr6xL-q4n32ONvUuPAaWuSmac3-giX-97U00uaYLcJw3RVgv7NlnKfLArAu_2X2jNKdLgO0lI0DPceWVwsuqJvgMOKaSe6oVS_J7bhB0O3NdzELSnLPzla7Gy58yJw2OiamJAqnR7xhkyc7o32Yyoh8Gq70z3MXQbQ2N8SQYZZ_Pj-f9KBrWubY0eChDdngbhfkeShI1h10OhA-DKyXPyNifcT-xF4X5NKO8lOqApv2cl')"></div>
+<div class="absolute top-sm right-sm bg-white/90 rounded-full px-sm py-xs flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="star" data-weight="fill">star</span>
+<span class="font-button text-button text-sm text-on-surface">4.7</span>
+</div>
+</div>
+<div class="flex-grow px-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Ace Tennis Academy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Professional coaching for intermediate to advanced players focusing on technique and match play.</p>
+<div class="flex flex-wrap gap-xs mb-sm">
+<span class="bg-surface-variant text-on-surface font-label-caps text-xs px-2 py-1 rounded-md">Tennis</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-xs px-2 py-1 rounded-md">Intermediate</span>
+</div>
+</div>
+<div class="px-xs pt-sm border-t border-outline-variant/30 flex justify-between items-center mt-auto">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 1.2 km away
+                            </span>
+<button class="soft-button text-sm py-1 px-3">View Profile</button>
+</div>
+</div>
+<!-- Standard Card 2 -->
+<div class="clay-card p-sm flex flex-col cursor-pointer group">
+<div class="h-48 rounded-lg overflow-hidden relative mb-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A serene, sun-dappled yoga studio with large windows. A group of people practicing on colourful mats. Soft lighting, earthy warm tones, tranquil yet active atmosphere, PlaySphere Kinetic aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQzToeCxkQgLzIZs4fWmGafy8fDpKLILjzMPt0SqUBNrQ1C-lDVU9UTTzBdQw8hS27AN48pJLUG2NQuEKitQf8ifMIGyVLtIfhqxboHuuQNlKnxr68mu-YAsLzGNvrvCg9pqAatUXtRs0xkuR0hZu0Z8d-jHYCCPz-H4giMBz6VONGMnKo-Ip_36GioiCsjOqOrm91Z4eh5FhDoasLamZ-BFNlDh4CU3iqoPaCcs0cZox5dDxxsb9R')"></div>
+<div class="absolute top-sm right-sm bg-white/90 rounded-full px-sm py-xs flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="star" data-weight="fill">star</span>
+<span class="font-button text-button text-sm text-on-surface">4.9</span>
+</div>
+</div>
+<div class="flex-grow px-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Zenith Yoga Hub</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm line-clamp-2">Morning flow and evening restorative sessions. Suitable for all levels looking to improve flexibility.</p>
+<div class="flex flex-wrap gap-xs mb-sm">
+<span class="bg-surface-variant text-on-surface font-label-caps text-xs px-2 py-1 rounded-md">Yoga</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-xs px-2 py-1 rounded-md">All Levels</span>
+</div>
+</div>
+<div class="px-xs pt-sm border-t border-outline-variant/30 flex justify-between items-center mt-auto">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="distance">distance</span> 0.8 km away
+                            </span>
+<button class="soft-button text-sm py-1 px-3">View Profile</button>
+</div>
+</div>
+</div>
+<div class="text-center pt-md">
+<button class="clay-button">Load More Venues</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-gutter grid grid-cols-1 md:grid-cols-4 gap-md bg-surface-container-low dark:bg-inverse-surface mt-auto rounded-t-lg z-20 relative">
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-headline-sm text-headline-sm font-black text-primary mb-sm">PlaySphere Kinetic</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mb-md">© 2024 PlaySphere Kinetic Ahmedabad. Your City is Your Playground.</p>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Discover Venues</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Community Hub</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Bookings</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Support</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+</div>
+</footer>
+</body></html>

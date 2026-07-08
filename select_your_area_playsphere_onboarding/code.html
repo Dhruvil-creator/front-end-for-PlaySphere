@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Where's your home turf? - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-surface-variant": "#434655",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed": "#70f8e4",
+                        "outline-variant": "#e3beb6",
+                        "on-surface": "#271814",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad2",
+                        "on-background": "#271814",
+                        "inverse-primary": "#ffb4a3",
+                        "map-teal": "#00B4A2",
+                        "inverse-surface": "#3e2c28",
+                        "on-secondary-fixed": "#00201c",
+                        "clay-bg": "#F5EFE9",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "secondary": "#006b5f",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-card": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#b52603",
+                        "background": "#fff8f6",
+                        "surface-bright": "#fff8f6",
+                        "outline": "#8f7069",
+                        "surface-dim": "#f0d4ce",
+                        "primary": "#b52603",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "inverse-on-surface": "#ffede9",
+                        "on-tertiary-container": "#0d2075",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4858ab",
+                        "primary-container": "#ff5a36",
+                        "surface-container-low": "#fff0ed",
+                        "surface": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#6df5e1",
+                        "on-secondary-container": "#006f64"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "button": ["Nunito"],
+                        "label-caps": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 90, 54, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 180, 162, 0.05) 0%, transparent 40%);
+        }
+        
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05), inset 0 2px 4px rgba(255,255,255,0.8);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .soft-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255,90,54,0.1), inset 0 2px 4px rgba(255,255,255,0.9);
+        }
+        
+        .soft-card.selected {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+            box-shadow: 0 20px 40px rgba(255,90,54,0.2), inset 0 2px 4px rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .clay-button {
+            box-shadow: 0 10px 20px rgba(255, 90, 54, 0.3), inset 0 4px 6px rgba(255,255,255,0.4);
+            transition: all 0.2s ease;
+        }
+        
+        .clay-button:active {
+            box-shadow: 0 5px 10px rgba(255, 90, 54, 0.2), inset 0 2px 4px rgba(0,0,0,0.1);
+            transform: scale(0.98);
+        }
+
+        .liquid-shape-bg {
+            animation: liquid-blob 20s infinite alternate;
+        }
+
+        @keyframes liquid-blob {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(0deg); }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-on-surface overflow-x-hidden relative flex flex-col items-center justify-center py-xl px-gutter">
+<!-- Decorative Liquid Background Shapes -->
+<div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/5 blur-3xl liquid-shape-bg -z-10 rounded-full"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-secondary/5 blur-3xl liquid-shape-bg -z-10 rounded-full" style="animation-direction: reverse; animation-duration: 25s;"></div>
+<main class="w-full max-w-container-max mx-auto flex flex-col items-center z-10 relative">
+<!-- Header Section -->
+<div class="text-center mb-xl w-full max-w-2xl relative">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-surface-card rounded-full soft-card flex items-center justify-center mb-md z-[-1]">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-sm mt-12 relative z-10 drop-shadow-sm">Where's your home turf?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select your primary area in Ahmedabad to connect with nearby courts, games, and players.</p>
+</div>
+<!-- Selection Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md w-full mb-xl" id="location-grid">
+<!-- Area Cards -->
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">park</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Bopal</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">West</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">apartment</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Satellite</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">West</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">stadium</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Navrangpura</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">Central</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">train</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Maninagar</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">South</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">add_road</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">SG Highway</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">North West</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">sports_tennis</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Naranpura</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">North West</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">nature_people</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Gota</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">North</span>
+</button>
+<button class="soft-card bg-surface-card rounded-lg p-md flex flex-col items-center text-center cursor-pointer group" onclick="toggleSelection(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-sm group-[.selected]:bg-primary-soft group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-[.selected]:text-on-primary">water</span>
+</div>
+<span class="font-headline-sm text-headline-sm block mb-xs group-[.selected]:text-on-primary">Vastrapur</span>
+<span class="font-body-md text-body-md text-on-surface-variant group-[.selected]:text-primary-fixed-dim">West</span>
+</button>
+</div>
+<!-- Action Section -->
+<div class="flex flex-col items-center gap-sm mt-auto w-full max-w-sm">
+<button class="w-full clay-button bg-primary text-on-primary font-button text-button rounded-full py-sm px-lg flex items-center justify-center gap-xs">
+                Continue to Playground
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-xs">
+                I'll explore first
+            </button>
+</div>
+</main>
+<script>
+        function toggleSelection(element) {
+            // Optional: for single selection
+            document.querySelectorAll('.soft-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.toggle('selected');
+        }
+    </script>
+</body></html>

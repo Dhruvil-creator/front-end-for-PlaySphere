@@ -1,0 +1,285 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Choose Your Sports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "on-background": "#271814",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-container": "#5a0c00",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-dim": "#f0d4ce",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffede9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#0d2075",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "surface": "#fff8f6",
+                        "map-teal": "#00B4A2",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-variant": "#f9dcd6",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "outline": "#8f7069",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00105b",
+                        "primary": "#b52603",
+                        "clay-bg": "#F5EFE9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"]
+                    },
+                    fontSize: {
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+        }
+        .clay-button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(255, 90, 54, 0.3);
+        }
+        
+        .sport-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateZ(0);
+        }
+        .sport-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+        }
+        .sport-card.selected {
+            border-color: theme('colors.primary-container');
+            background-color: theme('colors.surface-container-low');
+            box-shadow: 0 0 0 4px theme('colors.primary-container'), 0 30px 50px rgba(255, 90, 54, 0.2);
+        }
+        
+        /* Subtle background animation */
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -20px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        .bg-blob {
+            animation: drift 20s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen relative overflow-x-hidden flex flex-col font-body-md text-on-surface">
+<!-- Background Ambient Gradients -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-secondary-container opacity-30 blur-[100px] bg-blob mix-blend-multiply"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-primary-container opacity-10 blur-[120px] bg-blob mix-blend-multiply" style="animation-delay: -10s;"></div>
+</div>
+<!-- Onboarding specific canvas, no global nav -->
+<main class="flex-grow z-10 flex flex-col pt-12 pb-24 px-gutter max-w-container-max mx-auto w-full">
+<!-- Header -->
+<header class="text-center mb-xl w-full max-w-3xl mx-auto">
+<h1 class="font-headline-section text-headline-section text-primary tracking-tight mb-md hidden md:block">What gets you moving?</h1>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight mb-md md:hidden">What gets you moving?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select the sports you want to play. We'll use this to match you with nearby squads and live courts in your city.</p>
+</header>
+<!-- Bento Grid for Sports -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md mb-xl" id="sports-grid">
+<!-- Sport Card: Basketball -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="basketball">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-primary" style="font-variation-settings: 'FILL' 1;">sports_basketball</span>
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Basketball</span>
+<!-- Selection Indicator -->
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Tennis -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="tennis">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-secondary" style="font-variation-settings: 'FILL' 1;">sports_tennis</span>
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Tennis</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Football (Soccer) -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="football">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-tertiary" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Football</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Volleyball -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="volleyball">
+<div class="absolute inset-0 bg-gradient-to-br from-map-teal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-map-teal" style="font-variation-settings: 'FILL' 1;">sports_volleyball</span>
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Volleyball</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Cricket -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="cricket">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-primary" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Cricket</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Badminton -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="badminton">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-secondary" style="font-variation-settings: 'FILL' 1;">sports_gymnastics</span> <!-- Placeholder icon as material doesn't have badminton specific -->
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Badminton</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Sport Card: Pickleball -->
+<button aria-pressed="false" class="sport-card relative group bg-surface-card rounded-lg border-2 border-transparent p-6 flex flex-col items-center justify-center gap-sm text-center aspect-square overflow-hidden cursor-pointer w-full text-left col-span-2 md:col-span-1 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-container" data-sport="pickleball">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
+<span class="material-symbols-outlined text-[40px] text-tertiary" style="font-variation-settings: 'FILL' 1;">sports_kabaddi</span> <!-- Placeholder icon -->
+</div>
+<span class="font-headline-sm text-body-lg text-on-surface z-10">Pickleball</span>
+<div class="absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center bg-white opacity-50 group-[.selected]:opacity-100 group-[.selected]:border-primary group-[.selected]:bg-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 group-[.selected]:opacity-100" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+</div>
+<!-- Sticky Footer CTA -->
+<div class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-clay-bg via-clay-bg to-transparent pt-xl pb-md px-gutter z-20 flex justify-center pointer-events-none">
+<button class="clay-button bg-primary-container text-on-primary rounded-full px-12 py-4 font-button text-button flex items-center gap-sm pointer-events-auto opacity-50 cursor-not-allowed transition-all duration-300" disabled="" id="continue-btn">
+                Continue to Profile
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sportCards = document.querySelectorAll('.sport-card');
+            const continueBtn = document.getElementById('continue-btn');
+            let selectedCount = 0;
+
+            sportCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('selected');
+                    const isSelected = card.classList.contains('selected');
+                    card.setAttribute('aria-pressed', isSelected);
+                    
+                    if (isSelected) {
+                        selectedCount++;
+                        // Simple popping animation for internal check icon
+                        const checkIcon = card.querySelector('.material-symbols-outlined.text-white');
+                        checkIcon.style.transform = 'scale(0.5)';
+                        setTimeout(() => checkIcon.style.transform = 'scale(1)', 50);
+                    } else {
+                        selectedCount--;
+                    }
+
+                    updateContinueButton();
+                });
+            });
+
+            function updateContinueButton() {
+                if (selectedCount > 0) {
+                    continueBtn.disabled = false;
+                    continueBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    continueBtn.classList.add('hover:-translate-y-1', 'hover:shadow-xl');
+                } else {
+                    continueBtn.disabled = true;
+                    continueBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    continueBtn.classList.remove('hover:-translate-y-1', 'hover:shadow-xl');
+                }
+            }
+        });
+    </script>
+</body></html>

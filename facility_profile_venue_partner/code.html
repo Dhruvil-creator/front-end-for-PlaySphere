@@ -1,0 +1,401 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Facility Management - PlaySphere Partner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#ffe2dc",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "surface": "#fff8f6",
+                        "on-tertiary-fixed": "#00105b",
+                        "map-teal": "#00B4A2",
+                        "surface-container": "#ffe9e5",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-container": "#ff5a36",
+                        "surface-variant": "#f9dcd6",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface": "#271814",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-tertiary-container": "#0d2075",
+                        "primary": "#b52603",
+                        "on-primary-container": "#5a0c00",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "surface-container-highest": "#f9dcd6",
+                        "tertiary-fixed": "#dee0ff",
+                        "on-background": "#271814",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#70f8e4",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb4a3",
+                        "tertiary": "#4858ab",
+                        "on-surface-variant": "#434655",
+                        "outline": "#8f7069",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "on-secondary-fixed": "#00201c",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-soft": "#FF8A70",
+                        "background": "#fff8f6",
+                        "surface-card": "#FFFFFF",
+                        "surface-dim": "#f0d4ce",
+                        "surface-container-low": "#fff0ed",
+                        "inverse-surface": "#3e2c28",
+                        "secondary": "#006b5f",
+                        "inverse-on-surface": "#ffede9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5EFE9; /* clay-bg fallback */
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(11, 100%, 74%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(170, 89%, 69%, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.2);
+            transition: all 0.2s ease;
+        }
+        .clay-button:active {
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(255, 90, 54, 0.1);
+            transform: translateY(2px);
+        }
+
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+
+        /* Hide scrollbar for gallery but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col md:flex-row">
+<!-- Mobile Top App Bar (Only visible on small screens) -->
+<header class="md:hidden bg-surface/80 docked full-width top-0 sticky backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex justify-between items-center px-gutter py-sm w-full z-50">
+<div class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Partner</div>
+<div class="flex gap-sm">
+<button class="p-2 text-primary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-primary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Desktop Side Nav -->
+<nav class="hidden lg:flex flex-col bg-surface-container h-screen w-64 fixed left-0 top-0 shadow-2xl p-md gap-md border-r border-outline-variant/30 z-50">
+<div class="font-headline-sm text-headline-sm font-black text-primary mb-lg">PlaySphere Partner</div>
+<div class="flex items-center gap-sm mb-lg">
+<img alt="Venue Logo" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" data-alt="A stylized minimalist icon of a modern sports arena or stadium building, utilizing flat vibrant colors primarily in Sunset Orange and map teal. Set against a clean white background. High-quality vector art aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK6L3NCApYTUlTua2qHdSkjXmrBt3VFwyEw7HWPzI7Zs4S7sVNWKIQwzKry3VrnePwHWoap4KAjkF2Jp7xbcVt0kYOHYJU5masq-tltRM1bR1Ql2bndN-M0v9HQf0ZZwPk68tNvqpZAsI2WttXroDabju3NubXaHNe4sTqng7SyzDbq2Z259ebWKUTxGiUg0md94A_UhcS-XUTbOBKxo8emDJUB7280hP4bn77OOWKIKfGzW91q8tD">
+<div>
+<div class="font-bold text-on-surface">City Arena</div>
+<div class="text-sm text-on-surface-variant">Venue Owner</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Bookings
+            </a>
+<a class="flex items-center gap-sm bg-primary text-on-primary rounded-xl px-md py-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="stadium">stadium</span>
+                Facility
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                Promotions
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<button class="clay-button bg-primary-container text-on-primary rounded-full py-sm px-md font-button text-button w-full mb-md flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+            New Promotion
+        </button>
+<div class="flex flex-col gap-xs mt-auto pt-md border-t border-outline-variant/30">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                Support
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl px-md py-sm hover:scale-[1.02] transition-all text-error" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow w-full lg:ml-64 p-gutter md:p-lg max-w-container-max mx-auto">
+<header class="mb-xl text-center md:text-left pt-lg md:pt-0">
+<h1 class="font-headline-section text-headline-section text-on-surface mb-sm">Facility Details</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your venue's core attributes, available amenities, and pricing structure to attract the right players to City Arena.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg mb-xl">
+<!-- Court Setup (Spans 8 cols on desktop) -->
+<section class="soft-card bg-surface-card rounded-xl p-md md:p-lg col-span-1 md:col-span-8 flex flex-col relative overflow-hidden">
+<!-- Decorative background blob -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-surface-container-highest rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-md relative z-10">
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-lg">grass</span>
+                        Court Configurations
+                    </h2>
+<span class="bg-surface-container px-3 py-1 rounded-full text-sm font-bold text-primary">3 Active</span>
+</div>
+<p class="text-on-surface-variant mb-md relative z-10">Define the playing surfaces available at your venue. This helps players filter for their preferred game style.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md relative z-10 flex-grow">
+<!-- Turf -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="h-full border-2 border-outline-variant/30 rounded-lg p-md flex flex-col items-center justify-center text-center peer-checked:border-primary peer-checked:bg-surface-container transition-all group-hover:border-primary/50 relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant peer-checked:text-primary transition-colors z-10">grass</span>
+<span class="font-bold text-on-surface z-10">Premium Turf</span>
+<span class="text-sm text-on-surface-variant mt-1 z-10">5v5 / 7v7</span>
+<!-- Active indicator -->
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Hardwood -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="h-full border-2 border-outline-variant/30 rounded-lg p-md flex flex-col items-center justify-center text-center peer-checked:border-primary peer-checked:bg-surface-container transition-all group-hover:border-primary/50 relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant peer-checked:text-primary transition-colors z-10">sports_basketball</span>
+<span class="font-bold text-on-surface z-10">Hardwood</span>
+<span class="text-sm text-on-surface-variant mt-1 z-10">Full Court</span>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Clay -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" type="checkbox">
+<div class="h-full border-2 border-outline-variant/30 rounded-lg p-md flex flex-col items-center justify-center text-center peer-checked:border-primary peer-checked:bg-surface-container transition-all group-hover:border-primary/50 relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant peer-checked:text-primary transition-colors z-10">sports_tennis</span>
+<span class="font-bold text-on-surface z-10">Red Clay</span>
+<span class="text-sm text-on-surface-variant mt-1 z-10">Singles/Doubles</span>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Amenities (Spans 4 cols on desktop) -->
+<section class="soft-card bg-surface-card rounded-xl p-md md:p-lg col-span-1 md:col-span-4 flex flex-col">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-map-teal bg-secondary-container/20 p-2 rounded-lg">local_cafe</span>
+                        Amenities
+                    </h2>
+</div>
+<div class="flex flex-col gap-3 flex-grow overflow-y-auto pr-2 custom-scrollbar">
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary-container border-outline" type="checkbox">
+<span class="material-symbols-outlined text-on-surface-variant">lightbulb</span>
+<span class="font-semibold">Floodlights</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary-container border-outline" type="checkbox">
+<span class="material-symbols-outlined text-on-surface-variant">shower</span>
+<span class="font-semibold">Locker Rooms &amp; Showers</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary-container border-outline" type="checkbox">
+<span class="material-symbols-outlined text-on-surface-variant">local_cafe</span>
+<span class="font-semibold">Cafeteria / Bar</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary-container border-outline" type="checkbox">
+<span class="material-symbols-outlined text-on-surface-variant">local_parking</span>
+<span class="font-semibold">Free Parking</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-lowest border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary-container border-outline" type="checkbox">
+<span class="material-symbols-outlined text-on-surface-variant">wifi</span>
+<span class="font-semibold">Free Wi-Fi</span>
+</label>
+</div>
+</section>
+<!-- Pricing Tier Management -->
+<section class="soft-card bg-surface-card rounded-xl p-md md:p-lg col-span-1 md:col-span-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-md gap-4">
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-secondary bg-secondary-container/20 p-2 rounded-lg">payments</span>
+                        Dynamic Pricing
+                    </h2>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary font-bold py-2 px-4 rounded-full transition-colors flex items-center gap-2 w-fit">
+<span class="material-symbols-outlined">add</span> Add Custom Tier
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Peak Rate -->
+<div class="border border-outline-variant/40 rounded-xl p-md relative overflow-hidden bg-gradient-to-br from-surface-card to-surface-container-low">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-container/10 rounded-bl-full -mr-4 -mt-4"></div>
+<h3 class="font-bold text-lg mb-1">Peak Hours</h3>
+<p class="text-sm text-on-surface-variant mb-4">Weekdays 18:00 - 22:00, Weekends 10:00 - 20:00</p>
+<div class="flex items-end gap-2 mb-4">
+<span class="text-3xl font-black text-on-surface">$85</span>
+<span class="text-on-surface-variant mb-1">/ hour</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden mb-4">
+<div class="h-full bg-primary rounded-full w-4/5"></div>
+</div>
+<p class="text-xs text-on-surface-variant font-bold text-right">80% Utilization typically</p>
+</div>
+<!-- Off-Peak Rate -->
+<div class="border border-outline-variant/40 rounded-xl p-md relative overflow-hidden bg-gradient-to-br from-surface-card to-surface-container-low">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/10 rounded-bl-full -mr-4 -mt-4"></div>
+<h3 class="font-bold text-lg mb-1">Off-Peak Hours</h3>
+<p class="text-sm text-on-surface-variant mb-4">All other times</p>
+<div class="flex items-end gap-2 mb-4">
+<span class="text-3xl font-black text-on-surface">$55</span>
+<span class="text-on-surface-variant mb-1">/ hour</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden mb-4">
+<div class="h-full bg-map-teal rounded-full w-2/5"></div>
+</div>
+<p class="text-xs text-on-surface-variant font-bold text-right">40% Utilization typically</p>
+</div>
+</div>
+</section>
+<!-- Gallery Manager -->
+<section class="soft-card bg-surface-card rounded-xl p-md md:p-lg col-span-1 md:col-span-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-md gap-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm flex items-center gap-2 text-on-surface mb-1">
+<span class="material-symbols-outlined text-tertiary bg-tertiary-container/20 p-2 rounded-lg">photo_library</span>
+                            Gallery Manager
+                        </h2>
+<p class="text-on-surface-variant">High-quality photos increase booking rates by 40%.</p>
+</div>
+<button class="clay-button bg-surface-tint text-on-primary rounded-full py-2 px-6 font-button w-fit flex items-center gap-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),_0_8px_16px_rgba(181,38,3,0.2)] hover:-translate-y-1 transition-transform">
+<span class="material-symbols-outlined">cloud_upload</span> Upload Photos
+                    </button>
+</div>
+<!-- Horizontal Scrollable Gallery -->
+<div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x">
+<!-- Main Hero Image (Cover) -->
+<div class="flex-none w-72 md:w-96 relative group snap-start">
+<div class="absolute top-2 left-2 bg-primary text-on-primary text-xs font-bold px-2 py-1 rounded-full z-10 shadow-md">Cover Photo</div>
+<img class="w-full h-48 md:h-64 object-cover rounded-xl shadow-lg border border-outline-variant/20 transition-transform group-hover:scale-[1.02]" data-alt="A vibrant, high-resolution photograph of a pristine outdoor turf soccer field at sunset. The 'Soft Clay' aesthetic is present in the warm sunset lighting casting long, soft shadows across the pitch. The scene feels energetic and welcoming, ready for community play." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_pAxtpnKTrOjsKtcD-da0wpxF78oKQtdw0LHS6nkWsmg1e4oxzCTIlbmaUUGFquP016vuNbIsWooDS81I9EJYTA9wUZLu_VAHK_f8rXXxu8xtfBu3nckUm4tk-_OE1pElsUy8T5s7vhwq27AOqFVQcicCcV6ub1qGhuv75qzLP6i9NOZTYXqy9V7wb5vT0_Nd29zPW9QH5iHUfZ4Wmc5gxoGfIhapkhPJmCauh2nWJX4Lt6bColn3">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-end p-4">
+<button class="text-white hover:text-primary-soft transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-white hover:text-error transition-colors ml-auto"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Gallery Image 1 -->
+<div class="flex-none w-64 md:w-80 relative group snap-start">
+<img class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md border border-outline-variant/20 transition-transform group-hover:scale-[1.02]" data-alt="A well-lit indoor basketball hardwood court viewed from an isometric perspective. The court surface shines, reflecting modern LED floodlights. The surrounding walls feature soft, rounded acoustic paneling in warm clay and off-white tones, adhering to the PlaySphere soft-tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-qVH8ienDFbC7piEV_auXgwTEIg7gIkicifGvFniyLN3_u9659qvT1Vq3sm1J1XuyeyFUulKDzU60PA311QIrcHynP-dxl0C3dmk3EhfAJmSK90jLzkxEO3Zn8zOJyrz9rjvXIKCY9vyHtdg7EEQIcPqyx7QXtR8HlV90LpCV5nq27SIWu9Zb_iVlu4JHMb6-UV5Pkdqf-sAHv8FxlT_4GawYFg1jdjGr3E2JDJh9P1PP5w3xr2cX">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-end p-4">
+<button class="text-white bg-black/40 px-3 py-1 rounded-full text-sm backdrop-blur-sm hover:bg-primary transition-colors">Set as Cover</button>
+<button class="text-white hover:text-error transition-colors ml-auto"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Gallery Image 2 -->
+<div class="flex-none w-64 md:w-80 relative group snap-start">
+<img class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md border border-outline-variant/20 transition-transform group-hover:scale-[1.02]" data-alt="A bright, modern locker room area designed with the PlaySphere brand in mind. Soft rounded wooden benches sit next to matte-finished lockers in subtle teal and warm clay colors. The lighting is welcoming and clean, highlighting a clean, premium amenity space for athletes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4n7r4ktO27Hv2nESGOsSJtbC-emvnzBWVRsaiYwEIBZ11GJUdk-G4imWexefcfAPAAhsctvz_-OfD25wp8nhy6dTonDAAesV7OSPevWDXbN3GgJ5cnsTgj2J7RbuR6icRjKHwy96zh3wyIXUfuL8gPXBp5jI-dME6PF_DwJvy-ZuHy5JL_VRzBjC8VFlaa449uZpH50W2CZqN6nk6y948OZoLpbI2r37NlFJONBxaoG4kE4LHnqZ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-end p-4">
+<button class="text-white bg-black/40 px-3 py-1 rounded-full text-sm backdrop-blur-sm hover:bg-primary transition-colors">Set as Cover</button>
+<button class="text-white hover:text-error transition-colors ml-auto"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Add New Placeholder -->
+<div class="flex-none w-48 md:w-64 h-48 md:h-64 rounded-xl border-2 border-dashed border-outline-variant hover:border-primary bg-surface-container-lowest/50 hover:bg-surface-container transition-all flex flex-col items-center justify-center cursor-pointer text-on-surface-variant hover:text-primary snap-start">
+<span class="material-symbols-outlined text-4xl mb-2">add_photo_alternate</span>
+<span class="font-bold">Add Photo</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Form Actions Floating Bar (Sticky at bottom on mobile, relative on desktop) -->
+<div class="fixed md:static bottom-0 left-0 w-full md:w-auto p-gutter md:p-0 bg-surface/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border-t border-outline-variant/20 md:border-none flex justify-end gap-4 z-40 md:mt-xl">
+<button class="px-6 py-3 rounded-full font-button text-on-surface hover:bg-surface-container transition-colors">Cancel</button>
+<button class="clay-button bg-primary text-on-primary rounded-full px-8 py-3 font-button shadow-[0_10px_20px_rgba(181,38,3,0.3)]">Save Changes</button>
+</div>
+</main>
+</body></html>

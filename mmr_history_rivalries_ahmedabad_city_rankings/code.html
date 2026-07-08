@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere - Leaderboard History &amp; Trends</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#e3beb6",
+                      "surface-container-high": "#ffe2dc",
+                      "map-teal": "#00B4A2",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "background": "#fff8f6",
+                      "primary": "#b52603",
+                      "surface-container-low": "#fff0ed",
+                      "on-tertiary-container": "#0d2075",
+                      "on-surface-variant": "#5b403a",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#f9dcd6",
+                      "error": "#ba1a1a",
+                      "outline": "#8f7069",
+                      "on-tertiary-fixed": "#00105b",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-bright": "#fff8f6",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "clay-bg": "#F5EFE9",
+                      "inverse-surface": "#3e2c28",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-background": "#271814",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#ff5a36",
+                      "inverse-primary": "#ffb4a3",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-primary-container": "#5a0c00",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#006b5f",
+                      "surface-container": "#ffe9e5",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-container": "#006f64",
+                      "surface-dim": "#f0d4ce",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#b52603",
+                      "primary-soft": "#FF8A70",
+                      "on-primary-fixed": "#3d0600",
+                      "surface": "#fff8f6",
+                      "secondary-container": "#6df5e1",
+                      "tertiary": "#4858ab",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "surface-card": "#FFFFFF",
+                      "surface-container-highest": "#f9dcd6",
+                      "inverse-on-surface": "#ffede9",
+                      "primary-fixed": "#ffdad2",
+                      "on-surface": "#271814",
+                      "secondary-fixed": "#70f8e4",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-fixed": "#dee0ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "xl": "80px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "lg": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+            transition: all 0.3s ease;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.5), 0 12px 24px rgba(255, 90, 54, 0.4);
+        }
+        .clay-button:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 4px 8px rgba(255, 90, 54, 0.3);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+        .chart-grid {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen pt-32">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 px-md py-sm">
+<div class="bg-white/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] shadow-2xl rounded-full max-w-container-max mx-auto px-gutter py-sm flex justify-between items-center">
+<div class="font-headline-sm text-headline-sm font-black italic tracking-tighter text-primary">PlaySphere</div>
+<nav class="hidden md:flex space-x-md">
+<a class="text-on-surface-variant hover:scale-105 hover:text-primary transition-all duration-300" href="#">Explore</a>
+<a class="text-on-surface-variant hover:scale-105 hover:text-primary transition-all duration-300" href="#">Community</a>
+<a class="text-on-surface-variant hover:scale-105 hover:text-primary transition-all duration-300" href="#">Tournaments</a>
+<a class="text-primary border-b-4 border-primary pb-1 font-bold hover:scale-105 transition-all duration-300" href="#">Leaderboard</a>
+</nav>
+<div class="flex items-center space-x-sm">
+<button class="bg-primary-container text-on-primary clay-button rounded-full px-md py-sm font-button text-button">Join the Elite</button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of an energetic young athlete with a determined expression. High quality, well lit, modern urban sports aesthetic with warm sunset tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDmhsvi265javGg1GmI18eoqLZVRLDLiDOjWvBiLzPv9lnq81LyBlnU5fEfzwhApL0JIacrUpYiEoZZ65fN9o4iVCT5auZYOFdpLpBuGJCby94aX3HG9Njt70WOsDbWxXm3I8_1SzCFw66xapFefLxSJoKHnd1UAl6c5_40WrPz9gEBzhHv7Lxi421fHGJBF_Q46d31ebFPebEqYkMtYqbvJMMMd3yI-7JjD64v9aMRvxMw1zHOg-8"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter space-y-xl pb-xl">
+<!-- Header Section -->
+<section class="text-center">
+<h1 class="font-display-hero text-display-hero md:font-display-hero md:text-display-hero text-on-surface mb-sm">History &amp; Trends</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Track your MMR progression, analyze fierce rivalries, and explore the Hall of Fame.</p>
+</section>
+<!-- MMR Progression Chart Area -->
+<section class="bg-surface-card rounded-xl p-lg soft-card relative overflow-hidden">
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-surface-container-high rounded-full opacity-50 blur-3xl z-0"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface">MMR Progression</h2>
+<p class="text-on-surface-variant">Last 6 Months</p>
+</div>
+<div class="flex items-center space-x-sm bg-surface-container rounded-full px-sm py-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-button text-button text-primary">+240 MMR</span>
+</div>
+</div>
+<!-- Simulated Chart -->
+<div class="h-80 w-full chart-grid relative flex items-end">
+<!-- Data points (Simulated SVG path) -->
+<svg class="absolute top-0 left-0 w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,70 20,75 T40,50 T60,60 T80,30 T100,20" fill="none" stroke="#b52603" stroke-linecap="round" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+<path d="M0,80 Q10,70 20,75 T40,50 T60,60 T80,30 T100,20 L100,100 L0,100 Z" fill="url(#grad)" opacity="0.2"></path>
+<defs>
+<lineargradient id="grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#b52603"></stop>
+<stop offset="100%" stop-color="#fff8f6"></stop>
+</lineargradient>
+</defs>
+<!-- Markers -->
+<circle cx="20" cy="75" fill="#fff" r="2" stroke="#b52603" stroke-width="1.5"></circle>
+<circle cx="40" cy="50" fill="#fff" r="2" stroke="#b52603" stroke-width="1.5"></circle>
+<circle cx="60" cy="60" fill="#fff" r="2" stroke="#b52603" stroke-width="1.5"></circle>
+<circle cx="80" cy="30" fill="#fff" r="2" stroke="#b52603" stroke-width="1.5"></circle>
+<circle cx="100" cy="20" fill="#b52603" r="3" stroke="#fff" stroke-width="1"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute -bottom-8 left-0 w-full flex justify-between text-on-surface-variant text-sm font-bold">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Rivalries Section -->
+<section>
+<h2 class="font-headline-section text-headline-section text-on-surface text-center mb-lg">Fiercest Rivalries</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Rival Card 1 -->
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-sm border-4 border-error-container relative">
+<img class="w-full h-full object-cover" data-alt="Portrait of an intense male athlete, sweaty after a game, looking directly at the camera. Soft clay styling background, energetic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrQDUqovdaLBL7NsG25-wf2YXGbGePfs_wgQZZfx3S7dHhU2E2mtQbIJSbnkp7RU3MPwA6CqeM4GhFgEtsNlFFIToOdvz3Q98xAblBeKGf5EEnJ9oWvSI4C1CK57UhGDeJzUkypSke4Evb8DMm4kTIhd0qfmoPxabkqKu2zEp0dXE8I5fai9UxnKemMp-jDMngobP1wacVzRcmyYja5LKYxxHX6pYzWXmUIMkf_lUgVgiqCcxUM-nG"/>
+<div class="absolute bottom-0 right-0 bg-error text-on-error rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-white">
+<span class="material-symbols-outlined text-sm">swords</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Alex 'The Wall'</h3>
+<p class="text-on-surface-variant mb-md">Win Rate: 45%</p>
+<div class="w-full bg-surface-container rounded-full h-3 mb-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 45%"></div>
+</div>
+<p class="text-sm text-on-surface-variant">12 Matches Played</p>
+</div>
+<!-- Rival Card 2 -->
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-sm border-4 border-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Portrait of a focused female athlete tying her shoes on a clay court. Dynamic angle, high energy, soft tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSNwXtsLohXcHr-P194or0MKbeop6RdSHfdifG7c8rSXfHlW5qLj-w06KihUAvS2eHBCQKTYSn5O6bEsAu68g26Z5RJHXDgF3VFy9uPo5JiVBqsb5xshbjnEDJOrq2HvhKbQ8rkeLbgrLG1pGYVgpDmP-h_IOiG0Djf5GZxqzZ4cgUoqgvF1h2xFwzDoVojRi0Ep6htqdqj05-OX-dXVkBK-Srd0aFbLgn6qdv8K6RPebKylO7zfF4"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sam 'Speed'</h3>
+<p class="text-on-surface-variant mb-md">Win Rate: 60%</p>
+<div class="w-full bg-surface-container rounded-full h-3 mb-2 overflow-hidden">
+<div class="bg-map-teal h-full rounded-full" style="width: 60%"></div>
+</div>
+<p class="text-sm text-on-surface-variant">8 Matches Played</p>
+</div>
+<!-- Rival Card 3 -->
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-sm border-4 border-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling older athlete holding a racket, warm sunset lighting, community sports club feel, claymorphism vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlZQFiMmr3kP2d-zlN7tpXCodw8BCyKq77L3Vf68WYk1IMQk48Um50hLw-F4tkVo5pFKwos4Xza9HpddMx94YfTOemDnBlXQTketQMCg_W1Y_MEIP5k0aFYtteZj-DOjVs0rJ-HVZRYFWUqtxhYUlylJJ0dT-uXwPCBYQ3jiU9ujoGBDklUCgmoFP8SoD8mr9jK7qS5tie3hZPDISI9BwWuP-QT3z5k1mEhep5KCYYQ6QHPQKzGLNR"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Coach Dave</h3>
+<p class="text-on-surface-variant mb-md">Win Rate: 50%</p>
+<div class="w-full bg-surface-container rounded-full h-3 mb-2 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 50%"></div>
+</div>
+<p class="text-sm text-on-surface-variant">20 Matches Played</p>
+</div>
+</div>
+</section>
+<!-- Hall of Fame Carousel -->
+<section class="bg-inverse-surface rounded-xl p-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full opacity-20 blur-3xl z-0"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-section text-headline-section text-on-primary">Ahmedabad Hall of Fame</h2>
+<div class="flex space-x-sm">
+<button class="w-12 h-12 rounded-full bg-surface/10 text-on-primary flex items-center justify-center hover:bg-surface/20 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface/10 text-on-primary flex items-center justify-center hover:bg-surface/20 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex space-x-md overflow-x-auto pb-md snap-x">
+<!-- HOF Card 1 -->
+<div class="min-w-[300px] bg-white/5 border border-white/10 rounded-lg p-md backdrop-blur-md snap-center flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-sm border-4 border-primary">
+<img class="w-full h-full object-cover" data-alt="Action shot of a local sports hero jumping to make a play. High contrast, dramatic lighting, dark background with vibrant orange accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3dqMYMrjm_OIv7c_R9ReT-FfFHxVel0c9jzcKv3H12Sab2003UCeLTf8zXJRMFF-hpe8B8QIN0mgYSXMR9IcTx1eGPaUtpnYCWUoDhoMRYpR4FrLmJQTwJdSzGfw0vyc9nZXaMBPXnnOqMEDj5xb9VsbulOyz64pzBmtydZW4PO-7IPS5kysJeF4TsucRm3hBWul2kUMOEpNyftR3syyV8VYdT43fss9Ccq2uME2CbEkK3b0pOEaw"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-xs">Vikram Singh</h3>
+<p class="text-primary-soft font-label-caps text-label-caps tracking-widest mb-md">Player of the Month - May</p>
+<p class="text-surface-variant text-sm italic">"Unstoppable on the clay courts of Navrangpura."</p>
+</div>
+<!-- HOF Card 2 -->
+<div class="min-w-[300px] bg-white/5 border border-white/10 rounded-lg p-md backdrop-blur-md snap-center flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-sm border-4 border-map-teal">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female champion holding a trophy, looking proud. Studio lighting, dark aesthetic with bright teal highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUEk5GCtLpqz5UqToFepztNf7ZvYfpUIN2e_b1m78pBxPjqqPNjKvMwihSpT2aanXI3nSg8WL9rSaWxNJIWDRBBr7v6vYxHDx-ggJ6I8cbIZxxtUGqmLM18sBYMiYdsdunPPbNS15pdamIipgX4iFWfH0QT4AL9vYWjN879zy6JBQhGZMfli_M5kr7nQRaPHBDedgYOXQBlRDTSzQAXKzxPLXcuSs7TEXHYyrlEvi1AlfXjFwBQ13"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-xs">Priya Patel</h3>
+<p class="text-map-teal font-label-caps text-label-caps tracking-widest mb-md">Player of the Month - April</p>
+<p class="text-surface-variant text-sm italic">"Master tactician. 15-game win streak."</p>
+</div>
+<!-- HOF Card 3 -->
+<div class="min-w-[300px] bg-white/5 border border-white/10 rounded-lg p-md backdrop-blur-md snap-center flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-sm border-4 border-tertiary">
+<img class="w-full h-full object-cover" data-alt="Silhouetted athlete against a vibrant sunset sky holding sports equipment. Heroic pose, cinematic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkb4mP4Sc3YGSXQsif7KCJb9lCtwLe-bU5yhxvmbRYP2u74d922HKTDM_COsWCq72srYDwPLZhUD_vSRcx7QCZI05j0R4kNkOIZlDAxz1Cpz7-mC9LBQSzonE0t1ORY4xZPDsA2LVue7a1YcXyew3IXjVrbi0p5pTLsESsh2VysVq_JYeOBFy9sCf26y5rBSW6EV6_nHeirAmAhTmoBoqvl62vFF_1GimHylFD_UEtnF6P2OOltOcN"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary mb-xs">Rahul Desai</h3>
+<p class="text-tertiary-fixed-dim font-label-caps text-label-caps tracking-widest mb-md">Player of the Month - March</p>
+<p class="text-surface-variant text-sm italic">"The comeback king of the western zone."</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-xl mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-gutter">
+<div>
+<div class="font-headline-sm text-headline-sm font-black italic text-primary mb-sm">PlaySphere</div>
+<p class="text-secondary font-body-md text-body-md">© 2024 PlaySphere. Your City is Your Playground.</p>
+</div>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Community Guidelines</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Partners</a>
+</div>
+</div>
+</footer>
+</body></html>

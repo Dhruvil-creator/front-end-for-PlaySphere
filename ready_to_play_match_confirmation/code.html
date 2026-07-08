@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Invitation Success - PlaySphere Kinetic</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS & Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-soft": "#FF8A70",
+                        "on-tertiary-fixed": "#00105b",
+                        "tertiary": "#4858ab",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-highest": "#f9dcd6",
+                        "map-teal": "#00B4A2",
+                        "on-background": "#271814",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface": "#fff8f6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-tint": "#b52603",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-container-high": "#ffe2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#f0d4ce",
+                        "clay-bg": "#F5EFE9",
+                        "on-secondary-container": "#006f64",
+                        "surface-bright": "#fff8f6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed": "#ffdad2",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-fixed-variant": "#005048",
+                        "secondary-fixed": "#70f8e4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#ff5a36",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#3e2c28",
+                        "primary": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "on-primary-fixed": "#3d0600",
+                        "background": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#0d2075",
+                        "outline": "#8f7069",
+                        "on-secondary-fixed": "#00201c",
+                        "on-surface": "#271814",
+                        "outline-variant": "#e3beb6",
+                        "surface-container-low": "#fff0ed",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "secondary": "#006b5f",
+                        "inverse-on-surface": "#ffede9",
+                        "on-primary-container": "#5a0c00",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "sm": "12px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "md": "24px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Nunito", "sans-serif"],
+                        "headline-sm": ["Nunito", "sans-serif"],
+                        "button": ["Nunito", "sans-serif"],
+                        "body-md": ["Nunito", "sans-serif"],
+                        "label-caps": ["Nunito", "sans-serif"],
+                        "headline-section": ["Nunito", "sans-serif"],
+                        "display-hero-mobile": ["Nunito", "sans-serif"],
+                        "display-hero": ["Nunito", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }],
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<!-- Custom Animations & Styles -->
+<style>
+        /* Card entry animation */
+        @keyframes pop-in {
+            0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+            70% { transform: scale(1.02) translateY(-5px); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .animate-pop-in {
+            animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Confetti animation */
+        @keyframes fallAndSpin {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .confetti-piece {
+            position: absolute;
+            top: -20px;
+            z-index: 0;
+            opacity: 0;
+            animation: fallAndSpin linear forwards;
+        }
+
+        /* Map Perspective */
+        .perspective-container {
+            perspective: 1000px;
+        }
+        .isometric-map {
+            transform: rotateX(20deg) rotateZ(-5deg);
+            transform-style: preserve-3d;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-background min-h-screen flex items-center justify-center relative overflow-hidden font-body-md p-gutter">
+<!-- Decorative Sub-surface Blobs (Level 1) -->
+<div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-soft/30 rounded-full blur-3xl z-0"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-container/30 rounded-full blur-3xl z-0"></div>
+<!-- Confetti Container -->
+<div class="absolute inset-0 pointer-events-none z-10 overflow-hidden" id="confetti-container"></div>
+<!-- Main Celebratory Card (Level 3 - Floating) -->
+<main class="w-full max-w-lg bg-surface-card rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] p-8 md:p-12 relative z-20 animate-pop-in border border-surface-container/50">
+<!-- Header Section -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-primary-container rounded-full shadow-[inset_0_4px_8px_rgba(255,255,255,0.4),0_10px_20px_rgba(255,90,54,0.3)] mb-6">
+<span class="material-symbols-outlined text-[40px] text-on-primary" data-icon="emoji_events" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<h1 class="font-headline-section text-headline-section text-primary leading-tight mb-2">You're in the Game!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your spot has been secured. Get ready to dominate.</p>
+</div>
+<!-- Match Details Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-xl">
+<!-- Time & Date -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col justify-center items-start shadow-sm border border-surface-container">
+<div class="flex items-center text-primary-container mb-2">
+<span class="material-symbols-outlined mr-2" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">When</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-background">Sat, Oct 14</p>
+<p class="font-body-md text-body-md text-primary">6:00 PM - 8:00 PM</p>
+</div>
+<!-- Squad -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col justify-center items-start shadow-sm border border-surface-container">
+<div class="flex items-center text-primary-container mb-2">
+<span class="material-symbols-outlined mr-2" data-icon="groups">groups</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Squad (5/10)</span>
+</div>
+<div class="flex -space-x-3 mt-1">
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a young athletic woman smiling brightly on a sunlit outdoor basketball court, vibrant light mode colors, soft tactile aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoIjBlsDW6b70-5zG8eu8RhLhT7SHC89BvLXeQl3ws-RZ9kYZvbQG2qtQWwXWP2XXhS3eT7hyOG8feGafmWBRTmylWERXk_lWgGKN99Zlk_4jXIbsTyIOedTMTlVzF4CY9XtHvwjuyqPU2YsF-H6hK4incYTHZSncqJu2eyQHzknhTy_eZAbb0QiNC_BOQGW7yUnVbXl7W84r57x2iG9CG6jhFsthYQGWJO13yIF5vg5NSh8NpdViw"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a sporty man with a headband looking focused, energetic urban playground background, soft clay tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw335x7w3mwUwdIW2P2LPVBH_uf9NMe4EiKVbB431_kJhYkv7UB1OLBDKETGWJnGgDYiv6xWgIZQnA2_H5FVysJhEepPXl29ZLqvRja0lmPeq65zhMaXus1ojzL8D0N77RLMWu4G_LZCivoVe1-ZFMQ3bsrZxAKBaFLuQvJn9LfFhuQpZemB68wY_Xo2K0-L1uGbEPsNW1t_Utbr9qUV_X8AvULNnhcPi69v0dB79p0pxdH-y9Y05c"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface-card object-cover" data-alt="Close up portrait of a casual player in a sunset orange athletic shirt, cheerful expression, warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxQzxVHkcCuFmKSb6PhObE4UGVvcGYxYPMgjJY2i6oCmzPoKaKp4NkXspU_rLGT6Lh_vpRFotrHBsrKFsFe9Vgug_k3sFPnczIch_rsStsHnSh4SYXOSb_aUeRwl1EEGPy6o6pcJJmJX2Ldvl1TE5Od3VoJ2sHapkOQWapK47SDaS3OIQ1nkVfArPllYg8wa_DuKqwFnA5BgsAC63inWqD0eAkeP6jYO7XUr1ZZ8WsprY9CfNjTfgv"/>
+<div class="w-10 h-10 rounded-full border-2 border-surface-card bg-surface-container-highest flex items-center justify-center text-primary font-button text-button z-10">
+                        +2
+                    </div>
+</div>
+</div>
+<!-- Venue / Map Snippet -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-low rounded-lg p-1 overflow-hidden shadow-sm border border-surface-container relative group perspective-container">
+<div class="absolute top-4 left-4 z-10 bg-surface-card/90 backdrop-blur-sm py-2 px-4 rounded-full shadow-md flex items-center">
+<span class="material-symbols-outlined text-primary mr-2 text-[20px]" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-body-md text-body-md text-on-background font-bold">Rucker Park</span>
+</div>
+<!-- Map Container with 20deg X-rotation for 3D effect -->
+<div class="h-48 w-full rounded-DEFAULT overflow-hidden isometric-map transition-transform duration-500 group-hover:rotate-x-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A top-down stylized 3D map rendering of an urban outdoor basketball court complex surrounded by green trees and city streets, rendered in light mode with soft shadows and pastel tones" data-location="Harlem, New York City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCt58mECXzJgngxgs-rhR9wZS7DqrloSZKXoJoPcKIa2KwlNyzVVk3DDgDhj-6LA8tUfgXj52zpc5SRN2TyZ77n0oznfdNlMbn0hx-8-CuH0btP32obDP9MrIdiKQvp14iP2My78RQRfeIXAaQSzxlz7_HrYfOVY9G6Yk6OQJkYuVxBvdEi4022G5-uJz5oV33KqG2axz4e4wEtsqDleGyPzwvea12YkZ4KrQAutNEjdPv89mmMAfpF')"></div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-sm">
+<!-- Primary Clay Button -->
+<button class="w-full bg-primary-container text-on-primary font-button text-button rounded-full py-4 px-8 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_8px_16px_rgba(255,90,54,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2" data-icon="chat_bubble">chat_bubble</span>
+                Open Match Chat
+            </button>
+<!-- Secondary Soft Button -->
+<button class="w-full bg-surface-card text-primary font-button text-button rounded-full py-4 px-8 shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-surface-container-high hover:bg-surface-container-low hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2" data-icon="event_note">event_note</span>
+                Add to Calendar
+            </button>
+</div>
+</main>
+<!-- Simple JS to generate high-energy confetti -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF8A70', '#ff5a36', '#00B4A2', '#70f8e4', '#7d8ce4'];
+            const shapes = ['rounded-full', 'rounded-sm'];
+            
+            for (let i = 0; i < 40; i++) {
+                const confetti = document.createElement('div');
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                // Random properties
+                const left = Math.random() * 100;
+                const animDuration = Math.random() * 3 + 2;
+                const animDelay = Math.random() * 2;
+                const width = Math.random() * 10 + 5;
+                const height = shape === 'rounded-full' ? width : Math.random() * 15 + 5;
+                
+                confetti.className = `confetti-piece ${shape}`;
+                confetti.style.left = `${left}vw`;
+                confetti.style.width = `${width}px`;
+                confetti.style.height = `${height}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.animationDuration = `${animDuration}s`;
+                confetti.style.animationDelay = `${animDelay}s`;
+                
+                container.appendChild(confetti);
+            }
+        });
+    </script>
+</body></html>

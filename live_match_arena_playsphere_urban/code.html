@@ -1,0 +1,252 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Live Match Arena</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#3e2c28",
+                    "surface-variant": "#f9dcd6",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-primary-fixed": "#3d0600",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-surface": "#271814",
+                    "outline": "#8f7069",
+                    "tertiary": "#4858ab",
+                    "inverse-on-surface": "#ffede9",
+                    "map-teal": "#00B4A2",
+                    "surface-dim": "#f0d4ce",
+                    "surface-container-high": "#ffe2dc",
+                    "on-primary": "#ffffff",
+                    "on-background": "#271814",
+                    "surface-tint": "#b52603",
+                    "surface-container": "#ffe9e5",
+                    "surface-container-highest": "#f9dcd6",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "tertiary-fixed": "#dee0ff",
+                    "outline-variant": "#e3beb6",
+                    "on-secondary-fixed-variant": "#005048",
+                    "background": "#fff8f6",
+                    "on-surface-variant": "#5b403a",
+                    "surface-container-low": "#fff0ed",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "clay-bg": "#F5EFE9",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#0d2075",
+                    "surface": "#fff8f6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#70f8e4",
+                    "primary-container": "#ff5a36",
+                    "surface-card": "#FFFFFF",
+                    "secondary": "#006b5f",
+                    "primary": "#b52603",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "primary-soft": "#FF8A70",
+                    "on-primary-container": "#5a0c00",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#ffb4a3",
+                    "on-secondary-container": "#006f64",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#7d8ce4",
+                    "surface-bright": "#fff8f6",
+                    "on-secondary-fixed": "#00201c",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad2",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "secondary-container": "#6df5e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "sm": "12px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xs": "4px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "button": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "body-lg": ["Nunito"]
+            },
+            "fontSize": {
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .shadow-clay-inset {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+        }
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-5%); }
+            50% { transform: translateY(0); }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative overflow-x-hidden antialiased">
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto backdrop-blur-xl bg-white/80 dark:bg-inverse-surface/80 shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-sm">
+<span class="font-display-hero text-headline-sm text-primary dark:text-primary-fixed-dim tracking-tighter">PlaySphere</span>
+</div>
+<div class="hidden md:flex gap-md">
+<a class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim border-b-4 border-primary dark:border-primary-fixed-dim pb-1 hover:scale-105 transition-transform duration-200" href="#">Live</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:scale-105 transition-transform duration-200" href="#">Schedule</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:scale-105 transition-transform duration-200" href="#">Courts</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:scale-105 transition-transform duration-200" href="#">Community</a>
+</div>
+<div class="flex gap-sm">
+<button class="hover:scale-105 transition-transform duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:scale-105 transition-transform duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Side Navigation (Shared Component - Hidden on mobile) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 hidden lg:flex bg-surface-container-low dark:bg-inverse-surface shadow-[40px_0_60px_-15px_rgba(0,0,0,0.1)] w-72 rounded-r-lg mt-[80px]">
+<div class="mb-xl">
+<h2 class="font-headline-sm text-primary">PlaySphere Kinetic</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Ahmedabad Arena</p>
+</div>
+<nav class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-sm p-sm bg-primary-container text-on-primary-container rounded-xl font-bold shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-body-md text-body-md">Live Match</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-body-md text-body-md">Statistics</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-md text-body-md">Commentary</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">City Activity</span>
+</a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">sports_kabaddi</span>
+<span class="font-body-md text-body-md">Player Hub</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary font-button text-button py-sm px-md rounded-full shadow-clay-inset w-full">Book a Court</button>
+</aside>
+<!-- Main Content Area -->
+<main class="pt-[100px] lg:pl-[300px] pb-xl px-gutter max-w-container-max mx-auto min-h-screen flex flex-col justify-center relative">
+<!-- Background Blur Layer -->
+<div class="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden rounded-3xl m-gutter hidden md:block">
+<div class="w-full h-full bg-cover bg-center filter blur-xl scale-110" data-alt="A blurred, cinematic background showing an urban football turf at night, illuminated by dramatic stadium floodlights with vibrant orange and teal accents reflecting off the synthetic grass, deep shadows, and an energetic, atmospheric vibe, highly detailed." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCldznWD7lWSyQ5RveXPEjuCyy9bre-Y_QhAf8m5GmZMoA50c3e1vtsQcM3h2zs6L9PBZXn8aRUkOG5hnNi44YU0Q5WwrFQdJ7mrcvGt77nQt__iDxSENEgG0gvxbrgL4teNjlPk4JGle4dZyAbN-t2Dq6GTZpAEUsZSMG4iNhSROoWQ4OdqjMJ4DylJ3OPsPdcvSo0UsPNgiHq0lgaAgN7fWo9SPbfKPjL54wuP47dPNvkHwXM-EMv')"></div>
+</div>
+<div class="relative z-10 w-full max-w-4xl mx-auto flex flex-col gap-lg items-center">
+<!-- Live Indicator & Timer -->
+<div class="flex items-center gap-md bg-surface-card rounded-full px-lg py-sm shadow-soft-deep animate-bounce-slow">
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined animate-pulse" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Live</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="font-headline-sm text-headline-sm text-on-surface">72:45</div>
+</div>
+<!-- Scoreboard Card -->
+<div class="glass-panel w-full rounded-xl shadow-soft-deep p-xl flex flex-col md:flex-row items-center justify-between gap-xl relative overflow-hidden border border-white/50">
+<!-- Home Team -->
+<div class="flex flex-col items-center gap-sm z-10 flex-1">
+<div class="w-24 h-24 rounded-full bg-white shadow-soft-deep flex items-center justify-center p-xs relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A bold, modern sports team logo for 'Ahmedabad Titans' featuring a stylised titan graphic in deep orange and navy blue, flat vector design, clean lines, white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSxzSMJeU2SJIv9QauLdyNZDI9PIgXV1v3MTYdz_-Ohs6mKjS7eW1QifmkffOS6ZP-0HC9B-nOcUHwAcyxK7xvhj_t-Nb8aupwuWvYRlvBM1rYOF9FYvyjNN4RgR3aBkSlNLYX5jA4V1-b7mhJaxgLIqnBjB46EhrspXANiDoxHws3hQD1YdooU1opqwhq3XzGh1Z6v1QA6_FiSSU8MbR1-6hjo2jDaJGf2Mx5wAdHYLyFwspMp0u">
+<div class="absolute -top-2 -right-2 w-6 h-6 bg-secondary-fixed rounded-full border-2 border-white"></div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-center">Ahmedabad Titans</h3>
+</div>
+<!-- Score -->
+<div class="flex flex-col items-center justify-center z-10 shrink-0">
+<div class="font-display-hero text-display-hero-mobile md:text-display-hero text-primary-container drop-shadow-xl flex items-center gap-md">
+<span>2</span>
+<span class="text-outline-variant font-headline-section text-headline-section">-</span>
+<span>1</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs">2nd Half</p>
+</div>
+<!-- Away Team -->
+<div class="flex flex-col items-center gap-sm z-10 flex-1">
+<div class="w-24 h-24 rounded-full bg-white shadow-soft-deep flex items-center justify-center p-xs">
+<img class="w-full h-full object-cover rounded-full" data-alt="A sleek, dynamic sports team logo for 'Sabarmati Strikers' featuring a swift bird or lightning motif in vibrant teal and white, flat vector design, sharp edges, clean modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB9nU9AGuUfR6G3N7EUTUrcGpbsJamzHdFbU6wj7n6l9Jc0ao4nrI5CAYRSX6MZTHJ43jkgOgsY5Mz8peDbm0j7NFmrBjglDtyaBJApbFS7JE9dyGcKoe0uHv94089B17M5hTkP4EddOJpAnLqETWxmdHHyYwhirOm-Mao5NcVj4afkiGcLYVd0QPNcgJ0BxSee_XfLVf4CfH4fmsXSnqpuHxatcI5PfKYv-FqtXoaHT78h8IzOG6i">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-center">Sabarmati Strikers</h3>
+</div>
+<!-- Abstract Decorative Shapes -->
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Quick Actions -->
+<div class="flex flex-wrap justify-center gap-md mt-sm">
+<button class="bg-surface-card text-on-surface font-button text-button py-sm px-md rounded-full shadow-soft-deep hover:-translate-y-1 hover:scale-105 transition-all flex items-center gap-sm">
+<span class="material-symbols-outlined">group</span>
+                    View Lineups
+                </button>
+<button class="bg-primary text-on-primary font-button text-button py-sm px-md rounded-full shadow-clay-inset hover:-translate-y-1 hover:scale-105 transition-all flex items-center gap-sm">
+<span class="material-symbols-outlined">notifications_active</span>
+                    Set Alert
+                </button>
+<button class="bg-surface-card text-on-surface font-button text-button py-sm px-md rounded-full shadow-soft-deep hover:-translate-y-1 hover:scale-105 transition-all flex items-center gap-sm">
+<span class="material-symbols-outlined">share</span>
+                    Share Highlight
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full flex flex-col items-center justify-center gap-sm text-center bg-inverse-surface dark:bg-surface-container-lowest p-xl mt-xl lg:pl-[300px]">
+<div class="font-headline-sm text-white mb-md">PlaySphere Kinetic</div>
+<div class="flex gap-md mb-sm">
+<a class="font-label-caps text-label-caps text-surface-variant/60 hover:text-white hover:underline underline-offset-4" href="#">Terms of Play</a>
+<a class="font-label-caps text-label-caps text-surface-variant/60 hover:text-white hover:underline underline-offset-4" href="#">Privacy</a>
+<a class="font-label-caps text-label-caps text-surface-variant/60 hover:text-white hover:underline underline-offset-4" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-surface-variant/60 hover:text-white hover:underline underline-offset-4" href="#">Contact</a>
+</div>
+<p class="font-label-caps text-label-caps text-secondary-fixed font-bold">© 2024 PlaySphere Kinetic. Ahmedabad's Digital Playground.</p>
+</footer>
+</body></html>

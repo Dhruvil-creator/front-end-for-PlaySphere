@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere Kinetic - Payment Success</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Nunito -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#f9dcd6",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "outline": "#8f7069",
+                    "tertiary-container": "#7d8ce4",
+                    "on-tertiary-fixed": "#00105b",
+                    "clay-bg": "#F5EFE9",
+                    "inverse-surface": "#3e2c28",
+                    "surface-bright": "#fff8f6",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-error": "#ffffff",
+                    "on-background": "#271814",
+                    "primary-container": "#ff5a36",
+                    "inverse-primary": "#ffb4a3",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#ffe2dc",
+                    "map-teal": "#00B4A2",
+                    "outline-variant": "#e3beb6",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "background": "#fff8f6",
+                    "primary": "#b52603",
+                    "surface-container-low": "#fff0ed",
+                    "on-surface-variant": "#5b403a",
+                    "on-tertiary-container": "#0d2075",
+                    "tertiary": "#4858ab",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "surface-container-highest": "#f9dcd6",
+                    "inverse-on-surface": "#ffede9",
+                    "surface-card": "#FFFFFF",
+                    "primary-fixed": "#ffdad2",
+                    "on-surface": "#271814",
+                    "secondary-fixed": "#70f8e4",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary-fixed": "#dee0ff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "on-primary-container": "#5a0c00",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#ffe9e5",
+                    "secondary": "#006b5f",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "on-secondary-container": "#006f64",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#f0d4ce",
+                    "on-primary-fixed": "#3d0600",
+                    "surface-tint": "#b52603",
+                    "primary-soft": "#FF8A70",
+                    "surface": "#fff8f6",
+                    "secondary-container": "#6df5e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "button": [
+                            "Nunito"
+                    ],
+                    "body-md": [
+                            "Nunito"
+                    ],
+                    "display-hero-mobile": [
+                            "Nunito"
+                    ],
+                    "display-hero": [
+                            "Nunito"
+                    ],
+                    "body-lg": [
+                            "Nunito"
+                    ],
+                    "label-caps": [
+                            "Nunito"
+                    ],
+                    "headline-sm": [
+                            "Nunito"
+                    ],
+                    "headline-section": [
+                            "Nunito"
+                    ]
+            },
+            "fontSize": {
+                    "button": [
+                            "18px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-hero-mobile": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "display-hero": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.03em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-caps": [
+                            "14px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-sm": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-section": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "900"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .clay-button-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            border-radius: theme('borderRadius.full');
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease-in-out;
+        }
+        .clay-button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 14px 28px rgba(255, 90, 54, 0.4);
+        }
+        .clay-button-primary:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 5px 10px rgba(255, 90, 54, 0.3);
+        }
+        
+        .soft-button-secondary {
+            background-color: theme('colors.surface-card');
+            color: theme('colors.primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        .soft-button-secondary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+        
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        /* Confetti Animation Base */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffd300;
+            top: -20px;
+            opacity: 0;
+            z-index: 10;
+        }
+        
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                top: -10%;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                top: 110%;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg min-h-screen font-body-md text-on-surface overflow-x-hidden">
+<!-- Navigation Suppressed for Transactional Success Screen -->
+<main class="relative min-h-screen flex items-center justify-center p-4 md:p-gutter z-10 overflow-hidden">
+<!-- Confetti Container -->
+<div class="absolute inset-0 pointer-events-none z-0" id="confetti-container"></div>
+<!-- Ambient Background Gradients -->
+<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary-soft/20 blur-3xl mix-blend-multiply"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-secondary-fixed/20 blur-3xl mix-blend-multiply"></div>
+</div>
+<!-- Main Content Card -->
+<div class="relative z-10 w-full max-w-[600px] soft-card p-6 md:p-10 flex flex-col items-center text-center">
+<!-- Success Icon -->
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center mb-6 shadow-[inset_0_4px_8px_rgba(255,255,255,0.8),_0_10px_20px_rgba(181,38,3,0.15)] animate-[bounce_2s_infinite_ease-in-out]">
+<span class="material-symbols-outlined text-[48px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Heading -->
+<h1 class="font-headline-section text-headline-section text-on-surface mb-2 tracking-tight">Booking Confirmed!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">You're all set to hit the pitch.</p>
+<!-- Digital Ticket / Receipt Details -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 mb-8 border border-surface-variant/50 relative overflow-hidden shadow-sm">
+<!-- Decorative Ticket Edge cutouts -->
+<div class="absolute -left-3 top-1/2 w-6 h-6 rounded-full bg-surface-card -translate-y-1/2 shadow-[inset_-3px_0_5px_rgba(0,0,0,0.05)]"></div>
+<div class="absolute -right-3 top-1/2 w-6 h-6 rounded-full bg-surface-card -translate-y-1/2 shadow-[inset_3px_0_5px_rgba(0,0,0,0.05)]"></div>
+<div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 relative z-10">
+<!-- Details -->
+<div class="flex-1 text-left w-full">
+<div class="mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-1">Venue</span>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Skyline Turf</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-1">Date</span>
+<span class="font-body-lg text-body-lg text-on-surface font-bold">Oct 24, 2024</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-1">Time</span>
+<span class="font-body-lg text-body-lg text-on-surface font-bold">18:00 - 20:00</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-variant border-dashed">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-1">Booking Ref</span>
+<span class="font-body-md text-body-md text-primary font-bold">#PK-88392A</span>
+</div>
+</div>
+<!-- QR Code -->
+<div class="flex-shrink-0 flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-inner">
+<img class="w-32 h-32 object-contain rounded-md" data-alt="A high-contrast, crisp black and white QR code centered perfectly on a pure white background. The QR code has rounded corners on its alignment squares, giving it a modern, soft-tactile feel consistent with the PlaySphere Kinetic design language. The lighting is bright and flat, highlighting the sharp digital nature of the asset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1_GxbOSiOaBtLj7STiJaGexoJX88iZAXIpP0aANpLUrz6gk7Q-nsCVJo_uhnkPNkXU9APsSU6NgTA1uysJULfT2ZP2CFClvig6URtItt32pDv-qEDeI40VCwtdTg4BfAmU9mFnyX4-7CMzll8xJYSyXyTydgACvlS1o0aoi5PhpcCEe07hpIMvzEStg_vQzcLxIfKCgy1jMvWZx8BJedKobR4A0iiSjOHqWJaqLywCNJsPgfIKAkz"/>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-2 text-xs">Scan for Check-in</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col md:flex-row gap-4 justify-center">
+<button class="clay-button-primary font-button text-button py-4 px-8 flex items-center justify-center gap-2 flex-1">
+<span class="material-symbols-outlined">event</span>
+                    Add to Calendar
+                </button>
+<button class="soft-button-secondary font-button text-button py-4 px-8 flex items-center justify-center gap-2 flex-1">
+<span class="material-symbols-outlined">share</span>
+                    Share with Squad
+                </button>
+</div>
+<a class="mt-8 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">
+                Return to Home
+            </a>
+</div>
+</main>
+<script>
+        // Simple Confetti Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff5a36', '#4fdbc8', '#7d8ce4', '#ffd300', '#FFFFFF'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                
+                // Randomize properties
+                const left = Math.random() * 100;
+                const animDuration = Math.random() * 3 + 2;
+                const animDelay = Math.random() * 1.5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.left = `${left}%`;
+                confetti.style.backgroundColor = color;
+                confetti.style.animation = `fall ${animDuration}s linear ${animDelay}s forwards`;
+                
+                if(Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.width = '12px';
+                    confetti.style.height = '12px';
+                }
+                
+                container.appendChild(confetti);
+            }
+        });
+    </script>
+</body></html>

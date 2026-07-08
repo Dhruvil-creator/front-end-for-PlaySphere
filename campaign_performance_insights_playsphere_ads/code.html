@@ -1,0 +1,562 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Campaign Analytics - Partner Portal</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "primary-container": "#ff5a36",
+                            "secondary-fixed-dim": "#4fdbc8",
+                            "primary-fixed": "#ffdad2",
+                            "secondary-fixed": "#70f8e4",
+                            "surface-container-lowest": "#ffffff",
+                            "on-secondary-fixed-variant": "#005048",
+                            "on-error-container": "#93000a",
+                            "outline-variant": "#e3beb6",
+                            "map-teal": "#00B4A2",
+                            "on-background": "#271814",
+                            "inverse-surface": "#3e2c28",
+                            "on-primary-fixed-variant": "#8c1900",
+                            "on-secondary-container": "#006f64",
+                            "tertiary-fixed-dim": "#bac3ff",
+                            "outline": "#8f7069",
+                            "surface-dim": "#f0d4ce",
+                            "on-primary": "#ffffff",
+                            "tertiary": "#4858ab",
+                            "clay-bg": "#F5EFE9",
+                            "on-secondary-fixed": "#00201c",
+                            "tertiary-container": "#7d8ce4",
+                            "surface-bright": "#fff8f6",
+                            "surface-container": "#ffe9e5",
+                            "on-tertiary-container": "#0d2075",
+                            "background": "#fff8f6",
+                            "on-surface": "#271814",
+                            "on-secondary": "#ffffff",
+                            "on-tertiary": "#ffffff",
+                            "on-primary-fixed": "#3d0600",
+                            "error-container": "#ffdad6",
+                            "tertiary-fixed": "#dee0ff",
+                            "inverse-primary": "#ffb4a3",
+                            "primary": "#b52603",
+                            "on-error": "#ffffff",
+                            "surface-container-high": "#ffe2dc",
+                            "surface-tint": "#b52603",
+                            "primary-soft": "#FF8A70",
+                            "on-surface-variant": "#434655",
+                            "error": "#ba1a1a",
+                            "surface-card": "#FFFFFF",
+                            "inverse-on-surface": "#ffede9",
+                            "primary-fixed-dim": "#ffb4a3",
+                            "surface": "#fff8f6",
+                            "surface-container-low": "#fff0ed",
+                            "on-tertiary-fixed-variant": "#2f3f92",
+                            "secondary": "#006b5f",
+                            "on-tertiary-fixed": "#00105b",
+                            "surface-variant": "#f9dcd6",
+                            "surface-container-highest": "#f9dcd6",
+                            "on-primary-container": "#5a0c00",
+                            "secondary-container": "#6df5e1"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "1rem",
+                            "lg": "2rem",
+                            "xl": "3rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "xs": "4px",
+                            "xl": "80px",
+                            "md": "24px",
+                            "sm": "12px",
+                            "gutter": "24px",
+                            "lg": "48px",
+                            "container-max": "1280px",
+                            "base": "8px"
+                    },
+                    "fontFamily": {
+                            "button": [
+                                    "Nunito"
+                            ],
+                            "display-hero-mobile": [
+                                    "Nunito"
+                            ],
+                            "headline-section": [
+                                    "Nunito"
+                            ],
+                            "display-hero": [
+                                    "Nunito"
+                            ],
+                            "label-caps": [
+                                    "Nunito"
+                            ],
+                            "headline-sm": [
+                                    "Nunito"
+                            ],
+                            "body-md": [
+                                    "Nunito"
+                            ],
+                            "body-lg": [
+                                    "Nunito"
+                            ]
+                    },
+                    "fontSize": {
+                            "button": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "1",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "display-hero-mobile": [
+                                    "56px",
+                                    {
+                                            "lineHeight": "1.1",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "900"
+                                    }
+                            ],
+                            "headline-section": [
+                                    "48px",
+                                    {
+                                            "lineHeight": "1.2",
+                                            "letterSpacing": "-0.01em",
+                                            "fontWeight": "900"
+                                    }
+                            ],
+                            "display-hero": [
+                                    "80px",
+                                    {
+                                            "lineHeight": "1.05",
+                                            "letterSpacing": "-0.03em",
+                                            "fontWeight": "900"
+                                    }
+                            ],
+                            "label-caps": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "1",
+                                            "letterSpacing": "0.1em",
+                                            "fontWeight": "800"
+                                    }
+                            ],
+                            "headline-sm": [
+                                    "28px",
+                                    {
+                                            "lineHeight": "1.3",
+                                            "fontWeight": "800"
+                                    }
+                            ],
+                            "body-md": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "1.5",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "20px",
+                                    {
+                                            "lineHeight": "1.6",
+                                            "fontWeight": "600"
+                                    }
+                            ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Soft-Tactile Signatures */
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .inset-shadow-sm {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        /* Custom Chart Styles */
+        .chart-line-mint {
+            stroke: #4fdbc8;
+            stroke-width: 4;
+            fill: none;
+            stroke-linecap: round;
+        }
+        .chart-area-mint {
+            fill: url(#mintGradient);
+        }
+        .chart-bar-coral {
+            fill: #ff5a36;
+            border-radius: 8px;
+        }
+        .chart-grid {
+            stroke: #e3beb6;
+            stroke-width: 1;
+            stroke-dasharray: 4;
+        }
+    </style>
+<!-- Chart.js for data visualization -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-clay-bg text-on-background font-body-md min-h-screen overflow-x-hidden flex">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-20 backdrop-blur-xl bg-white/80 dark:bg-surface-container-low shadow-md hidden md:flex">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-soft">Partner Portal</span>
+<!-- Search Bar on Left -->
+<div class="relative ml-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container outline-none font-body-md text-on-surface w-64 transition-all duration-300" placeholder="Search..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button aria-label="notifications" class="p-2 rounded-full text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="account_balance_wallet" class="p-2 rounded-full text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button aria-label="help" class="p-2 rounded-full text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shadow-sm border border-outline-variant/30">
+<img alt="Brand Partner Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a young professional in a brightly lit modern office setting, soft natural lighting, high resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9U7OVdY2MFtqGPMFIkiIKfexdMNwky-lD3iRIxKaNhXnwCA9ueRwidaBb-2ykHaxZUIEDnM49pPZ4yAQ8ccv3-s8lED2Vj1FHhb4Pvk6xjqNMdVWoYneDQaPir4nkrch5scl7xcbfTNoqW46XKToSEIzVw9fy2_xJNWwyssl4HPI5R8ab5Nd0W0YZby5KYnOQtOyzRX0IDxgLM5VUs-CjTwc4uCEn_Ng8UQ9GULxQekgn88y1Hlx2">
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-72 bg-clay-bg dark:bg-inverse-surface shadow-[0_20px_40px_rgba(0,0,0,0.1)] flex flex-col py-md px-sm border-r border-outline-variant/30 hidden md:flex z-40 pt-24">
+<!-- Header -->
+<div class="mb-xl px-4 flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden shadow-sm">
+<img alt="Partner Brand Logo" class="w-full h-full object-cover" data-alt="A minimalist, modern abstract geometric logo representing synergy and movement, designed with soft coral and mint green colors on a crisp white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC566OEtVsv6Zq_7g-Sm12SZo5vnuD1gv8uflqEPbMmLzDtJZV1pXKFH3_5eH0NUurGaeJK7u1dPz84f6NNP_k8EoZ4NUORMI2ysnXLIcd8gWPx4MTQlbE5DIgKLHxfjQYxi3Y40fCmFDs1vwF5ztTMv_UKg899hFe7HIGWLxxmmo5VU2RDmA5-jCcLaidAQSOnJABEpeNcirUv8qgx2IZYRruUOpKrIxoL8cdw6FAhc6ldJph_hgIN">
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-black text-on-surface leading-tight">PlaySphere Kinetic</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-80 mt-1">Enterprise Partner</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-body-md text-body-md">Campaigns</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 shadow-md inset-shadow-sm scale-98 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-body-md text-body-md font-bold">Analytics</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span class="font-body-md text-body-md">Creatives</span>
+</a>
+</nav>
+<!-- CTA & Footer Tabs -->
+<div class="mt-auto flex flex-col gap-sm pt-md border-t border-outline-variant/20">
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-3 rounded-full shadow-[0_8px_16px_rgba(255,90,54,0.3)] inset-shadow-sm hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(255,90,54,0.4)] transition-all duration-300 active:scale-95 mb-4">
+                New Campaign
+             </button>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 pt-24 pb-xl px-gutter max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<header class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-headline-section text-headline-section text-on-background">Campaign Analytics</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Overview of performance metrics across all active PlaySphere Kinetic campaigns.</p>
+</div>
+<div class="flex gap-sm">
+<select class="bg-surface-card border-none rounded-full px-4 py-2 font-body-md text-on-surface shadow-soft-deep focus:ring-2 focus:ring-secondary-container outline-none cursor-pointer appearance-none">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+<option>Year to Date</option>
+</select>
+<button class="bg-surface-card p-3 rounded-full shadow-soft-deep hover:-translate-y-1 hover:scale-105 transition-all duration-300 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</header>
+<!-- Main Chart Section: Impressions Over Time -->
+<section class="bg-surface-card rounded-xl p-md shadow-soft-deep mb-xl hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<div class="flex justify-between items-center mb-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Impressions Overview</h3>
+<p class="font-body-md text-on-surface-variant">Daily unique views across all touchpoints</p>
+</div>
+<div class="text-right">
+<span class="font-display-hero text-[40px] font-black text-primary-container leading-none">2.4M</span>
+<div class="flex items-center gap-1 text-secondary-fixed-dim justify-end mt-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-caps text-label-caps">+14% vs last period</span>
+</div>
+</div>
+</div>
+<!-- D3/SVG Chart Placeholder (Visualized for structure) -->
+<div class="w-full h-80 relative">
+<canvas id="impressionsChart"></canvas>
+</div>
+</section>
+<!-- Bento Grid: Breakdown Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Demographics Card -->
+<div class="bg-surface-card rounded-lg p-md shadow-soft-deep flex flex-col hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Audience Demographics</h3>
+<span class="material-symbols-outlined text-secondary-fixed-dim">groups</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<!-- Minimalist Bar Visualization using Tailwind -->
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant mb-1">
+<span>18-24</span>
+<span>42%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant mb-1">
+<span>25-34</span>
+<span>35%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 35%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant mb-1">
+<span>35-44</span>
+<span>15%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Performing Venues -->
+<div class="bg-surface-card rounded-lg p-md shadow-soft-deep flex flex-col hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full lg:col-span-2">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Top Performing Venues</h3>
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left font-body-md">
+<thead>
+<tr class="border-b border-outline-variant/30 text-on-surface-variant font-label-caps text-label-caps">
+<th class="pb-2 font-normal">Venue Name</th>
+<th class="pb-2 font-normal">Location</th>
+<th class="pb-2 font-normal text-right">Engagement Rate</th>
+<th class="pb-2 font-normal text-right">Total Clicks</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-3 font-bold flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm">park</span>
+</div>
+                                    Central Urban Park
+                                </td>
+<td class="py-3 text-on-surface-variant">Downtown</td>
+<td class="py-3 text-right text-secondary-fixed-dim font-bold">8.4%</td>
+<td class="py-3 text-right">12,450</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-3 font-bold flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-sm">stadium</span>
+</div>
+                                    City Sports Arena
+                                </td>
+<td class="py-3 text-on-surface-variant">Westside</td>
+<td class="py-3 text-right text-primary-container font-bold">7.1%</td>
+<td class="py-3 text-right">9,210</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 font-bold flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-sm">storefront</span>
+</div>
+                                    Riverfront Market
+                                </td>
+<td class="py-3 text-on-surface-variant">East District</td>
+<td class="py-3 text-right text-secondary-fixed-dim font-bold">6.8%</td>
+<td class="py-3 text-right">8,105</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Device Distribution (Doughnut Chart Placeholder) -->
+<div class="bg-surface-card rounded-lg p-md shadow-soft-deep flex flex-col hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Device Distribution</h3>
+<span class="material-symbols-outlined text-tertiary-container">devices</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center relative">
+<canvas class="max-h-48" id="deviceChart"></canvas>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none mt-2">
+<div class="text-center">
+<span class="block font-headline-sm text-headline-sm font-black text-on-surface">68%</span>
+<span class="block font-label-caps text-label-caps text-on-surface-variant">Mobile</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Insights Story Card -->
+<div class="rounded-lg p-md shadow-soft-deep flex flex-col hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 h-full lg:col-span-2 relative overflow-hidden bg-primary-container text-on-primary">
+<!-- Abstract BG pattern for story card -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 100% 100%, #ffffff 10%, transparent 40%), radial-gradient(circle at 0% 0%, #ffffff 5%, transparent 30%);"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Actionable Insight</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-black leading-tight max-w-lg mt-2">Mobile engagement spikes by 45% during weekend community events.</h3>
+</div>
+<div class="mt-6 flex gap-4">
+<button class="bg-white text-primary-container font-button text-button px-6 py-2 rounded-full shadow-md hover:bg-surface-bright transition-colors">
+                            Adjust Ad Spend
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Script to initialize charts -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup Chart.js defaults to match typography
+            Chart.defaults.font.family = 'Nunito';
+            Chart.defaults.color = '#434655'; // on-surface-variant
+            
+            // 1. Impressions Line Chart
+            const ctxLine = document.getElementById('impressionsChart').getContext('2d');
+            
+            // Create gradient for the line chart fill
+            const gradientMint = ctxLine.createLinearGradient(0, 0, 0, 300);
+            gradientMint.addColorStop(0, 'rgba(79, 219, 200, 0.4)'); // secondary-fixed-dim
+            gradientMint.addColorStop(1, 'rgba(79, 219, 200, 0.0)');
+            
+            new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Impressions',
+                        data: [120, 190, 150, 220, 180, 320, 280],
+                        borderColor: '#4fdbc8', // Mint
+                        backgroundColor: gradientMint,
+                        borderWidth: 4,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#ff5a36', // Coral active point
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.4 // Smooth curves
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#271814',
+                            titleFont: { family: 'Nunito', size: 14, weight: 'bold' },
+                            bodyFont: { family: 'Nunito', size: 14 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(227, 190, 182, 0.3)', // outline-variant with opacity
+                                borderDash: [4, 4],
+                                drawBorder: false
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+            
+            // 2. Device Doughnut Chart
+            const ctxDoughnut = document.getElementById('deviceChart').getContext('2d');
+            new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mobile', 'Desktop', 'Tablet'],
+                    datasets: [{
+                        data: [68, 22, 10],
+                        backgroundColor: [
+                            '#ff5a36', // Coral (Primary)
+                            '#4fdbc8', // Mint (Secondary)
+                            '#7d8ce4'  // Tertiary
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%', // Make it thin to look modern
+                    plugins: {
+                        legend: {
+                            display: false // Hide legend to save space, rely on hover
+                        },
+                        tooltip: {
+                            backgroundColor: '#271814',
+                            bodyFont: { family: 'Nunito', size: 14, weight: 'bold' },
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

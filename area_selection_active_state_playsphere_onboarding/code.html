@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere - Choose Your Playground</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#0d2075",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "inverse-on-surface": "#ffede9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "outline": "#8f7069",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00105b",
+                        "primary": "#b52603",
+                        "clay-bg": "#F5EFE9",
+                        "surface": "#fff8f6",
+                        "map-teal": "#00B4A2",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-variant": "#f9dcd6",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "on-background": "#271814",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-dim": "#f0d4ce",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-section": ["Nunito", "sans-serif"],
+                        "display-hero": ["Nunito", "sans-serif"],
+                        "body-md": ["Nunito", "sans-serif"],
+                        "headline-sm": ["Nunito", "sans-serif"],
+                        "label-caps": ["Nunito", "sans-serif"],
+                        "display-hero-mobile": ["Nunito", "sans-serif"],
+                        "button": ["Nunito", "sans-serif"],
+                        "body-lg": ["Nunito", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    },
+                    "boxShadow": {
+                        'soft-deep': '0 20px 40px rgba(0,0,0,0.1)',
+                        'clay-btn': 'inset 0 3px 0 rgba(255,255,255,0.4), 0 10px 20px rgba(181,38,3,0.3)',
+                        'clay-btn-hover': 'inset 0 3px 0 rgba(255,255,255,0.5), 0 15px 25px rgba(181,38,3,0.4)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Ambient blob animation for depth */
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: drift 20s infinite ease-in-out;
+            z-index: 0;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5EFE9; }
+        ::-webkit-scrollbar-thumb { background: #e3beb6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8f7069; }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen relative font-sans overflow-x-hidden flex flex-col">
+<!-- Sub-surface Ambient Background -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+<div class="blob bg-primary-fixed w-[600px] h-[600px] top-[-100px] left-[-100px]"></div>
+<div class="blob bg-secondary-fixed w-[500px] h-[500px] bottom-[100px] right-[-50px]" style="animation-delay: -5s;"></div>
+</div>
+<!-- Minimal Header for Transactional Flow -->
+<header class="relative z-20 w-full px-gutter py-md flex items-center justify-between max-w-container-max mx-auto">
+<button class="w-12 h-12 bg-surface-card rounded-full shadow-soft-deep flex items-center justify-center text-on-surface hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Step 1 of 3</div>
+<div class="w-12 h-12"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex-grow px-gutter max-w-container-max mx-auto w-full pb-32">
+<!-- Hero Section -->
+<div class="text-center mt-lg mb-xl max-w-3xl mx-auto">
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface mb-sm">
+                Where are you playing today?
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Select your zone to discover vibrant venues, active communities, and upcoming events in your city.
+            </p>
+</div>
+<!-- Bento Grid Area Selection -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md md:gap-lg">
+<!-- Inactive Card 1 -->
+<div class="group bg-surface-card rounded-lg shadow-sm hover:shadow-soft-deep transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col overflow-hidden border-2 border-transparent">
+<div class="h-48 relative overflow-hidden rounded-t-lg">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A vibrant, wide-angle photograph of an urban sports park in a dense city area during late afternoon. The scene features modern basketball courts with bright geometric painted surfaces, surrounded by lush green trees and tall contemporary glass buildings in the background. The lighting is warm and golden, casting soft shadows, conveying an energetic and inviting community atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0UkNxI0kXqhPCZyZJoCCMnvMy9MGn5xRFdU4-QfV3aaf-gW-QVZ10gIB-CsP9rDXRVkl_1UMFoOCA81AUm6TVt6ABGUxx7dZu6KeKD9D0Lgl_xlzU0DuQp7yaBCyjM6qEDxmzBgYky8s53dPMftOMZwPuld9EaP0rIX0s9XcaGK9yCh7PWwWicMiPEnTaPYrz3_dSnnPCdEfW2vF8pRbaejJkmKgWIgdR9Hb-l6p-4JJuxe9j5XNB')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex justify-between items-end">
+<span class="bg-surface-card/90 backdrop-blur-sm px-sm py-xs rounded-full font-label-caps text-label-caps text-on-surface">12 Venues</span>
+</div>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs group-hover:text-primary transition-colors">Vastrapur</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Lakeside courts and open greens.</p>
+</div>
+</div>
+</div>
+<!-- Active Selected Card (SG Highway) -->
+<div class="relative bg-primary-container/5 rounded-lg shadow-soft-deep -translate-y-2 cursor-pointer flex flex-col overflow-hidden border-2 border-primary ring-4 ring-primary/20 transition-all duration-300">
+<!-- Active Indicator -->
+<div class="absolute top-sm right-sm z-10 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform scale-110 animate-bounce">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="h-48 relative overflow-hidden rounded-t-lg">
+<div class="absolute inset-0 bg-cover bg-center scale-105" data-alt="A dynamic, high-energy photograph of a modern, multi-sport indoor complex located near a major highway. The interior features state-of-the-art synthetic turf and polished hardwood floors, illuminated by bright, cool architectural lighting that contrasts with warm sunset light spilling through large glass facades. Players are visible in the background engaged in active sports, capturing a premium, action-oriented urban athletic lifestyle." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKR6vVyBABfPB4jv5IMzyl6MC4JRFwSTC5wqB1dZHodEBM4tnpVDppeTXQfnb6vSWpgRY3pNPvFEM19w3Q0BYtkNByDYhBGoi8hiQ5ajizTQlANivoliWlsXOCIhx3occUgs4KnWZCYnVISkjiKFMRaiPSEhrDaDt1EUuw9mtoG-KGItyu4AzUABODzwUgYvSA9y589ZhdFUUsRVju-4A3iT3C93IXfWwoHcCTmj3zmfJI2a0iIN_L')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent mix-blend-multiply"></div>
+<div class="absolute bottom-sm left-sm right-sm flex justify-between items-end z-10">
+<span class="bg-primary px-sm py-xs rounded-full font-label-caps text-label-caps text-on-primary shadow-sm">24 Venues</span>
+</div>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between relative bg-surface-bright">
+<!-- Subtle inner glow -->
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">SG Highway</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium complexes and high-energy arenas.</p>
+</div>
+</div>
+</div>
+<!-- Inactive Card 3 -->
+<div class="group bg-surface-card rounded-lg shadow-sm hover:shadow-soft-deep transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col overflow-hidden border-2 border-transparent">
+<div class="h-48 relative overflow-hidden rounded-t-lg">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A serene, wide-shot photograph of a sprawling university campus sports ground during early morning. The scene highlights expansive green cricket fields and red clay tennis courts, enveloped in a soft, misty light. The architecture in the background is a mix of heritage brick buildings and modern sports pavilions, evoking a sense of tradition, community, and peaceful athletic pursuit." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuByK9wvTEX-Y8j3h10jXymwGtCsGD2igdFHke3D86T-EqsxdQHGQldtU4ojc9By9KCIOff-PGWHELFBzA7TUXwMeTzp4A5A_xKwLZeRGYs7LcTjHP3liA-NzgsVi0uFT0dInTZ3gmdNv9LcFN_XD5Qo6X8ffwJBp3Ug39ymq464jkswooqqP0wpF-LcRVftkWxXHE12bm4P7WJQDLv_CqHlAkwgp-5HmgmfKuImjG3PvMiMS0q7x-zy')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex justify-between items-end">
+<span class="bg-surface-card/90 backdrop-blur-sm px-sm py-xs rounded-full font-label-caps text-label-caps text-on-surface">8 Venues</span>
+</div>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs group-hover:text-primary transition-colors">Navrangpura</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Historic grounds and campus courts.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Area (Bottom) -->
+<div class="fixed bottom-0 left-0 right-0 p-gutter bg-gradient-to-t from-clay-bg via-clay-bg/90 to-transparent z-50 flex justify-center items-end pb-lg pointer-events-none">
+<div class="pointer-events-auto">
+<!-- Active Clay Button -->
+<button class="bg-primary text-on-primary rounded-full px-xl py-sm font-button text-button shadow-clay-btn hover:shadow-clay-btn-hover transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-sm min-w-[280px]">
+<span>Continue to Playground</span>
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Ensure Material Symbols logic is applied visually even without JS for this demo -->
+<script>
+        // Simple script to ensure data-icon attributes render correctly if needed by dynamic frameworks, 
+        // though standard CSS font implementation handles it natively based on inner text.
+        document.addEventListener('DOMContentLoaded', () => {
+            const icons = document.querySelectorAll('.material-symbols-outlined[data-icon]');
+            icons.forEach(icon => {
+                if(!icon.textContent.trim()) {
+                    icon.textContent = icon.getAttribute('data-icon');
+                }
+            });
+        });
+    </script>
+</body></html>

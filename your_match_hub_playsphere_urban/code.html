@@ -1,0 +1,290 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Player Match Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#3e2c28",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-primary-fixed": "#3d0600",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface": "#271814",
+                        "outline": "#8f7069",
+                        "tertiary": "#4858ab",
+                        "inverse-on-surface": "#ffede9",
+                        "map-teal": "#00B4A2",
+                        "surface-dim": "#f0d4ce",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "surface-tint": "#b52603",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-highest": "#f9dcd6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#dee0ff",
+                        "outline-variant": "#e3beb6",
+                        "on-secondary-fixed-variant": "#005048",
+                        "background": "#fff8f6",
+                        "on-surface-variant": "#5b403a",
+                        "surface-container-low": "#fff0ed",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "clay-bg": "#F5EFE9",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#0d2075",
+                        "surface": "#fff8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#70f8e4",
+                        "primary-container": "#ff5a36",
+                        "surface-card": "#FFFFFF",
+                        "secondary": "#006b5f",
+                        "primary": "#b52603",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "primary-soft": "#FF8A70",
+                        "on-primary-container": "#5a0c00",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-container": "#006f64",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "secondary-container": "#6df5e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "sm": "12px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .liquid-bg {
+            background: linear-gradient(135deg, rgba(255, 90, 54, 0.1) 0%, rgba(181, 38, 3, 0.05) 50%, rgba(255, 218, 214, 0.2) 100%);
+            animation: flow 10s ease-in-out infinite alternate;
+            background-size: 200% 200%;
+        }
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+        .clay-btn {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 10px 20px rgba(255, 90, 54, 0.3);
+        }
+        .pulse-marker {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 90, 54, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 90, 54, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 90, 54, 0); }
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md overflow-x-hidden min-h-screen relative">
+<!-- Ambient Background -->
+<div class="fixed inset-0 liquid-bg -z-10"></div>
+<div class="fixed inset-0 bg-white/40 backdrop-blur-3xl -z-10"></div>
+<!-- Top Navigation (Shell suppressed for this focused task flow, assuming player is deep linked to match view) -->
+<!-- Main Content Container -->
+<main class="max-w-container-max mx-auto px-gutter py-xl md:py-24">
+<!-- Back action (suggests deep level) -->
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+<span class="font-button text-button">Back to Live Matches</span>
+</a>
+<!-- Hero Section: Match Info & Countdown -->
+<section class="mb-xl relative z-10">
+<div class="bg-surface-card rounded-xl p-lg md:p-xl soft-card relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-fixed rounded-full blur-3xl opacity-50"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-fixed rounded-full blur-3xl opacity-30"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-lg justify-between items-start md:items-center">
+<div class="flex-1">
+<span class="inline-block px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-caps text-label-caps mb-sm pulse-marker">
+                            Upcoming Match
+                        </span>
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface mb-sm">
+                            Sabarmati Riverfront Turf
+                        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+                            Today @ 8:00 PM
+                        </p>
+</div>
+<!-- Countdown Timer -->
+<div class="bg-surface-container rounded-lg p-md text-center min-w-[240px] shadow-inner border border-white/50">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-base">Kickoff In</p>
+<div class="flex justify-center gap-sm font-headline-section text-headline-section text-primary">
+<div class="flex flex-col">
+<span id="hours">02</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">HRS</span>
+</div>
+<span>:</span>
+<div class="flex flex-col">
+<span id="minutes">29</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">MIN</span>
+</div>
+<span>:</span>
+<div class="flex flex-col">
+<span id="seconds">48</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SEC</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout for Match Details -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Weather Alert (Col 4) -->
+<div class="md:col-span-4 bg-surface-card rounded-lg p-md soft-card flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-sm text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+<h3 class="font-headline-sm text-headline-sm">Weather Alert</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Clear skies expected at kickoff. Perfect conditions for a fast-paced game on the turf.
+                    </p>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant flex items-end justify-between">
+<div>
+<span class="block text-4xl font-bold text-on-surface">24°C</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Ahmedabad</span>
+</div>
+<span class="material-symbols-outlined text-4xl text-map-teal">air</span>
+</div>
+</div>
+<!-- Squad Chat Preview (Col 5) -->
+<div class="md:col-span-5 bg-surface-card rounded-lg p-md soft-card flex flex-col">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+<h3 class="font-headline-sm text-headline-sm">Squad Chat</h3>
+</div>
+<span class="bg-error text-on-error rounded-full px-2 py-0.5 text-xs font-bold">3 New</span>
+</div>
+<div class="flex-1 flex flex-col gap-sm overflow-hidden relative">
+<!-- Faded top for overflow illusion -->
+<div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-surface-card to-transparent z-10"></div>
+<div class="flex gap-sm items-start">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex-shrink-0 flex items-center justify-center text-on-tertiary-container font-bold">A</div>
+<div class="bg-surface-container rounded-2xl rounded-tl-sm p-sm text-sm">
+<p class="font-bold text-on-surface">Aarav</p>
+<p class="text-on-surface-variant">I'm bringing the extra bibs.</p>
+</div>
+</div>
+<div class="flex gap-sm items-start flex-row-reverse">
+<div class="w-10 h-10 rounded-full bg-primary-container flex-shrink-0 flex items-center justify-center text-on-primary-container font-bold">Y</div>
+<div class="bg-primary-fixed rounded-2xl rounded-tr-sm p-sm text-sm text-right">
+<p class="font-bold text-on-primary-fixed">You</p>
+<p class="text-on-primary-fixed-variant">Awesome, see you there.</p>
+</div>
+</div>
+</div>
+<button class="mt-md w-full bg-surface-container hover:bg-surface-container-high transition-colors text-primary font-button text-button py-sm rounded-full flex items-center justify-center gap-2">
+                    Open Chat
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Map & Directions (Col 3) -->
+<div class="md:col-span-3 bg-surface-card rounded-lg soft-card overflow-hidden flex flex-col relative group">
+<div class="h-40 w-full bg-surface-variant relative" style="transform: rotateX(20deg) scale(1.1); transform-origin: center;">
+<!-- Placeholder for Map -->
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A stylized, light-mode 3D map view of an urban sports turf area in a city near a river. The map uses soft pastel teal and terracotta tones, with a prominent glowing orange pin indicating a location. It has a tactile, claymorphism aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDejCboCEkFmLKgNhScp6fWW-kkWsZORJcrQIMVn75A73YGdMpnQI26NFq0eeIEWyp5XHuIeI2at5tMjifEfYlQWLH37vrORjiRHXib9MptYxq75GoLW2Ns4YO3AS44du8Q-bYJGYRkbxKKxicldlV_BP7cZA_flavfTjgzp6gXNbKfxCcS_W828rSCm8Irvs8p473mWWXSt0DNWsVFnEALSFfL_Pd7-T1qTzUGQv-sS5XimSL-Q1Ow')"></div>
+<!-- Map Marker Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pulse-marker bg-white rounded-full p-1 shadow-lg">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="p-md bg-surface-card flex-1 flex flex-col justify-between relative z-10">
+<div>
+<h4 class="font-bold text-on-surface mb-xs">Sabarmati Turf</h4>
+<p class="text-sm text-on-surface-variant mb-md">3.2 km away</p>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button py-sm px-md rounded-full clay-btn hover:bg-surface-tint transition-colors flex items-center justify-center gap-2">
+                        Get Directions
+                        <span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // Simple countdown logic for visual effect
+        let seconds = 30;
+        let minutes = 45;
+        let hours = 2;
+
+        setInterval(() => {
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+            }
+            
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+</body></html>

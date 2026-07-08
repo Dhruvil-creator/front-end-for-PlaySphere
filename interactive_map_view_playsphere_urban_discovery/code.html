@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere - Discover Venues</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Nunito -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-lowest": "#ffffff",
+                "surface-variant": "#f9dcd6",
+                "surface-container-highest": "#f9dcd6",
+                "surface-card": "#FFFFFF",
+                "error-container": "#ffdad6",
+                "on-tertiary": "#ffffff",
+                "surface-bright": "#fff8f6",
+                "primary-fixed": "#ffdad2",
+                "tertiary-fixed-dim": "#bac3ff",
+                "on-error": "#ffffff",
+                "surface-container-low": "#fff0ed",
+                "primary-fixed-dim": "#ffb4a3",
+                "on-surface-variant": "#434655",
+                "on-secondary-container": "#006f64",
+                "primary-soft": "#FF8A70",
+                "on-background": "#271814",
+                "on-primary-fixed": "#3d0600",
+                "surface-tint": "#b52603",
+                "primary-container": "#ff5a36",
+                "tertiary-container": "#7d8ce4",
+                "secondary-fixed-dim": "#4fdbc8",
+                "on-secondary-fixed-variant": "#005048",
+                "secondary": "#006b5f",
+                "surface": "#fff8f6",
+                "surface-dim": "#f0d4ce",
+                "outline": "#8f7069",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#ffede9",
+                "secondary-container": "#6df5e1",
+                "background": "#fff8f6",
+                "tertiary-fixed": "#dee0ff",
+                "inverse-primary": "#ffb4a3",
+                "clay-bg": "#F5EFE9",
+                "primary": "#b52603",
+                "on-tertiary-fixed": "#00105b",
+                "map-teal": "#00B4A2",
+                "on-primary-container": "#5a0c00",
+                "error": "#ba1a1a",
+                "on-tertiary-container": "#0d2075",
+                "outline-variant": "#e3beb6",
+                "surface-container": "#ffe9e5",
+                "inverse-surface": "#3e2c28",
+                "on-secondary-fixed": "#00201c",
+                "tertiary": "#4858ab",
+                "on-primary-fixed-variant": "#8c1900",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#ffe2dc",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#70f8e4",
+                "on-tertiary-fixed-variant": "#2f3f92",
+                "on-surface": "#271814"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "lg": "48px",
+                "sm": "12px",
+                "container-max": "1280px",
+                "xl": "80px",
+                "md": "24px",
+                "gutter": "24px",
+                "xs": "4px",
+                "base": "8px"
+        },
+        "fontFamily": {
+                "headline-sm": [
+                        "Nunito"
+                ],
+                "display-hero-mobile": [
+                        "Nunito"
+                ],
+                "body-md": [
+                        "Nunito"
+                ],
+                "display-hero": [
+                        "Nunito"
+                ],
+                "label-caps": [
+                        "Nunito"
+                ],
+                "body-lg": [
+                        "Nunito"
+                ],
+                "headline-section": [
+                        "Nunito"
+                ],
+                "button": [
+                        "Nunito"
+                ]
+        },
+        "fontSize": {
+                "headline-sm": [
+                        "28px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-hero-mobile": [
+                        "56px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "body-md": [
+                        "18px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-hero": [
+                        "80px",
+                        {
+                                "lineHeight": "1.05",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "label-caps": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-section": [
+                        "48px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "button": [
+                        "18px",
+                        {
+                                "lineHeight": "1",
+                                "fontWeight": "700"
+                        }
+                ]
+        },
+        keyframes: {
+            fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            breathe: {
+                '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(181, 38, 3, 0.4)' },
+                '50%': { transform: 'scale(1.05)', boxShadow: '0 0 10px 4px rgba(181, 38, 3, 0.2)' },
+            }
+        },
+        animation: {
+            'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            'breathe': 'breathe 3s ease-in-out infinite',
+        }
+},
+    },
+  }
+</script>
+<style>
+        .mesh-bg {
+            background-color: var(--tw-colors-background);
+            background-image: 
+                radial-gradient(at 0% 0%, var(--tw-colors-surface-variant) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, var(--tw-colors-primary-fixed) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        /* Premium shadow from style guide */
+        .premium-shadow {
+            box-shadow: 0 4px 20px -2px rgba(181, 38, 3, 0.08), 0 0 3px rgba(181, 38, 3, 0.04);
+        }
+        
+        .premium-shadow-hover:hover {
+            box-shadow: 0 12px 30px -4px rgba(181, 38, 3, 0.15), 0 0 4px rgba(181, 38, 3, 0.08);
+        }
+        
+        /* Glass card overlay */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Custom scrollbar for list */
+        .hide-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .hide-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .hide-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--tw-colors-outline-variant);
+            border-radius: 20px;
+        }
+
+        /* Staggered animation classes */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-background mesh-bg text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar Component -->
+<nav class="docked full-width top-0 sticky bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-md py-sm max-w-container-max mx-auto z-50">
+<!-- Brand -->
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary dark:text-primary-fixed cursor-pointer hover:scale-105 transition-transform duration-300">
+                PlaySphere
+            </div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex space-x-gutter items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-80" href="#">Sports</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-all duration-300" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-80" href="#">Tournaments</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-80" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-80" href="#">Trainers</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-80" href="#">Academies</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-sm">
+<button aria-label="Search" class="text-on-surface-variant hover:text-primary p-xs rounded-full hover:bg-surface-variant transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="bg-primary text-on-primary font-button text-button px-sm py-xs rounded-xl hover:bg-surface-tint hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 active:scale-95 hidden md:block">
+                    Get Started
+                </button>
+<!-- Mobile menu toggle -->
+<button class="md:hidden text-on-surface-variant p-xs transition-transform duration-300 hover:scale-110">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area: Split View -->
+<main class="flex-grow flex flex-col md:flex-row w-full max-w-container-max mx-auto h-[calc(100vh-65px)] overflow-hidden">
+<!-- Left Sidebar: Filter & List (35% width on desktop) -->
+<div class="w-full md:w-[35%] flex flex-col h-full bg-surface-container-lowest/80 backdrop-blur-sm border-r border-outline-variant/30 z-10 premium-shadow">
+<!-- Sticky Filter Header -->
+<div class="p-md border-b border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md sticky top-0 z-20 transition-all duration-300">
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Find Venues in Ahmedabad</h1>
+<!-- Search Input -->
+<div class="relative mb-sm group">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors duration-300">search</span>
+<input class="w-full pl-xl pr-sm py-sm bg-surface rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-300 font-body-md text-on-surface placeholder:text-outline" placeholder="Search by name, sport, or area..." type="text"/>
+</div>
+<!-- Quick Filters & View Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex gap-xs overflow-x-auto hide-scroll pb-1">
+<button class="whitespace-nowrap px-sm py-xs rounded-full border border-outline-variant text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-variant hover:border-primary hover:text-primary transition-all duration-300">Badminton</button>
+<button class="whitespace-nowrap px-sm py-xs rounded-full border border-outline-variant text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-variant hover:border-primary hover:text-primary transition-all duration-300">Turf</button>
+<button class="whitespace-nowrap px-sm py-xs rounded-full border border-outline-variant text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-variant hover:border-primary hover:text-primary transition-all duration-300">Tennis</button>
+</div>
+<!-- View Toggle -->
+<div class="flex bg-surface-variant rounded-lg p-[2px] ml-sm shrink-0 relative overflow-hidden">
+<div class="absolute inset-y-[2px] right-[2px] w-[calc(50%-2px)] bg-surface-container-lowest rounded-md shadow-sm transition-transform duration-300 pointer-events-none"></div>
+<button class="px-sm py-1 rounded-md text-on-surface-variant hover:text-primary transition-colors duration-300 relative z-10 w-1/2" title="List View">
+<span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+</button>
+<button class="px-sm py-1 rounded-md text-primary transition-colors duration-300 relative z-10 w-1/2" title="Map View">
+<span 1;'"="" class="material-symbols-outlined text-[20px] style='font-variation-settings: \" fill\"="">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Scrollable Venue List -->
+<div class="flex-1 overflow-y-auto hide-scroll p-md space-y-sm">
+<!-- Venue Card 1 -->
+<div class="opacity-0 animate-fade-in-up stagger-1 bg-surface-container-lowest rounded-xl p-sm flex gap-sm border border-outline-variant/30 premium-shadow premium-shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer group">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-variant relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A brightly lit indoor badminton court with polished wooden flooring, green synthetic mats, and bright overhead LED lighting in a modern sports facility. High-end athletic aesthetic with blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFDHInzXesTTbHkxVVyfsSoE_Eb0oQ5iIjqB_3aAvATFS0UQ4rZi3SVIM-3UujaCbB87-GeQsavP7oQSWMW0qPKQ0CaZWDE8U_uAqRm8Nwsmky6t0XJDquw42iuN_uqo97eia84B58CiwKWduBsUcUcIxi5ceky0w6UpWCuxNUjkd03V0qfDEW89qgHnrhTph_5J06lp1dq3zFIdMGKs77Zx9AmCKcrU6kOkSUy30FLafeFiJkt_0"/>
+<div class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm rounded text-[10px] font-bold px-1 py-0.5 text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                        </div>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-button text-button text-on-surface line-clamp-1 group-hover:text-primary transition-colors duration-300">SG Sports Arena</h3>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> SG Highway (2.4 km)
+                            </p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<div class="flex gap-1">
+<span class="bg-primary-container text-on-primary-container text-[10px] px-1.5 py-0.5 rounded font-bold">Badminton</span>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-1.5 py-0.5 rounded font-bold">Squash</span>
+</div>
+<div class="font-button text-button text-on-surface">₹400<span class="text-[10px] text-on-surface-variant font-normal">/hr</span></div>
+</div>
+</div>
+</div>
+<!-- Venue Card 2 -->
+<div class="opacity-0 animate-fade-in-up stagger-2 bg-surface-container-lowest rounded-xl p-sm flex gap-sm border border-outline-variant/30 premium-shadow premium-shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer group">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-variant relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="An outdoor artificial grass football turf illuminated by tall floodlights at dusk. Modern fencing surrounds the pitch, conveying a premium community sports park feel with vibrant green and blue hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa_hXpoV_hrKx68Lwtw-GefraF639cHFkkwUrSgrfQijvtoyV2iP8rVUF0OCexJnBLiGHH7MWhW-ihGc8X2LLy9Rr0cVK9dWZ4OgL4yzVTOjTfhm0qkHlpjRFIyZrRasorJhI6umhSEyVMBVWd48xnF73yDW6zvH9Ed4rYMW7bNp8eJIxrEEd-rp8aDGRsr36qg1UdugWdS9Sn-sLPdzP4EFCulbq-42CKxuuC-ayXpSOijaqV_ZKj"/>
+<div class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm rounded text-[10px] font-bold px-1 py-0.5 text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span> 4.6
+                        </div>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-button text-button text-on-surface line-clamp-1 group-hover:text-primary transition-colors duration-300">Bopal Kickoff Turf</h3>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Bopal (5.1 km)
+                            </p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<div class="flex gap-1">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-1.5 py-0.5 rounded font-bold">Football</span>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-1.5 py-0.5 rounded font-bold">Cricket</span>
+</div>
+<div class="font-button text-button text-on-surface">₹1200<span class="text-[10px] text-on-surface-variant font-normal">/hr</span></div>
+</div>
+</div>
+</div>
+<!-- Venue Card 3 -->
+<div class="opacity-0 animate-fade-in-up stagger-3 bg-surface-container-lowest rounded-xl p-sm flex gap-sm border border-outline-variant/30 premium-shadow premium-shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer group border-primary/50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary transition-transform duration-300 origin-bottom group-hover:scale-y-110"></div>
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-variant relative ml-1">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A premium outdoor tennis court with a hard blue surface and crisp white lines. The setting is bright and sunny, implying an elite sports academy in a high-end neighborhood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSBLi6H50OTcnPjg23qnX0o_Dx6i8WoIIykhE7ux8NMO1IIuBYJqP_Wm8WKP8XH1KtTNTRavAzMzVbSCD15KFCnqUGBQ5lLCoE66fP6sh_TX9MTwb_GPZ00Y7PhR6b2SzvxBco7APkjDKLhSz61DJSfPlO83BIpKWzIZgw3IWfnNYfELAvf5NKGdqqbaHTPq4Z6XTyPoR-acVT85u1ZT250CuE8F5PAb7LGVK4Zc3G91nKySoyvap4"/>
+<div class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm rounded text-[10px] font-bold px-1 py-0.5 text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                        </div>
+<!-- Live Indicator -->
+<div class="absolute bottom-1 right-1 bg-error text-on-error rounded-full px-1.5 py-0.5 text-[8px] font-bold flex items-center gap-1 animate-pulse">
+<div class="w-1 h-1 bg-on-error rounded-full"></div> LIVE
+                        </div>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-button text-button text-primary line-clamp-1">Satellite Tennis Club</h3>
+</div>
+<p class="text-label-caps font-label-caps text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Satellite (1.2 km)
+                            </p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<div class="flex gap-1">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-1.5 py-0.5 rounded font-bold">Tennis</span>
+</div>
+<div class="font-button text-button text-on-surface">₹800<span class="text-[10px] text-on-surface-variant font-normal">/hr</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Interactive Map (65% width on desktop) -->
+<div class="hidden md:block w-[65%] h-full relative bg-surface-variant overflow-hidden">
+<!-- Map Placeholder image driven by data-location -->
+<img class="w-full h-full object-cover transition-transform duration-[10s] ease-linear hover:scale-110" data-alt="A stylized, modern vector map of Ahmedabad city focusing on SG Highway, Bopal, and Satellite areas. The map uses a minimalist, high-end color palette with subtle blue and grey tones, clean roads, and no labels, matching a sleek tech SaaS interface." data-location="Ahmedabad, India, Map Style Minimal Blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAarFXmueIdo7ZZsD46DvwU_Bn6POtb51Jg_bNwuV2P2Xj6W-HQ7LfVFqgmnaf3JrX-nNRzWDZOCqdfcDh-JfG0KRb4Xi05D7yc_bEyMaGgDjcPyKIwjW7c6YAZ4xpLETJjdO9ACcRdZbjcCPliTvvX26SCy-UFrb0JSDIXy0_gU2LMx50nDX5vHFLmQPWQbHiWFD42lZ_c48Xa-57574mIC1b3FPda2q2eBkkNl5NJLvpPbYgH3jjd"/>
+<!-- Map Overlay UI (Glassmorphism) -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-surface-variant/20 to-transparent">
+<!-- Floating Control: Map Layers -->
+<div class="absolute top-md right-md flex flex-col gap-sm pointer-events-auto">
+<div class="glass-card rounded-lg p-1 shadow-sm flex flex-col gap-1 transition-transform duration-300 hover:scale-105 hover:shadow-md">
+<button class="p-xs rounded-md bg-white/50 text-on-surface hover:bg-white hover:text-primary transition-all duration-300" title="Zoom In">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="h-[1px] w-full bg-outline-variant/30"></div>
+<button class="p-xs rounded-md bg-white/50 text-on-surface hover:bg-white hover:text-primary transition-all duration-300" title="Zoom Out">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="glass-card rounded-lg p-xs shadow-sm hover:bg-white transition-all duration-300 hover:scale-105 pointer-events-auto group" title="My Location">
+<span class="material-symbols-outlined text-primary group-hover:animate-pulse">my_location</span>
+</button>
+</div>
+<!-- Map Pins (Absolute positioning for demo) -->
+<!-- Pin 1: SG Highway (Unselected) -->
+<div class="absolute top-[40%] left-[30%] pointer-events-auto transform -translate-x-1/2 -translate-y-full cursor-pointer group">
+<div class="animate-breathe bg-surface-container-lowest text-on-surface rounded-full px-xs py-1 shadow-md border border-outline-variant/50 flex items-center gap-1 group-hover:scale-110 group-hover:border-primary group-hover:shadow-lg transition-all duration-300 ease-out">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[14px]">sports_tennis</span>
+</div>
+<span class="font-label-caps text-label-caps pr-1 group-hover:text-primary transition-colors duration-300">₹400</span>
+</div>
+<!-- Pointer tail -->
+<div class="w-2 h-2 bg-surface-container-lowest border-r border-b border-outline-variant/50 transform rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2 group-hover:border-primary group-hover:bg-surface-container-lowest transition-all duration-300"></div>
+</div>
+<!-- Pin 2: Bopal (Unselected) -->
+<div class="absolute top-[60%] left-[20%] pointer-events-auto transform -translate-x-1/2 -translate-y-full cursor-pointer group" style="animation-delay: 1s;">
+<div class="animate-breathe bg-surface-container-lowest text-on-surface rounded-full px-xs py-1 shadow-md border border-outline-variant/50 flex items-center gap-1 group-hover:scale-110 group-hover:border-primary group-hover:shadow-lg transition-all duration-300 ease-out">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 group-hover:bg-secondary group-hover:text-on-secondary transition-colors duration-300">
+<span class="material-symbols-outlined text-[14px]">sports_soccer</span>
+</div>
+<span class="font-label-caps text-label-caps pr-1 group-hover:text-primary transition-colors duration-300">₹1.2k</span>
+</div>
+<div class="w-2 h-2 bg-surface-container-lowest border-r border-b border-outline-variant/50 transform rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2 group-hover:border-primary transition-all duration-300"></div>
+</div>
+<!-- Pin 3: Satellite (Selected / Active) -->
+<div class="absolute top-[50%] left-[60%] pointer-events-auto transform -translate-x-1/2 -translate-y-full cursor-pointer z-10 group" style="animation-delay: 0.5s;">
+<div class="animate-breathe bg-primary text-on-primary rounded-full px-xs py-1 shadow-lg shadow-primary/40 border border-primary-fixed-dim flex items-center gap-1 scale-110 transition-all duration-300 group-hover:scale-125">
+<div class="w-6 h-6 rounded-full bg-white text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[14px]">sports_tennis</span>
+</div>
+<span class="font-label-caps text-label-caps pr-1">₹800</span>
+</div>
+<div class="w-2 h-2 bg-primary transform rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-300 group-hover:scale-125 group-hover:translate-y-1"></div>
+<!-- Floating Insight Tooltip attached to active pin -->
+<div class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 w-48 glass-card rounded-lg p-sm premium-shadow opacity-0 translate-y-2 transition-all duration-300 ease-out pointer-events-none group-hover:opacity-100 group-hover:translate-y-0">
+<h4 class="font-button text-button text-on-surface line-clamp-1">Satellite Tennis Club</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5">2 courts available now</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

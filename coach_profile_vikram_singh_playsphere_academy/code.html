@@ -1,0 +1,381 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Vikram Singh - Senior Cricket Coach | PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#dee0ff",
+                        "surface-bright": "#fff8f6",
+                        "on-surface": "#271814",
+                        "secondary-container": "#6df5e1",
+                        "inverse-surface": "#3e2c28",
+                        "secondary-fixed": "#70f8e4",
+                        "on-secondary-fixed-variant": "#005048",
+                        "outline-variant": "#e3beb6",
+                        "primary": "#b52603",
+                        "secondary": "#006b5f",
+                        "clay-bg": "#F5EFE9",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "map-teal": "#00B4A2",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-container-low": "#fff0ed",
+                        "surface-container-high": "#ffe2dc",
+                        "on-tertiary-fixed": "#00105b",
+                        "background": "#fff8f6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary": "#4858ab",
+                        "outline": "#8f7069",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "primary-container": "#ff5a36",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#006f64",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-tint": "#b52603",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f6",
+                        "primary-soft": "#FF8A70",
+                        "on-surface-variant": "#5b403a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb4a3",
+                        "on-tertiary-container": "#0d2075",
+                        "on-primary-container": "#5a0c00",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "primary-fixed": "#ffdad2",
+                        "surface-card": "#FFFFFF",
+                        "on-primary-fixed": "#3d0600",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#f9dcd6",
+                        "surface-container": "#ffe9e5",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-dim": "#f0d4ce",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "button": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.clay-bg');
+            color: theme('colors.on-surface');
+            overflow-x: hidden;
+        }
+
+        /* Soft Tactile Elements */
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            box-shadow: inset 0 4px 6px -1px rgba(255, 255, 255, 0.4), 0 10px 20px -5px rgba(255, 90, 54, 0.4);
+            transition: all 0.3s ease;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 4px 6px -1px rgba(255, 255, 255, 0.5), 0 15px 25px -5px rgba(255, 90, 54, 0.5);
+        }
+        .clay-button:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 4px -1px rgba(255, 255, 255, 0.3), 0 5px 10px -5px rgba(255, 90, 54, 0.3);
+        }
+
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-card {
+            border-radius: theme('borderRadius.lg');
+            overflow: hidden;
+            position: relative;
+        }
+        .story-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            pointer-events: none;
+        }
+
+        .ambient-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: theme('borderRadius.full');
+        }
+
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased relative">
+<!-- Background Ambient Blobs -->
+<div class="ambient-blob bg-primary-fixed-dim w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
+<div class="ambient-blob bg-secondary-container w-[400px] h-[400px] top-[40%] right-[-50px]"></div>
+<div class="ambient-blob bg-tertiary-fixed w-[600px] h-[600px] bottom-[-200px] left-[20%]"></div>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto transition-all duration-300 backdrop-blur-xl bg-white/80 shadow-[0_20px_40px_rgba(0,0,0,0.1)] rounded-b-[2rem] md:rounded-full md:mt-4 md:w-[calc(100%-48px)]">
+<div class="flex items-center gap-base">
+<span class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Kinetic</span>
+</div>
+<nav class="hidden md:flex items-center gap-md">
+<!-- Settings page context: Top level nav hidden/suppressed, but rendering based on instructions for specific active state logic. No exact match, so all inactive. -->
+<a class="font-button text-button text-on-surface-variant hover:scale-105 transition-transform duration-200" href="#">Discover</a>
+<a class="font-button text-button text-on-surface-variant hover:scale-105 transition-transform duration-200" href="#">Community</a>
+<a class="font-button text-button text-primary font-bold hover:scale-105 transition-transform duration-200" href="#">Trainers</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-primary hover:scale-105 transition-transform duration-200 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-white shadow-md">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A detailed headshot of an energetic user profile avatar. Bright lighting, soft clay aesthetic, playful vibe. High quality, crisp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCPxJwo0uA0LZtv5kaRp9dXYAZLMddW3vGj6M263USbGipFpOWUqQ7GZFMit7sPWGECe248R8RPSFNvhOv_dHTlfaLRfqdECkcmNhIKKhE9gRCdDKXXfh-SmkYO4g0NgziQLrNSPBpvK_LdbHSuZcm8tTb_eMsnC75OP37wwdeTtfvNVECjW34PLUG1G96BRxa9rPs4k8EVsaFxlW-2FcUqibY8VkcQEMfRUhL58cAlSC--lUPCLl">
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-[120px] pb-xl px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-lg relative">
+<!-- Profile Content (Left Column) -->
+<div class="lg:col-span-8 flex flex-col gap-xl">
+<!-- Hero Header -->
+<section class="flex flex-col md:flex-row gap-lg items-center md:items-start soft-card p-lg">
+<div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex-shrink-0">
+<img alt="Vikram Singh" class="w-full h-full object-cover" data-alt="A professional, vibrant portrait of Vikram Singh, a Senior Cricket Coach in Ahmedabad. He is wearing high-quality sports coaching attire in sunset orange and white. The background is a slightly blurred, sunlit cricket ground. Soft clay aesthetic, high energy, approachable yet authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwkUB2llFCtukCpiQzFuW84D3inpyhRua6I3A2cCdLPp2MP3AHIXM2xH24a3ix7o2ex8VqapwQUlzVm_GmrYL9fXGY5g2AHwQPIDssPODlYeeWBt_b-2Ed_PBEcXNCPP9VHDgzPCHiLWa8BNGkSU0vfPLINmUbjGocADKEHyaWyeWfj7DozJHKkQ45ttFWowvMG7tMqercJv6pwZYjKi5v-hpeEJirwn1SOtct_gFC8OCuqr_OncZ">
+</div>
+<div class="flex flex-col text-center md:text-left">
+<div class="inline-flex items-center justify-center md:justify-start gap-2 mb-2">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps rounded-full">Senior Cricket Coach</span>
+<span class="flex items-center text-secondary font-body-md text-body-md">
+<span class="material-symbols-outlined mr-1 text-[20px]" data-icon="verified" data-weight="fill">verified</span> Elite
+                        </span>
+</div>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-xs">Vikram Singh</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span> Ahmedabad, Gujarat
+                    </p>
+<div class="flex flex-wrap gap-sm justify-center md:justify-start mt-auto">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg text-center">
+<span class="block font-headline-sm text-headline-sm text-primary">15+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Years Exp.</span>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg text-center">
+<span class="block font-headline-sm text-headline-sm text-primary">4.9</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Rating (120)</span>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg text-center">
+<span class="block font-headline-sm text-headline-sm text-primary">500+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Athletes</span>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-section text-headline-section text-on-surface">About the Coach</h2>
+<div class="soft-card p-lg bg-surface-bright">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md">
+                        Former state-level fast bowler turned elite coach. Vikram brings a blend of traditional grit and modern biomechanics to his training sessions. His philosophy is built around "Tactical Aggression" - training athletes to not just play hard, but to outthink the opposition on the field.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Certified by the National Cricket Academy (NCA) Level 2, he specializes in high-performance conditioning, fast bowling mechanics, and match-simulation tactical play.
+                    </p>
+</div>
+</section>
+<!-- Specialties Bento Grid -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-section text-headline-section text-on-surface">Specialties</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="soft-card p-md bg-white flex items-start gap-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined" data-icon="sports_cricket">sports_cricket</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Fast Bowling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Biomechanical analysis, pace generation, and swing mechanics.</p>
+</div>
+</div>
+<div class="soft-card p-md bg-white flex items-start gap-md">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Tactical Play</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Match awareness, field setting strategy, and pressure management.</p>
+</div>
+</div>
+<div class="soft-card p-md bg-white flex items-start gap-md md:col-span-2">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Strength &amp; Conditioning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cricket-specific explosive power, endurance, and injury prevention programs tailored for peak performance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-section text-headline-section text-on-surface">Training Sessions</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-md">
+<div class="story-card aspect-square">
+<img alt="Bowling Practice" class="w-full h-full object-cover" data-alt="A dynamic, high-quality photograph of a cricket fast bowling practice session. The bowler is in mid-action, releasing the ball. Sunset lighting, soft clay aesthetic, vibrant orange accents. High energy, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB17rGw4uZwkw-x_NGwdq9iKK96OuGntix_PZpcp4wMl_sQa2VGQB0MvlSamJaTbBGyZfQHV1DNBTVjBRDjBIBJe-7O7DP0UQEyTyAVaDNkV06TieX9puTukfCSzxC6EiCQ0E5qhOIAnBpwfbATtptwVYbQ0XyDfL2kMSPqz-P5FQufnzhsCJZJKrv9SadOnaXGAaZW7HpHplV2NK1YtmhMx6WnnBlMN1G9dSdGpcbpw7g8uqz6VF7s">
+<div class="absolute bottom-4 left-4 right-4 z-10">
+<span class="font-label-caps text-label-caps text-white">Action</span>
+</div>
+</div>
+<div class="story-card aspect-square md:col-span-2">
+<img alt="Group Session" class="w-full h-full object-cover" data-alt="A wide shot of a cricket coaching clinic on a pristine green field in Ahmedabad. Coach Vikram is demonstrating a tactical fielding drill to a group of young, attentive athletes. Bright, natural lighting, soft clay overall vibe, energetic and welcoming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU5CgwSOCc-Wst203-QOFr2N78o0n9WjdcTyN3FOJ_IXkbdXqdwFrXvWlUK9NcyOSsurZz0hG_r93f3G0KEfQzXaRl2Zun3EdWj3yTG6tPGctRC5Fvmq27zhRF7GjJn4norX39PXnpGi-8BF2WE7XJWYdWiEVxQYFhNVTSTtpQqhkrbDJBWydAfK3FLYu12myszQoO0p-fOGSG_06OrL4EgZR_t10xrcXi37Ol-yNZL70bePebHRd">
+<div class="absolute bottom-4 left-4 right-4 z-10">
+<span class="font-label-caps text-label-caps text-white">Group Clinics</span>
+</div>
+</div>
+<div class="story-card aspect-square">
+<img alt="Net Session" class="w-full h-full object-cover" data-alt="Close up of a cricket bat hitting a red leather ball in the nets. Dust flying. High speed photography style. Warm, tactile claymorphism-lite aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPz0gXT5SXzXBubS5AJXrLf15rrrzn5H_tDZSRlO_D2C9tKrfsKlGPumFVxPnyyaDcvntvIJu7nUYEXWnZEzBVQufgE5mS0C7JuKuHEe6wb6Gsuauuh9NV92MucAfQVdIwzk1qP-4-ZlBSkq28tVX6ktjVKhy-4czV05tjKX_a9qT--wG3msLKN--JvQZqxj6lVj1dm2iMsDswXMRzf12LWA9ltAmSY0y0SvZV3IPPL51N_37F_k3j">
+<div class="absolute bottom-4 left-4 right-4 z-10">
+<span class="font-label-caps text-label-caps text-white">Net Practice</span>
+</div>
+</div>
+<div class="story-card aspect-square">
+<img alt="Mentoring" class="w-full h-full object-cover" data-alt="Coach Vikram Singh having a one-on-one tactical discussion with an athlete on the field, pointing towards the pitch. Serious but supportive mood. Bright daylight, energetic sports brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQcXvqQvWow-Ug8Y0s0cEBEz2t0HX4Pbuq5ME6RY8MThcX4b0sR-ljBnNMlnhzVZzppUdg2EPB-s_FxWmPBKU23oMzhGDYTAQhjjliwy3iIQy7sMNXkgSVawH22QqzxeeP2RDH6WfaRsWthu9SP1gMZwZTlRXWK9HoUDFkTXu4o1vXpNhjPplLDwxdLgFS_v6ROm_LN8AGMZsXNAFNKdE3yoNCtSg1IQxcCAUdBc1U84u8Lr8jJPFE">
+<div class="absolute bottom-4 left-4 right-4 z-10">
+<span class="font-label-caps text-label-caps text-white">Mentorship</span>
+</div>
+</div>
+<div class="story-card aspect-square">
+<img alt="Fitness Drills" class="w-full h-full object-cover" data-alt="Athletes performing fitness drills, cone sprints on a cricket ground. Focus on footwork. Vibrant colors, soft ambient shadows, PlaySphere Kinetic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDj-8BA39n0CcIMSjPPfKqU4FbmoiAFIOqp86tn42aC25G_hY2r939iSAOBG5D46PrfBShDwO4sbZzjm0M8rfFBMzClkg5hQrlqxeshGzm-gf8BQeeMYABMzRftYG8aKKz8hZT7ZjgKKNiihySpjLPqhwIr-eAUDkUikNEEOsTrF04aeEt41ZwtH1rhIvsENO7iLsgx8-Qql-iDq1XQZW3yNE_Yju_x4QMavLb-ywdMPF1pHNTz5qZ">
+<div class="absolute bottom-4 left-4 right-4 z-10">
+<span class="font-label-caps text-label-caps text-white">Conditioning</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Booking Sidebar (Right Column) -->
+<div class="lg:col-span-4 relative">
+<div class="sticky top-[140px] flex flex-col gap-md">
+<div class="soft-card p-lg bg-white border-t-8 border-primary-container">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Book a Session</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Elevate your game with 1-on-1 personalized coaching.</p>
+<div class="flex items-end gap-2 mb-lg">
+<span class="font-display-hero-mobile text-display-hero-mobile text-primary leading-none">₹1,500</span>
+<span class="font-body-md text-body-md text-on-surface-variant pb-1">/ hour</span>
+</div>
+<form class="flex flex-col gap-md">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-2">Select Focus</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-3 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary-container">
+<option>Fast Bowling Mechanics</option>
+<option>Tactical Match Play</option>
+<option>Strength &amp; Conditioning</option>
+<option>General Assessment</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface mb-2">Location</label>
+<div class="flex items-center gap-2 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-map-teal" data-icon="stadium">stadium</span>
+<span class="font-body-md text-body-md text-on-surface">Kinetic Arena, Navrangpura</span>
+</div>
+</div>
+<button class="clay-button w-full py-4 mt-sm font-button text-button flex items-center justify-center gap-2" type="button">
+                            Check Availability <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="mt-md pt-md border-t border-outline-variant flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+<span class="font-label-caps text-label-caps">Usually replies within 2 hours</span>
+</div>
+</div>
+<!-- Testimonial Snapshot -->
+<div class="soft-card p-md bg-surface-container-low relative overflow-hidden">
+<span class="material-symbols-outlined absolute top-[-10px] right-[-10px] text-[80px] text-primary-fixed opacity-50 rotate-12" data-icon="format_quote">format_quote</span>
+<p class="font-body-md text-body-md text-on-surface italic relative z-10 mb-sm">
+                        "Vikram sir completely rebuilt my bowling action. Gained 10km/h in pace and haven't had a back injury since. His tactical insights are next level."
+                    </p>
+<div class="flex items-center gap-2 relative z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-sm">A</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Arjun P. - U19 State Player</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-xl px-gutter grid grid-cols-1 md:grid-cols-4 gap-md bg-surface-container-low mt-xl rounded-t-lg">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Kinetic</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">© 2024 PlaySphere Kinetic Ahmedabad. Your City is Your Playground.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Discover Venues</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Community Hub</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Bookings</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+</div>
+</footer>
+</body></html>

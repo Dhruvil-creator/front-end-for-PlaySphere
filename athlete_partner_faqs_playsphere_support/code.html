@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FAQ - PlaySphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#ffb4a3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#0d2075",
+                        "on-secondary-container": "#006f64",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-soft": "#FF8A70",
+                        "inverse-on-surface": "#ffede9",
+                        "inverse-surface": "#3e2c28",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "outline": "#8f7069",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00105b",
+                        "primary": "#b52603",
+                        "clay-bg": "#F5EFE9",
+                        "surface": "#fff8f6",
+                        "map-teal": "#00B4A2",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#e3beb6",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-variant": "#f9dcd6",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "background": "#fff8f6",
+                        "on-background": "#271814",
+                        "on-surface-variant": "#5b403a",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-dim": "#f0d4ce",
+                        "primary-container": "#ff5a36",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-low": "#fff0ed",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#ffe9e5",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary": "#006b5f",
+                        "on-error": "#ffffff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "xl": "80px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "label-caps": ["Nunito"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["28px", { lineHeight: "1.3", fontWeight: "800" }],
+                        "body-md": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "headline-section": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "900" }],
+                        "display-hero": ["80px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "900" }],
+                        "display-hero-mobile": ["56px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "button": ["18px", { lineHeight: "1", fontWeight: "700" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "600" }],
+                        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: 0 4px 10px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+        .clay-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .clay-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-item.active .icon-toggle {
+            transform: rotate(180deg);
+        }
+        .bg-blob {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md overflow-x-hidden relative">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] w-full top-0 sticky z-50">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim">PlaySphere Ahmedabad</div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 hover:scale-105 font-button text-button" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 hover:scale-105 font-button text-button" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 hover:scale-105 font-button text-button" href="#">Events</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 hover:scale-105 font-button text-button" href="#">Community</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-button text-button transition-transform duration-200 scale-95" href="#">Support</a>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="search">search</span>
+<button class="font-button text-button text-primary hover:text-primary-soft transition-colors hidden md:block">Login</button>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-md py-sm rounded-full clay-button hidden md:block">Join Now</button>
+</div>
+</div>
+</nav>
+<!-- Background Blobs -->
+<div class="bg-blob bg-primary-soft w-[500px] h-[500px] rounded-full top-[-100px] left-[-100px]"></div>
+<div class="bg-blob bg-secondary-container w-[400px] h-[400px] rounded-full bottom-[200px] right-[-50px]"></div>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter py-xl">
+<!-- Hero Section -->
+<section class="text-center mb-xl">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mb-md">How can we help?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Find answers to common questions about booking venues, joining events, and becoming part of the PlaySphere community.</p>
+<div class="mt-lg relative max-w-xl mx-auto">
+<span class="material-symbols-outlined absolute left-md top-1/2 transform -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-card rounded-full py-md pl-xl pr-md shadow-sm border-none focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="Search for answers..." type="text"/>
+</div>
+</section>
+<!-- Tabs -->
+<section class="mb-xl">
+<div class="flex justify-center gap-sm mb-lg border-b border-surface-variant pb-xs">
+<button class="tab-btn active font-button text-button px-md py-sm rounded-t-lg bg-surface-card text-primary border-b-4 border-primary transition-all" data-target="general">General</button>
+<button class="tab-btn font-button text-button px-md py-sm rounded-t-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all" data-target="athletes">Athletes</button>
+<button class="tab-btn font-button text-button px-md py-sm rounded-t-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all" data-target="venues">Venues</button>
+</div>
+<!-- Tab Content: General -->
+<div class="tab-content active max-w-3xl mx-auto" id="general">
+<div class="space-y-sm">
+<!-- Accordion Item 1 -->
+<div class="accordion-item bg-surface-card rounded-lg clay-card overflow-hidden cursor-pointer p-md">
+<div class="flex justify-between items-center">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">What is PlaySphere?</h3>
+<span class="material-symbols-outlined icon-toggle transition-transform duration-300 text-primary" data-icon="expand_more">expand_more</span>
+</div>
+<div class="accordion-content">
+<p class="pt-sm text-on-surface-variant">PlaySphere is your city's ultimate playground network. We connect active individuals with local sports venues, organized pick-up games, and a vibrant community of athletes of all skill levels.</p>
+</div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="accordion-item bg-surface-card rounded-lg clay-card overflow-hidden cursor-pointer p-md">
+<div class="flex justify-between items-center">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">Is PlaySphere free to join?</h3>
+<span class="material-symbols-outlined icon-toggle transition-transform duration-300 text-primary" data-icon="expand_more">expand_more</span>
+</div>
+<div class="accordion-content">
+<p class="pt-sm text-on-surface-variant">Yes! Creating an account and joining the community is completely free. You only pay when you book a paid venue or join a premium event organized by partners.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Athletes -->
+<div class="tab-content max-w-3xl mx-auto" id="athletes">
+<div class="space-y-sm">
+<div class="accordion-item bg-surface-card rounded-lg clay-card overflow-hidden cursor-pointer p-md">
+<div class="flex justify-between items-center">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">How do I join a pick-up game?</h3>
+<span class="material-symbols-outlined icon-toggle transition-transform duration-300 text-primary" data-icon="expand_more">expand_more</span>
+</div>
+<div class="accordion-content">
+<p class="pt-sm text-on-surface-variant">Navigate to the 'Events' section, filter by your sport of choice, and click 'Join' on any open game. Ensure your skill level matches the game's intent for the best experience!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Venues -->
+<div class="tab-content max-w-3xl mx-auto" id="venues">
+<div class="space-y-sm">
+<div class="accordion-item bg-surface-card rounded-lg clay-card overflow-hidden cursor-pointer p-md">
+<div class="flex justify-between items-center">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">How can I list my venue?</h3>
+<span class="material-symbols-outlined icon-toggle transition-transform duration-300 text-primary" data-icon="expand_more">expand_more</span>
+</div>
+<div class="accordion-content">
+<p class="pt-sm text-on-surface-variant">Head over to our 'Partner Program' page (linked in the footer) to apply. Our team will review your facilities and help you set up your digital storefront on PlaySphere.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Still need help -->
+<section class="bg-surface-container rounded-xl p-lg text-center max-w-4xl mx-auto clay-card relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNiNTI2MDMiLz48L3N2Zz4=')]"></div>
+<div class="relative z-10">
+<h2 class="font-headline-section text-headline-section text-on-surface mb-sm">Still need help?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Our support team is ready to assist you get back in the game.</p>
+<div class="flex flex-col md:flex-row justify-center gap-md">
+<button class="bg-surface-card text-on-surface font-button text-button px-lg py-md rounded-full shadow-sm hover:shadow-md transition-shadow flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="chat">chat</span> Live Chat
+                    </button>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-lg py-md rounded-full clay-button flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> Email Support
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest full-width rounded-t-lg mt-xl bg-clay-bg dark:bg-surface-container">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-xl w-full max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim mb-md md:mb-0">PlaySphere</div>
+<div class="flex flex-wrap justify-center gap-md mb-md md:mb-0">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Terms of Play</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Partner Program</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Careers</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant">© 2024 PlaySphere Kinetic. Your City is Your Playground.</div>
+</div>
+</footer>
+<script>
+        // Tab Logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-surface-card', 'text-primary', 'border-b-4', 'border-primary');
+                    b.classList.add('text-on-surface-variant');
+                });
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active classes to clicked tab
+                btn.classList.add('active', 'bg-surface-card', 'text-primary', 'border-b-4', 'border-primary');
+                btn.classList.remove('text-on-surface-variant');
+                
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Accordion Logic
+        const accordions = document.querySelectorAll('.accordion-item');
+        
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                // Close others if desired, keeping it simple here
+                acc.classList.toggle('active');
+            });
+        });
+    </script>
+</body></html>

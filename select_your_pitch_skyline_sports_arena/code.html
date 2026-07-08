@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Multi-Court Selection - Skyline Sports Arena</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#5b403a",
+                        "map-teal": "#00B4A2",
+                        "clay-bg": "#F5EFE9",
+                        "surface-container": "#ffe9e5",
+                        "tertiary-fixed": "#dee0ff",
+                        "tertiary-container": "#7d8ce4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#e3beb6",
+                        "inverse-primary": "#ffb4a3",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-tint": "#b52603",
+                        "surface-container-highest": "#f9dcd6",
+                        "primary-fixed": "#ffdad2",
+                        "secondary-container": "#6df5e1",
+                        "secondary-fixed": "#70f8e4",
+                        "secondary": "#006b5f",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#271814",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5a0c00",
+                        "primary": "#b52603",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "on-secondary-container": "#006f64",
+                        "on-tertiary-fixed": "#00105b",
+                        "inverse-surface": "#3e2c28",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-container": "#0d2075",
+                        "primary-container": "#ff5a36",
+                        "on-surface": "#271814",
+                        "tertiary": "#4858ab",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "inverse-on-surface": "#ffede9",
+                        "surface-container-low": "#fff0ed",
+                        "background": "#fff8f6",
+                        "outline": "#8f7069",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-card": "#FFFFFF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero-mobile": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "button": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        .clay-button-shadow {
+            box-shadow: 0 8px 16px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .blob-bg {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            z-index: -1;
+            animation: morph 8s ease-in-out infinite both alternate;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+        
+        /* Suppressing global navs as this is a transactional step */
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface min-h-screen relative overflow-x-hidden font-body-md text-body-md pb-32">
+<!-- Decorative Blobs -->
+<div class="blob-bg bg-tertiary-container w-[600px] h-[600px] top-[-200px] left-[-200px]"></div>
+<div class="blob-bg bg-primary-soft w-[500px] h-[500px] bottom-[-100px] right-[-100px]" style="animation-delay: -4s;"></div>
+<!-- Transactional Header -->
+<header class="w-full pt-8 pb-4 px-gutter flex items-center justify-between max-w-container-max mx-auto relative z-10">
+<button class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-card soft-shadow hover:scale-105 transition-transform duration-200 text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="text-center">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Step 2 of 4</p>
+<h1 class="font-headline-sm text-headline-sm text-on-background">Select Court</h1>
+</div>
+<button class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-card soft-shadow hover:scale-105 transition-transform duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter mt-8 relative z-10">
+<!-- Venue Context -->
+<div class="mb-xl text-center">
+<h2 class="font-headline-section text-headline-section text-on-background mb-4">Skyline Sports Arena</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Select the perfect surface and configuration for your session. Filter by amenities to find your ideal match.</p>
+<!-- Filters (Simplified for this view) -->
+<div class="flex flex-wrap justify-center gap-sm mt-8">
+<button class="px-6 py-2 rounded-full bg-surface-card border-2 border-primary text-primary font-button text-button shadow-sm">All Surfaces</button>
+<button class="px-6 py-2 rounded-full bg-surface-card border-2 border-transparent text-on-surface-variant hover:bg-surface-container-highest transition-colors font-button text-button shadow-sm">Turf</button>
+<button class="px-6 py-2 rounded-full bg-surface-card border-2 border-transparent text-on-surface-variant hover:bg-surface-container-highest transition-colors font-button text-button shadow-sm">Hardwood</button>
+<button class="px-6 py-2 rounded-full bg-surface-card border-2 border-transparent text-on-surface-variant hover:bg-surface-container-highest transition-colors font-button text-button shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filters
+                </button>
+</div>
+</div>
+<!-- Court Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Court Card 1 (Available) -->
+<article class="bg-surface-card rounded-xl p-md soft-shadow hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group border-2 border-transparent hover:border-primary-soft">
+<!-- Status Badge -->
+<div class="absolute top-md right-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-caps text-label-caps z-10 flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available
+                </div>
+<!-- Image Container -->
+<div class="w-full h-48 rounded-lg overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A brightly lit indoor artificial turf soccer court, high-key lighting, vibrant green surface contrasting with sleek modern white walls. The style is highly tactile and premium, resembling a professional sports training facility. Soft shadows and clean lines dominate the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqn_PrtIGGKK8_2kXanlTUOBrGLkGL0LA0-0GEUZqBPx4tI1E_kzE9utdUg9EDObX9aFDMw9KrK3vpFgw8FSykRDfIxGYl7c4cR18u7_Rs1y95rhXiDT9-o1I9FBiWIhVx3S4jBSPQuySUOLobFwWQ6Ux6pdfw4xkonF8X6k4ru4I_Cb88mMZoFXZlvD_Ih4Xavx0rKju9UoB1nAEGN1UK5n_MpIvgfkOKMPEDa7vwUv7b2X8Pteie"/>
+<div class="absolute bottom-4 left-4 z-20 text-on-primary">
+<span class="bg-black/50 px-3 py-1 rounded-full font-label-caps text-[12px] backdrop-blur-md">Premium Turf</span>
+</div>
+</div>
+<!-- Content -->
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Court A - The Glade</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Professional-grade 5G turf, ideal for 5v5 or 7v7 football. Fully enclosed netting.</p>
+<!-- Amenities -->
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span> Floodlights
+                    </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">roofing</span> Indoor
+                    </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">videocam</span> Replay Cam
+                    </span>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center justify-between mt-auto border-t border-surface-container pt-4">
+<div class="text-primary font-headline-sm text-headline-sm">$45<span class="text-sm font-normal text-on-surface-variant">/hr</span></div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full clay-button-shadow hover:brightness-110 active:scale-95 transition-all">Select Court</button>
+</div>
+</article>
+<!-- Court Card 2 (Booked) -->
+<article class="bg-surface-card rounded-xl p-md shadow-md opacity-75 grayscale-[0.3] relative overflow-hidden border-2 border-transparent">
+<!-- Status Badge -->
+<div class="absolute top-md right-md bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-caps text-label-caps z-10 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span> Booked
+                </div>
+<div class="w-full h-48 rounded-lg overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="An outdoor basketball hardwood court bathed in warm sunset lighting. The vibrant orange and white colors of the court surface contrast with the surrounding urban environment. The aesthetic is energetic and tactile, with soft shadows emphasizing the texture of the court." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD93FwyLjrH-tqHmCVS_OuGjcOGrbiT-0x7-l7V1GnwZo5qzk96n2dM1ba6ZAjSaZz-bcxMob2qQPM5_4QS1KsdB8StpqU5sv4OnhI3rHUIeZAPIQ2gMfKczaRyd0VHbTY-PZwXRYHZqYkebUZpm15F1KzaOPcTeNYOPR2kjxJRVjE8gE96Rr9mXdGIpiS5_s5e3_w_N3k1_moIn7atR7Jn1XT1ubYBChxc4vpJ6m3g5xYMoxzQ6AIl"/>
+<div class="absolute bottom-4 left-4 z-20 text-on-primary">
+<span class="bg-black/50 px-3 py-1 rounded-full font-label-caps text-[12px] backdrop-blur-md">Sprung Hardwood</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Court B - The Deck</h3>
+<p class="text-on-surface-variant mb-6 text-sm">FIBA standard indoor hardwood. Perfect for basketball or futsal. High ceilings.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">scoreboard</span> Scoreboard
+                    </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">roofing</span> Indoor
+                    </span>
+</div>
+<div class="flex items-center justify-between mt-auto border-t border-surface-container pt-4">
+<div class="text-on-surface-variant font-headline-sm text-headline-sm">$55<span class="text-sm font-normal">/hr</span></div>
+<button class="bg-surface-variant text-on-surface-variant font-button text-button px-6 py-3 rounded-full cursor-not-allowed" disabled="">Unavailable</button>
+</div>
+</article>
+<!-- Court Card 3 (Available - Outdoor) -->
+<article class="bg-surface-card rounded-xl p-md soft-shadow hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group border-2 border-transparent hover:border-primary-soft">
+<!-- Status Badge -->
+<div class="absolute top-md right-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-caps text-label-caps z-10 flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available
+                </div>
+<!-- Image Container -->
+<div class="w-full h-48 rounded-lg overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An outdoor multi-sport court painted in vibrant shades of sunset orange and teal. Shot from a slight aerial perspective to emphasize the geometric lines. Soft, clay-like aesthetic with deep ambient shadows. The space feels open, inviting, and highly physical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2uOjWRJYBWnFnEAS5RSoScE55t3fAAEHnGQz9yBABVzeZoX0dMESxilOaNNLjxEb-aK0exGStRHBoofLFna977vqtXIsWUyAIkXihXsb22WU0PYiGcM_oHK9WtnWdcED3lBAiqr-R1bl3cPM8xKhF82HWCr3bsdDXFOga7Zo8PnFN5_S3kxl60Y5GxKfndnkCdbUECTWl6ZKkfiYQ8Z08tSm_CL2W8yRQ1l4vbwTBcf38yEXB-qzI"/>
+<div class="absolute bottom-4 left-4 z-20 text-on-primary">
+<span class="bg-black/50 px-3 py-1 rounded-full font-label-caps text-[12px] backdrop-blur-md">Acrylic Hardcourt</span>
+</div>
+</div>
+<!-- Content -->
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Court C - The Apex</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Premium outdoor acrylic surface. High-friction, great for tennis or pickleball.</p>
+<!-- Amenities -->
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">wb_sunny</span> Outdoor
+                    </span>
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-sm">
+<span class="material-symbols-outlined text-[16px]">chair</span> Spectator Seating
+                    </span>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center justify-between mt-auto border-t border-surface-container pt-4">
+<div class="text-primary font-headline-sm text-headline-sm">$35<span class="text-sm font-normal text-on-surface-variant">/hr</span></div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full clay-button-shadow hover:brightness-110 active:scale-95 transition-all">Select Court</button>
+</div>
+</article>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere - Elite Benefits</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#e3beb6",
+                      "surface-container-high": "#ffe2dc",
+                      "map-teal": "#00B4A2",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "background": "#fff8f6",
+                      "primary": "#b52603",
+                      "surface-container-low": "#fff0ed",
+                      "on-tertiary-container": "#0d2075",
+                      "on-surface-variant": "#5b403a",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#f9dcd6",
+                      "error": "#ba1a1a",
+                      "outline": "#8f7069",
+                      "on-tertiary-fixed": "#00105b",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-bright": "#fff8f6",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "clay-bg": "#F5EFE9",
+                      "inverse-surface": "#3e2c28",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-background": "#271814",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#ff5a36",
+                      "inverse-primary": "#ffb4a3",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "on-primary-container": "#5a0c00",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#006b5f",
+                      "surface-container": "#ffe9e5",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-secondary-container": "#006f64",
+                      "surface-dim": "#f0d4ce",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#b52603",
+                      "primary-soft": "#FF8A70",
+                      "on-primary-fixed": "#3d0600",
+                      "surface": "#fff8f6",
+                      "secondary-container": "#6df5e1",
+                      "tertiary": "#4858ab",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "surface-card": "#FFFFFF",
+                      "surface-container-highest": "#f9dcd6",
+                      "inverse-on-surface": "#ffede9",
+                      "primary-fixed": "#ffdad2",
+                      "on-surface": "#271814",
+                      "secondary-fixed": "#70f8e4",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-fixed": "#dee0ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "xl": "80px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "container-max": "1280px",
+                      "lg": "48px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-section": ["Nunito"],
+                      "label-caps": ["Nunito"],
+                      "headline-sm": ["Nunito"],
+                      "body-lg": ["Nunito"],
+                      "display-hero": ["Nunito"],
+                      "display-hero-mobile": ["Nunito"],
+                      "button": ["Nunito"],
+                      "body-md": ["Nunito"]
+              },
+              "fontSize": {
+                      "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                      "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                      "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                      "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                      "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}],
+                      "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.clay-bg'); }
+        
+        .soft-deep-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .clay-button {
+            background-color: theme('colors.primary-container');
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 8px 16px rgba(255, 90, 54, 0.3);
+            color: theme('colors.on-primary');
+            border-radius: theme('borderRadius.full');
+            transition: all 0.3s ease;
+        }
+        
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 12px 20px rgba(255, 90, 54, 0.4);
+        }
+
+        .soft-card {
+            background-color: theme('colors.surface-card');
+            border-radius: theme('borderRadius.lg');
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        }
+        
+        .gradient-blob-1 {
+            background: radial-gradient(circle, theme('colors.surface-container-high') 0%, transparent 70%);
+        }
+        
+        .gradient-blob-2 {
+            background: radial-gradient(circle, theme('colors.primary-fixed') 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden relative min-h-screen flex flex-col font-body-md">
+<!-- Ambient Background Blobs -->
+<div class="fixed top-[-20%] left-[-10%] w-[60vw] h-[60vw] gradient-blob-1 rounded-full opacity-60 z-[-1] pointer-events-none mix-blend-multiply blur-3xl"></div>
+<div class="fixed bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] gradient-blob-2 rounded-full opacity-50 z-[-1] pointer-events-none mix-blend-multiply blur-3xl"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 px-md py-sm shadow-[0_20px_40px_rgba(0,0,0,0.1)] shadow-2xl bg-white/80 dark:bg-surface/80 backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter">
+<a class="font-headline-sm text-headline-sm font-black italic tracking-tighter text-primary dark:text-primary-soft" href="#">
+                PlaySphere
+            </a>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:scale-105 hover:text-primary transition-all duration-300 font-button text-button" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:scale-105 hover:text-primary transition-all duration-300 font-button text-button" href="#">Community</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:scale-105 hover:text-primary transition-all duration-300 font-button text-button" href="#">Tournaments</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:scale-105 hover:text-primary transition-all duration-300 font-button text-button" href="#">Leaderboard</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="clay-button px-gutter py-sm font-button text-button hidden md:block">
+                    Join the Elite
+                </button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container soft-deep-shadow">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up, highly detailed, well-lit studio portrait of a young athletic urban dweller looking confidently at the camera. The background is a soft, vibrant sunset orange to match the brand. The lighting is soft and flattering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO-XnLKuJD92L-6yaqojZ_LP1Vg22sck8p_BwQcme-T35qJP1vn_7wtqlM5eRjlBxCU4bG7LOTdc8xViK0fQU85Y8EDKRb_rVpb6Jdy0tMhTnj4hy-yookvEE9xVMTjqGkNcGM72TgFAKoC1LjTiFQKKd7sLLUljH5wC6riBi-egybIcg16mucCwgGRVsUpy1qnJnSf9vYgGgU2KXpbyhIHDsOeIp9VEfDIJZ0x7rohKFNhP2pa4KL"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-xl px-gutter max-w-container-max mx-auto w-full relative z-10">
+<!-- Header Section -->
+<header class="text-center mb-xl">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-sm">
+                Unlock <span class="text-primary-container">Elite</span> Status
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Elevate your game with unparalleled access to premium courts, advanced analytics, and exclusive gear. Your city, your rules.
+            </p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[minmax(300px,_auto)]">
+<!-- Bento Item 1: Priority Booking (Spans 8 cols on desktop) -->
+<div class="soft-card md:col-span-8 p-lg relative overflow-hidden flex flex-col md:flex-row gap-lg items-center">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary-container rounded-full opacity-20 blur-2xl pointer-events-none"></div>
+<div class="flex-1 z-10">
+<div class="flex items-center gap-sm mb-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">Priority Access</span>
+</div>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-sm">Book Before Anyone Else.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                        Get 48-hour early access to premium court slots in prime locations. Never miss out on your preferred time again.
+                    </p>
+<button class="clay-button px-md py-sm font-button text-button inline-flex items-center gap-xs">
+                        View Schedule <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="flex-1 w-full relative z-10">
+<div class="bg-surface-container-lowest rounded-DEFAULT p-sm shadow-inner border border-surface-variant">
+<!-- Simplified Calendar Mockup -->
+<div class="flex justify-between items-center mb-sm px-xs">
+<span class="font-button text-button">October 2024</span>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-outline">chevron_left</span>
+<span class="material-symbols-outlined text-primary-container">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center text-xs font-bold text-outline-variant mb-xs">
+<div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center font-body-md text-body-md">
+<div class="text-outline-variant">29</div><div class="text-outline-variant">30</div>
+<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+<div>6</div><div>7</div>
+<div class="bg-primary-container text-on-primary rounded-full w-8 h-8 flex items-center justify-center mx-auto shadow-sm">8</div>
+<div class="bg-primary-container text-on-primary rounded-full w-8 h-8 flex items-center justify-center mx-auto shadow-sm">9</div>
+<div class="text-primary font-bold">10</div><div>11</div><div>12</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Item 2: Performance Lab (Spans 4 cols on desktop) -->
+<div class="soft-card md:col-span-4 p-md relative overflow-hidden flex flex-col">
+<div class="flex items-center gap-sm mb-sm text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-caps text-label-caps uppercase">Performance Lab</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">AI-Driven Insights</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Analyze your movement patterns and shot accuracy with our advanced heatmap technology.
+                </p>
+<div class="w-full h-48 rounded-DEFAULT overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img alt="Heatmap Analysis" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, futuristic digital user interface mockup showing a glowing heat map overlay on a basketball court diagram. The interface features bright neon teal and orange data points against a dark, sleek background. It looks like a high-tech sports analysis tool in a premium app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFg7V1T4i6uHiA7BDzgq6-23m1wbDhGW-ctE8QQPlTie7xYEKvcn0YqKDnKbY6IPxMeM8ZxB8gXP7wjgNfAiQA0-XZ_Z9kR5Fez_4xt5DL5g5c1BvaVJ3MoBGsH8J47BY8ks9lBJ5UA_uOraqMSS15Df__LsY0ynDmdRoLMf4AlzOkJ2R2GDQ5eG7xdfvTPX4IEbFhtsA43OmkpSdsD0Vw5TXyrF6itoJzSfSrxu_zJ-vnmhu6uQ56"/>
+<div class="absolute bottom-sm left-sm z-20">
+<span class="bg-white/20 backdrop-blur-md text-white font-label-caps text-xs px-2 py-1 rounded-full border border-white/30">Shot Accuracy: +12%</span>
+</div>
+</div>
+</div>
+<!-- Bento Item 3: Exclusive Gear (Spans 12 cols, full width) -->
+<div class="soft-card md:col-span-12 p-0 relative overflow-hidden group">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Exclusive Gear" class="w-full h-full object-cover" data-alt="A vibrant, high-energy editorial lifestyle photograph of two urban athletes wearing sleek, modern streetwear athletic apparel with subtle 'Ahmedabad Titans' branding. They are standing confidently on an outdoor street court at golden hour, with warm sunlight casting dramatic, soft shadows. The aesthetic is premium, tactile, and energetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUP85T1UZ_Q-0wfwiB_LwLJ1KNwy-pTMv_opUqcUrdJzLd3Rbntv9hMLkjWSqoHVE2OU3V7IGppK2IBYE-SIbLTS_BN2HsojRsqVKJC2cHqazhMZ9Z5ulnsCJ2WCgnmLHjibZNv1zBgplcUpDvTFv6UZc-T69GgeQ4YXUNhH4RH4ydHNYej6xPqFn0dki4zeEh0JhYTS5fubu6P8o2xhrWt53WQCsZLKjLTfYLqqqQSBitjFrKtnER"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-lg h-full flex flex-col justify-end min-h-[400px]">
+<div class="max-w-xl">
+<div class="flex items-center gap-sm mb-sm text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="font-label-caps text-label-caps uppercase">Member Only Shop</span>
+</div>
+<h2 class="font-headline-section text-headline-section text-white mb-sm">Exclusive Gear Drops.</h2>
+<p class="font-body-lg text-body-lg text-surface-container-high mb-md">
+                            Rep your city with limited edition apparel. Elite members get first dibs on official Ahmedabad Titans merchandise before it hits the public store.
+                        </p>
+<button class="bg-white text-on-surface px-md py-sm rounded-full font-button text-button inline-flex items-center gap-xs hover:bg-surface-container-high transition-colors shadow-lg">
+                            Shop the Collection <span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl mt-xl border-t border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-inverse-surface grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-gutter relative z-10">
+<div>
+<div class="font-headline-sm text-headline-sm font-black italic text-primary mb-sm">PlaySphere</div>
+<p class="text-secondary dark:text-secondary-fixed-dim font-body-md text-body-md">© 2024 PlaySphere. Your City is Your Playground.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Community Guidelines</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Partners</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PlaySphere - Booking Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#271814",
+                        "primary": "#b52603",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5a0c00",
+                        "secondary": "#006b5f",
+                        "on-secondary-fixed-variant": "#005048",
+                        "secondary-fixed": "#70f8e4",
+                        "surface-dim": "#f0d4ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff0ed",
+                        "inverse-on-surface": "#ffede9",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-primary": "#ffffff",
+                        "outline": "#8f7069",
+                        "error": "#ba1a1a",
+                        "surface-card": "#FFFFFF",
+                        "background": "#fff8f6",
+                        "on-secondary-container": "#006f64",
+                        "on-tertiary-fixed": "#00105b",
+                        "inverse-surface": "#3e2c28",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd6",
+                        "primary-soft": "#FF8A70",
+                        "on-surface": "#271814",
+                        "primary-container": "#ff5a36",
+                        "tertiary": "#4858ab",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-tertiary-container": "#0d2075",
+                        "outline-variant": "#e3beb6",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb4a3",
+                        "clay-bg": "#F5EFE9",
+                        "map-teal": "#00B4A2",
+                        "on-surface-variant": "#5b403a",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ffe9e5",
+                        "tertiary-fixed": "#dee0ff",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-tint": "#b52603",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-highest": "#f9dcd6",
+                        "primary-fixed": "#ffdad2",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-primary-fixed": "#3d0600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "button": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "headline-sm": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clay-button {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12);
+        }
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md antialiased relative min-h-screen overflow-x-hidden">
+<!-- Background Blobs -->
+<div class="blob-bg bg-primary-fixed-dim w-[600px] h-[600px] rounded-full top-[-200px] left-[-200px]"></div>
+<div class="blob-bg bg-secondary-fixed-dim w-[500px] h-[500px] rounded-full bottom-[-100px] right-[-100px]"></div>
+<!-- Navigation suppressed for transactional screen -->
+<header class="w-full px-lg py-md flex justify-between items-center max-w-container-max mx-auto relative z-10">
+<button class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+<span class="font-button text-button">Back</span>
+</button>
+<div class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere</div>
+<div class="w-24"></div> <!-- Spacer for centering -->
+</header>
+<main class="max-w-container-max mx-auto px-md md:px-lg py-xl relative z-10">
+<div class="text-center mb-xl">
+<h1 class="font-headline-section text-headline-section text-primary mb-sm">Confirm Booking</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Review your training session details and secure your slot on the court.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md md:gap-lg max-w-5xl mx-auto">
+<!-- Left Column: Details & Goals -->
+<div class="lg:col-span-7 flex flex-col gap-md">
+<!-- Session Summary Card -->
+<div class="bg-surface-card rounded-lg p-md md:p-lg soft-card">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md border-b border-outline-variant pb-sm">Session Details</h2>
+<div class="flex items-start gap-md mb-md">
+<img class="w-24 h-24 rounded-full object-cover shadow-lg border-4 border-surface" data-alt="A professional headshot of an athletic urban sports coach, outdoors against a sunny concrete playground background. The coach is smiling confidently, wearing a bright orange athletic jacket. The image has a vibrant, energetic, and approachable aesthetic matching a high-end sports app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDOqJkVlubqYeQ4J6N0RdoGcBfrcCfOAfz_gGO_KhpJv1ssjcRvNoUSIRzLEjWZXg7_krub6GgteLds54IqQshIaRFBISWP_ydBqE6LsG1C7L40fEIVl6YG2yfrkldYqWO2dqZ_aKtkK0ViqAqXc9hCukDOc8dLeXXw9h5LOWrOyea-c6GD8v0N9cjXEDeu0M1c1joTsYBvnBB6I_HTwe2zDVgtxUACPLo07RahDtYCOuk9isM8Y-0"/>
+<div>
+<h3 class="font-body-lg text-body-lg text-primary mb-xs">Coach Marcus Johnson</h3>
+<p class="text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-sm">star</span> 4.9 (120 reviews)</p>
+<p class="text-on-surface-variant text-sm mt-1">Advanced Streetball Tactics</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<div class="bg-surface-container rounded-DEFAULT p-sm flex items-center gap-sm">
+<div class="bg-white p-xs rounded-full shadow-sm text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Date</p>
+<p class="font-button text-button">Oct 24, 2024</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-DEFAULT p-sm flex items-center gap-sm">
+<div class="bg-white p-xs rounded-full shadow-sm text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Time</p>
+<p class="font-button text-button">18:00 - 19:30</p>
+</div>
+</div>
+<div class="bg-surface-container rounded-DEFAULT p-sm flex items-center gap-sm sm:col-span-2">
+<div class="bg-white p-xs rounded-full shadow-sm text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Venue</p>
+<p class="font-button text-button">Westside Community Courts, Court 3</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Match to My Goal Section -->
+<div class="bg-surface-card rounded-lg p-md md:p-lg soft-card">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-3xl">target</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Match to My Goal</h2>
+</div>
+<p class="text-on-surface-variant mb-md">Let Coach Marcus know what you want to focus on during this session.</p>
+<div class="flex flex-wrap gap-sm mb-md">
+<button class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface px-4 py-2 rounded-full font-button text-sm transition-colors border border-outline-variant">Dribbling Mechanics</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-full font-button text-sm transition-colors border border-primary-container">Shooting Form</button>
+<button class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface px-4 py-2 rounded-full font-button text-sm transition-colors border border-outline-variant">Defensive Footwork</button>
+</div>
+<textarea class="w-full bg-surface-container-low border-2 border-surface-container-highest rounded-DEFAULT p-sm text-on-surface focus:outline-none focus:border-primary transition-colors resize-none h-32 placeholder-on-surface-variant/50" placeholder="Any specific injuries, notes, or focus areas? (e.g. 'I want to work on my left-hand layups')"></textarea>
+</div>
+</div>
+<!-- Right Column: Payment & Summary -->
+<div class="lg:col-span-5 flex flex-col gap-md">
+<div class="bg-surface-card rounded-lg p-md md:p-lg soft-card sticky top-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">Payment Summary</h2>
+<div class="flex justify-between items-center mb-sm">
+<span class="text-on-surface-variant">Session Fee (90 min)</span>
+<span class="font-button text-button">$45.00</span>
+</div>
+<div class="flex justify-between items-center mb-sm">
+<span class="text-on-surface-variant">Court Reservation</span>
+<span class="font-button text-button">$15.00</span>
+</div>
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+<span class="text-on-surface-variant">Service Fee</span>
+<span class="font-button text-button">$3.50</span>
+</div>
+<div class="flex justify-between items-end mb-xl">
+<span class="font-body-lg text-body-lg text-on-surface">Total</span>
+<span class="font-headline-section text-4xl font-black text-primary">$63.50</span>
+</div>
+<!-- Payment Method (Simplified) -->
+<div class="bg-surface-container rounded-DEFAULT p-sm flex items-center justify-between mb-xl border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="font-button text-sm">•••• 4242</span>
+</div>
+<span class="text-primary text-sm font-bold">Change</span>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-button text-button py-4 rounded-full clay-button hover:scale-[1.02] active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        Pay and Secure Slot
+                    </button>
+<p class="text-center text-xs text-on-surface-variant mt-sm mt-4">Secure payment powered by Stripe. By paying, you agree to the <a class="text-primary underline" href="#">cancellation policy</a>.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Alex Rivers - Player Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Claymorphism Utilities */
+        .clay-button {
+            box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(181, 38, 3, 0.3);
+        }
+        .clay-button:active {
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(181, 38, 3, 0.3);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(39, 24, 20, 0.05);
+        }
+        .soft-card:hover {
+            box-shadow: 0 30px 50px rgba(39, 24, 20, 0.08);
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        /* Liquid Gradient Animation */
+        @keyframes liquid {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .bg-liquid-gradient {
+            background: linear-gradient(-45deg, #FF8A70, #6df5e1, #bac3ff, #ffede9);
+            background-size: 400% 400%;
+            animation: liquid 15s ease infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdad2",
+                        "secondary": "#006b5f",
+                        "on-secondary-container": "#006f64",
+                        "primary-container": "#ff5a36",
+                        "inverse-primary": "#ffb4a3",
+                        "tertiary-fixed": "#dee0ff",
+                        "tertiary": "#4858ab",
+                        "on-tertiary-container": "#0d2075",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-surface": "#271814",
+                        "surface-dim": "#f0d4ce",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#5a0c00",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#7d8ce4",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-surface-variant": "#434655",
+                        "surface": "#fff8f6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#271814",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-low": "#fff0ed",
+                        "surface-container-high": "#ffe2dc",
+                        "clay-bg": "#F5EFE9",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#e3beb6",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#f9dcd6",
+                        "surface-tint": "#b52603",
+                        "error-container": "#ffdad6",
+                        "background": "#fff8f6",
+                        "primary-soft": "#FF8A70",
+                        "secondary-fixed": "#70f8e4",
+                        "secondary-container": "#6df5e1",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#f9dcd6",
+                        "inverse-on-surface": "#ffede9",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-error": "#ffffff",
+                        "outline": "#8f7069",
+                        "inverse-surface": "#3e2c28",
+                        "map-teal": "#00B4A2",
+                        "primary": "#b52603",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "container-max": "1280px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "button": ["Nunito"],
+                        "headline-sm": ["Nunito"],
+                        "label-caps": ["Nunito"],
+                        "headline-section": ["Nunito"],
+                        "body-md": ["Nunito"],
+                        "body-lg": ["Nunito"],
+                        "display-hero": ["Nunito"],
+                        "display-hero-mobile": ["Nunito"]
+                    },
+                    "fontSize": {
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-clay-bg text-on-surface antialiased pt-24 font-body-md text-body-md">
+<!-- TopNavBar (Shared Component JSON) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 mx-auto bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed">PlaySphere</span>
+<div class="hidden md:flex gap-md ml-xl">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Venues</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Leagues</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Events</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary-container transition-colors font-body-md text-body-md" href="#">Shop</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary-container transition-colors scale-105 duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors scale-105 duration-300">
+<span class="material-symbols-outlined" data-icon="person_pin_circle">person_pin_circle</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary font-button text-button rounded-full px-6 py-2 clay-button scale-105 duration-300">Book Now</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter xl:px-lg pb-xl flex flex-col gap-xl">
+<!-- Profile Hero Header -->
+<section class="relative bg-surface-card rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(39,24,20,0.08)]">
+<!-- Liquid Gradient Background -->
+<div class="h-64 md:h-80 w-full bg-liquid-gradient relative">
+<div class="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>
+</div>
+<!-- Profile Info Container -->
+<div class="relative px-md md:px-xl pb-xl -mt-24 flex flex-col md:flex-row md:items-end gap-md md:gap-xl">
+<!-- Avatar & Badge -->
+<div class="relative inline-block z-10 shrink-0">
+<img class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-[6px] border-surface-card shadow-2xl bg-surface-container" data-alt="A close-up portrait of a young athletic individual in vibrant sporty street wear, smiling confidently. Bright sunny lighting, soft clay aesthetic background. The photography style is modern, energetic, and high-quality, fitting a premium sports community platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYeQmydDia3Sf_0_2DFqGxDJpCe4rIof8wGceNF0jhjiF1TTi6Tfz1xCGw5Kson_JlNHgfCgHEV2px0CLcCS2_jHmQ-scaH6z3QPL-swsWscu7xIk27TlsmcRAh4zsrCyVpNJY-YrnRi_7SAD1rQxHUgCbNCvDtNIV06Z8SpzKlA3BNKVZZZxaZ2eTgTepdkwc8st5h14uGH29ZhK8Nz5xMvb0RND3kea4VyYi_Yg5itXfSlJKr0Z6">
+<div class="absolute -bottom-2 md:bottom-2 -right-2 md:-right-4 bg-tertiary text-on-tertiary font-label-caps text-label-caps px-4 py-2 rounded-full shadow-lg border-2 border-surface-card flex items-center gap-xs">
+<span class="material-symbols-outlined fill text-[18px]" data-icon="local_fire_department">local_fire_department</span>
+                        Lvl 14 Pro
+                    </div>
+</div>
+<!-- Name & Bio -->
+<div class="flex-grow pt-4 md:pt-0">
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Alex Rivers</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+                        Ahmedabad Hub • Point Guard • Casual Hiker
+                    </p>
+</div>
+<!-- CTAs -->
+<div class="flex items-center gap-sm mt-4 md:mt-0 pb-2">
+<button class="bg-surface-container hover:bg-surface-variant text-primary font-button text-button px-6 py-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md border border-outline-variant flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                        Follow
+                    </button>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full clay-button transition-transform active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="group_add">group_add</span>
+                        Invite to Squad
+                    </button>
+</div>
+</div>
+</section>
+<!-- Two Column Layout for Desktop -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Left Column: Stats & Visas -->
+<div class="lg:col-span-1 flex flex-col gap-xl">
+<!-- Key Stats Bento -->
+<section class="grid grid-cols-2 gap-sm">
+<!-- Matches -->
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col items-center justify-center text-center transition-all duration-300">
+<span class="material-symbols-outlined text-secondary text-4xl mb-2" data-icon="sports_basketball">sports_basketball</span>
+<h3 class="font-headline-section text-headline-section text-on-surface">128</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Matches Played</p>
+</div>
+<!-- Win Rate -->
+<div class="bg-surface-card rounded-lg p-md soft-card flex flex-col items-center justify-center text-center transition-all duration-300">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-2" data-icon="timeline">timeline</span>
+<h3 class="font-headline-section text-headline-section text-on-surface">64%</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Win Rate</p>
+</div>
+<!-- Home Turf -->
+<div class="col-span-2 bg-surface-card rounded-lg soft-card overflow-hidden group transition-all duration-300 relative h-48">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="An aerial, slightly isometric perspective view of an urban outdoor basketball court during sunset. The court is painted in vibrant secondary teal and sunset orange colors, typical of the PlaySphere Kinetic visual style. Deep shadows are cast across the surface, giving it a tactile 3D feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrFy1MtrqO391xzV93rrrKI3TDqcMDWZnLqwnTji1UMGYiOkb5mSvGF00lxU3eMEh6hNccwHduEUQ9C6TfOAYv9HbopQrw8uSM3JoApmHhXbYzUWGjPCwAXYzXUavkQAsTTcUfMQPQn4VFlgkN8EQgJBqQI3hBTQk2A8ZAiWCL6Ox-BHLL_GfCTw2TsLtIYJBVe3lw-a1CYIQ9PfUrNF7uF9rNY3Q0s5yOYuWpNSpoSv9ItEBqmT0u')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-md left-md right-md">
+<p class="font-label-caps text-label-caps text-surface-container-high mb-1">Home Turf</p>
+<h4 class="font-headline-sm text-headline-sm text-on-primary flex items-center gap-xs">
+                                Satellite Courts
+                                <span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</h4>
+</div>
+</div>
+</section>
+<!-- Sports Visas -->
+<section class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sports Visas</h3>
+<button class="text-primary font-label-caps text-label-caps hover:underline">View All (12)</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<div class="bg-surface-card shadow-sm rounded-full px-4 py-2 flex items-center gap-xs border border-outline-variant/50 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined fill text-secondary" data-icon="verified_user">verified_user</span>
+<span class="font-body-md text-body-md text-on-surface">Court General</span>
+</div>
+<div class="bg-surface-card shadow-sm rounded-full px-4 py-2 flex items-center gap-xs border border-outline-variant/50 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined fill text-tertiary" data-icon="speed">speed</span>
+<span class="font-body-md text-body-md text-on-surface">Fast Break</span>
+</div>
+<div class="bg-surface-card shadow-sm rounded-full px-4 py-2 flex items-center gap-xs border border-outline-variant/50 hover:border-primary/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined fill text-primary" data-icon="favorite">favorite</span>
+<span class="font-body-md text-body-md text-on-surface">Crowd Favorite</span>
+</div>
+<div class="bg-surface-card shadow-sm rounded-full px-4 py-2 flex items-center gap-xs border border-outline-variant/50 hover:border-primary/50 transition-colors cursor-pointer opacity-70 grayscale">
+<span class="material-symbols-outlined fill" data-icon="lock">lock</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Tournament MVP</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Court Moments -->
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="photo_camera">photo_camera</span>
+                        Court Moments
+                    </h2>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Gallery Item 1 (Large) -->
+<div class="col-span-2 md:col-span-1 row-span-2 relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer h-64 md:h-full min-h-[300px]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dynamic action shot of a basketball player mid-air attempting a slam dunk during a late afternoon streetball game. The lighting is warm and dramatic, highlighting the vibrant sunset orange team jersey. The background is slightly blurred showing enthusiastic community members watching." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR6zjy7RqWIzHCC5sSHjyhTFVTTXnuxcGwo3lpqbmMrAeoxZM7JRqzPrEwdvIIYbavekaUzZ7bpJiqmUvSSEh-G1F8n7iWH7DmcEywcVDUTsk34g0xecw8YmTCmXjYDUvQCbejNRgZhfcNx6G9PhhrLAhWpQ1jgz4B2tNCK8TCuyIJjgrFOXzG-8QFfeZK9B5jvSHCkvEHzH8Nsh867wNkfsg_c8vkJUeLe9uhFf6uobMGvzOaG6DA">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-md">
+<p class="text-white font-body-md text-body-md">Game winning dunk @ Satellite! 🔥</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer h-40 md:h-48">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up tactile image of a vibrant orange basketball resting on a soft, textured clay-colored court surface. The lighting creates a deep, ambient shadow under the ball, emphasizing the PlaySphere Kinetic soft-tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqNd7GDWrTaF3m0htH05H5debq8FppyQNmxIQKlJN6SIF0o0NFrp-d1yn06nlu3pXqV_S15Rdn7swmO_Oaa09FNO-gND0kVRhhgMWrAS1rGTfY7EHI2bWD7rICNLEB5kaqHbJt92i8wtBKkkg30suiKqeI_ViZqLY9q2JTGlvyHRJFx3kZalFPLvgJ8oSTuPOBxbdSZg__Nry99_8QvwNmDZSPVGkS7KsnEfNSwZhnuuLtv2FTbdim">
+</div>
+<!-- Gallery Item 3 -->
+<div class="relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer h-40 md:h-48">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A group of diverse friends in vibrant sporty clothing high-fiving after a game. They are standing on a bright teal and white painted playground court. The mood is joyful, energetic, and highly community-centric, lit by a bright, sunny sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuBiREXCae-SUss01IHOd6tr5BUu2hOeWarG48GT8pM0Hhj91erg7jGupYLQjheGwEBR5Dt8qUKmZ-y3pzHmx2ddMwZwkyEPE1COm01-nPRHmv9c5KJCG1y0FDQlOwsvpf1Fppkv0rwJj6uy-kZR56itApUafPhpR2ZNIrsRXPqQWvlLqNVypkrJ-SDtgo391JMunQRjG3eO2E_zcKkc3RWsHuLKE8-5XCbi-P4k4gJvg5HUZtPEPD">
+</div>
+<!-- Gallery Item 4 -->
+<div class="col-span-2 relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer h-48">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide panoramic shot of an outdoor community sports hub during twilight. The area features organic, fluidly painted court markings in soft primary and secondary colors. String lights overhead cast a warm, welcoming glow over the active, tactile playground environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcaMaeZnLD4zNxgxU3fUuzOXENj6rPhk45OXQTeJH0Knpp8YHtKfPMgVa03FslELsG_H3yJuxIMd0_r3KV1HBe1CKZeqdA_qQ_dsBawiXjIyPoEQ9wOFwk-jcUu2fzoZVHCsImLf8JTThueUI-qrG67CGkH08-RKe1zrd-myN-hDh5eR8XIf17vBaLSo6-xICf8O3_Fa-6-yj4o0JhTX2Eb4goj9bs7MM3y4HL5OjbD6d5sFtSUFuE">
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+<span class="font-headline-sm text-headline-sm text-white">View All 42 Moments</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component JSON) -->
+<footer class="w-full mt-xl px-gutter flex flex-col items-center gap-md py-lg border-t border-outline-variant bg-surface-container-highest dark:bg-on-surface">
+<span class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere</span>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Venue Partners</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<p class="text-primary dark:text-primary-fixed-dim font-body-md text-body-md mt-sm">© 2024 PlaySphere Kinetic. Ahmedabad's Playground.</p>
+</footer>
+</body></html>

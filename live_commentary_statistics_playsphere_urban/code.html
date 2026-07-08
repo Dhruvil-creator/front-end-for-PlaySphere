@@ -1,0 +1,315 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Real-Time Match</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#3e2c28",
+                        "surface-variant": "#f9dcd6",
+                        "on-tertiary-fixed": "#00105b",
+                        "on-primary-fixed": "#3d0600",
+                        "on-tertiary-fixed-variant": "#2f3f92",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-surface": "#271814",
+                        "outline": "#8f7069",
+                        "tertiary": "#4858ab",
+                        "inverse-on-surface": "#ffede9",
+                        "map-teal": "#00B4A2",
+                        "surface-dim": "#f0d4ce",
+                        "surface-container-high": "#ffe2dc",
+                        "on-primary": "#ffffff",
+                        "on-background": "#271814",
+                        "surface-tint": "#b52603",
+                        "surface-container": "#ffe9e5",
+                        "surface-container-highest": "#f9dcd6",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#dee0ff",
+                        "outline-variant": "#e3beb6",
+                        "on-secondary-fixed-variant": "#005048",
+                        "background": "#fff8f6",
+                        "on-surface-variant": "#5b403a",
+                        "surface-container-low": "#fff0ed",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "clay-bg": "#F5EFE9",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#0d2075",
+                        "surface": "#fff8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#70f8e4",
+                        "primary-container": "#ff5a36",
+                        "surface-card": "#FFFFFF",
+                        "secondary": "#006b5f",
+                        "primary": "#b52603",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "primary-soft": "#FF8A70",
+                        "on-primary-container": "#5a0c00",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb4a3",
+                        "on-secondary-container": "#006f64",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7d8ce4",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad2",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "secondary-container": "#6df5e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "sm": "12px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Nunito", "sans-serif"],
+                        "headline-section": ["Nunito", "sans-serif"],
+                        "body-md": ["Nunito", "sans-serif"],
+                        "display-hero-mobile": ["Nunito", "sans-serif"],
+                        "button": ["Nunito", "sans-serif"],
+                        "display-hero": ["Nunito", "sans-serif"],
+                        "label-caps": ["Nunito", "sans-serif"],
+                        "body-lg": ["Nunito", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["28px", { "lineHeight": "1.3", "fontWeight": "800" }],
+                        "headline-section": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900" }],
+                        "body-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "button": ["18px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "display-hero": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "label-caps": ["14px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { background-color: theme('colors.background'); font-family: 'Nunito', sans-serif; }
+        .soft-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .clay-button-shadow { box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 10px 20px rgba(255, 90, 54, 0.2); }
+        .clay-button-shadow:hover { box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 15px 25px rgba(255, 90, 54, 0.3); transform: translateY(-2px); }
+        .bg-blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; }
+    </style>
+</head>
+<body class="text-on-background min-h-screen relative overflow-x-hidden">
+<!-- Background Ambience -->
+<div class="bg-blob w-[600px] h-[600px] bg-primary-fixed-dim/30 top-[-100px] left-[-100px]"></div>
+<div class="bg-blob w-[500px] h-[500px] bg-secondary-fixed-dim/20 bottom-[-50px] right-[-50px]"></div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto backdrop-blur-xl bg-white/80 dark:bg-inverse-surface/80 shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-transform duration-200">
+<div class="font-display-hero text-headline-sm text-primary tracking-tighter">PlaySphere</div>
+<div class="hidden md:flex gap-md items-center">
+<!-- Active: Live -->
+<a class="text-primary border-b-4 border-primary pb-1 font-button text-button hover:scale-105 transition-transform duration-200" href="#">Live</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Schedule</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Courts</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-button text-button hover:scale-105 transition-transform duration-200" href="#">Community</a>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors hover:scale-105">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors hover:scale-105">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Side Navigation (Hidden on smaller screens, active Live Match) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 hidden lg:flex bg-surface-container-low shadow-[40px_0_60px_-15px_rgba(0,0,0,0.1)] w-72 rounded-r-lg mt-[80px]">
+<div class="mb-lg">
+<h2 class="font-headline-sm text-primary">PlaySphere Kinetic</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Ahmedabad Arena</p>
+</div>
+<nav class="flex-1 flex flex-col gap-sm">
+<a class="bg-primary-container text-on-primary-container rounded-xl font-bold shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] p-sm flex items-center gap-sm transition-transform hover:translate-x-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-body-md text-body-md">Live Match</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all p-sm flex items-center gap-sm hover:translate-x-2" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-body-md text-body-md">Statistics</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all p-sm flex items-center gap-sm hover:translate-x-2" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body-md text-body-md">Commentary</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all p-sm flex items-center gap-sm hover:translate-x-2" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">City Activity</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all p-sm flex items-center gap-sm hover:translate-x-2" href="#">
+<span class="material-symbols-outlined">sports_kabaddi</span>
+<span class="font-body-md text-body-md">Player Hub</span>
+</a>
+</nav>
+<button class="bg-primary-container text-white rounded-full p-sm font-button text-button clay-button-shadow mt-auto">
+            Book a Court
+        </button>
+</aside>
+<!-- Main Content Area -->
+<main class="pt-[100px] lg:pl-[320px] px-gutter pb-xl max-w-container-max mx-auto min-h-screen">
+<!-- Match Header -->
+<header class="mb-lg flex flex-col items-center justify-center text-center">
+<div class="inline-flex items-center gap-sm bg-surface-container-high px-md py-sm rounded-full mb-md shadow-sm">
+<span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface">LIVE MATCH - 78:42</span>
+</div>
+<h1 class="font-headline-section text-headline-section text-on-surface mb-sm">Ahmedabad FC vs. Urban Strikers</h1>
+<div class="font-display-hero text-display-hero text-primary">2 - 1</div>
+</header>
+<!-- Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Live Commentary (7 columns) -->
+<section class="lg:col-span-7 flex flex-col h-[700px]">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">forum</span>
+                    Live Commentary
+                </h3>
+<div class="bg-white/90 backdrop-blur-md rounded-lg p-md shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex-1 overflow-y-auto space-y-md border border-outline-variant/30">
+<!-- Goal Entry -->
+<div class="flex gap-md group">
+<div class="w-16 flex-shrink-0 text-right font-label-caps text-label-caps text-on-surface-variant pt-1">78'</div>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-sm rounded-xl border border-primary/20 shadow-sm group-hover:-translate-y-1 transition-transform">
+<span class="font-button text-button text-primary block mb-1">GOAL!</span>
+<p class="font-body-md text-body-md text-on-surface">Vikram Singh headers it in! An absolute screamer from the corner kick.</p>
+</div>
+</div>
+<!-- Card Entry -->
+<div class="flex gap-md group">
+<div class="w-16 flex-shrink-0 text-right font-label-caps text-label-caps text-on-surface-variant pt-1">72'</div>
+<div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0 text-yellow-700">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">style</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-sm rounded-xl border border-outline-variant/50 shadow-sm group-hover:-translate-y-1 transition-transform">
+<span class="font-button text-button text-yellow-700 block mb-1">Yellow Card</span>
+<p class="font-body-md text-body-md text-on-surface">#7 Rahul receives a booking for a late challenge.</p>
+</div>
+</div>
+<!-- Normal Entry -->
+<div class="flex gap-md group opacity-80">
+<div class="w-16 flex-shrink-0 text-right font-label-caps text-label-caps text-on-surface-variant pt-1">65'</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined">directions_run</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-sm rounded-xl shadow-sm group-hover:-translate-y-1 transition-transform">
+<p class="font-body-md text-body-md text-on-surface">Substitution for Urban Strikers. Amit out, Karan in.</p>
+</div>
+</div>
+<!-- Normal Entry -->
+<div class="flex gap-md group opacity-70">
+<div class="w-16 flex-shrink-0 text-right font-label-caps text-label-caps text-on-surface-variant pt-1">58'</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-sm rounded-xl shadow-sm group-hover:-translate-y-1 transition-transform">
+<p class="font-body-md text-body-md text-on-surface">Possession heavily favoring Ahmedabad FC in this half, building pressure.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Match Statistics (5 columns) -->
+<section class="lg:col-span-5 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">leaderboard</span>
+                    Match Statistics
+                </h3>
+<div class="bg-white/90 backdrop-blur-md rounded-lg p-lg shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex flex-col gap-lg">
+<!-- Possession -->
+<div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface mb-sm">
+<span>Ahmedabad FC</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Possession</span>
+<span>Urban Strikers</span>
+</div>
+<div class="flex justify-between font-button text-button mb-xs">
+<span class="text-primary">54%</span>
+<span class="text-secondary">46%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 54%"></div>
+<div class="h-full bg-secondary" style="width: 46%"></div>
+</div>
+</div>
+<hr class="border-outline-variant/50">
+<!-- Shots on Target -->
+<div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface mb-sm">
+<span class="text-primary">8</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Shots on Target</span>
+<span class="text-secondary">4</span>
+</div>
+<div class="relative h-2 w-full bg-surface-container-highest rounded-full mt-2">
+<div class="absolute left-0 top-0 h-full bg-primary rounded-l-full" style="width: 66%"></div>
+<!-- Visual split marker -->
+<div class="absolute left-1/2 top-[-4px] bottom-[-4px] w-1 bg-white z-10"></div>
+<div class="absolute right-0 top-0 h-full bg-secondary rounded-r-full" style="width: 33%"></div>
+</div>
+</div>
+<!-- Fouls -->
+<div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface mb-sm">
+<span class="text-primary">12</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Fouls</span>
+<span class="text-secondary">15</span>
+</div>
+<div class="relative h-2 w-full bg-surface-container-highest rounded-full mt-2">
+<div class="absolute left-0 top-0 h-full bg-primary opacity-60 rounded-l-full" style="width: 44%"></div>
+<!-- Visual split marker -->
+<div class="absolute left-1/2 top-[-4px] bottom-[-4px] w-1 bg-white z-10"></div>
+<div class="absolute right-0 top-0 h-full bg-secondary opacity-60 rounded-r-full" style="width: 55%"></div>
+</div>
+</div>
+<!-- Corners -->
+<div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface mb-sm">
+<span class="text-primary">6</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Corners</span>
+<span class="text-secondary">2</span>
+</div>
+<div class="relative h-2 w-full bg-surface-container-highest rounded-full mt-2">
+<div class="absolute left-0 top-0 h-full bg-primary rounded-l-full" style="width: 75%"></div>
+<!-- Visual split marker -->
+<div class="absolute left-1/2 top-[-4px] bottom-[-4px] w-1 bg-white z-10"></div>
+<div class="absolute right-0 top-0 h-full bg-secondary rounded-r-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center justify-center gap-sm text-center bg-inverse-surface dark:bg-surface-container-lowest p-xl mt-xl text-secondary-fixed dark:text-secondary font-label-caps text-label-caps">
+<div class="font-headline-sm text-white mb-md">PlaySphere</div>
+<p>© 2024 PlaySphere Kinetic. Ahmedabad's Digital Playground.</p>
+<div class="flex gap-md mt-sm">
+<a class="text-surface-variant/60 hover:text-white hover:underline underline-offset-4 transition-colors" href="#">Terms of Play</a>
+<a class="text-surface-variant/60 hover:text-white hover:underline underline-offset-4 transition-colors" href="#">Privacy</a>
+<a class="text-surface-variant/60 hover:text-white hover:underline underline-offset-4 transition-colors" href="#">Support</a>
+<a class="text-surface-variant/60 hover:text-white hover:underline underline-offset-4 transition-colors" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

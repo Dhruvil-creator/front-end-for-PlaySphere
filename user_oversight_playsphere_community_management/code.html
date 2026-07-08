@@ -1,0 +1,476 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Admin - User Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#b52603",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#b52603",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-container-high": "#ffe2dc",
+                    "tertiary-fixed-dim": "#bac3ff",
+                    "on-background": "#271814",
+                    "on-surface-variant": "#434655",
+                    "surface-container": "#ffe9e5",
+                    "on-tertiary-fixed": "#00105b",
+                    "on-primary": "#ffffff",
+                    "outline": "#8f7069",
+                    "surface-bright": "#fff8f6",
+                    "on-primary-container": "#5a0c00",
+                    "secondary-container": "#6df5e1",
+                    "inverse-surface": "#3e2c28",
+                    "surface-container-highest": "#f9dcd6",
+                    "surface-container-low": "#fff0ed",
+                    "clay-bg": "#F5EFE9",
+                    "inverse-primary": "#ffb4a3",
+                    "tertiary-fixed": "#dee0ff",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "primary-fixed": "#ffdad2",
+                    "on-error": "#ffffff",
+                    "map-teal": "#00B4A2",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#7d8ce4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-card": "#FFFFFF",
+                    "surface": "#fff8f6",
+                    "on-tertiary-container": "#0d2075",
+                    "on-primary-fixed": "#3d0600",
+                    "primary-soft": "#FF8A70",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#4858ab",
+                    "background": "#fff8f6",
+                    "inverse-on-surface": "#ffede9",
+                    "surface-dim": "#f0d4ce",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#f9dcd6",
+                    "secondary-fixed": "#70f8e4",
+                    "secondary": "#006b5f",
+                    "on-surface": "#271814",
+                    "outline-variant": "#e3beb6",
+                    "primary-container": "#ff5a36",
+                    "on-tertiary-fixed-variant": "#2f3f92",
+                    "on-secondary-container": "#006f64",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "on-secondary-fixed-variant": "#005048",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Nunito"],
+                    "display-hero": ["Nunito"],
+                    "headline-section": ["Nunito"],
+                    "body-lg": ["Nunito"],
+                    "display-hero-mobile": ["Nunito"],
+                    "label-caps": ["Nunito"],
+                    "body-md": ["Nunito"],
+                    "button": ["Nunito"]
+            },
+            "fontSize": {
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "display-hero": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "headline-section": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "900"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "600"}],
+                    "display-hero-mobile": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "800"}],
+                    "body-md": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "button": ["18px", {"lineHeight": "1", "fontWeight": "700"}]
+            },
+            "boxShadow": {
+                "deep": "0 20px 40px rgba(0,0,0,0.08)",
+                "clay-btn": "0 8px 20px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255,255,255,0.4)",
+                "clay-btn-error": "0 8px 20px rgba(186, 26, 26, 0.3), inset 0 2px 4px rgba(255,255,255,0.4)",
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .clay-btn {
+            box-shadow: 0 8px 20px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255,255,255,0.5);
+            transition: all 0.2s ease;
+        }
+        .clay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(255, 90, 54, 0.4), inset 0 2px 4px rgba(255,255,255,0.6);
+        }
+        .clay-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 10px rgba(255, 90, 54, 0.2), inset 0 1px 2px rgba(255,255,255,0.3);
+        }
+        
+        .clay-btn-error {
+            box-shadow: 0 8px 20px rgba(186, 26, 26, 0.2), inset 0 2px 4px rgba(255,255,255,0.4);
+            transition: all 0.2s ease;
+        }
+        .clay-btn-error:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(186, 26, 26, 0.3), inset 0 2px 4px rgba(255,255,255,0.5);
+        }
+
+        .soft-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+        }
+
+        /* Ambient Background Blobs */
+        .ambient-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md flex overflow-x-hidden min-h-screen">
+<!-- Ambient Background Layer (Level 1) -->
+<div class="ambient-blob bg-primary-fixed w-[600px] h-[600px] top-[-200px] right-[-100px]"></div>
+<div class="ambient-blob bg-secondary-fixed w-[500px] h-[500px] bottom-[-100px] left-[100px] opacity-30"></div>
+<!-- SideNavBar (Desktop Shell) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-clay-bg shadow-[20px_0_40px_rgba(0,0,0,0.05)] z-40">
+<div class="flex flex-col h-full p-md border-r border-outline-variant w-full">
+<!-- Header -->
+<div class="mb-xl flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-variant border-2 border-primary-container">
+<img alt="Admin Profile Avatar" class="w-full h-full object-cover" data-alt="A close-up, highly detailed portrait of a professional administrator or community manager. They have a welcoming but authoritative expression, lit by warm, natural sunlight in a modern office setting. The aesthetic is clean, bright, and matches a vibrant sports community brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMho8EQkCRiuE8elqJANU-Iq0BiOxMlItUYdn5RLtKxfjrHlLNKFMECLUOztjNU2YdhW8itrsNq9hX9kPis3hmQNKa8q4ox8E_3MbuLso58NAcpox7u7MeL9OvP8kmSRlDUe8XMfFQfff8qH4x88FX2vhei35EnirWx-OeioIiEiVM2RWN1jM2k-TD7fV0iohN2xf8cPphBhEA977H81Ubn5qMAYn6CV88ppCHTtvgJeYHNULar-lH">
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-black text-primary leading-tight">PlaySphere Admin</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Operational Control</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-sm overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- ACTIVE TAB -->
+<a aria-current="page" class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold shadow-sm scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="stadium">stadium</span>
+<span>Venue Oversight</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="emoji_events">emoji_events</span>
+<span>Tournaments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="analytics">analytics</span>
+<span>System Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="flag">flag</span>
+<span>Reports</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="mt-md mb-lg">
+<button class="w-full clay-btn bg-primary text-on-primary font-button text-button py-3 rounded-full flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="add_alert">add_alert</span>
+                    Create Alert
+                </button>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-col gap-sm pt-md border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col md:ml-64 relative min-h-screen">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 backdrop-blur-xl bg-surface/80 shadow-sm">
+<div class="flex justify-between items-center w-full px-lg py-sm">
+<!-- Left: Brand (Mobile) / Search (Desktop) -->
+<div class="flex items-center gap-md">
+<div class="md:hidden flex items-center">
+<span class="font-headline-sm text-headline-sm font-black text-primary">PlaySphere Kinetic</span>
+</div>
+<div class="hidden md:flex items-center bg-surface-container-highest rounded-full px-4 py-2 w-80 shadow-inner focus-within:ring-2 ring-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none w-full text-on-surface placeholder-on-surface-variant focus:ring-0" placeholder="Search community..." type="text">
+</div>
+</div>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 hidden sm:block">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 hidden sm:block">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container bg-surface-variant cursor-pointer hover:border-primary transition-colors">
+<img alt="Administrator" class="w-full h-full object-cover" data-alt="A small circular avatar image showing a professional administrator. Bright lighting, clear features, fitting a modern software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDBVQT0ZVD9ZeU0-ESbRHrWdxZ5PIiXo3Kztj6YuErLKh-k3__wcS0-ImJlUdanjbCn3gd_HztsoSEGMkzgQrFb_pspNfNFY1daBy50uxjWISTzj71RGwgGwpJKFz0i60wRTRXVqIHjCmkJg4QZ_1Fk_uYWL3T_tVMQ0ExmcmxLH6N8iioH8qW93uo1SjNy58pkMqBnVr8JLr3RjOYSU2QYjPj-oEvNc2gJwpRVQVH1XVohM_9dEGE">
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-lg flex gap-lg max-w-[1600px] mx-auto w-full relative z-10 flex-col xl:flex-row">
+<!-- Left Column: User Community Table/List -->
+<section class="flex-1 flex flex-col gap-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-sm mb-sm">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-background mb-2">Ahmedabad Athletes</h2>
+<p class="text-on-surface-variant">Manage community members, moderate activity, and enforce platform guidelines.</p>
+</div>
+<div class="flex gap-sm">
+<select class="bg-surface-card border-none rounded-full px-4 py-2 shadow-sm font-label-caps text-label-caps text-on-surface cursor-pointer focus:ring-2 focus:ring-primary">
+<option>All Sports</option>
+<option>Basketball</option>
+<option>Tennis</option>
+<option>Football</option>
+</select>
+<select class="bg-surface-card border-none rounded-full px-4 py-2 shadow-sm font-label-caps text-label-caps text-on-surface cursor-pointer focus:ring-2 focus:ring-primary">
+<option>All Statuses</option>
+<option>Verified</option>
+<option>Restricted</option>
+<option>Moderator</option>
+</select>
+</div>
+</div>
+<!-- Structured List (Tactile Cards replacing standard table rows) -->
+<div class="flex flex-col gap-sm">
+<!-- Row 1: Active/Verified -->
+<div class="bg-surface-card rounded-lg p-sm pr-lg flex items-center justify-between shadow-sm soft-card border border-surface-container-highest">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-secondary-container flex-shrink-0 relative">
+<img alt="Athlete Avatar" class="w-full h-full object-cover" data-alt="Portrait of an athletic young man in a sports jersey, smiling warmly. The lighting is bright and outdoor, suggesting an active lifestyle in a city park setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuXuSOghaLGfNU9Xz9igDUFAlStS5OcJ7KsLLObKaRo6CepaRrU5T4_HOJ8P7kZmdMXkZ9pPdF2lo_y7dKpqE0hnezGc-tSs6FUfHBi3vHt-4BM0hmx9k--A9_nT4jaLXKHJOx6HDw6HZRf9P0PSUbSTLAyW5IVnn0WhtOQ-chqdjDsr2ZUC3bFw2hQN0oaRwnbn-iSZhagiu-t6tr2sy-RHjGLic6WGjzT4yg4AjiS-POPag47LBU">
+<div class="absolute bottom-0 right-0 bg-surface-card rounded-full p-xs">
+<span class="material-symbols-outlined text-[12px] text-secondary" data-icon="sports_basketball" data-weight="fill">sports_basketball</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Rahul Desai</h3>
+<p class="text-sm text-on-surface-variant">@rahul_hoops • Joined Oct 2023</p>
+</div>
+</div>
+<div class="hidden md:flex flex-col items-start gap-1 w-48">
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">Primary Hub</span>
+<span class="text-sm font-bold text-on-background">Vastrapur Courts</span>
+</div>
+<div class="hidden sm:flex w-32">
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" data-weight="fill">verified</span>
+                                Verified Athlete
+                            </span>
+</div>
+<div>
+<button class="bg-surface-container-high text-on-surface hover:text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 2: Selected / Restricted (Simulating Active State for Sidebar) -->
+<div class="bg-surface-card rounded-lg p-sm pr-lg flex items-center justify-between shadow-deep border-2 border-primary translate-x-2 relative z-10 transition-transform">
+<div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-md pl-4">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-error-container flex-shrink-0 relative">
+<img alt="Athlete Avatar" class="w-full h-full object-cover" data-alt="Portrait of an intense-looking male athlete in casual sportswear. The background is a slightly blurred urban sports facility. The image has a slightly cooler, grittier tone compared to the others." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sQYOIkRg_0fpwO2Bx_fQ-B1M4fzMol0ZAMqa1JLda2pUfz31OEVuKW1_st9zRgcUc5cZHyLTUf5L8__lHBPq9Blc-iwqSdrLcTqGKSVoyips0bV8jSJDqUyTGXJHj7oIQWb9vjIuvitW11l5DoC-p5-O_HxQuxU8Y7TxEbNwYoW0NMs1nlX546eJLlyZl7rBqEjAEEeu4Wmk9cdpyQlQx1xLNlGoruuMG2Q7Nt6q6KrMSH7QK9nJ">
+<div class="absolute bottom-0 right-0 bg-surface-card rounded-full p-xs">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="sports_tennis" data-weight="fill">sports_tennis</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Vikram Singh</h3>
+<p class="text-sm text-on-surface-variant">@vik_smash • Joined Jan 2024</p>
+</div>
+</div>
+<div class="hidden md:flex flex-col items-start gap-1 w-48">
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">Primary Hub</span>
+<span class="text-sm font-bold text-on-background">Navrangpura Club</span>
+</div>
+<div class="hidden sm:flex w-32">
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning" data-weight="fill">warning</span>
+                                Restricted
+                            </span>
+</div>
+<div>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 3: Moderator -->
+<div class="bg-surface-card rounded-lg p-sm pr-lg flex items-center justify-between shadow-sm soft-card border border-surface-container-highest">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-tertiary-container flex-shrink-0 relative">
+<img alt="Athlete Avatar" class="w-full h-full object-cover" data-alt="Portrait of a confident female athlete holding a clipboard or whistle, indicating a leadership or moderator role. She is on an outdoor sports field under bright daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9dHYmGd76HUE2Z0sPKxhEolRHPUg_BsVa1P4vTe3or7FFsZxi8xKGUoNa8bbD2AgMsMnrCpHzuNZxkZRZstzJ3YW3D6uKAn1tE9KMBkO2u48TYlKnr0NsoiWlFPsnTmV2jb4ug1Ao_ylt7fJnFMeHOuv76AWTF-NBO1RKdqUtgzCC46AvbXFzZeeAlKPLVp2n8wfxgNw2WhfIcxapykpHPaCmp-cmLkOmftVLfPETukyeKdqDgOIn">
+<div class="absolute bottom-0 right-0 bg-surface-card rounded-full p-xs">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="sports_soccer" data-weight="fill">sports_soccer</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Priya Sharma</h3>
+<p class="text-sm text-on-surface-variant">@priya_goal • Joined Aug 2022</p>
+</div>
+</div>
+<div class="hidden md:flex flex-col items-start gap-1 w-48">
+<span class="font-label-caps text-label-caps text-[10px] text-on-surface-variant">Primary Hub</span>
+<span class="text-sm font-bold text-on-background">Kankaria Arena</span>
+</div>
+<div class="hidden sm:flex w-32">
+<span class="inline-flex items-center gap-1 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_police" data-weight="fill">local_police</span>
+                                Moderator
+                            </span>
+</div>
+<div>
+<button class="bg-surface-container-high text-on-surface hover:text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination (Simple tactile version) -->
+<div class="flex justify-center items-center gap-sm mt-md">
+<button class="w-10 h-10 rounded-full bg-surface-card shadow-sm flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span></button>
+<span class="font-bold text-on-background">1 <span class="text-on-surface-variant font-normal mx-1">of</span> 12</span>
+<button class="w-10 h-10 rounded-full bg-surface-card shadow-sm flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</section>
+<!-- Right Column: Incident Sidebar (Appears when a user is selected) -->
+<aside class="w-full xl:w-[420px] flex-shrink-0">
+<div class="bg-surface-card rounded-xl shadow-deep p-md sticky top-32 border border-outline-variant/30 flex flex-col h-[calc(100vh-140px)] overflow-hidden">
+<!-- Selected User Header -->
+<div class="flex flex-col items-center text-center pb-md border-b border-surface-container-highest">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-3 border-4 border-error-container shadow-sm">
+<img alt="Selected User Avatar" class="w-full h-full object-cover" data-alt="Portrait of an intense-looking male athlete in casual sportswear. The background is a slightly blurred urban sports facility. The image has a slightly cooler, grittier tone compared to the others." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvOrLy4xbW3-iVUKd6Gzv7pcdT2hyqB-WMTNZuQq-QsAT84250Rqz0nXOC79toYW1IU-vCsRB5IN2N8hCBbfDD72YvBSCrTDiIRVhHmAuHKquDh_ktAC2vG0wDXIJm-rXEiftDPrKvNJg-e0I57dfjseUs_ZuBiUgqfWoZxFBOSdqSssNbXEwvxL8wJUWto0C6mx5TrjPHECsdz1zysIx6SbvKPH7bssWKdK_2VgKZCL81vu9D2dro">
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-1">Vikram Singh</h3>
+<div class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-caps text-[12px] mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning" data-weight="fill">warning</span>
+                            Restricted Account
+                        </div>
+<!-- Quick Action: Passport -->
+<button class="bg-surface-container text-on-surface font-button text-sm py-2 px-6 rounded-full flex justify-center items-center gap-2 hover:bg-surface-container-high transition-colors shadow-sm w-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="badge">badge</span>
+                            View Athlete Passport
+                        </button>
+</div>
+<!-- Scrollable Context Area -->
+<div class="flex-1 overflow-y-auto py-md flex flex-col gap-lg pr-2 custom-scrollbar">
+<!-- Report History -->
+<section>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="flag">flag</span>
+                                Incident History
+                            </h4>
+<div class="flex flex-col gap-4 relative before:absolute before:inset-y-0 before:left-3 before:w-0.5 before:bg-surface-container-highest">
+<!-- Incident Item 1 -->
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-1 w-3 h-3 bg-error rounded-full outline outline-4 outline-surface-card"></div>
+<div class="bg-error-container/30 rounded-lg p-3 border border-error-container">
+<div class="flex justify-between items-start mb-1">
+<span class="font-bold text-sm text-on-error-container">Aggressive Behavior</span>
+<span class="text-[10px] text-on-surface-variant">2 days ago</span>
+</div>
+<p class="text-sm text-on-surface-variant">Reported by 3 users during a pickup match at Navrangpura. Verbal altercation.</p>
+</div>
+</div>
+<!-- Incident Item 2 -->
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-1 w-3 h-3 bg-surface-variant rounded-full outline outline-4 outline-surface-card"></div>
+<div class="bg-surface rounded-lg p-3 border border-surface-container">
+<div class="flex justify-between items-start mb-1">
+<span class="font-bold text-sm text-on-surface">No-Show Offense</span>
+<span class="text-[10px] text-on-surface-variant">1 week ago</span>
+</div>
+<p class="text-sm text-on-surface-variant">Failed to attend a reserved court session without cancelling.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Social Activity -->
+<section>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="forum">forum</span>
+                                Recent Community Feed
+                            </h4>
+<div class="flex flex-col gap-3">
+<div class="bg-surface rounded-lg p-3 border border-surface-container text-sm">
+<p class="text-on-background">"Anyone want to play singles at 6 PM? Don't flake this time."</p>
+<p class="text-[10px] text-on-surface-variant mt-2 text-right">Posted 1 hr ago</p>
+</div>
+<div class="bg-surface rounded-lg p-3 border border-surface-container text-sm opacity-60">
+<p class="text-on-background">"Courts were trash yesterday. @admin fix the nets."</p>
+<p class="text-[10px] text-on-surface-variant mt-2 text-right">Posted 3 days ago</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Critical Actions Footer -->
+<div class="pt-md border-t border-surface-container-highest flex flex-col gap-sm">
+<button class="w-full bg-surface text-on-surface font-button py-3 rounded-full flex justify-center items-center gap-2 border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                            Send Formal Warning
+                        </button>
+<button class="w-full clay-btn-error bg-error text-on-error font-button py-3 rounded-full flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+                            Suspend Account
+                        </button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<style>
+        /* Custom Scrollbar for sidebar to keep it neat */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: theme('colors.surface-container-highest');
+            border-radius: 10px;
+        }
+    </style>
+</body></html>

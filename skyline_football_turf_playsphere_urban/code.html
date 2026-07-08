@@ -1,0 +1,404 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Skyline Football Turf - PlaySphere Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#f9dcd6",
+                      "on-surface-variant": "#5b403a",
+                      "surface-container-high": "#ffe2dc",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#3e2c28",
+                      "inverse-primary": "#ffb4a3",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-container-low": "#fff0ed",
+                      "surface-tint": "#b52603",
+                      "secondary": "#006b5f",
+                      "tertiary": "#4858ab",
+                      "secondary-container": "#6df5e1",
+                      "on-primary-fixed": "#3d0600",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-primary-container": "#5a0c00",
+                      "primary": "#b52603",
+                      "on-surface": "#271814",
+                      "on-tertiary-fixed": "#00105b",
+                      "on-background": "#271814",
+                      "on-tertiary-container": "#0d2075",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#006f64",
+                      "surface-container": "#ffe9e5",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "inverse-on-surface": "#ffede9",
+                      "map-teal": "#00B4A2",
+                      "surface-card": "#FFFFFF",
+                      "clay-bg": "#F5EFE9",
+                      "surface-container-highest": "#f9dcd6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#70f8e4",
+                      "primary-fixed": "#ffdad2",
+                      "outline-variant": "#e3beb6",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#f0d4ce",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-fixed": "#dee0ff",
+                      "primary-soft": "#FF8A70",
+                      "surface": "#fff8f6",
+                      "surface-bright": "#fff8f6",
+                      "primary-container": "#ff5a36",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "error-container": "#ffdad6",
+                      "outline": "#8f7069",
+                      "background": "#fff8f6",
+                      "tertiary-fixed-dim": "#bac3ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "container-max": "1280px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "md": "24px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom Utilities for PlaySphere Kinetic */
+        .shadow-soft-deep {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .shadow-clay-btn {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 8px 16px rgba(255, 90, 54, 0.3);
+        }
+        .shadow-clay-btn:active {
+             box-shadow: inset 0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(255, 90, 54, 0.3);
+        }
+        .bg-clay-blob {
+            background: radial-gradient(circle at 50% 50%, var(--tw-colors-surface-variant) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="backdrop-blur-xl bg-white/80 dark:bg-inverse-surface/80 rounded-full px-6 py-3 shadow-[0_20px_40px_rgba(0,0,0,0.1)] flex items-center justify-between w-full">
+<a class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 active:scale-95" href="#">PlaySphere Kinetic</a>
+<div class="flex items-center space-x-md">
+<!-- Search (on_right) -->
+<button class="text-on-surface-variant dark:text-surface-variant hover:scale-105 transition-transform duration-200 p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:scale-105 transition-transform duration-200 p-2 rounded-full hover:bg-surface-variant relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-primary rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container hover:scale-105 transition-transform duration-200 cursor-pointer shadow-sm">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A close up, high quality photo of a young, active individual with a warm smile, wearing athletic clothing, bright outdoor lighting, soft background blur, conveying approachability and community spirit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6TsKS00CBkKuPjte1FpHWdPxFluwZoHzXiAGiNlSEF0CpQxLSZ3wYErLSQYXRqdBksyVp6g0upny6BWyFLPk3xX083JUR3IjJjZKOJn8o0zN6tr-bDdR81B6JZ9xKBZdp0g2Gu0zW5q5ISiFvozlYkN-X1QaEZBBbRKEgEJ9YWuj0f0oJt9dqSrxvKQlN0Mjxk3uZof127nM3WynwCJQD3D2tQmhjilPtHtbiSZfyDSjnw8cr5Qn7">
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-[100px] pb-xl px-gutter max-w-container-max mx-auto w-full relative z-10">
+<!-- Background Decor -->
+<div class="absolute top-0 left-0 w-full h-[600px] bg-clay-blob opacity-60 -z-10 pointer-events-none transform -translate-y-1/4"></div>
+<!-- Hero Gallery -->
+<section class="mb-lg animate-fade-in-up">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-sm md:h-[500px] rounded-xl overflow-hidden shadow-soft-deep">
+<div class="md:col-span-3 row-span-2 relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Main Turf View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide, sweeping cinematic shot of a pristine artificial turf football field at dusk. High-key floodlights illuminate the vibrant green grass. The sky is a gradient of warm sunset orange and deep purple, evoking a 'sunset on the court' energetic feel. The scene is slightly soft and tactile, highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvq9RHcXqcysP_m9hYWAYjCNEcr3bXBrFLoG87488rjCBhrlluUNFSEc9ZR_d-jFtErKu5_7JEHJ8Ju7QfWqUob2zy2m_twh0u6DxF6_XPY1fnXzHxIm2YPzFP0Lhzhg72T4M5LCVc2pKMFoPgfjKkep1TGFQtjo2Wq7uKDB8V2uJxofBkOYZ6fONHYrY48lbrZKAr3q8Ft2-4_5Bu4EbevIHVGxTzq_n62aCB9ojiAUAhlFCIzbHr">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h1 class="font-headline-section text-headline-section text-white mb-2">Skyline Football Turf</h1>
+<p class="font-body-lg text-body-lg text-white/90 flex items-center gap-2">
+<span class="material-symbols-outlined">location_on</span>
+                             Downtown Hub, Near Central Station
+                        </p>
+</div>
+</div>
+<div class="hidden md:block relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Turf Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up shot of a high quality football resting on the synthetic green turf, sharp focus on the ball texture with a shallow depth of field, bright floodlights in the background creating soft bokeh. Energetic and sports-focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVY1Cwrr51wupyJAaapoIK4p_ZTQTKoB9zw6P1LSjPanYjOJRk8hXxVOnMo7ZHrCwrfr5YkUc93nBoRMuyOSgLkkUUSKTziq4F-mMNOoa8HdpnOXHCc8dq6rLZ_tPGxGTylHtaww8yn9c5tParG8kIavyiK3ENppdvF_k8C45levwbHYhWlMAA5mF_fxglCZ96x0fE0qRhQUIC5-06UU0wX6XL71xpLzXudVlSewhioz2icSGgf7qA">
+</div>
+<div class="hidden md:block relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Cafeteria Area" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A view of the modern, minimalist cafeteria area attached to the football turf. Warm lighting, wooden benches, and large glass windows overlooking the field. The atmosphere is welcoming, community-centric, and slightly blurred to emphasize the relaxed environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7RGMy7EApq3flkFbD9iV4fHmm2WVkL-eRQ6uGIT4MaGUeXjJvyuGCTtXiqBbwzmGA9iCg9uMNmMaUhkOOkJcGzGUEwjU5jBCMTFcXBuYtbuujMzaaEItTPNG61QgFU8DprbEb_lAmljvQn6DnJIEU76oY6JlmV9_z40cQkm7hgnWZGDGdoCSdB4pfRsnM27tkBPIgd9nPRCG9yZaoAROouR_TvfZbgRxN-S225u7lrXuCOpQ8_HVf">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-label-caps text-label-caps text-white bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">+3 Photos</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Layout: Main Info + Booking Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl relative">
+<!-- Left Column: Venue Details -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- About Section -->
+<section class="bg-surface-card rounded-xl p-md shadow-soft-deep hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-4">About the Venue</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        Experience premier 5-a-side football at Skyline Turf. Our state-of-the-art synthetic pitch offers perfect grip and ball roll, ensuring a professional-grade game every time. Nestled in the heart of the city, it's the perfect spot for competitive leagues, friendly kick-abouts, and corporate events. The vibrant atmosphere and top-tier facilities make it more than just a pitch—it's your community playground.
+                    </p>
+<!-- Amenities Grid -->
+<h3 class="font-body-lg text-body-lg text-on-surface mb-4">Amenities</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Floodlights</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Water</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" style="font-variation-settings: 'FILL' 1;">local_parking</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Parking</span>
+</div>
+<div class="flex flex-col items-center justify-center p-4 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Cafeteria</span>
+</div>
+</div>
+</section>
+<!-- Location Map (Placeholder for Map Element) -->
+<section class="bg-surface-card rounded-xl p-md shadow-soft-deep hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-4">Location</h2>
+<div class="w-full h-64 rounded-lg overflow-hidden bg-surface-variant relative transform perspective-1000 rotateX-20 shadow-inner group">
+<!-- Isometric Map Placeholder -->
+<div class="bg-cover bg-center w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300" data-alt="A top-down, slightly isometric 3D stylized map rendering of a vibrant city block. The colors are bright teals, warm corals, and soft clays, consistent with the PlaySphere Kinetic theme. A large, glowing red marker indicates the central football turf location. Soft drop shadows and tactile styling." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClIIY2snjFNZOqXaVNNv2CxWTPKELzDlKyNJdMXI-YUwp4WUArcXIgxlgdaVrr09p-5AyVMY3P5raQXLZPCDiNEIyfCAqR_ArjzQy0cI0VmQDvVd_gNwKI1yPR81E9h1VkJFYrXCs8Nccy4DorIV6Q5Ixze10qGLRk5nV_flYymDn-Pk_cFZHT-eDbLRqiziAOKxZkvtMSZcOfiC1G9iOF51JU90h2W5ud5X6uj0-_6ilhKbTJz95A')"></div>
+<!-- Animated Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce">
+<div class="w-12 h-12 bg-primary rounded-full shadow-[0_10px_20px_rgba(181,38,3,0.5)] flex items-center justify-center border-4 border-white">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">stadium</span>
+</div>
+<div class="w-4 h-1 bg-black/20 rounded-full mx-auto mt-2 blur-[2px]"></div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">directions</span>
+                        Get Directions to Skyline Turf
+                    </p>
+</section>
+</div>
+<!-- Right Column: Sticky Booking Sidebar -->
+<div class="lg:col-span-4">
+<div class="sticky top-[120px] bg-surface-card rounded-xl p-md shadow-soft-deep z-20">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 border-b border-outline-variant pb-4">Book Your Slot</h3>
+<!-- Date Selection -->
+<div class="mb-6">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Select Date</label>
+<div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex-shrink-0 w-16 h-20 rounded-lg flex flex-col items-center justify-center bg-primary text-on-primary shadow-clay-btn transition-transform active:scale-95">
+<span class="text-sm font-semibold">Today</span>
+<span class="text-xl font-bold">24</span>
+</button>
+<button class="flex-shrink-0 w-16 h-20 rounded-lg flex flex-col items-center justify-center bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border border-transparent hover:border-outline-variant">
+<span class="text-sm">Wed</span>
+<span class="text-xl font-bold">25</span>
+</button>
+<button class="flex-shrink-0 w-16 h-20 rounded-lg flex flex-col items-center justify-center bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border border-transparent hover:border-outline-variant">
+<span class="text-sm">Thu</span>
+<span class="text-xl font-bold">26</span>
+</button>
+<button class="flex-shrink-0 w-16 h-20 rounded-lg flex flex-col items-center justify-center bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border border-transparent hover:border-outline-variant">
+<span class="text-sm">Fri</span>
+<span class="text-xl font-bold">27</span>
+</button>
+</div>
+</div>
+<!-- Time Selection -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">Available Slots</label>
+<span class="text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded-full">60 Min</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border border-transparent hover:border-outline-variant font-body-md text-body-md">18:00 - 19:00</button>
+<button class="py-3 rounded-lg bg-primary text-on-primary shadow-clay-btn font-body-md text-body-md transform scale-[1.02] transition-transform active:scale-95">19:00 - 20:00</button>
+<button class="py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-variant transition-colors border border-transparent hover:border-outline-variant font-body-md text-body-md">20:00 - 21:00</button>
+<button class="py-3 rounded-lg bg-surface-container/50 text-on-surface-variant cursor-not-allowed font-body-md text-body-md line-through border border-transparent">21:00 - 22:00</button>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="bg-surface-container rounded-lg p-4 mb-6">
+<div class="flex justify-between items-center mb-2 font-body-md text-body-md text-on-surface">
+<span>Turf Rental (1 hr)</span>
+<span>$45.00</span>
+</div>
+<div class="flex justify-between items-center mb-4 font-body-md text-body-md text-on-surface-variant text-sm border-b border-outline-variant pb-2">
+<span>Service Fee</span>
+<span>$5.00</span>
+</div>
+<div class="flex justify-between items-center font-headline-sm text-[24px] text-on-surface">
+<span>Total</span>
+<span class="text-primary font-black">$50.00</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-button text-button py-4 rounded-full shadow-clay-btn hover:scale-[1.02] active:scale-95 transition-all duration-200 flex justify-center items-center gap-2">
+<span>Confirm Booking</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-gutter grid grid-cols-1 md:grid-cols-4 gap-md bg-surface-container-low dark:bg-inverse-surface mt-auto rounded-t-lg z-10 relative">
+<div class="md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-black text-primary block mb-4">PlaySphere Kinetic</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                 © 2024 PlaySphere Kinetic Ahmedabad. Your City is Your Playground.
+             </p>
+</div>
+<div class="md:col-span-3 flex flex-wrap gap-md md:justify-end items-start font-body-md text-body-md text-on-surface-variant">
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Discover Venues</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Community Hub</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Bookings</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Support</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Privacy Policy</a>
+</div>
+</footer>
+<style>
+        /* Hide scrollbar for horizontal scrolling lists */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Simple entry animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* 3D Perspective helper */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .rotateX-20 {
+            transform: rotateX(20deg);
+        }
+    </style>
+</body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Creative Asset Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#ff5a36",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "primary-fixed": "#ffdad2",
+                      "secondary-fixed": "#70f8e4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#e3beb6",
+                      "map-teal": "#00B4A2",
+                      "on-background": "#271814",
+                      "inverse-surface": "#3e2c28",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "on-secondary-container": "#006f64",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "outline": "#8f7069",
+                      "surface-dim": "#f0d4ce",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#4858ab",
+                      "clay-bg": "#F5EFE9",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-bright": "#fff8f6",
+                      "surface-container": "#ffe9e5",
+                      "on-tertiary-container": "#0d2075",
+                      "background": "#fff8f6",
+                      "on-surface": "#271814",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#3d0600",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#dee0ff",
+                      "inverse-primary": "#ffb4a3",
+                      "primary": "#b52603",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#ffe2dc",
+                      "surface-tint": "#b52603",
+                      "primary-soft": "#FF8A70",
+                      "on-surface-variant": "#434655",
+                      "error": "#ba1a1a",
+                      "surface-card": "#FFFFFF",
+                      "inverse-on-surface": "#ffede9",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "surface": "#fff8f6",
+                      "surface-container-low": "#fff0ed",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "secondary": "#006b5f",
+                      "on-tertiary-fixed": "#00105b",
+                      "surface-variant": "#f9dcd6",
+                      "surface-container-highest": "#f9dcd6",
+                      "on-primary-container": "#5a0c00",
+                      "secondary-container": "#6df5e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "lg": "48px",
+                      "container-max": "1280px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "button": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .clay-button {
+            box-shadow: 0 4px 12px rgba(255, 90, 54, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .clay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 90, 54, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08);
+        }
+        .blob-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen flex">
+<!-- TopNavBar (Web) / BottomNavBar (Mobile) logic conceptually handled here, but structure implies TopNav and SideNav for a robust portal -->
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-md px-sm border-r border-outline-variant/30 fixed left-0 top-0 w-72 bg-clay-bg dark:bg-inverse-surface shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-40">
+<div class="mb-xl px-4 pt-md">
+<h1 class="font-headline-sm text-headline-sm font-black text-on-surface">PlaySphere Kinetic</h1>
+<p class="text-on-surface-variant text-sm mt-1">Enterprise Partner</p>
+</div>
+<button class="mb-lg mx-4 bg-primary-container text-on-primary font-button text-button py-3 px-6 rounded-full clay-button flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+            New Campaign
+        </button>
+<div class="flex-1 space-y-2">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-body-md">Campaigns</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 shadow-md inset-shadow-sm scale-98 transition-all duration-150" href="#">
+<span class="material-symbols-outlined fill" data-icon="palette">palette</span>
+<span class="font-body-md font-bold">Creatives</span>
+</a>
+</div>
+<div class="mt-auto space-y-2 border-t border-outline-variant/30 pt-4">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-variant/50 rounded-lg px-4 py-3 hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-body-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen relative overflow-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full md:w-[calc(100%-18rem)] z-50 flex justify-between items-center px-gutter h-20 backdrop-blur-xl bg-white/80 dark:bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-soft">Partner Portal</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant border-2 border-outline-variant overflow-hidden ml-2">
+<img alt="Brand Partner Avatar" class="w-full h-full object-cover" data-alt="A smiling young professional with glasses, bathed in soft, warm, energetic studio lighting typical of a vibrant, youthful sports-tech brand profile avatar, looking directly at the camera with a confident, welcoming expression against a soft clay background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLFHDNQzH4OF7YkQsCe7HMvHFyhZ3P4_TWm-nbLavMm4WibG8VTha7anmRsqrd2JvHRNc_p0eNwAmmClFTSFAK6sI7u0bjFM1MRQ-KEHQ58a8hxEsoMy_PO06t-TBYinFD5mjZEkq1fb0R5FxmywISYQEZ81IoDczasSnXj2NAz9HdwrwMLZZayWz-4EBDAG9j2ufPgMOzFXAJ6u-KxM4S-snArAh3D507ZGUFdyEXeudpuZuGXLbo">
+</div>
+</div>
+</header>
+<!-- Ambient Background Blobs -->
+<div class="blob-bg w-[600px] h-[600px] bg-primary-fixed-dim/40 top-[-200px] right-[-200px]"></div>
+<div class="blob-bg w-[400px] h-[400px] bg-secondary-fixed/30 bottom-[10%] left-[-100px]"></div>
+<!-- Page Content -->
+<div class="mt-24 px-gutter md:px-lg py-md max-w-container-max mx-auto w-full flex-1 flex flex-col lg:flex-row gap-lg">
+<!-- Left Canvas (Gallery) -->
+<div class="flex-1 flex flex-col gap-md">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h2 class="font-headline-section text-headline-section text-on-surface">Creative Assets</h2>
+<p class="font-body-md text-on-surface-variant mt-2">Manage and organize your ad creatives.</p>
+</div>
+<button class="bg-primary-container text-on-primary font-button text-button py-3 px-6 rounded-full clay-button flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">upload_file</span>
+                        Upload New Creative
+                    </button>
+</div>
+<!-- Bento Grid Gallery -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Asset Card 1 -->
+<div class="soft-card bg-surface-card rounded-lg p-4 flex flex-col">
+<div class="h-48 w-full rounded-DEFAULT overflow-hidden mb-4 relative bg-surface-variant">
+<img alt="Summer Hoops Banner" class="w-full h-full object-cover" data-alt="A vibrant, high-energy graphic design banner showing a silhouetted basketball player mid-jump against a bright sunset orange and energetic yellow gradient background. Bold, modern typography overlay reads 'Summer Hoops'. The style is dynamic, tactile, and perfectly suited for a lively urban sports brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxOOSpaMtKM9mqaFH-qeFn4hOwJ23ZEqNTQemBqji24Z4UPp7RFnRYJw6yW0cqwH605RKL18PHZXdF8YwKmOvgL4gWa5UvYo4BsQcyYELgj7Vvs_Ph6KOWogX8KI0tvIrG0VlCMkAH0hkWznp3jaXurOcPvMX5EyTbb1VYY8YTRF2ThomzYnnLV6qIPIhsk5e94Oee6WPY7M9sHHhhA4aNw66i1Oonnvlb7KTs8UTAe698o0MssIBI">
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Active
+                            </div>
+</div>
+<div class="flex-1">
+<h3 class="font-body-lg text-body-lg text-on-surface mb-1">Summer Hoops Banner</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-3">1200 x 628 • JPG</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface text-xs px-3 py-1 rounded-full">Summer Promo</span>
+<span class="bg-surface-variant text-on-surface text-xs px-3 py-1 rounded-full">Social</span>
+</div>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="soft-card bg-surface-card rounded-lg p-4 flex flex-col">
+<div class="h-48 w-full rounded-DEFAULT overflow-hidden mb-4 relative bg-surface-variant flex items-center justify-center group cursor-pointer">
+<img alt="City Runner Spot" class="w-full h-full object-cover" data-alt="A sleek, modern video thumbnail featuring a close-up of a brightly colored, tactile rubber sports ball on an asphalt texture. The lighting is dramatic, highlighting the texture of the ball with a soft clay-toned ambient fill light. The overall mood is active and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS_tIMvao26gQFoMaWeMncyhraOpHURrXmRNz84zeppbBNMu6M1-GbVU8Ac7raOKx4Cbhj5dUdPZwnM2kMqEg7FSEGM_sAK6OgoqRT7eLTcZ1Y_2fYOt1GU9T-11nXIMjGuy3lPa43BLMaAgWImFmDUu4dNFrj2zBLO2c0V2kb2EktJKqgE-M5psHPnQ0uJSgWXzRCt_H-viyIsBhsZbGvZvBv4x1ujo6jH923AB8-ldVbbenDaw6w">
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+<span class="material-symbols-outlined text-white text-5xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">play_circle</span>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-body-lg text-body-lg text-on-surface mb-1">City Runner Spot</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-3">1080 x 1920 • MP4 • 15s</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface text-xs px-3 py-1 rounded-full">City Marathon</span>
+</div>
+</div>
+</div>
+<!-- Asset Card 3 -->
+<div class="soft-card bg-surface-card rounded-lg p-4 flex flex-col">
+<div class="h-48 w-full rounded-DEFAULT overflow-hidden mb-4 relative bg-surface-variant flex items-center justify-center p-6">
+<img alt="Motion Kicks Logo" class="object-contain w-full h-full" data-alt="A clean, minimalist vector logo design of a stylized sneaker with dynamic motion lines, rendered in a bright primary-container orange color on a transparent/white background. The graphic is crisp, energetic, and embodies a lively urban mobility aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkWAurtnOOxK2E0FNTv8UhvrE5mf7YWSIDhJY0e4Bojz95YKXEfmn-P9Tt1lMQbUsvrh4gl1DpYoBHUo308MUJVcDutdzoXAnIQDfuNbtvXwd28fWL6_XLIQM8XDvB4sFeDYDzAkw23B1WRRNBFb7P8n_X-nTLiwZcmlvRmFV--g2U4JFSbubPbCD6z2XUJgyar1ew6vn-QO87cg94kL4rqXG9OdRRXJ5j_IdFM_zx7DxghBFhO6jt">
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Draft
+                            </div>
+</div>
+<div class="flex-1">
+<h3 class="font-body-lg text-body-lg text-on-surface mb-1">Motion Kicks Logo</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-3">800 x 800 • PNG</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface text-xs px-3 py-1 rounded-full">Brand Core</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar (Guidelines) -->
+<aside class="w-full lg:w-80 flex-shrink-0 space-y-6">
+<div class="soft-card bg-surface-card rounded-lg p-6">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container text-3xl">menu_book</span>
+<h3 class="font-headline-sm text-body-lg text-on-surface">Creative Guidelines</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-4">Ensure your assets meet our community standards and technical requirements for optimal performance.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+<span class="font-body-md text-sm text-on-surface">Max file size: 10MB (Images), 50MB (Video)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+<span class="font-body-md text-sm text-on-surface">Supported formats: JPG, PNG, MP4, GIF</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span>
+<span class="font-body-md text-sm text-on-surface">Maintain a vibrant, community-focused aesthetic.</span>
+</li>
+</ul>
+<a class="inline-block mt-6 text-primary hover:text-primary-soft font-bold text-sm underline decoration-primary-soft transition-colors" href="#">
+                        View full documentation
+                    </a>
+</div>
+</aside>
+</div>
+<!-- Footer -->
+<footer class="mt-auto w-full py-lg px-gutter flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/20 z-10 relative">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 PlaySphere Kinetic Global. All Rights Reserved.</p>
+<div class="flex gap-4">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline decoration-primary-soft transition-opacity duration-200" href="#">Security Architecture</a>
+</div>
+</footer>
+</main>
+</body></html>

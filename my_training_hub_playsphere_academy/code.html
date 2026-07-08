@@ -1,0 +1,355 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PlaySphere Kinetic - Athlete Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#dee0ff",
+                      "surface-bright": "#fff8f6",
+                      "on-surface": "#271814",
+                      "secondary-container": "#6df5e1",
+                      "inverse-surface": "#3e2c28",
+                      "secondary-fixed": "#70f8e4",
+                      "on-secondary-fixed-variant": "#005048",
+                      "outline-variant": "#e3beb6",
+                      "primary": "#b52603",
+                      "secondary": "#006b5f",
+                      "clay-bg": "#F5EFE9",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "map-teal": "#00B4A2",
+                      "tertiary-container": "#7d8ce4",
+                      "surface-container-low": "#fff0ed",
+                      "surface-container-high": "#ffe2dc",
+                      "on-tertiary-fixed": "#00105b",
+                      "background": "#fff8f6",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "tertiary": "#4858ab",
+                      "outline": "#8f7069",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "primary-container": "#ff5a36",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#006f64",
+                      "inverse-on-surface": "#ffede9",
+                      "surface-tint": "#b52603",
+                      "on-error": "#ffffff",
+                      "surface": "#fff8f6",
+                      "primary-soft": "#FF8A70",
+                      "on-surface-variant": "#5b403a",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#ffb4a3",
+                      "on-tertiary-container": "#0d2075",
+                      "on-primary-container": "#5a0c00",
+                      "on-primary": "#ffffff",
+                      "on-background": "#271814",
+                      "primary-fixed": "#ffdad2",
+                      "surface-card": "#FFFFFF",
+                      "on-primary-fixed": "#3d0600",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#f9dcd6",
+                      "on-tertiary-fixed-variant": "#2f3f92",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#f9dcd6",
+                      "surface-container": "#ffe9e5",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-dim": "#f0d4ce",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "md": "24px",
+                      "gutter": "24px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Nunito"
+                      ],
+                      "display-hero": [
+                              "Nunito"
+                      ],
+                      "headline-section": [
+                              "Nunito"
+                      ],
+                      "display-hero-mobile": [
+                              "Nunito"
+                      ],
+                      "body-md": [
+                              "Nunito"
+                      ],
+                      "body-lg": [
+                              "Nunito"
+                      ],
+                      "headline-sm": [
+                              "Nunito"
+                      ],
+                      "button": [
+                              "Nunito"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-hero": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-section": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "button": [
+                              "18px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .clay-btn {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 4px 12px rgba(255, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .clay-btn:active {
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2), 0 2px 6px rgba(255, 90, 54, 0.2);
+            transform: translateY(2px);
+        }
+        .soft-card {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.08);
+        }
+        
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .blob-bg {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-on-surface font-body-md min-h-screen relative overflow-x-hidden">
+<!-- Ambient Blobs -->
+<div class="blob-bg w-96 h-96 bg-primary-fixed-dim rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="blob-bg w-[500px] h-[500px] bg-secondary-fixed-dim rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 opacity-30"></div>
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] docked full-width top-0 fixed w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto left-0 right-0 rounded-b-lg md:rounded-b-none" style="margin-top: 16px; width: calc(100% - 32px); max-width: 1280px; border-radius: 2rem;">
+<div class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary">
+            PlaySphere Kinetic
+        </div>
+<div class="flex items-center gap-md">
+<!-- Search placeholder if on right -->
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:scale-105 transition-transform duration-200" data-alt="A close-up, high-quality portrait of a focused young athlete looking directly at the camera. The lighting is bright and energetic, with warm sunlight reflecting off a clean, modern sports facility setting. The style is soft and slightly stylized, fitting a modern app profile picture, capturing determination and vitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk1Xnsu9aCBDNmPA8Olu5TXN1GTE5q0ixT-buxCHWPncWar9OW1ERv5lPuTNX1K9it_yK7LByeK9Xp0FNZqe_Ccae5zK5HHAXGmHqhKBXVltNc4uykfXXAGW_sDocG5yhwLoXAURtCH0MqUSBbnaTQl1mfT2h6ovjLD2IxhANNgMqn5KRmjrbjrJDclszl66d2xjlJiGL-LKWHpwEwT9PDvLysHPlmKGwqxfG50jd9_zgydPhZRTg_">
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter pt-32 pb-xl grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Welcome Header -->
+<div class="col-span-1 md:col-span-12 mb-lg">
+<h1 class="font-headline-section text-headline-section text-on-surface mb-xs">Welcome back, Alex</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your training momentum is building. Let's keep pushing.</p>
+</div>
+<!-- Left Column (Main Stats & Next Session) -->
+<div class="col-span-1 md:col-span-8 flex flex-col gap-md">
+<!-- Hero Bento / Next Session -->
+<div class="soft-card bg-surface-card rounded-lg p-lg relative overflow-hidden flex flex-col md:flex-row items-center gap-md">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-fixed-dim rounded-full mix-blend-multiply opacity-50 blur-2xl"></div>
+<div class="flex-1 z-10">
+<div class="flex items-center gap-2 mb-sm text-primary">
+<span class="material-symbols-outlined" data-icon="schedule" data-weight="fill" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-label-caps text-label-caps tracking-wider">UPCOMING SESSION</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm mb-xs">Advanced Serve Mechanics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Today at 4:30 PM with Coach Sarah</p>
+<div class="flex gap-sm">
+<button class="clay-btn bg-primary-container text-on-primary font-button text-button py-3 px-6 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span> Start Warmup
+                        </button>
+<button class="bg-surface-container-low text-on-surface font-button text-button py-3 px-6 rounded-full shadow-sm hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span> Reschedule
+                        </button>
+</div>
+</div>
+<div class="w-full md:w-1/3 h-48 rounded-DEFAULT overflow-hidden relative z-10 shadow-lg border-4 border-white">
+<img class="w-full h-full object-cover" data-alt="A vibrant, cinematic shot of a professional tennis coach on a sunlit clay court, demonstrating a perfect serve motion to a student. The lighting is warm golden hour, casting soft deep shadows. The color palette features rich earthy reds of the court contrasting with crisp white sports attire and energetic sky blue backgrounds, fitting the 'Soft-Tactile' aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjt_Ar1872NYoFCB7a4iUMV5gHmIEbMDctk_tMlpx117RCl14QuwTgUCZC0aM30cmzx7Df3gLsoOEIhRiSbsYXkil09ZQoWdgVPdAst3LDkqOj8G5AACr6hH5f5N0wG70EO7V6Q9AzkUfqXyGsGvytj2obZgD4V-QDuZkHr9ZiqjEcLMKtUXXxb7my64tv9tgXxywI9gp43BnBoaAL3RQvG6kSbX76F80VY1Oej-3Xd3_vnzZ3zdmG">
+</div>
+</div>
+<!-- Skills Tracker Grid -->
+<h3 class="font-headline-sm text-headline-sm mt-md mb-xs text-on-surface">Skill Progression</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Skill 1 -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex items-center gap-md">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<circle class="text-primary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="8"></circle> <!-- 75% -->
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-black text-primary">75%</span>
+</div>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Serve Accuracy</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">+5% this week</p>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="soft-card bg-surface-card rounded-lg p-md flex items-center gap-md">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<circle class="text-secondary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="100.48" stroke-linecap="round" stroke-width="8"></circle> <!-- 60% -->
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-black text-secondary">60%</span>
+</div>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Agility Drills</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Consistent pace</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Coach Notes & Quick Book) -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-md">
+<!-- Coach's Notes -->
+<div class="soft-card bg-surface-card rounded-lg p-md">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="edit_note">edit_note</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">Coach's Notes</h3>
+</div>
+<span class="text-xs text-on-surface-variant">Yesterday</span>
+</div>
+<div class="bg-surface-container-low rounded-DEFAULT p-sm mb-md relative">
+<p class="font-body-md text-body-md text-on-surface italic">"Great footwork on the baseline today. Let's focus on racket drop speed during the next session to maximize power."</p>
+<div class="absolute -left-2 top-4 w-4 h-4 bg-surface-container-low transform rotate-45 rounded-sm"></div>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<img class="w-6 h-6 rounded-full" data-alt="A small, friendly avatar portrait of a female sports coach smiling, brightly lit, high quality, vibrant background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5697YgCtcorn100YgxUVQAP1lzMXPzlP48izM3wwPTjeccOXqvB6WC9PWzWhag6vx4RzEP-3R6vtZbwNao92RztRqrNklK_2PPDKeLfqt4W4Xmxq4vZsP0me2_OcwrQFkRnjzWUeSUHHYrmumEDAJrSG-K4-t0LO9cvtO2HL9G3tAavmSaVyjm9sVoeLf6apUenonulVCIYiaSQU4mvAFENnWgeznp23YizYLLHlN4IvRXBjE9Ms9">
+<span>From Coach Sarah</span>
+</div>
+</div>
+<!-- Quick Book -->
+<div class="soft-card bg-primary text-on-primary rounded-lg p-md relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-surface-tint opacity-80 z-0"></div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-white rounded-full mix-blend-overlay opacity-20 blur-xl z-0"></div>
+<div class="relative z-10 flex flex-col items-start">
+<span class="material-symbols-outlined mb-xs text-4xl" data-icon="event_available">event_available</span>
+<h3 class="font-headline-sm text-headline-sm mb-xs">Book Next Session</h3>
+<p class="font-body-md text-body-md text-white/90 mb-md text-sm">Keep the momentum going. Slots available this weekend.</p>
+<button class="bg-white text-primary font-button text-button py-2 px-4 rounded-full shadow-md hover:scale-105 transition-transform active:scale-95 w-full flex justify-center items-center gap-2">
+                        View Schedule <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-xl px-gutter grid grid-cols-1 md:grid-cols-4 gap-md full-width rounded-t-lg transition-all duration-300 mt-xl">
+<div class="col-span-1 md:col-span-4 flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+<div class="font-headline-sm text-headline-sm font-black text-primary">
+                PlaySphere Kinetic
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">
+                © 2024 PlaySphere Kinetic Ahmedabad. Your City is Your Playground.
+            </p>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Discover Venues</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Community Hub</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Bookings</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+</body></html>
